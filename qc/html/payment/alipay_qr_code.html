@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>收银台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common_dark.css" />
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav fix-statusbar">
+        <a class="aui-pull-left" onclick="U.closeWin()">
+	        <span class="aui-iconfont aui-icon-left"></span>
+	    </a>
+        <div class="aui-title">收银台</div>
+              <a class="aui-pull-right" onclick="GoPayment_log()">
+      	        <span style="font-size: 12px;">支付记录</span>
+      	    </a>
+    </header>
+</body>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+
+
+apiready = function(){
+	var headerHeight = $('header').height();
+    api.openFrame({
+        name: 'alipay_qr_code_main',
+        url: 'alipay_qr_code_main.html',
+        rect: {
+            x: 0,
+            y: headerHeight,
+            w: 'auto',
+            h: api.winHeight - headerHeight
+        }
+    });
+    }
+
+    function GoPayment_log(){
+
+  		    U.openWin('payment/','payment_log');
+
+    }
+
+
+</script>
+</html>

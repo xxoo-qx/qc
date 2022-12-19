@@ -1,0 +1,407 @@
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>CDKEY FOUND </title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="../../css/cdkey_found_dark.css" />
+    <style>
+    input {
+    outline-style: none;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+    margin-top: 5px;
+}
+
+.covers_btn, .covers_btn2 {
+    width: 50%;
+    margin: 0 auto 10px;
+    height: 35px;
+    line-height: 35px;
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 2px 5px 0px #4ab1fe;
+    border-radius: 50px;
+}
+
+
+.leei{
+  display: block;
+  text-align: right;
+  color: #fff;
+  font-size: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 0.5rem;
+  font-family: "Apple Braille";
+  font-style: normal;
+  margin-right: 10px;
+}
+
+
+
+ 	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+    </style>
+
+
+</head>
+<body>
+
+		<div class="aui-cash-list" style="position: absolute; width: 100%; bottom: 10px;">
+
+			<div class="aui-card-coll" style="height: 380px;">
+				<div class="aui-flex">
+					<div class="aui-cash-logo" id="icon">
+              <svg t="1571556074087" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17861" width="200" height="200"><path d="M765.44 347.648L512 98.304 258.56 347.648 0 209.92l132.096 715.776h759.808L1024 209.92z" fill="#C8C7C5" p-id="17862"></path><path d="M765.44 347.648L512 98.304l-0.512 0.512v826.88h380.416L1024 209.92z" fill="#B3B3B3" p-id="17863"></path><path d="M258.56 411.648L512 120.32l253.44 291.328 252.416-157.184L1024 209.92l-258.56 137.728L512 98.304 258.56 347.648 0 209.92l6.144 44.544z" fill="#EBECE7" p-id="17864"></path></svg>
+    	</div>
+					<div class="aui-flex-box">
+						<h2  id="title"></h2>
+					</div>
+					<span class="aui-signing"  onclick="ClosePopup()" >
+                <svg t="1571602624207" class="aui-signing" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="52589" width="20" height="20"><path d="M512.001 15.678C237.414 15.678 14.82 238.273 14.82 512.86S237.414 1010.04 512 1010.04s497.18-222.593 497.18-497.18S786.589 15.678 512.002 15.678z m213.211 645.937c17.798 17.803 17.798 46.657 0 64.456-17.798 17.797-46.658 17.797-64.456 0L512.001 577.315 363.241 726.07c-17.799 17.797-46.652 17.797-64.45 0-17.804-17.799-17.804-46.653 0-64.456L447.545 512.86 298.79 364.104c-17.803-17.798-17.803-46.657 0-64.455 17.799-17.798 46.652-17.798 64.45 0l148.761 148.755 148.755-148.755c17.798-17.798 46.658-17.798 64.456 0 17.798 17.798 17.798 46.657 0 64.455L576.456 512.86l148.756 148.755z m0 0" p-id="52590" fill="#ffffff"></path></svg>
+          </span>
+				</div>
+				<div class="aui-palace">
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-text">
+							<h2 id="total">  </h2>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-text">
+							<h2  id="used">  </h2>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-text">
+							<h2   id="valid">  </h2>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-text">
+											<h2   id="proportion">  </h2>
+						</div>
+					</div>
+				</div>
+
+
+
+                <div class="leei"  id="money" style="  padding-top: 1.5rem;">  </div>
+                <div class="leei"  id="unitprice">  </div>
+								<div class="leei display-none"  id="splitline">  - - - - - - - - - - - - - - - -  </div>
+								<div class="leei"  id="successTips">   </div>
+
+
+
+
+
+        <div class = "display-block"  style="margin: 20px auto; width: 78px;text-align: center;   font-size: 0.8rem;  color: #fff;"  id="inputshow">
+        								  <span >数量</span>
+                        <input type="number" id="num" class="aui-input aui-text-center" value="1"   oninput="if(value > 1000  ){    U.toast('单次限额1000');value = '1000'}"  >
+        </div>
+
+				<div class = "display-none"  style="margin: 20px auto; width: 78px;text-align: center;   font-size: 0.8rem;  color: #fff;"  id="iconshow">
+        			<svg t="1571618730429" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="58091" width="20" height="20"><path d="M287.2 372.6m-32 0a32 32 0 1 0 64 0 32 32 0 1 0-64 0Z" fill="#ffffff" p-id="58092"></path><path d="M736.8 372.6m-32 0a32 32 0 1 0 64 0 32 32 0 1 0-64 0Z" fill="#ffffff" p-id="58093"></path><path d="M513 800.7c-68.4 0-132.7-26.6-181-75-48.4-48.4-75-112.6-75-181 0-17.7 14.3-32 32-32s32 14.3 32 32c0 105.9 86.1 192 192 192s192-86.1 192-192c0-17.7 14.3-32 32-32s32 14.3 32 32c0 68.4-26.6 132.7-75 181-48.3 48.4-112.6 75-181 75z" fill="#ffffff" p-id="58094"></path><path d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512s13.5-136.2 40.2-199.3C66 251.7 103 197 150 150c47-47 101.7-84 162.7-109.8C375.8 13.5 442.9 0 512 0c151.1 0 293.7 66.3 391.3 181.8 11.4 13.5 9.7 33.7-3.8 45.1-13.5 11.4-33.7 9.7-45.1-3.8C769 122 644.2 64 512 64 265 64 64 265 64 512s201 448 448 448 448-201 448-448c0-28.9-2.8-57.8-8.2-85.9-3.4-17.3 8-34.1 25.3-37.5 17.3-3.4 34.1 8 37.5 25.3 6.2 32.1 9.4 65.1 9.4 98.1 0 69.1-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z" fill="#ffffff" p-id="58095"></path></svg>
+        </div>
+
+				<div class = "display-none"  style="margin: 20px auto; width: 78px;text-align: center;   font-size: 0.8rem;  color: #fff;"  id="iconshowno">
+        			<svg t="1571620762664" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="59583" width="20" height="20"><path d="M512 948.907c-240.299 0-436.907-196.608-436.907-436.907s196.608-436.907 436.907-436.907 436.907 196.608 436.907 436.907-196.608 436.907-436.907 436.907zM512 140.629c-203.89 0-371.371 167.481-371.371 371.371s167.481 371.371 371.371 371.371 371.371-167.481 371.371-371.371-167.481-371.371-371.371-371.371z" p-id="59584" fill="#ffffff"></path><path d="M380.928 475.591c0 21.845-21.845 36.409-36.409 36.409-21.845 0-36.409-14.563-36.409-36.409v-65.536c0-21.845 14.563-36.409 36.409-36.409s36.409 14.563 36.409 36.409v65.536zM715.89 475.591c0 21.845-14.563 36.409-36.409 36.409s-36.409-14.563-36.409-36.409v-65.536c0-21.845 14.563-36.409 36.409-36.409s36.409 14.563 36.409 36.409v65.536zM366.365 715.89c-7.282 0-14.563 0-21.845-7.282-14.563-14.563-14.563-36.409 0-50.973 36.409-43.691 101.945-72.818 167.481-72.818 65.536 0 131.072 29.127 174.763 72.818 14.563 14.563 14.563 36.409 0 50.973-14.563 14.563-36.409 14.563-50.973 0-65.536-72.818-182.045-65.536-247.581 0-7.282 7.282-14.563 7.282-21.845 7.282z" p-id="59585" fill="#ffffff"></path></svg>
+        </div>
+
+
+
+
+							<div class="covers_btn" onclick="GetData()"  id="btnshow" >生成激活码</div>
+
+							<div class="covers_btn display-none" onclick="U.openWin('agent/','cdkey_found_log_detailed')"  id="btnokshow" >查看激活码</div>
+
+
+              <span style="color: #fff; font-size: 0.7rem; text-align: center; width: 100%; display: block;">长按屏幕可以关闭</span>
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+    </body>
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/zepto.js"></script>
+
+    <script type="text/javascript">
+
+
+    	apiready = function(){
+
+		//		alert(JSON.stringify(api.pageParam.type));
+
+
+             ShowData();
+
+
+						     /****事件检测****/
+						     //长按关闭页面
+						     	api.addEventListener({
+						     		name:'longpress'
+						     	}, function(ret, err){
+
+						     		api.closeFrame();
+
+						     	});
+
+
+
+        }
+
+
+
+
+function ShowData(){
+
+              money.innerHTML = '¥ '+ localStorage.getItem('UserMoney') +' ：可用余额' ;
+
+
+          if(api.pageParam.type == 1000){
+              title.innerHTML = '体验 VIP激活码';
+              icon.innerHTML = '  <svg t="1571556074087" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17861" width="200" height="200"><path d="M765.44 347.648L512 98.304 258.56 347.648 0 209.92l132.096 715.776h759.808L1024 209.92z" fill="#C8C7C5" p-id="17862"></path><path d="M765.44 347.648L512 98.304l-0.512 0.512v826.88h380.416L1024 209.92z" fill="#B3B3B3" p-id="17863"></path><path d="M258.56 411.648L512 120.32l253.44 291.328 252.416-157.184L1024 209.92l-258.56 137.728L512 98.304 258.56 347.648 0 209.92l6.144 44.544z" fill="#EBECE7" p-id="17864"></path></svg>	 ';
+
+              var  experience_surplus  = localStorage.getItem('experience_total')-localStorage.getItem('experience_used') ;
+              valid.innerHTML = '剩余：'  +experience_surplus;   //体验剩余
+              total.innerHTML = '总数：'  +localStorage.getItem('experience_total');    //体验总
+              used.innerHTML = '已用：'  +localStorage.getItem('experience_used');   //体验已用
+              proportion.innerHTML ='激活率：'  + localStorage.getItem('experience_proportion') + '%';     //激活比
+
+              unitprice.innerHTML = '¥ '+ localStorage.getItem('experience_price') +'：取码单价'  ;
+
+          }else   if(api.pageParam.type == 1001){
+              title.innerHTML = '一月 VIP激活码';
+              icon.innerHTML = ' <svg t="1571556059360" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17716" width="200" height="200"><path d="M765.44 347.648L512 98.304 258.56 347.648 0 209.92l132.096 715.776h759.808L1024 209.92z" fill="#F9A470" p-id="17717"></path><path d="M765.44 347.648L512 98.304l-0.512 0.512v826.88h380.416L1024 209.92z" fill="#DB854E" p-id="17718"></path><path d="M258.56 411.648L512 120.32l253.44 291.328 252.416-157.184L1024 209.92l-258.56 137.728L512 98.304 258.56 347.648 0 209.92l6.144 44.544z" fill="#FFB583" p-id="17719"></path></svg>  ';
+
+              var  one_month_surplus  = localStorage.getItem('one_month_total')-localStorage.getItem('one_month_used') ;
+              valid.innerHTML = '剩余：'  +one_month_surplus;   //一月剩余
+              total.innerHTML = '总数：'  +localStorage.getItem('one_month_total');    //一月总
+              used.innerHTML = '已用：'  +localStorage.getItem('one_month_used');   //一月已用
+              proportion.innerHTML ='激活率：'  + localStorage.getItem('one_month_proportion') + '%';     //激活比
+
+              unitprice.innerHTML = '¥ '+ localStorage.getItem('onemonth_price') +'：取码单价'  ;
+
+          }else   if(api.pageParam.type ==1002){
+              title.innerHTML = '半年 VIP激活码';
+              icon.innerHTML = ' <svg t="1571556032489" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17573" width="200" height="200"><path d="M765.44 347.648L512 98.304 258.56 347.648 0 209.92l132.096 715.776h759.808L1024 209.92z" fill="#FFD32F" p-id="17574"></path><path d="M765.44 347.648L512 98.304l-0.512 0.512v826.88h380.416L1024 209.92z" fill="#F5B82C" p-id="17575"></path><path d="M258.56 411.648L512 120.32l253.44 291.328 252.416-157.184L1024 209.92l-258.56 137.728L512 98.304 258.56 347.648 0 209.92l6.144 44.544z" fill="#FFEF2A" p-id="17576"></path></svg>  ';
+
+              var  half_a_year_surplus  = localStorage.getItem('half_a_year_total')-localStorage.getItem('half_a_year_used') ;
+              valid.innerHTML = '剩余：'  +half_a_year_surplus;   //半年剩余
+              total.innerHTML = '总数：'  +localStorage.getItem('half_a_year_total');    //半年总
+              used.innerHTML = '已用：'  +localStorage.getItem('half_a_year_used');   //半年已用
+              proportion.innerHTML ='激活率：'  + localStorage.getItem('half_a_year_proportion') + '%';     //激活比
+
+              unitprice.innerHTML = '¥ '+ localStorage.getItem('halfayear_price') +'：取码单价'  ;
+
+          }else   if(api.pageParam.type == 1003){
+              title.innerHTML = '一年 VIP激活码';
+              icon.innerHTML = '  <svg t="1571555931538" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15388" width="200" height="200"><path d="M60.235294 361.411765l744.809412 425.622588A30.117647 30.117647 0 0 1 790.136471 843.294118H173.658353a60.235294 60.235294 0 0 1-59.783529-52.766118L60.235294 361.411765z" fill="#F5C164" p-id="15389"></path><path d="M963.764706 361.411765l-53.63953 429.116235A60.235294 60.235294 0 0 1 850.341647 843.294118H233.893647a30.117647 30.117647 0 0 1-14.968471-56.259765L963.764706 361.411765z" fill="#F5C164" p-id="15390"></path><path d="M512 240.941176l331.053176 509.289412A60.235294 60.235294 0 0 1 792.545882 843.294118H231.454118a60.235294 60.235294 0 0 1-50.507294-93.06353L512 240.941176z" fill="#FFE09E" p-id="15391"></path><path d="M512 240.941176l331.053176 509.289412A60.235294 60.235294 0 0 1 792.545882 843.294118H512V240.941176z" fill="#F9CF7E" p-id="15392"></path><path d="M512 210.823529m-60.235294 0a60.235294 60.235294 0 1 0 120.470588 0 60.235294 60.235294 0 1 0-120.470588 0Z" fill="#FFE19F" p-id="15393"></path><path d="M963.764706 331.294118m-60.235294 0a60.235294 60.235294 0 1 0 120.470588 0 60.235294 60.235294 0 1 0-120.470588 0Z" fill="#FFE19F" p-id="15394"></path><path d="M60.235294 331.294118m-60.235294 0a60.235294 60.235294 0 1 0 120.470588 0 60.235294 60.235294 0 1 0-120.470588 0Z" fill="#FFE19F" p-id="15395"></path></svg> ';
+
+              var  one_year_surplus  = localStorage.getItem('one_year_total')-localStorage.getItem('one_year_used') ;
+              valid.innerHTML = '剩余：'  +one_year_surplus;   //一年剩余
+              total.innerHTML = '总数：'  +localStorage.getItem('one_year_total');    //一年总
+              used.innerHTML = '已用：'  +localStorage.getItem('one_year_used');   //一年已用
+              proportion.innerHTML ='激活率：'  + localStorage.getItem('one_year_proportion') + '%';     //激活比
+
+              unitprice.innerHTML = '¥ '+ localStorage.getItem('oneyear_price') +'：取码单价'  ;
+
+          }else   if(api.pageParam.type == 1004){
+              title.innerHTML = '永久 VIP激活码';
+              icon.innerHTML = ' <svg t="1571555768630" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12259" width="200" height="200"><path d="M928.6 208c-27 1.4-51.8 18.6-62.7 43.4-12.1 27.7-6.2 56 10 76.3l-7.7 32.3c-15.7 66-74.6 112.5-142.5 112.5-76.4 0-139.9-58.7-146-134.8l-7.3-91.4c35.2-23.4 56-66.8 45.9-114-8.7-40.5-41.5-73.2-82.1-81.7C466.5 35.9 405 88.9 405 156.2c0 37.6 19.3 70.8 48.5 90.1l-7.3 91.4c-6.1 76.1-69.6 134.8-146 134.8-67.8 0-126.8-46.6-142.5-112.5l-7.7-32.3c16.2-20.2 22.1-48.6 10-76.3-10.8-24.8-35.6-42.1-62.7-43.4-49.4-2.5-85.3 40.7-77.4 86.3 4.4 25.2 21.1 45.2 42.8 54.8l65.6 463.5h769v-0.2l65.6-463.3c21.8-9.6 38.5-29.6 42.8-54.8 8.2-45.6-27.7-88.8-77.1-86.3z" fill="#F9C85D" p-id="12260"></path><path d="M781.3 961.3h-541c-63 0-114-51-114-114h769c0 63-51.1 114-114 114z" fill="#83C6EF" p-id="12261"></path><path d="M93 281.4m-73.9 0a73.9 73.9 0 1 0 147.8 0 73.9 73.9 0 1 0-147.8 0Z" fill="#F9C85D" p-id="12262"></path><path d="M928.6 208c-27 1.4-51.8 18.6-62.7 43.4-12.1 27.7-6.2 56 10 76.3l-7.7 32.3c-15.7 66-74.6 112.5-142.5 112.5-76.4 0-139.9-58.7-146-134.8l-7.3-91.4c35.2-23.4 56-66.8 45.9-114-8.7-40.5-41.5-73.2-82.1-81.7-7.9-1.7-15.7-2.3-23.4-2.3v764.4h384.5v-0.2l65.6-463.3c21.8-9.6 38.5-29.6 42.8-54.8 8.2-45.7-27.7-88.9-77.1-86.4z" fill="#FFB103" p-id="12263"></path><path d="M933.3 281.4m-73.8 0a73.8 73.8 0 1 0 147.6 0 73.8 73.8 0 1 0-147.6 0Z" fill="#F9C85D" p-id="12264"></path><path d="M513 154.3m-109.2 0a109.2 109.2 0 1 0 218.4 0 109.2 109.2 0 1 0-218.4 0Z" fill="#F9C85D" p-id="12265"></path><path d="M510.8 847.3v114H784c61.5 0 111.3-49.8 111.3-111.3v-2.7H510.8z" fill="#429BCF" p-id="12266"></path><path d="M146.4 230.5c-8.7 45.1-45.9 84.2-99.2 108.5 12.6 10.1 28.4 16.3 45.8 16.3 40.8 0 73.9-33.1 73.9-73.9 0-19.7-7.9-37.6-20.5-50.9zM986.9 231.1c-10.1 44.5-47.9 82.7-101.3 106.3 12.9 11 29.4 17.9 47.7 17.9 40.8 0 73.8-33 73.8-73.8-0.1-19.6-7.8-37.2-20.2-50.4zM589.1 76c2.3 6.6 3.6 13.5 3.6 20.5 0 51.4-64.1 93.1-143.1 93.1-14.3 0-28.1-1.4-41.1-4 13.5 45 55.2 77.7 104.6 77.7 60.3 0 109.2-48.9 109.2-109.2-0.1-30.6-12.8-58.3-33.2-78.1z" fill="#FFB103" p-id="12267"></path><path d="M55.848334 249.331715a8.4 19.9 60 1 0 34.467811-19.9 8.4 19.9 60 1 0-34.467811 19.9Z" fill="#F7EAD0" p-id="12268"></path><path d="M945.164493 246.695113a19.9 8.4 30 1 0 8.4-14.549226 19.9 8.4 30 1 0-8.4 14.549226Z" fill="#F7EAD0" p-id="12269"></path><path d="M469.7 77.7a41.4 10.6 0 1 0 82.8 0 41.4 10.6 0 1 0-82.8 0Z" fill="#F7EAD0" p-id="12270"></path><path d="M546 630.8h-61.4c-13.9 0-25.3-11.4-25.3-25.3s11.4-25.3 25.3-25.3H546c13.9 0 25.3 11.4 25.3 25.3s-11.4 25.3-25.3 25.3z" fill="#DA3329" p-id="12271"></path><path d="M546 580.1h-33v50.7h33c13.9 0 25.3-11.4 25.3-25.3 0-14-11.4-25.4-25.3-25.4z" fill="#C11B16" p-id="12272"></path></svg>  ';
+
+              var  permanent_surplus  = localStorage.getItem('permanent_total')-localStorage.getItem('permanent_used') ;
+              valid.innerHTML = '剩余：'  +permanent_surplus;   //永久剩余
+              total.innerHTML = '总数：'  +localStorage.getItem('permanent_total');    //永久总
+              used.innerHTML = '已用：'  +localStorage.getItem('permanent_used');   //永久已用
+              proportion.innerHTML ='激活率：'  + localStorage.getItem('permanent_proportion') + '%';     //激活比
+
+              unitprice.innerHTML = '¥ '+ localStorage.getItem('permanent_price') +'：取码单价'  ;
+
+        }
+
+}
+
+
+
+
+		function GetData(){
+
+				//按钮处理
+
+			if( U.Check_ButtonSubmissionTime() == 1){
+
+				U.toast('操作频繁 请稍后再试');
+
+				return;
+			}
+
+
+
+										var obj = document.getElementById("btnshow");
+								  			obj.setAttribute("onclick", '');
+
+										btnshow.innerHTML =' 正在处理 …' ;
+
+
+
+		    var number = $api.val($api.byId('num'));
+		//		alert(JSON.stringify(number));
+
+
+
+	    var UserId = localStorage.getItem('UserId');
+		var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+		var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+	    api.ajax({
+	        url: localStorage.getItem('api_url')+'/app/api/AppCdkeyCreate',
+	        method: 'get',
+				data: {
+					values: {
+						key: RyanKey,
+						uid: UserId,
+						number: number,
+						type: api.pageParam.type,
+						time: GetTime
+						}
+					  }
+	    },function(ret, err){
+
+	        if (ret) {
+
+
+ //alert(JSON.stringify(ret.money));
+
+
+	            if (ret.status == 1) {
+
+					//	U.GetUserInfo(localStorage.getItem('UserId'));
+						U.setStorage('cdkey_log_id',ret.log_id);  	//激活码记录批次ID
+						U.setStorage('UserMoney',ret.money);		//余额更新
+
+				   	var obj = document.getElementById("inputshow");
+					   		obj.setAttribute("class", 'display-none');
+
+						var obj = document.getElementById("iconshow");
+								obj.setAttribute("class", 'display-block');
+
+						var obj = document.getElementById("btnshow");
+				  			obj.setAttribute("class", 'covers_btn display-none');
+
+						var obj = document.getElementById("btnokshow");
+						    	obj.setAttribute("class", 'covers_btn display-block');
+
+							var obj = document.getElementById("splitline");
+										obj.setAttribute("class", 'leei display-block');
+
+
+							successTips.innerHTML ='处理成功<br><br>'+ ret.data ;
+
+
+
+			//		U.GetUserInfo(localStorage.getItem('UserId'));
+				//	U.setStorage('UserSign',ret.data);								//积分
+				//	U.setStorage('UserVipTime',ret.time);						//用户会员时间
+
+				api.sendEvent({
+					name: 'UpdateUserData',
+					extra: {
+					}
+				});
+
+				api.sendEvent({
+					name: 'UpdateUserCKDEYData',
+					extra: {
+					}
+				});
+
+				setTimeout(function(){		//延迟执行
+
+								ShowData();
+
+						}, 300);
+
+
+
+
+
+	            }else if (ret.status == 0) {
+
+
+												   	var obj = document.getElementById("inputshow");
+													   		obj.setAttribute("class", 'display-none');
+
+														var obj = document.getElementById("iconshowno");
+																obj.setAttribute("class", 'display-block');
+
+														var obj = document.getElementById("btnshow");
+														    	obj.setAttribute("class", 'covers_btn display-none');
+
+															var obj = document.getElementById("splitline");
+																		obj.setAttribute("class", 'leei display-block');
+
+
+															successTips.innerHTML ='处理失败<br><br>'+ ret.data ;
+
+
+
+
+	            }else if (ret.status == 718) {
+					GetData();
+				}else	if(ret.status == '829') {
+					                 U.toast('请求频繁 请稍后再试');
+												//			 	GetData();
+              }
+
+
+
+
+	        } else {
+	          /*
+	            alert( '网络错误' );
+	            */
+	            api.toast({
+	                msg: '网络错误',
+	                duration: 5000,
+					location : 'middle'
+	            });
+
+	        }
+	    });
+	  }
+
+
+
+
+    //关闭页面
+    function ClosePopup(){
+    	api.closeFrame();
+    }
+
+
+    </script>
+    </html>

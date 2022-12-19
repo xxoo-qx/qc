@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>推荐</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" type="text/css" href="../../css/swiper.css"/>
+<style>
+
+
+html,body {
+    color: #333;
+    margin: 0;
+    height: 100%;
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+
+
+a {
+    text-decoration: none;
+
+}
+
+body {
+	background-color: #fff;
+}
+
+img {
+    width:100%;
+    height:auto;
+    display:block;
+    border: 0;
+		border-radius: 10px;
+}
+
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+
+
+.aui-palace {
+    padding: 0.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.aui-palace-grid {
+    position: relative;
+    float: left;
+    padding: 1px;
+    width: 25%;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+.aui-palace-grid-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.aui-palace-grid-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.aui-palace-grid-text {
+    display: block;
+    text-align: center;
+    color: #333;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-top: 0.2rem;
+}
+
+.aui-palace-grid-text h2 {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #666666;
+}
+
+
+
+
+
+
+.aui-palace-one .aui-palace-grid-icon{
+    width:40px;
+    height:40px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<!--
+		<div class="aui-chang-box"></div>
+-->
+
+		<div class="swiper-container  aui-flex"   ng-app="app" ng-controller="indexCtrl">
+			<div class="swiper-wrapper"  id="banner_list" >
+
+
+
+				</div>
+			<div class="swiper-pagination" style="bottom: 25px;"> </div>
+		</div>
+
+
+
+
+		<div class="aui-back-box">
+			<div class="aui-palace aui-palace-one b-line" id="small_icons_list">
+
+			</div>
+
+		</div>
+
+
+
+		<div id="big_picture_list">
+
+		</div>
+
+
+
+
+</body>
+
+<!--
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/font.js"></script>
+<script type="text/javascript" src="../../script/auipullrefresh.js"></script>
+<script type="text/javascript" src="../../script/jquery_min.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+
+-->
+
+<script type="text/javascript" src="../../script/swiper.js" ></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/angular_min.js"></script>
+<script type="text/javascript" src="../../script/server.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+
+
+<script type="text/javascript">
+
+
+  apiready = function(){
+
+
+
+
+		api.addEventListener({    //监听 BANNER 广告信息 结果
+				name: 'Get_Ad'
+		}, function(ret, err) {
+				if(ret.value['status'] == 'ok'){
+
+					setTimeout(function(){		//延迟执行
+							GetData();   //获取数据
+				 }, 500);
+
+				}
+
+
+		});
+
+
+
+
+
+
+
+
+  }
+
+
+
+function loadImg(ele_) {
+var thumbnailBoolean=api.systemType=='ios'?false:true,
+dataurl = $api.attr(ele_, 'data-src');
+if (dataurl) {
+api.imageCache({
+url: dataurl,
+thumbnail:false
+}, function(ret, err) {
+if (ret) {
+if (ret.status) {
+// console.log(ret.url);
+ele_.src = ret.url;
+$api.removeCls(ele_, 'lazy');
+$api.addCls(ele_, 'imgloaded');
+
+// src赋值，也会触发onload，防止循环执行必须移除对应属性
+$api.removeAttr(ele_, 'data-src');
+$api.removeAttr(ele_, 'onload');
+}
+} else {
+// alert(JSON.stringify(err));
+}
+});
+
+}
+}
+
+
+
+
+  function GetData(){
+
+
+
+									U.readFile('/RyanIndex_v4/'+localStorage.getItem('UserId')+'.json',function(ret, err) {
+
+									if (ret) {
+												//处理返回数据
+
+																			var cacheData = JSON.parse(ret.data);
+
+														//					alert(JSON.stringify(cacheData.data['banner']));
+																			var banner_data = cacheData.data['two_banner'];
+
+																			var banner_list_frm = $api.byId('banner_list');//轮播列表
+
+																			for(var i=0;i<banner_data.length;i++){
+
+																			var isBannerPic = banner_data[i].picurl;
+
+																			if(isBannerPic.indexOf("http://")>-1){   //如果包含 http://
+
+																					var banner_pic = banner_data[i].picurl;
+
+																			}else if(isBannerPic.indexOf("https://")>-1){   //如果包含 https://
+
+																					var banner_pic = banner_data[i].picurl;
+																			}else{
+
+																					var banner_pic = localStorage.getItem('api_url')+banner_data[i].picurl;
+
+																			}
+
+																			var banner_html= 	'	<div class="swiper-slide"  onclick="toBanner('+'\''+banner_data[i].linkurl+'\''+')" >'+
+																						'		<img class="lazy cache" data-src="'+banner_pic+'" src="'+banner_pic+'" onload="loadImg(this);"   onerror="U.ImgNoFind(\'banner\')" style="height: 180px;">'+
+																						'	</div>';
+
+
+																				$api.append(banner_list_frm,banner_html);
+																			}
+
+										banNer();   //轮播滚动
+
+
+
+
+
+
+
+
+
+													//图标
+
+													var small_icons_list_frm = $api.byId('small_icons_list');//特权列表
+
+													var small_icons_data = cacheData.data['two_ico'];
+
+
+										//		alert(JSON.stringify(ret.data) +'图标 开始');
+
+													for(var i=0;i<small_icons_data.length;i++){
+
+													var issmall_iconsPic = small_icons_data[i].picurl;
+
+													if(issmall_iconsPic.indexOf("http://")>-1){   //如果包含 http://
+
+															var small_icons_pic = small_icons_data[i].picurl;
+
+													}else if(issmall_iconsPic.indexOf("https://")>-1){   //如果包含 https://
+
+															var small_icons_pic = small_icons_data[i].picurl;
+													}else{
+
+															var small_icons_pic = localStorage.getItem('api_url')+small_icons_data[i].picurl;
+
+													}
+
+
+													var small_icons_html= 		'		<a onclick="toBanner('+'\''+small_icons_data[i].linkurl+'\''+')" class="aui-palace-grid" >'+
+															'		<div class="aui-palace-grid-icon">'+
+														'				<img class="lazy cache" data-src="'+small_icons_pic+'" src="'+small_icons_pic+'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">'+
+														'			</div>'+
+														'			<div class="aui-palace-grid-text">'+
+														'				<h2>'+small_icons_data[i].name+'</h2>'+
+															'		</div>'+
+														'		</a> ';
+
+														$api.append(small_icons_list_frm,small_icons_html);
+
+													}
+
+
+
+
+																			//横幅大图
+
+																								var big_picture_list_frm = $api.byId('big_picture_list');//特权列表
+
+																								var big_picture_data = cacheData.data['two_big'];
+																								for(var i=0;i<big_picture_data.length;i++){
+
+																								var isbig_picturePic = big_picture_data[i].picurl;
+
+																								if(isbig_picturePic.indexOf("http://")>-1){   //如果包含 http://
+
+																								var big_picture_pic = big_picture_data[i].picurl;
+
+																								}else if(isbig_picturePic.indexOf("https://")>-1){   //如果包含 https://
+
+																								var big_picture_pic = big_picture_data[i].picurl;
+																								}else{
+
+																								var big_picture_pic = localStorage.getItem('api_url')+big_picture_data[i].picurl;
+
+																								}
+
+
+																								var big_picture_html= 		'			<div class="aui-flex" onclick="toBanner('+'\''+big_picture_data[i].linkurl+'\''+')" class="aui-palace-grid" >'+
+																								'				<div class="aui-flex-box" style=" width: 100%; ">'+
+																								'					<img class="lazy cache" data-src="'+big_picture_pic+'" src="'+big_picture_pic+'" onload="loadImg(this);"   onerror="U.ImgNoFind(\'banner\')"  style="max-height: 150px;">'+
+																								'				</div>'+
+																								'			</div>';
+
+
+																								$api.append(big_picture_list_frm,big_picture_html);
+
+																								}
+
+
+
+									} else {
+
+													//ProgressBarShowData('GetTimeErr');
+											//    alert('数据获取失败！');
+									}
+
+								});
+
+
+
+
+
+  }
+
+
+  //幻灯轮播图滚动
+function banNer(){
+
+var swiper = new Swiper('.swiper-container', {
+				effect: 'fade',    //样式  coverflow  slide  fade  cube   flip
+			//	grabCursor: true,       //设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。
+			//	centeredSlides: true,   //居中
+				loop:true,   			//循环
+				pagination: {
+					el: '.swiper-pagination',    //指示器
+					},
+
+//  autoplay:true,//等同于以下设置
+  autoplay: {
+    delay: 3000,
+ //   stopOnLastSlide: false,     //如果设置为true，当切换到最后一个slide时停止自动切换。（loop模式下无效）。
+    disableOnInteraction: false,   //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+    },
+    speed:500,
+	coverflowEffect: {
+			rotate: 50,        //slide做3d旋转时Y轴的旋转角度。默认50。
+			stretch: 40,		//每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
+			depth: 100,			//slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
+			modifier: 2,        //depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1
+			slideShadows: false,  //开启slide阴影。默认 true。
+						}
+});
+
+
+  }
+
+
+
+
+
+
+
+
+
+  //访问轮播地址
+
+  function toBanner(url,name){
+
+    if (url == '') {
+
+	//如果后台填写的跳转链接为空 则无任何操作
+
+    }else{
+
+		U.OpenAd(url);
+
+	}
+  }
+
+
+
+
+
+
+</script>
+
+</html>

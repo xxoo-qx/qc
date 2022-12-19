@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="../../css/upgradevip_dark.css" />
+
+		<style>
+		.kf_btn {
+		    text-align: center;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    padding: .375rem .75rem;
+		    line-height: 1.5;
+		    border-radius: 50px;
+		    padding-right: 15px;
+		    padding-left: 15px;
+		    margin-right: auto;
+		    margin-left: auto;
+				    color: #6e6446;
+					font-size: 14px;
+					background: #fcedbe;
+				/*    background-color: #1b7dff;
+				    border-color: #1b7dff;
+						    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+									*/
+								    display: block;
+								    width: 90%;
+		}
+
+
+		</style>
+
+</head>
+<body  ng-app="app" ng-controller="viptypeCtrl">
+
+                <div class="aui-flex aui-flex-gradual">
+                    <div class="aui-flex-user">
+                        <img id="DefaultLogo"  src="../../images/b_03.png">
+                    </div>
+                    <div class="aui-flex-box">
+                        <h2 id="UserNmae">Ryan</h2>
+                        <p>
+                            <em id="UserVipIco"> P N S </em>
+                        </p>
+                    </div>
+                    <div class="aui-flex-Member">
+                        <p id="UserVipTime">2015.07.14 LTM</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="aui-flex-member-list">
+
+
+								<div class="aui-flex aui-flex-border">
+                            <div class="aui-flex-box">
+                               <input ng-model="ctivationcode" type="text" placeholder="请输入激活码">
+                            </div>
+                            <div class="aui-button-once"  ng-tap="vm.useactivationcode()" >
+                                <button>使用</button>
+                            </div>
+                        </div>
+				<br>
+
+
+
+                    <ul class="aui-cho-box"   ng-repeat="item in vm.VipTypeData">
+                        <li class="aui-flex on" ng-tap="vm.sendkey(item)" >
+
+								<div class="aui-flex-box"  ng-tap="vm.GoKaUrl('{{item.gokaurl}}')">
+									<h3>
+										{{item.name}}
+									</h3>
+									<p> {{item.content}} </p>
+								</div>
+								<!--<div class="aui-original-thj"  ng-tap="vm.GoKaUrl('{{item.gokaurl}}')" >
+									特惠价 <i>￥</i>
+								</div> -->
+								<i class="aui-price">  <i>特惠价 ￥</i> {{item.cost_price}}</i>
+								<div class="aui-original-pic">￥{{item.discount_price}}</div>
+
+                        </li>
+
+
+                    </ul>
+                    <div style="display:none">
+                        <input name="" type="text" value="1" class="auiSks">
+                    </div>
+
+
+                </div>
+
+
+<span class="kf_btn"  ng-tap="vm.GoKefu()"  id="UserKefu">联系客服</span>
+
+</body>
+
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/angular_min.js"></script>
+<script type="text/javascript" src="../../script/server.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+
+</html>

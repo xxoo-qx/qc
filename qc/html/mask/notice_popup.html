@@ -1,0 +1,171 @@
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>公告弹窗</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="../../css/cdkey_found_dark.css" />
+    <style>
+    input {
+    outline-style: none;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+    margin-top: 5px;
+}
+
+.covers_btn, .covers_btn2 {
+    width: 100%;
+    margin: 0 auto 20px;
+    height: 35px;
+    line-height: 35px;
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+		background-color: #008eff;
+    box-shadow: 0 2px 5px 0px #057edf;
+    border-radius: 50px;
+}
+
+
+.leei{
+  display: block;
+  text-align: right;
+  color: #fff;
+  font-size: 9px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: "Apple Braille";
+  font-style: normal;
+  margin-right: 10px;
+}
+
+
+ 	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+    </style>
+
+
+</head>
+<body>
+
+		<div class="aui-cash-list" style="position: absolute; width: 100%; margin: 0 auto; top: 20%;">
+
+			<div class="aui-card-coll-touping" style="height: 100%;">
+				<div class="aui-flex">
+					<div class="aui-cash-logo" >
+							<svg t="1576357396325" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3144" width="64" height="64"><path d="M514.617561 1023.997965c-124.969575 0-222.883706-69.893063-222.883706-159.198372l0-31.841669 445.76442 0 0 31.841669C737.498274 954.105899 639.614069 1023.997965 514.617561 1023.997965zM364.868942 896.64226c22.419847 36.694731 81.96337 63.683339 149.748618 63.683339 67.788241 0 127.301837-26.988608 149.751611-63.683339L364.868942 896.64226zM197.331086 857.398799c-17.538854 0-31.776829-14.180117-31.841669-31.716976l-1.117252-342.715919c0-160.167987 107.864653-295.551942 254.722383-337.249367L419.094547 79.920396c0-41.943818 41.948806-74.81296 95.522016-74.81296 53.57321 0 95.525008 32.869142 95.525008 74.81296l0 65.765218c146.823813 41.667498 254.722383 176.831993 254.722383 336.720667l0 190.610099c0 17.596712-14.23997 31.841669-31.841669 31.841669s-31.841669-14.244957-31.841669-31.841669L801.180616 482.407278c0-157.836722-128.543782-286.254813-286.564052-286.254813S228.052511 324.788021 228.052511 482.873132l1.119247 342.559304c0.062845 17.6017-14.147198 31.90651-31.748898 31.966363C197.392933 857.398799 197.361012 857.398799 197.331086 857.398799zM482.745965 132.471121l63.713265 0 0-52.550725c-1.092313-2.859964-12.284779-11.132614-31.841669-11.132614-19.464118 0-30.721425 8.366419-31.903517 11.661313L482.745965 132.471121zM960.384973 896.64226 68.850149 896.64226c-17.598707 0-31.841669-14.23997-31.841669-31.841669s14.241965-31.841669 31.841669-31.841669l891.534824 0c17.596712 0 31.836682 14.23997 31.836682 31.841669S977.986673 896.64226 960.384973 896.64226z" p-id="3145" fill="#ffffff"></path></svg>
+    			</div>
+					<div class="aui-flex-box">
+						<h2 style="color:#fff">最新公告</h2>
+					</div>
+					<span class="aui-signing"  onclick="ClosePopup()" >
+          		<svg t="1571602624207" class="aui-signing" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="52589" width="20" height="20"><path d="M512.001 15.678C237.414 15.678 14.82 238.273 14.82 512.86S237.414 1010.04 512 1010.04s497.18-222.593 497.18-497.18S786.589 15.678 512.002 15.678z m213.211 645.937c17.798 17.803 17.798 46.657 0 64.456-17.798 17.797-46.658 17.797-64.456 0L512.001 577.315 363.241 726.07c-17.799 17.797-46.652 17.797-64.45 0-17.804-17.799-17.804-46.653 0-64.456L447.545 512.86 298.79 364.104c-17.803-17.798-17.803-46.657 0-64.455 17.799-17.798 46.652-17.798 64.45 0l148.761 148.755 148.755-148.755c17.798-17.798 46.658-17.798 64.456 0 17.798 17.798 17.798 46.657 0 64.455L576.456 512.86l148.756 148.755z m0 0" p-id="52590" fill="#ffffff"></path></svg>
+          </span>
+				</div>
+
+
+
+
+				<div class="leei display-none" style="padding-bottom: 1rem;"  id="ClosTips" >关闭后今天将不会再提示</div>
+
+
+				<div class="display-block" style=" margin-bottom: 30px; ">
+
+
+					<span style="color: #fff; font-size: 0.7rem;  width: 100%; display: block;"  id="content" >正在加载公告信息……</span>
+
+
+
+				</div>
+
+
+				<!--  搜索到设备 准备链接
+				<div class="leei" style="  padding-top: 1.5rem;padding-bottom: 1rem;">注意：手机和TV端需在同一WIFI网络</div>
+				<div class="display-block"  id="LinkState" style=" margin-bottom: 30px; ">
+				<div style="margin: 20px auto; width: 78px;text-align: center;   font-size: 0.8rem;  color: #fff;"  id="Loadicon">
+				<svg t="1576018855187" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9674" width="20" height="20"><path d="M380.8 944H115.2C78.4 944 48 913.6 48 876.8V339.2C48 302.4 78.4 272 115.2 272h265.6c36.8 0 67.2 30.4 67.2 67.2v537.6c0 36.8-30.4 67.2-67.2 67.2zM115.2 304C96 304 80 320 80 339.2v537.6C80 896 96 912 115.2 912h265.6c19.2 0 35.2-16 35.2-35.2V339.2c0-19.2-16-35.2-35.2-35.2H115.2z" fill="#ffffff" p-id="9675"></path><path d="M432 432H80c-9.6 0-16-6.4-16-16s6.4-16 16-16h352c9.6 0 16 6.4 16 16s-6.4 16-16 16zM432 816H80c-9.6 0-16-6.4-16-16s6.4-16 16-16h352c9.6 0 16 6.4 16 16s-6.4 16-16 16zM272 880h-48c-9.6 0-16-6.4-16-16s6.4-16 16-16h48c9.6 0 16 6.4 16 16s-6.4 16-16 16zM224 336h128v32h-128zM160 336h32v32h-32z" fill="#ffffff" p-id="9676"></path><path d="M888 656H496c-9.6 0-16-6.4-16-16s6.4-16 16-16h392c22.4 0 40-17.6 40-40V187.2c0-11.2-3.2-22.4-11.2-30.4-8-8-17.6-12.8-28.8-12.8H332.8c-24 0-44.8 19.2-44.8 44.8V224c0 9.6-6.4 16-16 16s-16-6.4-16-16v-36.8c1.6-41.6 35.2-75.2 76.8-75.2H889.6c19.2 0 38.4 9.6 51.2 24 12.8 14.4 20.8 33.6 19.2 52.8v395.2c0 40-32 72-72 72zM844.8 753.6h-1.6l-224-32-121.6 16c-8 1.6-16-4.8-17.6-14.4-1.6-8 4.8-16 14.4-17.6l123.2-16h4.8l227.2 32c8 1.6 14.4 9.6 14.4 17.6-4.8 8-11.2 14.4-19.2 14.4z" fill="#ffffff" p-id="9677"></path><path d="M624 720c-9.6 0-16-6.4-16-16v-32c0-9.6 6.4-16 16-16s16 6.4 16 16v32c0 9.6-6.4 16-16 16z" fill="#ffffff" p-id="9678"></path></svg>
+				</div>
+				<span style="color: #fff; font-size: 0.7rem; text-align: center; width: 100%; display: block;" id="Loadtext">正在搜索可用设备 …</span>
+				</div>
+-->
+
+
+
+
+
+
+		  	</div>
+
+
+		</div>
+
+
+
+
+
+
+    </body>
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/zepto.js"></script>
+    <script type="text/javascript">
+    apiready = function(){
+			//  alert(JSON.stringify(api.pageParam.url));
+			api.parseTapmode();
+
+
+					 ShowData();
+
+
+
+
+					 					   api.addEventListener({
+					 					     name:'tap'
+					 					 }, function(ret, err){
+					 					 	api.closeFrame();
+					 					 });
+
+
+
+        }
+
+
+
+				function ShowData(){
+              content.innerHTML = api.pageParam.content;
+
+			  if(localStorage.getItem('artical_popup_rate') != 1){	//如果非强制弹窗 进行提示
+				var obj = document.getElementById("ClosTips");
+					obj.setAttribute("class", "leei");
+			  }
+
+
+          //    alert(JSON.stringify(api.pageParam.content));
+				}
+
+
+
+
+    //关闭页面
+    function ClosePopup(){
+       var timeStamp = new Date(new Date().setHours(23, 59, 59, 0)) / 1000;
+       U.setStorage('artical_eject_id_'+api.pageParam.notice_id,timeStamp);	//公告弹窗时间
+
+    	api.closeFrame();
+    }
+
+
+    </script>
+    </html>

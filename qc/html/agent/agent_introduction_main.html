@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>代理介绍</title>
+
+<style>
+	body{margin:0; padding:0; overflow:hidden; }
+  a {
+      text-decoration: none;
+  }
+  .Ryan_div{
+　　　left: 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+  }
+  .aui-tabBar-item {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 50px;
+      line-height: 50px;
+      font-size: 13px;
+      font-weight: bold;
+    /*  background-image: linear-gradient(to right, #434343 0%, black 100%); */
+	background: #1b7dff;
+      border-radius: 30px 30px 0 0;
+      color: #fff;
+  }
+
+	.aui-tabBar-item-use {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 50px;
+      line-height: 50px;
+      font-size: 13px;
+      font-weight: bold;
+    /*  background-image: linear-gradient(to right, #434343 0%, black 100%); */
+	background: #e91e63;
+      border-radius: 30px 30px 0 0;
+      color: #fff;
+  }
+
+  .icon {
+
+    width:20px;
+    height:20px;
+
+  }
+</style>
+
+</head>
+
+<body >
+
+  <div id="agentIntroductionPicture">
+
+  </div>
+
+<div class="Ryan_div" onclick="GoAgentCdkeyUrl()"  id="button">
+
+  <a class="aui-tabBar-item aui-tabBar-item-zero"  id='style_ha'>
+                      <span class="aui-tabBar-item-text" id="text" >立刻升级  开启躺赚之旅</span></a>
+
+</div>
+
+</body>
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+
+  apiready = function(){
+
+
+
+
+    api.parseTapmode();
+	// alert(JSON.stringify(localStorage.getItem('agentIntroductionPicture_Cache')));
+agentIntroductionPicture.innerHTML = '    <img  src="'+localStorage.getItem('agentIntroductionPicture_Cache')+'"  style="width:100%;height:auto;  "> ';
+
+
+			//是否使用支付接口
+					if(localStorage.getItem('alipay_up_agent_switch') == 1){
+
+																var obj = document.getElementById("button");
+																	obj.setAttribute("onclick", 'GoAgentAlipay()');
+
+					}else{
+
+																var obj = document.getElementById("button");
+																	obj.setAttribute("onclick", 'GoAgentCdkeyUrl()');
+
+					}
+
+
+  }
+
+
+
+	//使用支付接口
+	function GoAgentAlipay(){
+
+	//	alert(JSON.stringify('使用支付接口'));
+
+							U.openWin('payment/','alipay_qr_code');
+  }
+
+//使用卡密
+function GoAgentCdkeyUrl(){
+
+				var url = localStorage.getItem('agent_gokarul');
+
+				U.OpenLocalBrowser(url);			//打开本地浏览器
+
+
+		UseActivationCode();		//使用激活码
+
+
+
+}
+
+
+
+function UseActivationCode(){
+
+						text.innerHTML =  '使用激活码  自助开通';
+
+
+										var obj = document.getElementById("button");
+											obj.setAttribute("onclick", 'GoUseActivationCode()');
+
+															var obj = document.getElementById("style_ha");
+																obj.setAttribute("class", ' aui-tabBar-item-use aui-tabBar-item-zero');
+
+}
+
+
+function GoUseActivationCode(){
+					U.openWin('upgradevip/','upgradevip');
+}
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>xxx</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css" />
+    <style>
+		.aui-tab-item {
+			width: 50%;
+			height: 2.2rem;
+			line-height: 2.2rem;
+			position: relative;
+			font-size: 0.7rem;
+			text-align: center;
+			color: #fff;
+			margin-left: -1px;
+			-webkit-box-flex: 1;
+			box-flex: 1;
+		}
+
+        .aui-tab-item {
+            font-size: 0.8rem;
+        }
+
+		.aui-tab {
+			position: relative;
+			background: -webkit-linear-gradient(left, #f370af , #5515ee);
+			background: -o-linear-gradient(right, #f370af , #5515ee);
+			background: -moz-linear-gradient(right, #f370af , #5515ee);
+			background: linear-gradient(to right, #f370af , #5515ee);
+			background-color: #5515ee;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+			-webkit-align-self: center;
+			align-self: center;
+		}
+
+
+		.aui-tab-item.aui-active {
+			color: #fff;
+			margin-bottom: 2px;
+			font-weight: bold;
+    background: linear-gradient(0deg,hsla(0, 0%, 83%, 0.05),rgba(0,0,0,.05));
+		}
+
+.aui-tab-item.aui-active:before {
+    content: '';
+    width: 20%;
+    height: 3px;
+    position: absolute;
+    left: 50%;
+	border-radius: 20px;
+    bottom: 3px;
+    margin-left: -10%;
+    z-index: 4;
+	/*
+    background-image: -webkit-gradient(linear,left top,right top,from(#ff6143),to(#ff1767));
+    background-image: -webkit-linear-gradient(left,#ff6143,#ff1767);
+    background-image: -moz-linear-gradient(left,#ff6143,#ff1767);
+    background-image: linear-gradient(to right,#ff6143,#ff1767);
+    background-color: #ff6143;  */
+	background-color: #fff;
+}
+
+
+
+
+
+
+
+.tabs-wrapper {
+    width: 100%;
+    max-width: 750px;
+    height: 40px;
+    overflow: hidden;
+			background-color: #1b7dff;
+
+    position: fixed;
+ /*   top: 44px; */
+    z-index: 100;
+}
+
+
+
+.tabs {
+    position: relative;
+    width: 100%;
+    height: 40px;
+ /*     padding-right: 40px; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-size: 0;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.tabs a {
+    position: relative;
+    display: inline-block;
+  /*   line-height: 41px;  */
+    padding: 0 .13rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    width: 33%;
+	text-align: center;
+}
+
+.tabs img {
+	width: 3.5rem;
+    /* height: 1.16rem;  */
+    vertical-align: top;
+    margin-top: 0.8rem;
+}
+
+
+.tabs a.tab-active {
+    color: #fff;
+}
+
+.tabs a.tab-active:after {
+    width: 55%;
+    height: 3px;
+    content: '';
+	/*
+    background: -webkit-gradient(linear, left top, right top, from(#FE312A), to(#FE312A));
+    background: -webkit-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: -o-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: linear-gradient(90deg, #FE312A 0%, #FE312A 100%);*/
+	background-color: #fff;
+    position: absolute;
+    bottom: 3px;
+    left: 24%;
+}
+
+
+
+/*遮罩层*/
+/*
+#cover{
+    position:absolute;left:0px;top:0px;
+    background:rgba(0, 0, 0, 0.9);
+		color: #FFF;
+    width:100%;
+    height:100%;
+
+    display:block;
+    z-Index:999;
+		text-align:center;
+}
+
+.cover_icon{
+	width: 100px;
+	height: 100px;
+    margin-top: 30%;
+
+}
+
+.cover_title{
+
+    margin-top: 10%;
+		color: #7865ea;
+
+}
+button{
+
+    margin-top: 30%;
+
+		width:150px;
+		 height:30px;
+		 color:#fff;
+		 text-align: center;
+		 background-color:#7865ea;
+		 color:#fff;
+		 line-height: 28px;
+		 border-radius:15px;
+		 border:0;
+		 outline: 0;
+		 transition: background 0.2s
+
+
+}
+button:hover{
+	background-color:#fff;
+	color:#7865ea;
+}
+
+*/
+
+
+	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+<!--
+  	<div id="cover">
+  <svg t="1571427554936" class="cover_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="52192" width="200" height="200"><path d="M804.770909 179.665455l-218.996364-94.487273a186.181818 186.181818 0 0 0-147.54909 0L219.229091 179.665455A93.090909 93.090909 0 0 0 162.909091 265.076364V640a94.487273 94.487273 0 0 0 4.189091 27.927273c16.058182 49.570909 84.014545 186.181818 308.596363 279.272727a95.650909 95.650909 0 0 0 72.61091 0c224.581818-93.090909 292.538182-229.469091 308.596363-279.272727a94.487273 94.487273 0 0 0 4.189091-27.927273V265.076364a93.090909 93.090909 0 0 0-56.32-85.410909zM605.090909 542.021818a23.272727 23.272727 0 0 1 0 46.545455h-93.090909v46.545454h93.090909a23.272727 23.272727 0 0 1 0 46.545455h-93.090909v46.545454a23.272727 23.272727 0 0 1-46.545455 0V485.701818a116.363636 116.363636 0 1 1 46.545455 9.774546v46.545454z" fill="#7865ea" p-id="52193"></path><path d="M573.672727 367.010909A62.836364 62.836364 0 1 0 499.665455 442.181818a63.301818 63.301818 0 0 0 74.007272-75.170909z" fill="#7865ea" p-id="52194"></path></svg>
+  <p class="cover_title" id="agent_tips">无权限</p>
+  <span id="agent_button">
+  		<button  onclick="	U.openWin('agent/','agent-introduction');"  >开 通 代 理</button>
+  </span>
+  	</div>
+
+-->
+
+
+
+
+<div style="width: 100%; height: 40px;">
+	<div class="tabs-wrapper header" id="Tabs">
+
+
+<!--
+		    <div class="tabs" id="tab">
+				<a class="aui-tab-item aui-active">INDEX</a>
+				<a class="aui-tab-item display-none">首页广告设置</a>
+				<a class="aui-tab-item display-none">推荐广告设置</a>
+			</div>
+
+-->
+
+
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+	    <header>
+
+
+
+    </header>
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/aui_tab.js"></script>
+<script>
+    apiready = function() {
+
+        $api.fixStatusBar( $api.dom('header') );
+
+
+			var tabs_frm = $api.byId('Tabs');//TAB列表
+
+
+					//展示全部
+					var html= ' <div class="tabs" id="tab">  '+
+
+					' 	<a class="aui-tab-item aui-active">规则 · 概况</a>     '+
+
+					' 	<a class="aui-tab-item display-none">首页广告预览</a>  '+
+
+    			' 	<a class="aui-tab-item display-none">推荐广告预览</a>  '+
+
+					' </div> ';
+
+
+
+			$api.append(tabs_frm,html);
+
+
+
+
+
+        var tab = new auiTab({
+            element: document.getElementById("tab"),
+        }, function(ret) {
+            // console.log(JSON.stringify(ret));
+            // 点击tab，切换framegroup到对应的页面
+            api.setFrameGroupIndex({
+                name: 'frame1_find_group',
+                index: ret.index - 1,
+                scroll: true, //是否带动画效果
+                reload: false
+            });
+        });
+ //    fnOpenFindFrameGroup();
+        // 2019-6-21 17:02:11 业务使用，本文章内容用不到此处。
+        // 监听底部按钮切换
+        api.addEventListener({
+            name: 'indexChangeEvent'
+        }, function(ret, err) {
+            if (ret) {
+           //       alert( JSON.stringify( ret ) );
+                if (ret.value.id == 0) { //底部导航切换到“发现”
+                    fnOpenFindFrameGroup();
+
+                } else {
+
+                   fnCloseFindFrameGroup();
+
+                }
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+        // 左右滚动framegroup时，监听并执行回调
+        api.addEventListener({
+            name: 'frameGroupChangeEvent'
+        }, function(ret, err) {
+            if (ret) {
+                //  alert( JSON.stringify( ret ) );
+                // console.log("framegroup当前index:" + ret.value.id);
+                tab.setActive(ret.value.id + 1);
+
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+
+		fnOpenFindFrameGroup();
+
+
+    }
+
+
+
+
+
+    // 打开页面组，实现左右滑动切换效果
+    function fnOpenFindFrameGroup() {
+        // 计算y坐标
+
+        var tabHeight = $api.offset($api.dom('#tab')).h; //tab切换栏高度
+        var indexHtmlHeaderHeight = $api.dom('header').offsetHeight; //顶部标题栏高度
+        var y = parseInt(tabHeight)+parseInt(indexHtmlHeaderHeight)+44;
+
+   //     alert( JSON.stringify( indexHtmlHeaderHeight ) );
+
+//		alert(localStorage.getItem('Movies_Category_List_Switch'));
+
+							//  开放所有
+							api.openFrameGroup({
+								name: 'frame1_find_group',
+								scrollEnabled: true,
+								rect: {
+									x: 0,
+									y: y,
+									w: 'auto',
+									h: api.frameHeight-parseInt(tabHeight)
+								},
+
+								index: 0,    //默认选中哪一个TAB
+
+								frames: [
+									{
+									name: 'advertisement_rule',
+									url: 'widget://html/agent/advertisement_rule.html'
+							//		bgColor: '#000'
+								}, {
+                name: 'cdkey_found_log',
+                url: 'widget://html/agent/advertisement_install_index.html'
+						//			bgColor: '#000'
+								}, {
+                name: 'cdkey_found_log',
+                url: 'widget://html/agent/advertisement_install_recommend.html'
+						//			bgColor: '#000'
+								}
+							]
+							}, function(ret, err) {
+								if (ret) {
+									api.sendEvent({
+										name: 'frameGroupChangeEvent',
+										extra: {
+											id: ret.index
+										}
+									});
+								}
+							});
+
+
+    }
+
+    // 2019-6-21 17:02:11 业务使用，本文章内容用不到此处。
+    function fnCloseFindFrameGroup() {
+  //关闭    api.closeFrameGroup({
+  // 关闭        name: 'frame1_find_group'
+ // 关闭     });
+
+
+			//隐藏
+		api.setFrameGroupAttr({
+			name: 'frame1_find_group',
+			hidden: true
+		});
+
+    }
+</script>
+
+</html>

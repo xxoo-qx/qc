@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common_dark.css"/>
+</head>
+<body ng-app="app" ng-controller="searchCtrl">
+    <!-- 自动补全 
+    <section ng-if="vm.section==1">
+    <div class="aui-content aui-margin-b-15 search-autocomplate">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" ng-repeat="item in vm.autoComplate">
+                <div class="aui-list-item-inner" ng-tap="vm.sendkey(item.name)">
+                    {{item.name}}
+                </div>
+            </li>
+            <li class="aui-list-item" ng-if="vm.keyword && vm.autoComplate.length == 0">
+                <div class="aui-list-item-inner" ng-tap="vm.sendkey(item.name)" style="-webkit-justify-content: initial; justify-content: initial;">
+                    没有匹配到<em style="color: red">“{{vm.keyword}}”</em>的相关影片
+                </div>
+            </li>
+        </ul>
+    </div>
+    </section>
+	-->
+	
+    <section ng-if="vm.section==2">
+
+    
+    <div class="aui-content search-list aui-margin-b-20">
+	    <ul class="aui-list aui-list-in aui-margin-b-10">
+            <!-- 热播推荐 -->
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">热门搜索</div>
+                    <span ng-tap="vm.getHotSearch()"><i class="aui-iconfont aui-icon-refresh" style="font-size:0.5rem;"></i> 刷新</span>
+                </div>
+            </li>
+        </ul>
+	    <div class="aui-margin-b-10 aui-clearfix" style="margin-left:0.25rem; margin-right:0.25rem;">
+			<div class="aui-row-padded">
+				<div class="aui-col-xs-6" ng-repeat="item in vm.hotData">
+		            <p class="search-history search-sort"  ng-tap="vm.sendkey(item)">
+		            	<span class="snum" ng-class="{'aui-bg-pink': $index == 0, 'aui-bg-info': $index == 1||$index==2}">{{$index+1}}</span>
+		            	<span class="aui-ellipsis-1">{{item}}</span>
+		            </p>
+		        </div>
+			</div>
+	    </div>
+    </div>
+	
+	    <div class="aui-content search-list aui-margin-b-20">
+	    <ul class="aui-list aui-list-in aui-margin-b-10">
+            <!-- 热播推荐 -->
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">搜索历史</div>
+                    <span ng-tap="vm.delSearchHistory()"><i class="aui-iconfont aui-icon-trash" style="font-size:0.5rem;"></i> 清除历史</span>
+                </div>
+            </li>
+        </ul>
+	    <div class="aui-margin-b-10 aui-clearfix" style="margin-left:0.25rem; margin-right:0.25rem;">
+			<div class="aui-row-padded">
+				<div class="aui-col-xs-6" ng-repeat="item in vm.searchHistoy track by $index">
+		            <p class="search-history">
+		            	<span class="aui-ellipsis-1" style="width:100%;" ng-tap="vm.sendkey(item)">{{item}}</span>
+		            	<i class="aui-iconfont aui-icon-close" ng-tap="vm.delSearchHistory($index)"></i>
+		            </p>
+		        </div>
+			</div>
+	    </div>
+    </div>
+	
+	
+    </section>
+    <section ng-if="vm.section==3">
+    	<div class="aui-content aui-margin-b-15">
+	        <ul class="aui-list aui-media-list">
+	            <li class="aui-list-item aui-list-item-middle" ng-repeat="item in vm.data">
+	                <div class="aui-media-list-item-inner" ng-tap="vm.goDetail(item.id,item.tid)">
+	                    <div class="aui-list-item-media" style="width: 3rem;">
+	                        <img ng-src="{{item.pic}}" class="aui-list-img-sm">
+	                    </div>
+	                    <div class="aui-list-item-inner">
+	                        <div class="aui-list-item-text">
+	                            <div class="aui-list-item-title aui-font-size-14">{{item.name}}</div>
+	                        </div>
+	                        <div class="aui-list-item-text">
+	                            <span style="color:#757575;">{{item.year}}</span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </li>
+	        </ul>
+	    </div>
+    	
+    </section>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/angular_min.js"></script>
+<script type="text/javascript" src="../../script/server.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+</html>

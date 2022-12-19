@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/artical_dark.css" />
+
+</head>
+<body >
+
+
+
+    <div  id="artical">
+
+    </div>
+
+</body>
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+apiready = function(){
+
+	GetData();
+    }
+
+
+
+				function GetData(){
+
+						var UserId = 1;
+						var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+
+					var url = localStorage.getItem('api_url')+'/app/api/artical';
+											console.log(url)
+											api.ajax({
+													url: url,
+													method: 'get',
+													dataType:'json',
+													cache: false,
+													data: {
+															values: {
+																uid: UserId,
+																time: GetTime
+															}
+													}
+											}, function(ret, err) {
+
+			//		 alert(JSON.stringify(ret.list));
+
+										if(ret.status == 1) {
+
+														var artical_list_frm = $api.byId('artical');//特权列表
+
+														var artical_data = ret.list;
+														for(var i=0;i<artical_data.length;i++){
+
+														var artical_html= 		'  		<div class="aui-user-box">'+
+																											'  			<div class="aui-flex">'+
+																												'  			<div class="aui-flex-box">'+
+																												'  				<h1>'+artical_data[i].title+'</h1>'+
+																												'  			</div>'+
+																												'  			<div class="aui-right-play">'+
+																												'  				<button  onclick="GoArticalDetails('+'\''+artical_data[i].title+'\''+','+'\''+artical_data[i].content+'\''+','+'\''+artical_data[i].time+'\''+')">'+
+																												'  					<i class="icon "><svg t="1570289534754" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="44892" width="64" height="64"><path d="M764.928 585.728c-40.448 0-74.24-33.792-74.24-74.24s33.792-74.24 74.24-74.24 74.24 33.792 74.24 74.24c0.512 41.472-32.256 74.24-74.24 74.24z m-252.928 0c-40.448 0-74.24-33.792-74.24-74.24s33.792-74.24 74.24-74.24 74.24 33.792 74.24 74.24c0 41.472-32.768 74.24-74.24 74.24z m-252.928 0c-40.448 0-74.24-33.792-74.24-74.24s33.792-74.24 74.24-74.24 74.24 33.792 74.24 74.24c0 41.472-32.768 74.24-74.24 74.24z" fill="#fff" p-id="44893"></path></svg></i>'+
+																												'  				</button>'+
+																												'  			</div>'+
+																												'  		</div>'+
+																												'  		<div class="aui-flex">'+
+																												'  			<div class="aui-user-img">'+
+																												'  				<img  src="../../images/b_03.png">'+
+																												'  			</div>'+
+																												'  			<div class="aui-flex-box">'+
+																												'  				<h2>'+localStorage.getItem('admin_nick_name') +' '+ U.GetFomateTime(artical_data[i].time)+'</h2>'+
+																												'  			</div>'+
+																												'  		</div>'+
+																												'  		<div class="aui-user-text"    onclick="GoArticalDetails('+'\''+artical_data[i].title+'\''+','+'\''+artical_data[i].content+'\''+','+'\''+artical_data[i].time+'\''+')">'+
+																												'  			<p> '+artical_data[i].content+'</p>'+
+																												'  			<span>查看 &gt;   </span>'+
+																												'  		</div>'+
+																												'  	</div>';
+
+
+
+
+															$api.append(artical_list_frm,artical_html);
+
+														}
+
+										}else	if(ret.status == 718) {
+
+														GetData();
+										}
+
+											});
+
+
+
+				  }
+
+
+
+
+
+//查看详情
+	function GoArticalDetails(title,content,time){
+
+		api.openFrame({
+			name: 'artical_details_popup',
+			url: 'widget://html/mask/artical_details_popup.html',
+			rect: {
+					x:0,
+					y:0,
+					w:api.winWidth,
+					h:api.winHeight
+			},
+			bgColor: 'rgba(0,0,0,0.9)',
+			bounces: false,
+			pageParam: {title:title,content:content,time:time}
+	});
+
+
+	}
+</script>
+
+
+
+
+</html>

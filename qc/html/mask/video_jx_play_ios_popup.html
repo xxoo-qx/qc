@@ -1,0 +1,231 @@
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>cdkeyurl setup </title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="../../css/cdkey_found_dark.css" />
+    <style>
+    input {
+    outline-style: none;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+    margin-top: 5px;
+}
+
+.covers_btn, .covers_btn2 {
+    width: 100%;
+    margin: 0 auto 20px;
+    height: 35px;
+    line-height: 35px;
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+		background-color: #008eff;
+    box-shadow: 0 2px 5px 0px #057edf;
+    border-radius: 50px;
+}
+
+
+.leei{
+  display: block;
+  text-align: right;
+  color: #fff;
+  font-size: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 0.5rem;
+  font-family: "Apple Braille";
+  font-style: normal;
+  margin-right: 10px;
+}
+
+
+
+ 	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+    </style>
+
+
+</head>
+<body>
+
+		<div class="aui-cash-list" style="position: absolute; width: 100%; bottom: 10px;">
+
+			<div class="aui-card-coll" style="height: 100%;">
+				<div class="aui-flex">
+					<div class="aui-cash-logo" id="icon">
+<svg t="1572273369171" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9529" width="200" height="200"><path d="M575.914667 725.333333a21.397333 21.397333 0 0 1-21.248-21.162666V319.829333A21.184 21.184 0 0 1 576 298.666667c11.776 0 21.333333 9.706667 21.333333 21.162666v333.909334l85.568-85.568a21.226667 21.226667 0 0 1 30.101334 0.064c8.32 8.32 8.213333 21.973333 0.085333 30.101333l-120.832 120.810667a21.141333 21.141333 0 0 1-16.341333 6.186666z m-152.789334-426.325333a21.418667 21.418667 0 0 1 24.896 20.864V704.213333a21.205333 21.205333 0 0 1-21.333333 21.162667c-11.797333 0-21.354667-9.706667-21.354667-21.162667V364.266667l-91.669333 91.605333a21.248 21.248 0 0 1-30.122667-0.064 21.418667 21.418667 0 0 1-0.064-30.101333l120.896-120.810667a21.184 21.184 0 0 1 18.752-5.888z m252.202667-181.290667A425.429333 425.429333 0 0 0 512 85.333333C276.352 85.333333 85.333333 276.352 85.333333 512s191.018667 426.666667 426.666667 426.666667 426.666667-191.018667 426.666667-426.666667c0-56.746667-11.093333-112-32.384-163.328a21.333333 21.333333 0 0 0-39.402667 16.341333A382.762667 382.762667 0 0 1 896 512c0 212.074667-171.925333 384-384 384S128 724.074667 128 512 299.925333 128 512 128c51.114667 0 100.8 9.984 146.986667 29.12a21.333333 21.333333 0 0 0 16.341333-39.402667z" fill="#ffffff" p-id="9530"></path></svg>
+    	</div>
+					<div class="aui-flex-box">
+						<h2>选择播放线路</h2>
+					</div>
+					<span class="aui-signing"  onclick="ClosePopup()" >
+                <svg t="1571602624207" class="aui-signing" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="52589" width="20" height="20"><path d="M512.001 15.678C237.414 15.678 14.82 238.273 14.82 512.86S237.414 1010.04 512 1010.04s497.18-222.593 497.18-497.18S786.589 15.678 512.002 15.678z m213.211 645.937c17.798 17.803 17.798 46.657 0 64.456-17.798 17.797-46.658 17.797-64.456 0L512.001 577.315 363.241 726.07c-17.799 17.797-46.652 17.797-64.45 0-17.804-17.799-17.804-46.653 0-64.456L447.545 512.86 298.79 364.104c-17.803-17.798-17.803-46.657 0-64.455 17.799-17.798 46.652-17.798 64.45 0l148.761 148.755 148.755-148.755c17.798-17.798 46.658-17.798 64.456 0 17.798 17.798 17.798 46.657 0 64.455L576.456 512.86l148.756 148.755z m0 0" p-id="52590" fill="#ffffff"></path></svg>
+          </span>
+				</div>
+
+
+
+                  <div class="leei" style="  padding-top: 1.5rem;padding-bottom: 1rem;">如卡顿或无法播放可以尝试更换播放线路  </div>
+                  	<div class="covers_btn display-none" onclick="GetData(1)"  id="btnshow_one"> V I P 线路一 </div>
+                    	<div class="covers_btn display-none" onclick="GetData(2)"  id="btnshow_two"> V I P 线路二  </div>
+                      	<div class="covers_btn display-none" onclick="GetData(3)"  id="btnshow_three"> V I P 线路三  </div>
+                        	<div class="covers_btn display-none" onclick="GetData(4)"  id="btnshow_four"> V I P 线路四  </div>
+                          	<div class="covers_btn display-none" onclick="GetData(5)"  id="btnshow_five"> V I P 线路五  </div>
+
+
+
+		  	</div>
+
+
+		</div>
+
+
+
+
+
+
+    </body>
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/zepto.js"></script>
+
+    <script type="text/javascript">
+
+
+    	apiready = function(){
+
+  //alert(JSON.stringify(api.pageParam.video_name));
+
+							 ShowData();
+
+        }
+
+
+
+
+				function ShowData(){
+
+              if(localStorage.getItem('jx_Interface_one')  != ''){
+
+                var obj = document.getElementById("btnshow_one");
+                       obj.setAttribute("class", 'covers_btn display-block');
+              }
+
+              if(localStorage.getItem('jx_Interface_two')  != ''){
+              var obj = document.getElementById("btnshow_two");
+                     obj.setAttribute("class", 'covers_btn display-block');
+
+              }
+
+              if(localStorage.getItem('jx_Interface_three')  != ''){
+
+                var obj = document.getElementById("btnshow_three");
+                       obj.setAttribute("class", 'covers_btn display-block');
+              }
+
+              if(localStorage.getItem('jx_Interface_four')  != ''){
+
+                var obj = document.getElementById("btnshow_four");
+                       obj.setAttribute("class", 'covers_btn display-block');
+              }
+
+              if(localStorage.getItem('jx_Interface_five')  != ''){
+
+                var obj = document.getElementById("btnshow_five");
+                       obj.setAttribute("class", 'covers_btn display-block');
+              }
+
+
+
+				}
+
+
+//开始播放
+  function GetData(type){
+
+              var  Interface = localStorage.getItem('jx_Interface_one');
+              var  Interface_name = 'V I P 线路一 ';
+
+          if(type == 1){
+                  Interface = localStorage.getItem('jx_Interface_one');
+                  var  Interface_name = 'V I P 线路一 ';
+          }else if(type == 2){
+                  Interface = localStorage.getItem('jx_Interface_two');
+                  var  Interface_name = 'V I P 线路二 ';
+          }else if(type == 3){
+                  Interface = localStorage.getItem('jx_Interface_three');
+                  var  Interface_name = 'V I P 线路三 ';
+          }else if(type == 4){
+                  Interface = localStorage.getItem('jx_Interface_four');
+                  var  Interface_name = 'V I P 线路四 ';
+          }else if(type == 5){
+                  Interface = localStorage.getItem('jx_Interface_five');
+                  var  Interface_name = 'V I P 线路五 ';
+          }
+
+
+
+					var play_url = Interface+api.pageParam.url;
+
+
+
+											if(api.pageParam.type == 1){  //
+													console.log('换线'+play_url );
+													//alert(JSON.stringify('换线'+play_url));
+																		api.sendEvent({
+																		    name: 'myEvent',
+																		    extra: {
+																		        url:play_url,
+															              title: Interface_name
+																		    }
+																		});
+
+											}else{
+
+									//		alert(JSON.stringify('弹窗'+));
+
+															api.openWin({
+															name: 'x5_pay',
+															url: 'widget://html/browser/webx5_jx_play.html',
+															slidBackEnabled: false,
+															pageParam: {
+																 api_jx_url: api.pageParam.api_jx_url,
+																 video_name: localStorage.getItem('Play_title'),
+																 url: play_url,
+																 primary_url: api.pageParam.url,
+																 title: Interface_name
+																}
+															 });
+
+
+											}
+
+
+        //  alert(JSON.stringify(play_url));
+	api.closeFrame();
+  }
+
+
+
+    //关闭页面
+    function ClosePopup(){
+    	api.closeFrame();
+    }
+
+
+    </script>
+    </html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>TV_tab</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/live.css" />
+    <style>
+
+	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+
+     .icon {
+         font-style: normal;
+         font-weight: bold;
+         color: #eff5ff;
+         border-radius: 2px;
+         padding: 0.15rem 0.25rem;
+             width: 100%;
+             text-align: center;
+     }
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+      <section class="aui-flexView" id="all">
+          <section class="aui-scrollView">
+              <div class="aui-flex aui-flex-two"  id="ad">
+
+                <!--  <div class="aui-flex-box">
+                      <img  id="live_left_upper"  class="lazy"   onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">
+                  </div>
+                  <div class="aui-flex-box">
+                      <div class="aui-img-one-on" style="margin-bottom:0.8rem">
+                          <img  id="live_right_upper"   class="lazy"   onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">
+                      </div>
+                      <div class="aui-img-one-on">
+                          <img  id="live_right_lower"   class="lazy"   onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">
+                      </div>
+                  </div> -->
+              </div>
+              <div class="aui-flex aui-flex-two "  id="benner">
+              <!--    <div class="aui-flex-box">
+                      <img src="/images/ad-004.png">
+                  </div> -->
+              </div>
+
+              <div class="aui-tab" data-ydui-tab="" id="Tabs">
+
+                <div class="display-none "  onclick="ShowAd()"  id="ShowAd" style="padding-bottom: 0px;">
+                          <svg t="1578008041194" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4338" width="200" height="200"><path d="M512 66.56c-246.00576 0-445.44 199.42912-445.44 445.44s199.43424 445.44 445.44 445.44 445.44-199.42912 445.44-445.44-199.43424-445.44-445.44-445.44z m0 830.13632c-212.1216 0-384.6912-172.57472-384.6912-384.69632S299.8784 127.30368 512 127.30368c212.13184 0 384.70656 172.57984 384.70656 384.69632S724.13184 896.69632 512 896.69632z" fill="#e6e6e6" p-id="4339"></path><path d="M628.27008 421.81632L511.8464 547.29728 395.12576 424.47872c-12.02688-9.984-31.2576-9.66144-42.94656 0.70144-11.68896 10.36288-11.42784 26.84928 0.60416 36.82304l138.48576 140.88704c12.03712 9.97888 31.26272 9.66144 42.95168-0.70144l137.6-144.25088c11.68384-10.36288 11.42784-26.84416-0.59904-36.82816-12.03712-9.97888-31.26784-9.66144-42.95168 0.70656z" fill="#e6e6e6" p-id="4340"></path></svg>
+                		</div>
+
+
+              <!--
+              <ul class="tab-nav">
+                    <li class="tab-nav-item  tab-active">
+                        <a href="javascript:;">
+                            <span>TV直播</span>
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <span>专题直播</span>
+                        </a>
+                    </li>
+                </ul>
+           -->
+              </div>
+          </section>
+      </section>
+
+	    <header>
+
+
+
+    </header>
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/aui_tab.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script>
+    apiready = function() {
+
+      api.addEventListener({
+          name:'swipeup'
+      }, function(ret, err){
+      //   alert('向上轻扫');
+
+                              var obj = document.getElementById("ShowAd");
+                              obj.setAttribute("class", 'aui-palace');
+
+                                var obj = document.getElementById("ad");
+                                obj.setAttribute("class", 'display-none ');
+
+                                    //重设高度
+                                    ResetHeight();
+
+      });
+
+
+
+
+      api.addEventListener({
+          name:'swipedown'
+      }, function(ret, err){
+      //   alert('向下轻扫');
+
+                                    var obj = document.getElementById("ShowAd");
+                                    obj.setAttribute("class", 'display-none');
+
+                                       var obj = document.getElementById("ad");
+                                           obj.setAttribute("class", 'aui-flex aui-flex-two ');
+
+                                      //重设高度
+                                      ResetHeight();
+
+
+      });
+
+
+
+        $api.fixStatusBar( $api.dom('header') );
+
+        //广告
+    //   alert( JSON.stringify( localStorage.getItem('live_right_upper_img_Cache') ) );
+    var live_ad_html = $api.byId('ad');
+
+     var live_left_upper_img_Cache = U.Check_Cache_Images(localStorage.getItem('live_left_upper_img_Cache'));
+    var live_right_upper_img_Cache = U.Check_Cache_Images(localStorage.getItem('live_right_upper_img_Cache'));
+    var live_right_lower_img_Cache = U.Check_Cache_Images(localStorage.getItem('live_right_lower_img_Cache'));
+//    var live_left_upper_img_Cache = U.Check_Cache_Images(localStorage.getItem('live_left_upper_img_Cache'));
+
+      if(live_left_upper_img_Cache !== 1 || live_right_upper_img_Cache !== 1 ||  live_right_lower_img_Cache !== 1){
+
+
+                                      var obj = document.getElementById("ShowAd");
+                                      obj.setAttribute("class", 'aui-palace');
+
+                                        var obj = document.getElementById("ad");
+                                        obj.setAttribute("class", 'display-none ');
+
+
+
+        var    live_ad_html= '    <div class="aui-palace"   style="color: #e6e6e6;padding: 0.15rem 0.25rem; width: 100%; text-align: center;">更多精彩来袭</div>';
+
+      }else{
+          var    live_ad_html= '    <div class="aui-flex-box"  onclick="OpenAd('+'\''+localStorage.getItem('live_left_upper_url')+'\''+')">'+
+          '        <img  class="lazy" data-src="'+localStorage.getItem('live_left_upper_img_Cache') +'" src="'+localStorage.getItem('live_left_upper_img_Cache') +'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">'+
+          '    </div>'+
+          '    <div class="aui-flex-box">'+
+          '      <div class="aui-img-one-on" style="margin-bottom:0.8rem"  onclick="OpenAd('+'\''+localStorage.getItem('live_right_upper_url')+'\''+')">'+
+          '            <img  class="lazy" data-src="'+localStorage.getItem('live_right_upper_img_Cache') +'" src="'+localStorage.getItem('live_right_upper_img_Cache') +'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">'+
+          '        </div>'+
+          '        <div class="aui-img-one-on"  onclick="OpenAd('+'\''+localStorage.getItem('live_right_lower_url')+'\''+')">'+
+          '            <img  class="lazy" data-src="'+localStorage.getItem('live_right_lower_img_Cache') +'" src="'+localStorage.getItem('live_right_lower_img_Cache') +'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">'+
+          '        </div>'+
+          '    </div>';
+
+      }
+
+        $api.append(ad,live_ad_html);
+
+
+
+
+        var benner_html = $api.byId('benner');
+
+            var benner_html= '     <div class="aui-flex-box" onclick="OpenAd('+'\''+localStorage.getItem('live_benner_url')+'\''+')">'+
+        '             <img   class="lazy" data-src="'+localStorage.getItem('live_benner_img_Cache') +'" src="'+localStorage.getItem('live_benner_img_Cache') +'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'ico\')">'+
+      '           </div> ';
+
+        $api.append(benner,benner_html);
+
+
+
+
+
+
+
+
+
+
+			var tabs_frm = $api.byId('Tabs');//TAB列表
+
+
+					//展示全部
+					var html= '   <ul class="tab-nav" id="tab"> '+
+        '       <li class="tab-nav-item" id="one"> '+
+        '           <a > '+
+        '               <span>TV直播</span> '+
+        '           </a> '+
+        '       </li> '+
+        '       <li class="tab-nav-item" id="two"> '+
+          '         <a > '+
+          '             <span>专题直播</span> '+
+          '         </a>'+
+        '       </li>'+
+        '   </ul> ';
+
+
+      			$api.append(tabs_frm,html);
+
+
+
+
+
+
+        var tab = new auiTab({
+            element: document.getElementById("tab"),
+        }, function(ret) {
+            // console.log(JSON.stringify(ret));
+            // 点击tab，切换framegroup到对应的页面
+            api.setFrameGroupIndex({
+                name: 'tv_group',
+                index: ret.index - 1,
+                scroll: true, //是否带动画效果
+                reload: false
+            });
+        });
+ //    fnOpenFindFrameGroup();
+
+        // 左右滚动framegroup时，监听并执行回调
+        api.addEventListener({
+            name: 'frameGroupChangeEvent'
+        }, function(ret, err) {
+            if (ret) {
+
+
+                //  alert( JSON.stringify( ret ) );
+                 console.log("framegroup当前index:" + ret.value.id);
+                   if(ret.value.id == 0){
+                      //s     alert(JSON.stringify('现在是窗口1'))
+
+                                                 var obj = document.getElementById("one");
+                                                     obj.setAttribute("class", 'tab-nav-item  tab-active');
+                           var obj = document.getElementById("two");
+                               obj.setAttribute("class", 'tab-nav-item ');
+
+
+
+
+                   }else if(ret.value.id == 1){
+
+                  //           alert(JSON.stringify('现在是窗口2'))
+
+                                               var obj = document.getElementById("two");
+                                                   obj.setAttribute("class", 'tab-nav-item  tab-active');
+                             var obj = document.getElementById("one");
+                                 obj.setAttribute("class", 'tab-nav-item ');
+
+
+                   }
+              //  tab.setActive(ret.value.id + 1);
+
+            } else {
+              //  alert(JSON.stringify(err));
+            }
+        });
+
+        setTimeout(function(){		//延迟执行
+	        	fnOpenFindFrameGroup();
+        }, 300);
+
+
+
+    }
+
+    // 打开页面组，实现左右滑动切换效果
+    function fnOpenFindFrameGroup() {
+        // 计算y坐标
+
+        var tabHeight = $api.offset($api.dom('#all')).h; //tab切换栏高度
+        var indexHtmlHeaderHeight = $api.dom('header').offsetHeight; //顶部标题栏高度
+        var y = parseInt(tabHeight)+parseInt(indexHtmlHeaderHeight);
+
+   //     alert( JSON.stringify( indexHtmlHeaderHeight ) );
+
+//		alert(localStorage.getItem('Movies_Category_List_Switch'));
+
+
+
+							//  开放所有
+							api.openFrameGroup({
+								name: 'tv_group',
+								scrollEnabled: true,
+								rect: {
+									x: 0,
+									y: y,
+									w: 'auto',
+                //	h: api.frameHeight-parseInt(tabHeight)
+                h: 'auto'
+								},
+
+								index: 0,    //默认选中哪一个TAB
+
+								frames: [
+									{
+									name: 'tv_main',
+									url: 'widget://html/live/tv_main.html'
+							//		bgColor: '#000'
+								}, {
+                name: 'team_agent',
+                url: 'widget://html/live/special_main.html'
+						//			bgColor: '#000'
+								}
+							]
+							}, function(ret, err) {
+								if (ret) {
+									api.sendEvent({
+										name: 'frameGroupChangeEvent',
+										extra: {
+											id: ret.index
+										}
+									});
+								}
+							});
+
+
+    }
+
+    // 2019-6-21 17:02:11 业务使用，本文章内容用不到此处。
+    function fnCloseFindFrameGroup() {
+  //关闭    api.closeFrameGroup({
+  // 关闭        name: 'frame1_find_group'
+ // 关闭     });
+
+
+			//隐藏
+		api.setFrameGroupAttr({
+			name: 'tv_group',
+			hidden: true
+		});
+
+    }
+
+
+function ResetHeight(){
+  var tabHeight = $api.offset($api.dom('#all')).h; //tab切换栏高度
+  var indexHtmlHeaderHeight = $api.dom('header').offsetHeight; //顶部标题栏高度
+  var y = parseInt(tabHeight)+parseInt(indexHtmlHeaderHeight);
+
+       api.setFrameGroupAttr({
+           name: 'tv_group',
+           rect: {
+                            x: 0,
+                            y: y,
+                            w: 'auto',
+                          //	h: api.frameHeight-parseInt(tabHeight)
+                          h: 'auto'
+                          }
+       });
+}
+
+function ShowAd(){
+
+                                var obj = document.getElementById("ShowAd");
+                                obj.setAttribute("class", 'display-none');
+
+                                var obj = document.getElementById("ad");
+                                obj.setAttribute("class", 'aui-flex aui-flex-two ');
+                                  //重设高度
+                                ResetHeight();
+
+}
+
+
+function OpenAd(url){
+
+
+              if (url == '') {
+          	//如果后台填写的跳转链接为空 则无任何操作
+              }else{
+
+				U.OpenAd(url);
+
+          	}
+
+}
+
+
+
+
+      function loadImg(ele_) {
+      var thumbnailBoolean=api.systemType=='ios'?false:true,
+      dataurl = $api.attr(ele_, 'data-src');
+      if (dataurl) {
+      api.imageCache({
+      url: dataurl,
+      thumbnail:false
+      }, function(ret, err) {
+      if (ret) {
+      if (ret.status) {
+      // console.log(ret.url);
+      ele_.src = ret.url;
+      $api.removeCls(ele_, 'lazy');
+      $api.addCls(ele_, 'imgloaded');
+
+      // src赋值，也会触发onload，防止循环执行必须移除对应属性
+      $api.removeAttr(ele_, 'data-src');
+      $api.removeAttr(ele_, 'onload');
+      }
+      } else {
+      // alert(JSON.stringify(err));
+      }
+      });
+
+      }
+      }
+
+
+
+
+
+</script>
+
+</html>

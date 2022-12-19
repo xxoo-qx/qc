@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>澎湃影视</title>
+    <link rel="stylesheet" type="text/css" href="./css/aui_dark.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="./css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/micon.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common_dark.css" />
+    <style>
+    .display-block{
+   display :block ;
+   }
+
+   .display-none{
+   display :none ;
+   }
+    </style>
+</head>
+<body ng-app="app" ng-controller="indexCtrl" class="black">
+    <header class="aui-bar aui-bar-nav fix-statusbar" ng-if="vm.mainTabIndex == 0">
+<!--
+        <div class="aui-title-home"  ng-if="vm.mainTabIndex_top == 0"  onclick="U.openWin('upgradevip/', 'upgradevip', '', 'fade', '', '', '', '', '1')"  >
+            <div class="aui-searchbar">
+                <div class="aui-searchbar-input aui-border-radius" ng-bind-html="myText">
+                    <i class="aui-iconfont aui-icon-my"></i><span>您还没有登陆哦~</span>
+                </div>
+            </div>
+        </div>
+-->
+
+        <div class="aui-title-home"  ng-if="vm.mainTabIndex_top == 0"  onclick="U.openWin('search/', 'search', '', 'fade')"  >
+            <div class="aui-searchbar">
+                <div class="aui-searchbar-input aui-border-radius">
+                    <i class="aui-iconfont aui-icon-search"></i>
+                        <input type="search" placeholder="全网搜索"  disabled="disabled" />
+                </div>
+            </div>
+        </div>
+		
+        <div class="aui-title-home"  ng-if="vm.mainTabIndex_top == 1"  onclick="U.openWin('search/', 'search', '', 'fade')"  >
+            <div class="aui-searchbar">
+                <div class="aui-searchbar-input aui-border-radius">
+                    <i class="aui-iconfont aui-icon-search"></i>
+                        <input type="search" placeholder="全网搜索"  disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('artical/', 'artical')">
+            <span class="aui-iconfont aui-icon-note"></span>
+        </a>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('home/', 'faq')">
+            <span class="aui-iconfont aui-icon-question"></span>
+        </a>
+    </header>
+
+
+	<header class="aui-bar aui-bar-nav fix-statusbar" ng-if="vm.mainTabIndex == 1">
+        <div class="aui-title" >分类中心</div>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('artical/', 'artical')">
+            <span class="aui-iconfont aui-icon-note"></span>
+        </a>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('home/', 'faq')">
+            <span class="aui-iconfont aui-icon-question"></span>
+        </a>
+    </header>
+	<header class="aui-bar aui-bar-nav fix-statusbar" ng-if="vm.mainTabIndex == 2">
+        <div class="aui-title" >推荐</div>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('artical/', 'artical')">
+            <span class="aui-iconfont aui-icon-note"></span>
+        </a>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('home/', 'faq')">
+            <span class="aui-iconfont aui-icon-question"></span>
+        </a>
+    </header>
+	<header class="aui-bar aui-bar-nav fix-statusbar" ng-if="vm.mainTabIndex == 3">
+        <div class="aui-title" >会员中心</div>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('artical/', 'artical')">
+            <span class="aui-iconfont aui-icon-note"></span>
+        </a>
+        <a class="aui-pull-right aui-btn" onclick="U.openWin('home/', 'faq')">
+            <span class="aui-iconfont aui-icon-question"></span>
+        </a>
+    </header>
+
+   <!--   <header class="aui-bar aui-bar-nav fix-statusbar" ng-if="vm.mainTabIndex != 0">
+        <div class="aui-title" ng-if="vm.mainTabIndex == 1">推荐</div>
+        <div class="aui-title" ng-if="vm.mainTabIndex == 2">会员中心</div>
+       <div class="aui-title" ng-if="vm.mainTabIndex == 3">我的</div>
+       <a class="aui-pull-right aui-btn" ng-if="vm.mainTabIndex == 1">
+            <span class="aui-iconfont aui-icon-search"></span>
+        </a>
+    </header>
+	-->
+    <footer class="aui-bar aui-bar-tab" id="footer"  ng-if="vm.mainFooter == 0">
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 0}" ng-tap="vm.switchTab(0)" tapmode>
+            <i class="micon-home3"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 1}" ng-tap="vm.switchTab(1)"  tapmode>
+            <i class="micon-play"></i>
+            <div class="aui-bar-tab-label">分类</div>
+        </div>			
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 2}" ng-tap="vm.switchTab(2)"  tapmode>
+            <i class="micon-star-full"></i>
+            <div class="aui-bar-tab-label">推荐</div>
+			</div>		       
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 3}" ng-tap="vm.switchTab(3)"  tapmode>
+            <i class="micon-user"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+        <footer class="aui-bar aui-bar-tab" id="footer"  ng-if="vm.mainFooter == 1">
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 0}" ng-tap="vm.switchTab(0)" tapmode>
+            <i class="micon-home3"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 1}" ng-tap="vm.switchTab(1)"  tapmode>
+            <i class="micon-play"></i>
+            <div class="aui-bar-tab-label">分类</div>
+        </div>      
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 2}" ng-tap="vm.switchTab(2)"  tapmode>
+            <i class="micon-star-full"></i>
+            <div class="aui-bar-tab-label">推荐</div>
+      </div>           
+        <div class="aui-bar-tab-item" ng-class="{'aui-active': vm.mainTabIndex == 3}" ng-tap="vm.switchTab(3)"  tapmode>
+            <i class="micon-user"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+	 <!-- 
+  <footer class="aui-footer aui-footer-fixed" id="footer" ng-if="vm.mainFooter == 1">
+              <a ng-tap="vm.switchTab(0)" tapmode  class="aui-tabBar-item aui-tabBar-item-active">
+                  <span class="aui-tabBar-item-icon">
+  						<i class="icon icon-ryan-vip"   ng-class="{'icon-ryan-vip-active': vm.mainTabIndex == 0}"></i>
+  					</span>
+              </a>
+              <a ng-tap="vm.switchTab(1)"  tapmode  class="aui-tabBar-item ">
+                  <span class="aui-tabBar-item-icon">
+  						<i class="icon icon-credit"  ng-class="{'icon-credit-active': vm.mainTabIndex == 1}" ></i>
+  					</span>
+              </a>
+              <a ng-tap="vm.switchTab(2)"  tapmode  class="aui-tabBar-item ">
+                  <span class="aui-tabBar-item-icon">
+  						<i class="icon icon-credit"  ng-class="{'icon-credit-active': vm.mainTabIndex == 2}" ></i>
+  					</span>
+              </a>
+              <a  ng-tap="vm.switchTab(3)"  tapmode class="aui-tabBar-item ">
+                  <span class="aui-tabBar-item-icon">
+  						<i class="icon icon-user" ng-class="{'icon-user-active': vm.mainTabIndex == 3}" ></i>
+  					</span>
+              </a>
+          </footer>
+
+-->
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="./script/angular_min.js"></script>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/zepto.js"></script>
+<script type="text/javascript" src="./script/vedio_controller.js"></script>
+<script type="text/javascript" src="./script/app.js"></script>
+<script type="text/javascript" src="./script/server.js"></script>
+<script type="text/javascript" src="./script/rest_sha1.js"></script>
+
+</html>

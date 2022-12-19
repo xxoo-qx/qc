@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>激活码列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common_dark.css" />
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav fix-statusbar">
+        <a class="aui-pull-left" onclick="U.closeWin()">
+	        <span class="aui-iconfont aui-icon-left"></span>
+	    </a>
+        <div class="aui-title">激活码列表</div>
+    </header>
+</body>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+apiready = function(){
+	var headerHeight = $('header').height();
+    api.openFrame({
+        name: 'cdkey_found_log_detailed_main',
+        url: 'cdkey_found_log_detailed_main.html',
+        rect: {
+            x: 0,
+            y: headerHeight,
+            w: 'auto',
+            h: api.winHeight - headerHeight
+        }
+    });
+    }
+</script>
+</html>

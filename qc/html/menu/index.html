@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/swiper.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/tv_for_index.css"/>
+		<style type="text/css">
+		    .popWindow {
+						background-color: #1b7dff;
+					    width: 100%;
+					    height: 100%;
+					    left: 0;
+					    top: 0;
+					    filter: alpha(opacity=50);
+					    /* opacity: 0.5; */
+					    z-index: 9999;
+					    position: absolute;
+
+		    }
+		</style>
+</head>
+<body>
+
+<div id="popWindow" class="popWindow" style="display: inherit;"></div>
+
+
+<div class="banner">
+
+<!--
+<img src="../../images/a_02.png"/>
+
+-->
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper"  id="banner_list" >	</div>
+			<div class="swiper-pagination" style="bottom: 50px;"> </div>
+		</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="inbox">
+	<div class="wzgn">
+		<div class="wzgn_tit">
+			<h2><i></i>观影区</h2>
+		</div>
+	<div class="wzgn_nr"  ng-app="app" ng-controller="indexCtrl">
+		<!--	<div class="wzgn_nr" >-->
+			<ul id="privilegeMovies_list" >
+				<!--<li><a onclick="go_login()">
+					<img src="../../images/a_13.png"/>
+						<p>登录 old</p>
+					</a></li>
+				<li><a onclick="U.openWin('my/', 'login', '', 'fade', 'from_top', '')">
+					<img src="../../images/a_15.png"/>
+						<p>登录 new</p>
+					</a></li>
+				<li><a onclick="U.openWin('my/', 'register', '', 'fade', 'from_top', '')">
+					<img src="../../images/a_17.png"/>
+						<p>注册 new</p>
+					</a></li>
+				<li><a onclick="U.openWin('my/', 'repass', '', 'fade', 'from_top', '')">
+					<img src="../../images/a_19.png"/>
+						<p>找回密码</p>
+					</a></li>
+				<li><a onclick="U.openWin('video/', 'touping', '', 'fade', 'from_top', '')">
+					<img src="../../images/a_25.png"/>
+						<p>投屏测试</p>
+					</a></li>
+				<li><a onclick="U.openWin('my/', 'setlist', '', 'fade', 'from_top', '')">
+					<img src="../../images/a_26.png"/>
+						<p>设置</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_27.png"/>
+						<p>百度云</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_28.png"/>
+						<p>链家</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_36.png"/>
+						<p>今日头条</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_33.png"/>
+						<p>堆糖</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_34.png"/>
+						<p>土豆视频</p>
+					</a></li>
+				<li><a href="">
+					<img src="../../images/a_35.png"/>
+						<p>猫眼</p>
+				</a></li>
+				<li><a href="">
+					<img src="../../images/a_35.png"/>
+						<p>猫眼</p>
+				</a></li> -->
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="aui-change-box display-none"  id="tv_for_index"  onclick="Go_live_tv()">
+			<div class="aui-flex" style=" margin-top: 10px; ">
+				<div class="aui-flex-box">
+					<h3 id="Live_text"> 不知道看什么？ 看看TV 直播～</h3>
+				</div>
+				<div class="aui-change-button">
+					<button id="Live_button">立即观看</button>
+				</div>
+			</div>
+	<div class="aui-change-info"></div>
+		</div>
+
+<div class="wzgg display-none" id="index_notice">
+	<div class="wzgg_left">
+
+	<svg t="1570303626963" class="icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="50529" width="64" height="64"><path d="M522.8 285.6c-8.4-4-18.3-2.8-25.5 3.1L361.1 402.2h-86.6c-6.2-0.1-12.2 2.4-16.5 6.8-4.5 4.4-7 10.4-7 16.7v189.5c0.3 12.7 10.5 22.9 23.2 23.3h88l136.2 113c4.3 3.5 9.6 5.4 15.2 5.4 3.5 0 7-0.8 10.1-2.3 8.3-3.9 13.5-12.3 13.6-21.4V307c-0.1-9.2-5.4-17.5-13.6-21.4h-0.9z m91.3 118.3c-11.4-3.4-23.5 2.2-28.4 12.9-4.9 10.8-1.1 23.5 8.9 29.9 24.7 15.2 39 42.8 37 71.8 0 56-33.3 74.5-34.2 75.3-10.7 6.3-14.6 19.8-9.1 30.9 5.5 11.1 18.6 16.1 30.2 11.5 2.5-1.4 60.5-31.3 60.5-117.7 1.8-47.4-23.3-91.8-64.9-114.6z m73.7-69.5c-10.6-5-23.3-1.5-29.8 8.3s-4.7 22.8 4.1 30.6c2.5 1.8 63.2 43.2 63.2 146.1 0 102.9-58.4 144.4-60.5 145.9-8.4 4-13.7 12.6-13.5 21.9 0.2 9.3 5.8 17.7 14.4 21.3 8.6 3.7 18.5 2 25.4-4.3 3.3-2.1 81.5-55.8 81.5-185.6s-80.7-182.1-84.3-184.3h-0.5z m0 0" fill="#ffffff" p-id="50530"></path></svg>
+
+	<p>公告</p></div>
+	<div class="wzgg_right" onclick="U.openWin('artical/', 'artical', '', 'fade', 'from_top', '')"  ><p  id="getArtListTitle"> <!--<marquee behavior="scroll" direction="left" scrolldelay="1" scrollamount="2" onMouseOver="this.stop()" onMouseOut="this.start()">澎湃影视 Perfection is The Direction...</marquee>-->  </p></div>
+</div>
+
+
+<div class="yyrb">
+	<div class="yyrb_tit"><h2>影院热映</h2></div>
+	<div class="yyrb_nr">
+		<ul id="RecommendedVideo_list">
+		<!--	<li>
+				<div class="yybox">
+					<span class="xbq1">付费</span>
+					<a href="">
+						<img src="../../images/a_48.png"/>
+						<p>美女与野兽</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="yybox">
+					<span class="xbq2">VIP</span>
+					<a href="">
+						<img src="../../images/a_50.png"/>
+						<p>哪吒-魔童降世</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="yybox">
+					<span class="xbq1">独播</span>
+					<a href="">
+						<img src="../../images/a_52.png"/>
+						<p>WOLF MAN</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="yybox">
+					<span class="xbq1">付费</span>
+					<a href="">
+						<img src="../../images/a_48.png"/>
+						<p>美女与野兽</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="yybox">
+					<span class="xbq2">VIP</span>
+					<a href="">
+						<img src="../../images/a_50.png"/>
+						<p>哪吒-魔童降世</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="yybox">
+					<span class="xbq1">独播</span>
+					<a href="">
+						<img src="../../images/a_52.png"/>
+						<p>WOLF MAN</p>
+					</a>
+				</div>
+			</li>  -->
+		</ul>
+	</div>
+</div>
+
+</body>
+
+
+
+
+
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script type="text/javascript" src="../../script/ik2021.js"></script>
+<script type="text/javascript" src="../../script/auipullrefresh.js"></script>
+<script type="text/javascript" src="../../script/swiper.js" ></script>
+<script type="text/javascript" src="../../script/jquery_min.js"></script>
+<script type="text/javascript" src="../../script/font.js"></script>
+
+<script type="text/javascript">
+
+	var	fs;
+  apiready = function(){
+
+		fs = api.require('fs');
+
+
+	//	removeLaunchView();   // 移除启动图
+
+
+	 console.log('首页打开成功' );
+
+
+		getArtListTitle.innerHTML = localStorage.getItem('getArtListTitle');
+
+		api.addEventListener({    //监听 BANNER 广告信息 结果
+				name: 'Get_Ad'
+		}, function(ret, err) {
+				if(ret.value['status'] == 'ok'){
+
+		//			alert( 'Get_Ad ');
+
+					setTimeout(function(){		//延迟执行
+					 GetDataBanner();
+
+					 document.querySelector(".popWindow").style.setProperty("display","none");
+				 }, 1000);
+
+
+				}
+
+
+		});
+
+
+		api.addEventListener({    //监听 BANNER 广告信息 结果
+				name: 'Announcement'
+		}, function(ret, err) {
+				if(ret.value['status'] == 'index'){
+
+					setTimeout(function(){		//延迟执行
+					        getBanner();
+
+							U.Announcement();		//公告
+
+				 }, 300);
+
+				}
+
+		});
+
+
+
+
+
+
+
+
+	//	alert( localStorage.getItem('app_android_new_Version'));
+
+
+
+					//加载完毕
+						setTimeout(function() {		//延迟执行更新检测
+							 console.log('index  延迟执行更新检测' );
+							 UpdateApp();
+						}, 4000);
+
+						setTimeout(function() {		//延迟执行更新包清除
+							 console.log('index  延迟执行更新包清除' );
+							Delete_Update_Package();
+						}, 2000);
+
+
+//		alert( localStorage.getItem('Live_text'));
+
+
+					if(localStorage.getItem('mod_open_live') == '1'){		//如果开启直播模块
+									var obj = document.getElementById("tv_for_index");
+										obj.setAttribute("class", 'aui-change-box');
+
+										if(localStorage.getItem('Live_text') != '' && localStorage.getItem('Live_text')  != null){
+														Live_text.innerHTML = localStorage.getItem('Live_text');
+										}
+										if(localStorage.getItem('Live_button') != '' && localStorage.getItem('Live_button')  != null){
+														Live_button.innerHTML = localStorage.getItem('Live_button');
+										}
+					}
+
+
+				if(localStorage.getItem('mod_open_notice') == '1'){		//如果开启首页公告模块
+
+							var obj = document.getElementById("index_notice");
+								obj.setAttribute("class", 'wzgg');
+
+					}
+
+
+
+
+
+
+
+  }
+
+
+
+function loadImg(ele_) {
+var thumbnailBoolean=api.systemType=='ios'?false:true,
+dataurl = $api.attr(ele_, 'data-src');
+if (dataurl) {
+api.imageCache({
+url: dataurl,
+thumbnail:false
+}, function(ret, err) {
+if (ret) {
+if (ret.status) {
+// console.log(ret.url);
+ele_.src = ret.url;
+$api.removeCls(ele_, 'lazy');
+$api.addCls(ele_, 'imgloaded');
+
+// src赋值，也会触发onload，防止循环执行必须移除对应属性
+$api.removeAttr(ele_, 'data-src');
+$api.removeAttr(ele_, 'onload');
+}
+} else {
+// alert(JSON.stringify(err));
+}
+});
+
+}
+}
+
+
+
+  function GetDataBanner(){
+
+
+
+
+
+					//轮播
+
+											U.readFile('/RyanIndex_v4/'+localStorage.getItem('UserId')+'.json',function(ret, err) {
+
+											if (ret) {
+														//处理返回数据
+
+																					var cacheData = JSON.parse(ret.data);
+
+																//					alert(JSON.stringify(cacheData.data['banner']));
+																					var banner_data = cacheData.data['banner'];
+
+																					var banner_list_frm = $api.byId('banner_list');//轮播列表
+
+																					for(var i=0;i<banner_data.length;i++){
+
+																					var isBannerPic = banner_data[i].picurl;
+
+																					if(isBannerPic.indexOf("http://")>-1){   //如果包含 http://
+
+																							var banner_pic = banner_data[i].picurl;
+
+																					}else if(isBannerPic.indexOf("https://")>-1){   //如果包含 https://
+
+																							var banner_pic = banner_data[i].picurl;
+																					}else{
+
+																							var banner_pic = localStorage.getItem('api_url')+banner_data[i].picurl;
+
+																					}
+
+																					var banner_html= 	'	<div class="swiper-slide"  onclick="toBanner('+'\''+banner_data[i].linkurl+'\''+')" >'+
+																								'		<img class="lazy cache" data-src="'+banner_pic+'" src="'+banner_pic+'" onload="loadImg(this);"  onerror="U.ImgNoFind(\'banner\')"   >'+
+																								'	</div>';
+
+
+																						$api.append(banner_list_frm,banner_html);
+
+																					}
+
+
+																			//设备验证通过 同步成功  开始加载核心设置
+													/*            setTimeout(function(){		//延迟执行
+																						 SecondStep_Get_CoreSettings();   //重新获取
+																			}, 500);
+
+
+																			setTimeout(function(){		//延迟执行 等待首页准备完毕
+																				ProgressBarShowData('GetTimeOk');
+																				SecondStep_Get_CoreSettings();
+																			}, 500);
+										*/
+
+												banNer();   //轮播滚动
+
+
+
+						 					 GetDataPrivilege();
+
+											} else {
+
+
+												setTimeout(function() {		//延迟执行更新检测
+													 console.log('轮播  重新加载' );
+													 U.toast('轮播 重新加载  ');
+													 GetDataBanner();
+												}, 500);
+															//ProgressBarShowData('GetTimeErr');
+													//    alert('数据获取失败！');
+											}
+
+										})
+
+
+
+  }
+
+
+
+
+
+
+
+
+	  function GetDataPrivilege(){
+
+
+						//特权
+						U.readFile('/RyanIndex_v4/'+localStorage.getItem('UserId')+'.json',function(ret, err) {
+
+						if (ret) {
+									//处理返回数据
+
+																var cacheData = JSON.parse(ret.data);
+
+											//					alert(JSON.stringify(cacheData.data['banner']));
+																var privilegeMovies_data = cacheData.data['privilegeMovies'];
+
+
+																//特权
+																var privilegeMovies_list_frm = $api.byId('privilegeMovies_list');//特权列表
+
+																for(var i=0;i<privilegeMovies_data.length;i++){
+
+																var isprivilegeMoviesPic = privilegeMovies_data[i].picurl;
+
+																if(isprivilegeMoviesPic.indexOf("http://")>-1){   //如果包含 http://
+
+																		var privilegeMovies_pic = privilegeMovies_data[i].picurl;
+
+																}else if(isprivilegeMoviesPic.indexOf("https://")>-1){   //如果包含 https://
+
+																		var privilegeMovies_pic = privilegeMovies_data[i].picurl;
+																}else{
+
+																		var privilegeMovies_pic = localStorage.getItem('api_url')+privilegeMovies_data[i].picurl;
+
+																}
+
+
+																var privilegeMovies_html= 	'	<li><a  onclick="GoFilmTelevisionPrivileges('+'\''+privilegeMovies_data[i].linkurl+'\''+')"> '+
+																			'		<img class="lazy cache" data-src="'+privilegeMovies_pic+'" src="'+privilegeMovies_pic+'" onload="loadImg(this);"   onerror="U.ImgNoFind(\'ico\')"  > '+
+																			'		<p>'+privilegeMovies_data[i].name+'</p> '+
+																			'	</a></li> ';
+
+
+																	$api.append(privilegeMovies_list_frm,privilegeMovies_html);
+
+																}
+
+
+																GetDataRecommendedVideo();
+						} else {
+
+
+							setTimeout(function() {		//延迟执行更新检测
+								 console.log('特权  重新加载' );
+								 U.toast('特权 重新加载  ');
+								 GetDataPrivilege();
+							}, 500);
+
+										//ProgressBarShowData('GetTimeErr');
+								//    alert('数据获取失败！');
+						}
+
+					})
+
+
+
+
+
+
+
+	  }
+
+
+
+
+
+			  function GetDataRecommendedVideo(){
+
+								//推荐影视
+
+								U.readFile('/RyanIndex_v4/'+localStorage.getItem('UserId')+'.json',function(ret, err) {
+
+								if (ret) {
+											//处理返回数据
+
+																		var cacheData = JSON.parse(ret.data);
+
+
+
+																		var RecommendedVideo_data = cacheData.data['RecommendedVideo'];
+
+																		var RecommendedVideo_list_frm = $api.byId('RecommendedVideo_list');//推荐视频列表
+
+																		for(var i=0;i<RecommendedVideo_data.length;i++){
+
+																		var isRecommendedVideoPic = RecommendedVideo_data[i].img;
+
+																		if(isRecommendedVideoPic.indexOf("http://")>-1){   //如果包含 http://
+
+																				var RecommendedVideo_pic = RecommendedVideo_data[i].img;
+
+																		}else if(isRecommendedVideoPic.indexOf("https://")>-1){   //如果包含 https://
+
+																				var RecommendedVideo_pic = RecommendedVideo_data[i].img;
+																		}else{
+
+																				var RecommendedVideo_pic = localStorage.getItem('api_url')+RecommendedVideo_data[i].img;
+
+																		}
+
+
+																		var play_url=RecommendedVideo_data[i].url.replace(/[\r\n]/g, ""); //剔除播放地址中的空格 换行
+
+
+
+																		var RecommendedVideo_html= 	'	<li><div class="yybox"><span class="xbq2">'+RecommendedVideo_data[i].type+'</span>'+
+																					'		<a  onclick="GoRecommendationMovie('+'\''+play_url+'\''+','+'\''+RecommendedVideo_data[i].title+'\''+','+'\''+RecommendedVideo_pic+'\''+','+'\''+RecommendedVideo_data[i].type+'\''+','+'\''+RecommendedVideo_data[i].region+'\''+','+'\''+RecommendedVideo_data[i].content+'\''+')"><img  class="lazy cache" data-src="'+RecommendedVideo_pic+'" src="'+RecommendedVideo_pic+'" onload="loadImg(this);" onerror="U.ImgNoFind(\'video\')" ><p>'+RecommendedVideo_data[i].title+'</p></a> '+
+																					'	</div></li>';
+
+
+																			$api.append(RecommendedVideo_list_frm,RecommendedVideo_html);
+
+																		}
+
+
+
+								} else {
+
+
+
+									setTimeout(function() {		//延迟执行更新检测
+										 console.log('推荐影视  重新加载' );
+										 U.toast('推荐影视 重新加载  ');
+										 GetDataRecommendedVideo();
+									}, 500);
+
+										//		ProgressBarShowData('GetTimeErr');
+										//    alert('数据获取失败！');
+								}
+
+							})
+
+
+
+			  }
+
+
+
+
+
+	function nofind(){
+
+	var img=event.srcElement;
+	img.src="../../images/b_02.png";
+	img.οnerrοr=null;
+
+	}
+
+
+
+  //幻灯轮播图滚动
+function banNer(){
+
+var swiper = new Swiper('.swiper-container', {
+				effect: 'slide',    //样式  coverflow  slide  fade  cube   flip
+			//	grabCursor: true,       //设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。
+			//	centeredSlides: true,   //居中
+				loop:true,   			//循环
+				pagination: {
+					el: '.swiper-pagination',    //指示器
+					},
+
+//  autoplay:true,//等同于以下设置
+  autoplay: {
+    delay: 3000,
+ //   stopOnLastSlide: false,     //如果设置为true，当切换到最后一个slide时停止自动切换。（loop模式下无效）。
+    disableOnInteraction: false,   //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+    },
+    speed:500,
+	coverflowEffect: {
+			rotate: 50,        //slide做3d旋转时Y轴的旋转角度。默认50。
+			stretch: 40,		//每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
+			depth: 100,			//slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
+			modifier: 2,        //depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1
+			slideShadows: false,  //开启slide阴影。默认 true。
+						}
+});
+
+
+  }
+
+
+
+
+
+
+
+
+  //访问轮播地址
+
+  function toBanner(url,name){
+
+
+    if (url == '') {
+
+	//如果后台填写的跳转链接为空 则无任何操作
+
+    }else{
+
+		U.OpenAd(url);
+
+	}
+  }
+
+
+
+
+
+
+
+  //特权观影区
+
+  function GoFilmTelevisionPrivileges(url){
+
+				if(U.PermissionCheck('login') != 1){
+									U.openWin('my/','login');
+									return;
+				}
+
+				if(U.PermissionCheck('vip') != 1){
+									U.openWin('upgradevip/','upgradevip');
+									return;
+				}
+
+
+									if(api.systemType =='ios'){
+
+										api.openWin({
+										name: 'webx5',
+										url: 'widget://html/browser/webx5.html',
+										pageParam: {
+											 url: url
+											}
+										 });
+
+									}else{
+
+										api.openWin({
+										name: 'webx5',
+										url: 'widget://html/browser/webx5.html',
+										pageParam: {
+											 url: url
+											}
+										 });
+
+									}
+
+
+
+
+
+  }
+
+
+
+  //电影推荐、影院热映
+  function GoRecommendationMovie(url,title,img,tag,region,content){
+
+				if(U.PermissionCheck('login') != 1){
+									U.openWin('my/','login');
+									return;
+				}
+
+				if(U.PermissionCheck('vip') != 1){
+									U.openWin('upgradevip/','upgradevip');
+									return;
+				}
+
+
+				var systemType = api.systemType;
+
+
+
+
+						U.openWin('video/', 'play_dkplayer_recommend_for_android',{url:url,title:title,img:img,tag:tag,region:region,content:content});
+
+
+
+
+  }
+
+
+
+
+
+
+
+//更新app
+//Ryan
+  function UpdateApp() {
+
+			if(api.systemType == 'ios'){
+
+				var app_new_Version = localStorage.getItem('app_ios_new_Version')
+				var app_new_Version_switch = localStorage.getItem('app_ios_new_Version_switch')
+				var app_new_Version_url = localStorage.getItem('app_ios_down')
+
+			}else{
+
+				var app_new_Version = localStorage.getItem('app_android_new_Version')
+				var app_new_Version_switch = localStorage.getItem('app_android_new_Version_switch')
+				var app_new_Version_url = localStorage.getItem('app_android_apk_down')
+
+			}
+
+
+		    if(app_new_Version_switch == 1){
+					if(app_new_Version > api.appVersion && app_new_Version_url != ''){
+
+						U.UpdateApp();
+
+					}
+		    }
+}
+
+
+
+function Go_live_tv(){
+						if(U.PermissionCheck('login') != 1){
+											U.openWin('my/','login');
+											return;
+						}
+
+						if(U.PermissionCheck('vip') != 1){
+											U.openWin('upgradevip/','upgradevip');
+											return;
+						}
+
+					U.openWin('live/','tv','', 'fade', 'from_top', '', '', '' );
+}
+
+
+
+
+//登录
+		function go_login() {
+					api.openWin({
+						name: 'login',
+						url: 'widget://html/my/login.html',
+				bounces: false,
+				slidBackEnabled: true,
+				bgColor: '#fff',
+				animation: {
+					type: "fade", //动画类型（详见动画类型常量）
+					subType: "from_top", //动画子类型（详见动画子类型常量）
+					duration: 400
+				},
+				vScrollBarEnabled: false
+					});
+
+		}
+		/////////////公告点击 方法  gonggaodianji   E   ////////////
+
+
+
+
+
+	function Delete_Update_Package() {
+
+
+		if(api.systemType != 'ios' &&  localStorage.getItem('Delete_Update_Package') == 1){
+
+
+			fs.remove({
+				path:  localStorage.getItem('savePath')
+			}, function(ret, err) {
+				if (ret.status) {
+
+					//alert(JSON.stringify(ret));
+
+					if(ret.status == true){
+							U.RyanUp(1,'更新成功！更新包已为您删除');
+					}else{
+							U.RyanUp(2,'更新包删除失败 请手动删除');
+					}
+
+
+				} else {
+					// alert(JSON.stringify(err));
+				}
+			});
+		}
+
+	}
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设置 main</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/checkbox_dark.css"/>
+
+</head>
+<body style=" margin-top: 15px; ">
+
+
+    <div class="aui-content aui-margin-b-15">
+
+				<div class="aui-live-header-Pink" >
+                <span style="font-size:10px;">播放设置</span>
+				</div>
+
+        <ul class="aui-list aui-list-in"  style="margin: 0 15px;">
+
+        	<li class="set">
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">TV投屏自动静音</div>
+	                <div class="aui-list-item-right">
+
+
+
+							<input class='tgl tgl-ios active' id='automatic_volume' type='checkbox' onclick="RecyclingButtonclick('automatic_volume')"   >
+							<label class='tgl-btn' for='automatic_volume' ></label>
+
+
+					</div>
+	            </div>
+	        </li>
+
+
+
+        	<li class="set display-none">
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">TV投屏进度控制 <em style=" font-size: 10px; color: #d8d8d8; "> Beat</em></div>
+	                <div class="aui-list-item-right">
+
+
+
+							<input class='tgl tgl-ios' id='Progress_Control_TV_Screening' type='checkbox'  onclick="RecyclingButtonclick('Progress_Control_TV_Screening')"  >
+							<label class='tgl-btn' for='Progress_Control_TV_Screening'></label>
+
+
+					</div>
+	            </div>
+	        </li>
+
+
+
+        	<li class="set display-none"  onclick="RecyclingButtonclick('default_player_volume')"  id="default_player_volume_show" >
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">设置默认播放音量 <em style=" font-size: 10px; color: #d8d8d8; "> 默认 30%</em></div>
+	                <div class="aui-list-item-right" id="player_volume">0</div>
+	            </div>
+	        </li>
+
+
+
+
+
+                  	<li class="set display-none"  onclick="RecyclingButtonclick('x5_debug')"    id="x5_debug_show" >
+          	            <div class="aui-list-item-inner">
+          	                <div class="aui-list-item-title">X5内核修复 <em style=" font-size: 10px; color: #d8d8d8; "> 播放异常时可以尝试进行修复</em></div>
+          	                <div class="aui-list-item-right  aui-list-item-arrow"></div>
+          	            </div>
+          	        </li>
+
+
+
+
+        </ul>
+    </div>
+
+
+
+
+
+
+            <div class="aui-content aui-margin-b-15 "  id="AccountSettings">
+
+        				<div class="aui-live-header-Pink" >
+                        <span style="font-size:10px;">账户设置</span>
+        				</div>
+
+                <ul class="aui-list" style="margin: 0 15px;">
+
+                	<li class="set"  onclick="U.openWin('my/', 'revisepass')">
+        	            <div class="aui-list-item-inner">
+        	                <div class="aui-list-item-title">修改密码</div>
+        	                <div class="aui-list-item-right aui-list-item-arrow">
+
+
+        					</div>
+        	            </div>
+        	        </li>
+
+
+                	<li class="set display-none"  onclick="U.openWin('my/', 'setsafetycode')"  id="SetsafetCcodeSettings" >
+        	            <div class="aui-list-item-inner">
+        	                <div class="aui-list-item-title">设置安全码</div>
+        	                <div class="aui-list-item-right aui-list-item-arrow"></div>
+        	            </div>
+        	        </li>
+
+                </ul>
+            </div>
+
+
+
+
+
+    <div class="aui-content aui-margin-b-15">
+
+				<div class="aui-live-header-Pink" >
+                <span style="font-size:10px;">其他设置</span>
+				</div>
+
+        <ul class="aui-list" style="margin: 0 15px;">
+
+        	<li class="set" >
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">自动删除更新包</div>
+	                <div class="aui-list-item-right">
+
+
+							<input class='tgl tgl-ios active' id='Delete_Update_Package' type='checkbox' onclick="RecyclingButtonclick('Delete_Update_Package')"   >
+							<label class='tgl-btn' for='Delete_Update_Package' ></label>
+
+
+					</div>
+	            </div>
+	        </li>
+
+
+        	<li class="set">
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">返回上一页 <em style=" font-size: 10px; color: #d8d8d8; ">WEB x5</em></div>
+	                <div class="aui-list-item-right">
+
+
+							<input class='tgl tgl-ios active' id='WebReturnLogic' type='checkbox' onclick="RecyclingButtonclick('WebReturnLogic')"   >
+							<label class='tgl-btn' for='WebReturnLogic' ></label>
+
+
+					</div>
+	            </div>
+	        </li>
+
+
+        	<li class="set display-none"  id="SystemReturnKeyBinding_show" >
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">绑定系统返回键</div>
+	                <div class="aui-list-item-right">
+
+							<input class='tgl tgl-ios active' id='SystemReturnKeyBinding' type='checkbox' onclick="RecyclingButtonclick('SystemReturnKeyBinding')"   >
+							<label class='tgl-btn' for='SystemReturnKeyBinding' ></label>
+
+
+					</div>
+	            </div>
+	        </li>
+
+
+        	<li class="set"  onclick="ClearnCach()">
+	            <div class="aui-list-item-inner">
+	                <div class="aui-list-item-title">清理缓存</div>
+						<div class="aui-list-item-right" id="cacheSize">0</div>
+	            </div>
+	        </li>
+
+
+        	<li class="set"  onclick="UpdateApp(1)">
+	            <div class="aui-list-item-inner">
+				<span  id="is_newapp" class="display-none"	style="padding: 1px;  border-radius: 18px 18px 18px 0; color: #1c0e35; text-align: center; font-size: 0.4rem; vertical-align: middle; position: absolute; top: -5px; right: 70%;background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);" > NEW<!--开始观影吧！--></span>
+	                <div class="aui-list-item-title">版本检查 <em style=" font-size: 10px; color: #d8d8d8; " id="new_appVersion">已是最新</em></div>
+	                <div class="aui-list-item-right" id="appVersion"></div>
+	            </div>
+	        </li>
+
+
+        	<li class="set display-none" tapmode onclick="exitLogin()" id="QuitLanding">
+	            <div class="aui-list-item-inner">
+				<span  id="is_newapp" class="display-none"	style="padding: 1px;  border-radius: 18px 18px 18px 0; color: #1c0e35; text-align: center; font-size: 0.4rem; vertical-align: middle; position: absolute; top: -5px; right: 70%;background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);" > NEW<!--开始观影吧！--></span>
+	                <div class="aui-list-item-title">退出登陆
+	            </div>
+	        </li>
+        </div>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/vue.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+
+
+<script type="text/javascript">
+var UserId = 0 ;
+apiready = function(){
+
+    api.parseTapmode();
+
+		//	alert( localStorage.getItem('Delete_Update_Package'));
+	//	U.toast('当前值为'+localStorage.getItem('default_player_volume'),'2000','middle');
+		GetData();
+		GetCacheSize();  // 获取缓存
+		UpdateApp(0); 	//检查更新
+			//监听重新数据
+			api.addEventListener({
+				name: 'NewSetData'
+			}, function(ret, err) {
+
+				/*
+				if(ret) {
+				//	alert(JSON.stringify(ret.value));
+					if(ret.value['key'] == 'play_volume'){
+						player_volume.innerHTML = localStorage.getItem('default_player_volume')*10;
+					}
+				} */
+
+				GetData();
+
+
+			});
+
+
+	}
+
+/*** 获取信息 ***/
+	function GetData(){
+		UserId = localStorage.getItem('UserId') ;
+
+		if(UserId > 0 ){
+
+			var obj = document.getElementById("AccountSettings");
+				obj.setAttribute("class", 'aui-content aui-margin-b-15 display-block');
+
+			var obj = document.getElementById("QuitLanding");
+				obj.setAttribute("class", 'set display-block');
+
+
+
+
+			if(localStorage.getItem('UserSafetyCode') == 0){
+				var obj = document.getElementById("SetsafetCcodeSettings");
+					obj.setAttribute("class", 'set display-block');
+			}
+
+
+
+
+
+		}
+
+
+
+
+
+		//当前版本号
+		appVersion.innerHTML = api.appVersion;
+
+    //播放模式为 X5 并且为安卓系统
+		if(localStorage.getItem('jx_play_module') == 'x5' && api.systemType !='ios') {
+
+					var obj = document.getElementById("x5_debug_show");
+						obj.setAttribute("class", 'set display-block');
+
+		}
+
+
+		//自动调整音量
+		if(localStorage.getItem('automatic_volume') == 1) {
+
+					var obj = document.getElementById('automatic_volume');
+						obj.checked = true;
+
+					//如允许自动调整音量 则显示
+					var obj = document.getElementById("default_player_volume_show");
+						obj.setAttribute("class", 'set display-block');
+
+		}
+
+
+		//播放默认音量 default_player_volume
+		player_volume.innerHTML = localStorage.getItem('default_player_volume')*100+'%';
+
+
+		//TV投屏进度控制
+		if(localStorage.getItem('Progress_Control_TV_Screening') == 1) {
+
+					var obj = document.getElementById('Progress_Control_TV_Screening');
+						obj.checked = true;
+		}
+
+
+		//自动删除更新包
+		if(localStorage.getItem('Delete_Update_Package') == 1) {
+
+					var obj = document.getElementById('Delete_Update_Package');
+						obj.checked = true;
+		}
+
+		//WEB x5 上一页记录
+		if(localStorage.getItem('WebReturnLogic') == 1) {
+
+					var obj = document.getElementById('WebReturnLogic');
+						obj.checked = true;
+
+					//如返回键 返回上一页 非关闭
+					var obj = document.getElementById("SystemReturnKeyBinding_show");
+						obj.setAttribute("class", 'set display-block');
+		}
+
+		//系统返回键是否绑定
+		if(localStorage.getItem('SystemReturnKeyBinding') == 1) {
+
+					var obj = document.getElementById('SystemReturnKeyBinding');
+						obj.checked = true;
+		}
+
+
+
+
+	}
+/*** 获取信息 ***/
+
+
+/*** 循环执行方法 按钮点击 ***/
+	// name
+	function RecyclingButtonclick(name){
+
+		var name_key = localStorage.getItem(''+name+'');
+
+		if(name_key == '0' || name_key == 'null' ) {
+				U.setStorage(''+name+'',1);
+
+
+				if(name == 'automatic_volume'){
+					//如允许自动调整音量 则显示
+					var obj = document.getElementById("default_player_volume_show");
+						obj.setAttribute("class", 'set display-block');
+
+				}else if(name == 'WebReturnLogic'){
+					//如返回键 返回上一页 非关闭
+					var obj = document.getElementById("SystemReturnKeyBinding_show");
+						obj.setAttribute("class", 'set display-block');
+
+				}
+
+
+		}else if(name_key == '1'){
+
+				U.setStorage(''+name+'',0);
+
+				if(name == 'automatic_volume'){
+					//如允许自动调整音量 则显示
+					var obj = document.getElementById("default_player_volume_show");
+						obj.setAttribute("class", 'set display-none');
+
+				}else if(name == 'WebReturnLogic'){
+					//如返回键 返回上一页 非关闭
+					var obj = document.getElementById("SystemReturnKeyBinding_show");
+						obj.setAttribute("class", 'set display-none');
+
+					//系统绑定也关闭
+					U.setStorage('SystemReturnKeyBinding',0);
+
+				}
+		}
+
+
+
+
+
+
+
+		if(name == 'default_player_volume'){
+
+			api.openFrame({
+                name: 'default_play_volume_set',
+                url: 'widget://html/mask/default_play_volume_set.html',
+                rect: {
+                        x:0,
+                        y:0,
+                        w:api.winWidth,
+                        h:api.winHeight
+                },
+                bgColor: 'rgba(0,0,0,0.9)',
+                        bounces: false
+        });
+
+
+			//	U.openWin('mask/', 'default_play_volume_set','','movein','from_bottom')
+
+		}else if(name = 'x5_debug'){
+
+      U.OpenAd('http://debugtbs.qq.com');
+    }
+
+
+
+
+
+	}
+/*** 循环执行方法 ***/
+
+
+
+//获取缓存大小
+function GetCacheSize(){
+
+		api.getCacheSize(function(ret) {
+			var size = ret.size/1024/1024;         //缓存大小，单位为Byte，数字类型。（-1：无存储设备、-2：正在准备USB存储设备、-3：无法访问存储设备）
+			var mb = size.toFixed(2)
+			var cacheSize = $api.byId('cacheSize');
+			cacheSize.innerHTML = mb+'MB';
+
+		});
+
+
+}
+
+//清理缓存
+function ClearnCach(){
+
+        api.clearCache(function() {
+            api.toast({
+                msg: '缓存清理'
+            });
+
+			GetCacheSize();
+        });
+    }
+
+
+
+//更新app
+//Ryan
+  function UpdateApp(type) {
+
+			if(api.systemType == 'ios'){
+
+				var app_new_Version = localStorage.getItem('app_ios_new_Version');
+				var app_new_Version_switch = localStorage.getItem('app_ios_new_Version_switch');
+				var app_new_Version_url = localStorage.getItem('app_ios_down');
+
+			}else{
+
+				var app_new_Version = localStorage.getItem('app_android_new_Version');
+				var app_new_Version_switch = localStorage.getItem('app_android_new_Version_switch');
+				var app_new_Version_url = localStorage.getItem('app_android_apk_down');
+
+			}
+
+
+
+
+
+		    if(app_new_Version_switch == 1){
+					if(app_new_Version > api.appVersion && app_new_Version_url != ''){
+
+						if(type == 1){
+
+							U.UpdateApp();
+
+						}else if(type == 0){
+
+							//最新版本号
+							new_appVersion.innerHTML = '有新版本！'+app_new_Version;
+
+							var obj = document.getElementById("is_newapp");
+								obj.setAttribute("class", 'display-block');
+						}
+
+					}else{
+
+						if(type == 1){
+
+							U.RyanUp(1,'已是最新版本！');
+						}
+
+
+					}
+			}
+}
+
+
+
+  //退出登录
+  function exitLogin(){
+
+      U.exitLogin('0','1');    // 不提示 但跳转到登录页
+      U.toast('已安全退出');
+
+
+			// 监听页面消失的时候 关掉页面
+			api.addEventListener({
+				name:'viewdisappear'
+			},function(){
+				api.closeWin();
+			});
+
+  }
+
+
+
+
+
+</script>
+
+</html>

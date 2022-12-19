@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>激活码列表 - frm</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+		<style>
+
+
+
+
+
+
+    * {
+    	-webkit-box-sizing: border-box;
+    	box-sizing: border-box;
+    	-webkit-user-select: none;
+    	outline: 0;
+    	-webkit-tap-highlight-color: transparent;
+    	-webkit-tap-highlight-color: transparent
+    }
+
+    body {
+    	font-family: 'Helvetica Neue',Helvetica,sans-serif;
+    	font-size: 17px;
+    	line-height: 21px;
+    	color: #dfdfdf;
+    	background: #efeff4;
+    	-webkit-overflow-scrolling: touch
+    }
+
+
+    p {
+    	font-size: 14px;
+    	margin-top: 0;
+    	margin-bottom: 10px;
+    	color: #888
+    }
+
+
+    @media (min-width:400px) {
+    	.mui-col-sm-12 {
+    		width: 100%
+    	}
+
+    	.mui-col-sm-1 {
+    		width: 8.33333333%
+    	}
+    }
+
+
+    .mui-btn,button,input[type=button],input[type=reset],input[type=submit] {
+    	font-size: 14px;
+    	font-weight: 400;
+    	line-height: 1.42;
+    	position: relative;
+    	display: inline-block;
+    	margin-bottom: 0;
+    	padding: 6px 12px;
+    	cursor: pointer;
+    	-webkit-transition: all;
+    	transition: all;
+    	-webkit-transition-timing-function: linear;
+    	transition-timing-function: linear;
+    	-webkit-transition-duration: .2s;
+    	transition-duration: .2s;
+    	text-align: center;
+    	vertical-align: top;
+    	white-space: nowrap;
+    	color: #333;
+    	border: 1px solid #ccc;
+    	border-radius: 3px;
+    	border-top-left-radius: 3px;
+    	border-top-right-radius: 3px;
+    	border-bottom-right-radius: 3px;
+    	border-bottom-left-radius: 3px;
+    	background-color: #fff;
+    	background-clip: padding-box
+    }
+
+
+
+
+
+        .new-min-quan{width:100%;    padding: 0 3% 3% 3%;    margin-bottom: 30px;}
+        .new-min-quan ul{padding: 0;}
+        .new-min-quan ul li{ width:100%; overflow:hidden; height:60px; margin-bottom:10px}
+        .new-min-quan ul li .left{ float:left; width:100%;height:60px; background-color: #f5f5f5;overflow:hidden; border-radius: 10px;position:relative}
+        .new-min-quan ul li .left .rtdian{ position:absolute;right:0px;top:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:8px -8px}
+        .new-min-quan ul li .left .rbdian{ position:absolute;right:0px;bottom:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:8px 8px}
+
+        .new-min-quan ul li .left .s{ position: absolute;  bottom: 0px; width: 23px;       background-color: #E91E63; background-size: 16px 16px; background-position: 8px -8px;  color: #fff; text-align: center; height: 20px; line-height: 21px; border-radius: 0 8px 0 8px; font-size: 13px;}
+
+	  .new-min-quan ul li .left .c{ position: absolute; right: 10px; bottom: 0px; width: 35px; background-color: #E91E63; background-size: 16px 16px; background-position: 8px 8px; color: #fff; text-align: center; height: 20px; line-height: 21px; border-radius: 5px 5px 0 0 ; font-size: 13px;}
+
+        .new-min-quan ul li .right{ float:right; width:20%;height:60px;overflow:hidden;border-top-right-radius:8px;border-bottom-right-radius:8px;position:relative}
+        .new-min-quan ul li .bg1{background:#dedede;}
+     /*an   .new-min-quan ul li .bg0{background-image: linear-gradient(-225deg, #90339e 0%, #44107A 52%, #44107A 100%);} */
+		.new-min-quan ul li .bg0{background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);}
+        .new-min-quan ul li .right .ltdian{ position:absolute;left:0px;top:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:-8px -8px}
+        .new-min-quan ul li .right .lbdian{ position:absolute;left:0px;bottom:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:-8px 8px}
+        .new-min-quan ul li .right .padding{ margin:8.5px; overflow:hidden}
+        .new-min-quan ul li .right .price{color:#fff; font-size:12px; text-align:center;padding-top:10px; padding-bottom:5px;}
+        .new-min-quan ul li .right .price i{ font-style:normal; font-size:24px;}
+        .new-min-quan ul li .right .btn{text-align:center;margin: 0 auto;  color: #fff; font-size: 15px;}
+        .new-min-quan ul li .right .btn button{ padding: 2px 5px 2px 5px; margin: 0px; border: none; /* width: 50px; */ /* height: 23px; */ /* line-height: 23px; */ border-radius: 12px; font-size: 13px;}
+        .new-min-quan ul li .right .btn .use0{background:#FFF;color:#4a127b;}
+        .new-min-quan ul li .right .btn .use1{background:#FFF;color:#999;}
+        .new-min-quan ul li .left .tit{ margin:10px; overflow:hidden}
+        .new-min-quan ul li .left .tit{width:100%; font-size:12px;white-space:nowrap;overflow : hidden;text-overflow: ellipsis; margin-left: 30px;color: #E91E63;}
+        .new-min-quan ul li .left .tit em{width:100%; font-size:12px;white-space:nowrap;overflow : hidden;text-overflow: ellipsis; margin-left: 10px;color: #e2e2e2;}
+        .new-min-quan ul li .left .tit p{ font-size:10px}
+        .new-min-quan ul li .left img{ float:left; width:70px; height:70px; margin-right:5px; margin-left:5px;}
+
+
+
+
+
+		</style>
+    </head>
+    <body>
+
+
+		<div class="mui-content new-min-quan">
+
+            <ul id="User_list">
+<!--
+				  	<li>
+               	<div class="left">
+                     <div class="rtdian"></div><div class="rbdian"></div>
+                    <div class="padding">
+                   	<div class="tit">VIP激活码：<em>5123123123</em><p>5551515 </p></div>
+                  </div>
+                 </div>
+              		<div class="right bg0">
+                    <div class="ltdian"></div><div class="lbdian"></div>
+                   <div class="padding">
+                   	<div class="price">5123123</div>
+                        <div class="btn"><button class="use0"  tapmode onclick="loginOff('+data[i].dianka+')" >去使用</button></div>
+                    </div>
+                    </div>
+                </li>
+
+
+				  	<li>
+               	<div class="left">
+                     <div class="s">VIP</div>
+					 <div class="c">永久</div>
+
+                    <div class="padding">
+                   	<div class="tit">VIP激活码：<em>5123123123</em><p>5551515 </p></div>
+                  </div>
+                 </div>
+              		<div class="right bg1">
+                    <div class="ltdian"></div><div class="lbdian"></div>
+                   <div class="padding">
+                   	<div class="price">5123123</div>
+                        <div class="btn"><button class="use1"  tapmode onclick="loginOff('+data[i].dianka+')" >去使用</button></div>
+                    </div>
+                    </div>
+                </li>
+-->
+
+
+
+
+
+            </ul>
+		</div>
+
+
+    </body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+
+<script type="text/javascript">
+
+    var skip = 0; //页码
+    var datas = new Array(); //页面数据存储的数组
+    //初始化
+    apiready = function() {
+
+      setTimeout(function() {		//延迟执行 防止安全规则拦截
+                 fnInitData();
+      }, 1500);
+
+
+
+
+        fnInitEvent();
+
+
+    };
+
+
+
+
+
+    function fnInitData() {
+
+					var UserId = localStorage.getItem('UserId');
+					var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+					var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+
+            api.ajax({
+				url: localStorage.getItem('api_url') + '/app/api/agent_agentlist',
+                        data:{
+                                values:{
+									skip:skip,
+									key: RyanKey,
+									uid: UserId,
+									time: GetTime
+                                }
+                        },
+                        method:"get",
+        }, function(ret, err) {
+	//	alert(JSON.stringify(ret));
+            if (ret) {
+
+
+
+                if(ret.status == '1'){
+                  var UserList = ret.data;
+
+                    //把请求到的数据遍历添加进页面数据的数组
+                    if (UserList.length > 0) {
+                        for (var i = 0, len = UserList.length; i < len; i++) {
+                            datas.push(UserList[i]);
+                        };
+                        //调用页面渲染的方法
+                        fnInitView(datas);
+                    } else {
+
+                        api.toast({
+                            msg: '没有更多了！',
+                duration: 1000,
+                location : 'middle'
+                        });
+
+                        skip -= 1;
+
+
+
+                    };
+
+                    console.log("第" + (skip + 1).toString() + "页");
+
+
+                }else  if(ret.status == '829'){
+              //    U.toast('请求频繁 请稍后再试');
+
+                }
+
+
+
+
+            } else {
+              //  alert("交互失败");
+
+			         api.toast({
+                        msg:'数据获取失败',
+						duration: 1000,
+						location : 'middle'
+                    })
+            };
+        });
+    };
+
+    /**
+     * 渲染页面布局
+     *
+     * @param {Array} data
+     */
+    function fnInitView(data) {
+
+        //声明容器 并置空
+        var User_list_html = '';
+        //遍历页面数据的数组进行创建标签,插入容器
+        for (var i = 0; i < data.length; i++) {
+          var TimeStampNow = Date.parse(new Date()) / 1000;		//当前时间戳
+        	var s1 =  U.GetFomateTime(data[i].ctime)
+
+          //状态
+  				var isType = data[i].type;
+  				if (isType == 1 ) {
+  					var Use = '永久';
+  					var coss =  'c';
+  				}else{
+  					var Use = '';
+  					var coss =  'rbdian';
+  				}
+
+
+          if(data[i].lasttime >TimeStampNow || data[i].type == 1) {
+                  var  isvips = 's';
+                  var  isvip = 'VIP';
+          } else{
+                  var  isvips = 'rtdian';
+                  var  isvip = '';
+          }
+
+
+
+
+        var phone = data[i].username;
+        var username = phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+
+        User_list_html +='      <li  onclick="GoTeam_search('+'\''+data[i].id+'\''+')"  >'+
+           '         	<div class="left">'+
+           '               <div class="'+isvips+'">'+isvip+'</div>'+
+   					 '  <div class="'+coss+'">'+Use+'</div>'+
+
+               '          <div class="padding">'+
+               '         	<div class="tit">'+username+'<em>'+data[i].id+'</em><p>注册时间：'+s1+' </p></div>'+
+               '        </div>'+
+               '       </div>'+
+                 '    </li>';
+
+        };
+        $api.byId('User_list').innerHTML = User_list_html;
+
+
+    };
+
+    /**
+     * 初始化页面监听事件
+     */
+    function fnInitEvent() {
+        /**上拉加载 */
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 10
+            }
+        }, function(ret, err) {
+            //页码+1，继续请求数据
+            skip += 1;
+            fnInitData();
+        });
+        /** 下拉刷新 */
+    /*    api.setRefreshHeaderInfo({
+            bgColor: '#ccc',
+            textColor: '#fff',
+            textDown: '下拉刷新...',
+            textUp: '松开刷新...'
+        }, function(ret, err) {
+            //重置页码、页面数据，请求数据
+            skip = 1;
+            datas = new Array();
+            fnInitData();
+        });
+
+		*/
+    };
+
+
+
+    function GoTeam_search(id){
+        		U.openWin('agent/', 'team_search_index',{id:id});
+    }
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>

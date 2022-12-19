@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>title</title>
+
+</head>
+<body>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+
+<script type="text/javascript">
+
+	var UICustomPicker;		//音量处理
+	apiready = function(){
+
+		UICustomPicker = api.require('UICustomPicker');
+		
+		
+		
+		
+		
+			UICustomPicker.open({
+				id: 0,
+				rect: {
+					x: 30,
+					y: api.frameHeight / 2 - 170,
+					w: api.frameWidth - 60,
+					h: 400
+				},
+				styles: {
+					bg: 'rgba(255,255,255,0)',	 //（可选项）字符串类型；选中内容区域的背景，支持 rgb，rgba，#，图片路径（本地路径，fs://、widget://）；默认：'rgba(0,0,0,0)'
+					normalColor: '#959595',     //（可选项）字符串类型；未选中内容的字体颜色，支持 rgb，rgba，#；默认：'#959595'
+					normalSize:15,              //（可选项）数字类型；未选中内容字体大小；默认：15
+					selectedColor: '#e91e63',   //（可选项）字符串类型；选中内容的字体颜色，支持 rgb，rgba，#；默认：'#3685dd'
+					disableSelectColor: '#EDEDED',//（可选项）字符串类型；不可选中项的字体颜色，支持 rgb，rgba，#；默认：'#EDEDED'
+					selectedSize: 30,           //（可选项）数字类型；选中内容的字体大小；默认：36.0
+					tagColor: '#e91e63',        //（可选项）字符串类型；内容标签的字体颜色，支持 rgb，rgba，# ；默认：'#3685dd'
+					tagSize: 12,                //（可选项）数字类型；内容标签的字体大小；默认：12
+					tagMarginR:10,              //（可选项）数字类型；标签距离当前picker的右边框的距离；默认：0
+				},
+				data: [{
+					tag: '滑动设置默认播放音量',
+					//scope: '10-100'
+					scope: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+				}],
+				rows: 5,
+				autoHide:true,	//选中内容时，上下选项是否自动隐藏
+				loop:true,	//是否循环滚动。如果内容的取值范围的个数小于rows参数的值，那么无论loop设置为true或是false，均不可循环滚动
+				fixedOn: api.frameName,
+				fixed: true
+			}, function(ret, err) {
+				if (ret) {
+					// alert(JSON.stringify(ret));
+
+					if(ret.eventType == 'selected'){
+					
+						//	alert(JSON.stringify(ret));
+						
+						
+							var player_volume_z = ret.data[0]/100;
+							U.setStorage('default_player_volume',player_volume_z);
+							
+							
+						//	player_volume.innerHTML = ret.data[0];
+						
+							
+							//广播
+							api.sendEvent({
+								name: 'NewSetData',
+								extra: {
+									key: 'play_volume',
+								}
+							});
+							
+							
+							var id = ret.id;
+							
+						
+						api.addEventListener({
+							name:'appidle',
+							extra:{
+								timeout:2            //设置经过多长时间不操作屏幕时触发，单位秒，数字类型
+							}
+						}, function(ret, err){
+
+							
+							//关闭选择器
+							UICustomPicker.close({
+								id: id
+							});
+							
+							
+					 		api.closeFrame();
+					  		
+		
+											
+						});	
+								
+							
+					}
+					
+					
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		
+
+		
+		
+	};
+</script>
+</html>

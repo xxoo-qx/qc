@@ -1,0 +1,237 @@
+
+html,body {
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin:0  0.3rem ;
+    padding: 0;
+}
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.divHeight {
+
+    height: 10px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+   background: #f3f3f3;  /* fallback for old browsers */
+}
+
+.aui-flex-box {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border: none;
+    float: left;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+
+
+.aui-flex-context{
+    background:#e22a17;
+    margin-top: 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.aui-flex-contextok{
+    background:#1b7dff;
+    margin-top: 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.aui-assemble-img{
+    width:60px;
+    height:60px;
+}
+
+
+
+
+.aui-flex-box h2{
+    color:#fff;
+    font-size:0.9rem;
+    font-weight:bold;
+    margin-bottom:0.2rem;
+}
+
+
+
+.aui-flex-box h3{
+    color:#fff;
+    font-weight:normal;
+    font-size:0.8rem;
+}
+
+
+
+
+
+.aui-flex-box h5{
+    color:#808080;
+    font-weight:normal;
+    font-size:0.8rem;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+
+
+
+.aui-flex-add{
+    width:90px;
+    height:90px;
+    margin-right:0.8rem;
+    width: 120px;
+    margin-right: 0.8rem;
+
+    height: 120px;
+    line-height: 120px;
+    border-radius: 5px;
+}
+
+.aui-flex-add img{
+
+    border:none;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+
+
+.aui-flex-box button{
+    display: block;
+    border: 1px solid #1b7dff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.25rem  0.3rem;
+    margin-right: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+    background:#1b7dff;
+    float:right;
+}
+
+.aui-flex-box .aui-btn-line {
+    border: 1px solid #1b7dff;
+    color: #fff;
+}
+
+
+.aui-list-box-all{
+    position: relative;
+    overflow: hidden;
+}
+
+.aui-list-box-all .aui-flex {
+    width: 100%;
+    float: left;
+    text-align:center;
+}
+
+
+.aui-list-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.aui-list-box .aui-flex {
+    width: 50%;
+    float: left;
+    text-align:center;
+}
+
+
+.aui-flex-icon-img{
+    width:22px;
+    height:22px;
+    margin-right:5px;
+    position:absolute;
+    left:23%;
+    margin-left:-11px;
+}
+
+
+.aui-flex-box h4{
+    color: #808080;
+    font-size: 0.65rem;
+    font-weight:normal;
+    margin-bottom:0;
+}
+
+.aui-flex-box{
+    font-size:0.65rem;
+    color:#808080;
+}
+
+
+.aui-flex-box h4{
+    margin:0.2rem 0;
+    color:#808080;
+}
+
+.aui-flex-box h4 em{
+    font-style:normal;
+    color:#666;
+}
+

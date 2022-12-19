@@ -1,0 +1,247 @@
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin: 0;
+    padding: 0;
+	    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+}
+
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 12px;
+    position: relative;
+}
+
+.aui-flex-box {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+.aui-flex-user {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    position: relative;
+}
+
+.aui-flex-vip {
+    width: 25px;
+    height: 25px;
+    display: block;
+    position: absolute;
+    right: -2px;
+    top: 44px;
+    /* border-radius: 60px; */
+    /* border: 1px solid #fff; */
+}
+
+.aui-flex-user img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 100%;
+}
+
+.aui-flex-gradual {
+/*
+    background-image: -webkit-gradient(linear,left top,right top,from(#fe941f),to(#ffbf56));
+    background-image: -webkit-linear-gradient(left,#fe941f,#ffbf56);
+    background-image: -moz-linear-gradient(left,#fe941f,#ffbf56);
+    background-image: linear-gradient(to right,#fe941f,#ffbf56);
+	background-image: linear-gradient(to top, #0c0021 0%, #0f0f19 100%);*/
+    background-color: #1b7dff;
+    padding: 20px 15px;
+}
+
+.aui-flex-vip img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    border-radius: 0;
+}
+
+.aui-flex-box h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+.aui-flex-box p em {
+    color: #835a06;
+    font-size: 0.7rem;
+    border-radius: 20px;
+    border: 1px solid #faca78;
+    padding: 0.05rem 0.35rem;
+    background-image: -webkit-gradient(linear,left top,right top,from(#fdf0b9),to(#f69b18));
+    background-image: -webkit-linear-gradient(left,#fdf0b9,#f69b18);
+    background-image: -moz-linear-gradient(left,#fdf0b9,#f69b18);
+    background-image: linear-gradient(to right,#fdf0b9,#f69b18);
+    background-color: #f69b18;
+    font-style: normal;
+}
+
+.aui-flex-Member {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.aui-tabBar.aui-tabBar-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.aui-tabBar {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #ffffff;
+}
+
+.aui-tabBar-btn {
+    /* background: #fbb20b; */
+    color: #fff;
+    font-size: 0.9rem;
+    border: none;
+    width: 100%;
+    border-radius: 2px;
+    height: 40px;
+    line-height: 40px;
+    background-image: -webkit-gradient(linear,left top,right top,from(#fe941f),to(#ffbf56));
+    background-image: -webkit-linear-gradient(left,#fe941f,#ffbf56);
+    background-image: -moz-linear-gradient(left,#fe941f,#ffbf56);
+    background-image: linear-gradient(to right,#fe941f,#ffbf56);
+    background-color: #ffbf56;
+}
+
+.aui-flex-member-list .aui-flex-box {
+    color: #fff;
+}
+
+.aui-flex-member-list {
+    padding: 15px;
+}
+
+
+
+.aui-flex-member-list ul li {
+   /* border: 1px solid #c6c6c6; */
+    border-radius: 15px;
+    margin-bottom: 15px;
+	background: #1b7dff;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.aui-flex-box h3 {
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.aui-flex-box p {
+    color: #fff;
+    font-size: 0.75rem;
+}
+
+.aui-flex-box-tj {
+    width: 30px;
+    display: inline-block;
+}
+
+.aui-flex-box-tj img {
+    width: 100%;
+}
+
+.aui-price {
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    font-size:0.8rem;
+}
+
+.aui-original-pic {
+    color: #fff;
+    font-size: 0.7rem;
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    text-decoration: line-through;
+}
+
+.aui-original-thj {
+    color: #fff;
+    font-size: 0.86rem;
+    position: absolute;
+    right: 100px;
+    bottom: 23px;
+}
+
+.aui-original-thj i {
+    font-size: 0.7rem;
+    font-style: normal;
+}
+
+
+.aui-flex-border {
+    border-radius: 10px;
+    padding: 0;
+    background: #f4f3f3;
+}
+
+.aui-flex-box input {
+    border: none;
+    background: none;
+    font-size: 0.85rem;
+    padding-left: 1.4rem;
+    width: 100%;
+		outline: 0;
+}
+
+.aui-button-once button {
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+    box-shadow: 0 0 10px #1b7dff;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    border: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+		outline: 0;
+}

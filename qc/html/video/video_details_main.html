@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+	
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css"/>
+	 
+
+	
+	
+</head>
+<body>
+  
+
+
+
+            <section class="aui-scrollView">
+			
+
+						
+			
+                <div class="aui-flex">
+                    <div class="aui-live-img"> 
+                        <img src="../../images/defaultvideoimg.png"  id="video_img" >   
+                        <span class="aui-live-tag" id="video_tag" >更新中</span>
+                    </div>
+                    <div class="aui-flex-box">
+                      <!--  <h2> 影片名字 </h2>-->
+                        <p id="video_desc"><!--主演-->主演</p>
+                        <p id="video_diqu"><!--地区-->地区</p>
+                        <span id="video_niandai"><!--年份--> 155151</span>
+						<p><em id="video_total"><i class="aui-hot-tag"> </i>共有-集   更新至 - 集  </em></p>
+						
+
+                    </div>
+					
+					
+					
+                </div>
+				
+
+				
+			<!--	
+			<div class="aui-footer">
+                <a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-zero">
+                    <span class="aui-tabBar-item-text">播放</span>
+                </a>
+                <a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-one">
+                    <span class="aui-tabBar-item-text">收藏</span
+                </a>
+                <a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-two">
+                    <span class="aui-tabBar-item-text">升级会员</span>
+                </a>
+
+            </div>
+				
+	
+                <div class="divHeight"></div>
+			-->
+			
+			
+			
+
+
+			
+
+			<div class="relative">
+			
+			
+                <div class="aui-flex ">
+                    <div class="aui-flex-box">
+                        <h3 class="aui-live-Price"  id="video_name" > <!--name-->精彩即将开始  </h3>
+                        <h4 class="aui-live-total" id="xuanjiz" > <!--当前播放来源--> 当前播放来源：<a> · · · </a> 如卡顿请切换</h4>
+                    </div>
+                    <div class="aui-live-score ">
+
+                        <h5  onClick="randomSwitchBtn(1)" > 
+						简介  <i><img src="../../images/gd.png" style=" width: 12px;height: 12px;"></i>
+						</h5>
+                        <span id="video_operation_tip"><!--操作提示--> 用吃奶的劲加载中</span>
+                    </div>
+                </div>
+				
+				
+			</div>
+
+
+			
+			<div class="display-block" id="Mobile_player">
+                <div class="aui-flex aui-flex-right" >
+                    <div class="aui-flex-box"  onclick="ButtonEvent('Collection')">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570042594516" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="46390" width="64" height="64"><path d="M958.1312 440.0128a92.4672 92.4672 0 0 0-52.5056-66.5856l-162.1504-72.32-159.9744-202.6496a87.552 87.552 0 0 0-72.704-33.8176 88.2432 88.2432 0 0 0-70.4256 38.3232l-137.1904 198.0672-181.888 73.3696a92.0064 92.0064 0 0 0-55.0656 66.1248 94.6944 94.6944 0 0 0 23.3728 85.376l108.9024 115.2256-2.8416 223.3856a93.5936 93.5936 0 0 0 39.5264 78.1568 87.936 87.936 0 0 0 81.7152 10.3424l194.0736-73.5232 191.9232 72.6272c12.4672 5.6064 24.7552 8.3712 36.5312 8.3712 23.552 0 45.0048-11.0848 61.5936-32.5632a38.4 38.4 0 1 0-60.7488-46.976c-0.9984 1.2544-1.7408 2.0736-2.0224 2.4832a46.08 46.08 0 0 1-6.016-2.2528l-199.1168-75.4176a62.336 62.336 0 0 0-44.2624 0l-199.1424 75.4432a10.752 10.752 0 0 1-10.4704-1.4336 16.5632 16.5632 0 0 1-6.7584-14.2848l2.9184-229.2224a62.208 62.208 0 0 0-17.0752-43.6736l-112.896-119.4496a17.92 17.92 0 0 1-4.1728-16.2304c0.5376-2.56 2.5344-8.7552 8.7808-11.2896l185.8048-74.9568c11.3664-4.5568 21.0432-12.288 28.032-22.4l139.648-201.6a12.032 12.032 0 0 1 9.7024-5.2736 11.9296 11.9296 0 0 1 10.0096 4.6592l162.176 205.44c6.2208 7.8592 14.3616 14.1824 23.552 18.304l165.3504 73.7536c6.1184 2.7392 7.9616 8.9344 8.4736 11.4688 0.5632 2.816 1.28 10.0608-4.2496 15.8976l-114.816 121.5232a62.0288 62.0288 0 0 0-17.0496 44.5696l2.2272 84.0704a38.3232 38.3232 0 0 0 39.424 37.3504 38.4 38.4 0 0 0 37.3504-39.424l-2.0736-78.1568 110.7456-117.2224a94.592 94.592 0 0 0 23.7824-83.6096z" fill="#434250" p-id="46391"></path><path d="M506.24 274.432l-89.4464 138.368-144.4096 59.648a25.6 25.6 0 0 0 19.5584 47.3344l151.7824-62.6944c4.8128-1.9968 8.9088-5.4016 11.7248-9.7536l93.7728-145.0752a25.6 25.6 0 0 0-42.9824-27.8272z" fill="#434250" p-id="46392"></path></svg>
+							</i>
+							收藏
+                       </span>
+                    </div>
+                    <div class="aui-flex-box" onclick="ButtonEvent('Share')">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570085605679" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="29883" width="64" height="64"><path d="M333.824 775.168c-138.24 0-250.88-112.64-250.88-250.88s112.64-250.88 250.88-250.88 250.88 112.64 250.88 250.88-112.64 250.88-250.88 250.88z m0-411.648c-89.088 0-160.768 71.68-160.768 160.768S244.736 686.08 333.824 686.08s160.768-71.68 160.768-160.768-71.68-161.792-160.768-161.792zM820.224 332.8c-76.8 0-140.288-62.464-140.288-140.288 0-76.8 62.464-140.288 140.288-140.288 76.8 0 140.288 62.464 140.288 140.288 0 76.8-62.464 140.288-140.288 140.288z m0-190.464c-27.648 0-50.176 22.528-50.176 50.176s22.528 50.176 50.176 50.176 50.176-22.528 50.176-50.176-22.528-50.176-50.176-50.176zM820.224 997.376c-33.792 0-65.536-12.288-91.136-33.792-28.672-24.576-45.056-58.368-48.128-95.232-3.072-36.864 9.216-73.728 33.792-101.376 24.576-28.672 58.368-45.056 95.232-48.128 76.8-6.144 144.384 52.224 150.528 129.024 6.144 76.8-52.224 144.384-129.024 150.528-4.096-1.024-7.168-1.024-11.264-1.024z m0-190.464h-4.096c-13.312 1.024-25.6 7.168-33.792 17.408-9.216 10.24-13.312 22.528-12.288 35.84 1.024 13.312 7.168 25.6 17.408 33.792 10.24 9.216 22.528 13.312 35.84 12.288 13.312-1.024 25.6-7.168 33.792-17.408 9.216-10.24 13.312-22.528 12.288-35.84-1.024-25.6-22.528-46.08-49.152-46.08z" fill="#434250" p-id="29884"></path><path d="M630.784 380.928c-13.312 0-26.624-5.12-36.864-15.36-9.216-10.24-15.36-22.528-15.36-36.864s5.12-26.624 15.36-36.864c12.288-12.288 29.696-17.408 47.104-14.336 3.072 1.024 6.144 2.048 10.24 3.072 3.072 1.024 6.144 3.072 9.216 5.12 3.072 2.048 5.12 4.096 8.192 6.144 9.216 9.216 15.36 22.528 15.36 36.864 0 3.072 0 7.168-1.024 10.24l-3.072 9.216c-1.024 3.072-3.072 6.144-5.12 9.216-2.048 3.072-4.096 5.12-6.144 8.192-2.048 2.048-5.12 4.096-8.192 6.144-3.072 2.048-6.144 3.072-9.216 5.12-3.072 1.024-6.144 2.048-10.24 3.072-3.072 0-6.144 1.024-10.24 1.024z" fill="#434250" p-id="29885"></path><path d="M631.808 768c-3.072 0-7.168 0-10.24-1.024-3.072-1.024-6.144-2.048-10.24-3.072-3.072-1.024-6.144-3.072-9.216-5.12-3.072-2.048-5.12-4.096-8.192-6.144-2.048-2.048-4.096-5.12-6.144-8.192-2.048-3.072-3.072-6.144-5.12-9.216-1.024-3.072-2.048-6.144-3.072-10.24-1.024-3.072-1.024-7.168-1.024-10.24 0-13.312 5.12-26.624 15.36-36.864 12.288-12.288 29.696-17.408 47.104-14.336 3.072 1.024 6.144 2.048 10.24 3.072 3.072 1.024 6.144 3.072 9.216 5.12 3.072 2.048 5.12 4.096 8.192 6.144 9.216 9.216 15.36 22.528 15.36 36.864 0 3.072 0 7.168-1.024 10.24-1.024 3.072-2.048 6.144-3.072 10.24-1.024 3.072-3.072 6.144-5.12 9.216-2.048 3.072-4.096 5.12-6.144 8.192-2.048 2.048-5.12 4.096-8.192 6.144-3.072 2.048-6.144 3.072-9.216 5.12-3.072 1.024-6.144 2.048-10.24 3.072-3.072 0-6.144 1.024-9.216 1.024z" fill="#434250" p-id="29886"></path></svg>
+							</i>分享
+                       </span>
+                    </div>
+                    <div class="aui-flex-box" onclick="ButtonEvent('Touping')">  
+                       <span class="aui-live-icon-nav">
+                            <i><svg t="1570042262883" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="35759" width="64" height="64"><path d="M170.666667 682.666667h85.333333a42.666667 42.666667 0 0 1 0 85.333333H128a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h768a42.666667 42.666667 0 0 1 42.666667 42.666666v512a42.666667 42.666667 0 0 1-42.666667 42.666667h-128a42.666667 42.666667 0 0 1 0-85.333333h85.333333V256H170.666667v426.666667z m243.498666 158.165333a42.666667 42.666667 0 1 1-60.330666-60.330667l128-128a42.666667 42.666667 0 0 1 60.330666 0l128 128a42.666667 42.666667 0 0 1-60.330666 60.330667L512 742.997333l-97.834667 97.834667z" p-id="35760" fill="#434250"></path></svg>
+							</i>
+							投屏
+                       </span>
+                    </div>
+					
+                    <div class="aui-flex-box"  id="xuanji_first"> 
+                       <span class="aui-live-icon-nav">
+					<span class="aui-live-icon-em"  id="mute_state"> <!--开始追剧吧！--></span>
+                            <i>
+							<svg t="1570086016162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34889" width="64" height="64"><path d="M374.6 636.5c4.4 0 8.5-1.2 12.1-3.3l171.7-100c8-3.6 13.6-11.9 13.6-21.5 0-8.8-4.8-16.6-11.9-20.7l-167.8-97.8c-4.3-5-10.7-8.1-17.7-8.1-13.1 0-23.6 10.7-23.6 23.8v1.3l-0.3 0.2 0.4 199.8c-0.1 0.8-0.1 1.6-0.1 2.5 0 13.2 10.6 23.8 23.6 23.8z" fill="#434250" p-id="34890"></path><path d="M64.7 586.3a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#434250" p-id="34891"></path><path d="M960 398.3c0.1-1.6 0.2-3.2 0.2-4.8 0-35-28.5-63.3-63.6-63.3-11.7 0-22.7 3.2-32.2 8.7l-0.5-0.3-31.5 18.2v-64.7c-0.1-73.1-59.9-133-133.1-133H197.4c-73.1 0-133 59.8-133 133v165.8h0.2c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1h0.2V287c0-35.2 28.8-64 64-64h510.2c35.2 0 64 28.8 64 64v448.9c0 35.2-28.8 64-64 64H193.3c-35.2 0-64-28.8-64-64v-21.4c0-17.7-14.4-32.1-32.2-32.1-17.8 0-32.2 14.4-32.2 32.1h-0.4v15.3c0 73.2 59.9 133 133 133h501.9c73.2 0 133-59.8 133-133v-64.1l33.1 19.1 0.1-0.1c9.2 5.1 19.8 8 31 8 35.1 0 63.6-28.4 63.6-63.3 0-1.6-0.1-3.2-0.2-4.8V398.3z m-63.6 205.1c-0.3 7.8-6.9 14.1-15 14.1-2.7 0-5.3-0.7-7.5-2l-41.5-23.7V430.1l40.9-23.2c2.3-1.5 5.1-2.3 8.1-2.3 8.3 0 15 6.6 15 14.6v184.2z" fill="#434250" p-id="34892"></path></svg>
+							</i> 播放
+                       </span>
+					   
+                    </div>
+                </div>
+			</div>	
+
+
+
+
+
+
+
+
+			<div class="display-none" id="Tv_player">
+                <div class="aui-flex aui-flex-right-tv">
+				
+                    <div class="aui-flex-box"  onclick="ButtonEvent('SearchDevice')">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570043066403" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="53890" width="64" height="64"><path d="M464 496H272c-17.6 0-32-14.4-32-32s14.4-32 32-32h192c17.6 0 32 14.4 32 32s-14.4 32-32 32z" p-id="53891" fill="#434250"></path><path d="M368 720c-17.6 0-32-14.4-32-32V464c0-17.6 14.4-32 32-32s32 14.4 32 32v224c0 17.6-14.4 32-32 32zM656 720c-12.8 0-24-8-28.8-19.2l-96-224c-6.4-16 0-35.2 16-41.6 16-6.4 35.2 0 41.6 17.6L656 608l67.2-155.2c6.4-16 25.6-24 41.6-17.6 16 6.4 24 25.6 16 41.6l-96 224c-4.8 11.2-16 19.2-28.8 19.2z" p-id="53892" fill="#434250"></path><path d="M848 928H176c-52.8 0-96-43.2-96-96V320c0-52.8 43.2-96 96-96h672c52.8 0 96 43.2 96 96v512c0 52.8-43.2 96-96 96zM176 288c-17.6 0-32 14.4-32 32v512c0 17.6 14.4 32 32 32h672c17.6 0 32-14.4 32-32V320c0-17.6-14.4-32-32-32H176z" p-id="53893" fill="#434250"></path><path d="M448 288c-8 0-16-3.2-22.4-9.6l-160-160c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l160 160c12.8 12.8 12.8 32 0 44.8-6.4 6.4-14.4 9.6-22.4 9.6zM576 288c-8 0-16-3.2-22.4-9.6-12.8-12.8-12.8-32 0-44.8l160-160c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8l-160 160c-6.4 6.4-14.4 9.6-22.4 9.6z" p-id="53894" fill="#434250"></path></svg>
+							</i>
+							搜索设备
+                       </span>
+                    </div>
+
+                <!--     <div class="aui-flex-box"  onclick="ButtonEvent('StartTouping')"> --> 
+					<div class="aui-flex-box"  id="xuanjitouping_first"> 
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570086202081" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="36599" width="64" height="64"><path d="M426.666667 449.422222c-11.377778 11.377778-22.755556 22.755556-22.755556 45.511111v182.044445c0 17.066667 11.377778 34.133333 22.755556 39.822222 5.688889 5.688889 17.066667 5.688889 22.755555 5.688889 11.377778 0 17.066667 0 28.444445-5.688889l136.533333-91.022222c11.377778-11.377778 22.755556-22.755556 22.755556-39.822222 0-17.066667-5.688889-28.444444-22.755556-39.822223L477.866667 455.111111c-17.066667-11.377778-34.133333-11.377778-51.2-5.688889z m34.133333 204.8V512l108.088889 73.955556-108.088889 68.266666z" fill="#434250" p-id="36600"></path><path d="M910.222222 227.555556h-244.622222l62.577778-62.577778c11.377778-11.377778 11.377778-28.444444 0-39.822222s-28.444444-11.377778-39.822222 0L585.955556 227.555556H438.044444L335.644444 119.466667c-11.377778-5.688889-34.133333-5.688889-45.511111 0s-5.688889 34.133333 0 45.511111L358.4 227.555556H113.777778c-28.444444 0-56.888889 28.444444-56.888889 56.888888v568.888889c0 28.444444 28.444444 56.888889 56.888889 56.888889h796.444444c28.444444 0 56.888889-28.444444 56.888889-56.888889V284.444444c0-28.444444-28.444444-56.888889-56.888889-56.888888z m0 625.777777H113.777778V284.444444h796.444444v568.888889z" fill="#434250" p-id="36601"></path></svg>
+							</i>
+							
+							
+							开始投屏
+                       </span>
+                    </div>
+					
+                    <div class="aui-flex-box"  onclick="ButtonEvent('CloseTouping')"> 
+					
+					<span class="aui-live-icon-em"  id="mute_state_touping" > 大屏就是爽<!---静音状态--></span>
+					
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570086532452" class="icon" viewBox="0 0 1027 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="38248" width="64" height="64"><path d="M983.838803 313.362669A511.938806 511.938806 0 1 0 1023.96018 512.025787a508.619448 508.619448 0 0 0-40.121377-198.663118z m-58.751651 372.475902A448.143324 448.143324 0 1 1 960.164699 512.025787a445.132975 445.132975 0 0 1-35.077547 173.812784z" p-id="38249" fill="#434250"></path><path d="M609.289548 346.267183a31.897741 31.897741 0 1 0-31.897741 55.222964 127.590964 127.590964 0 1 1-127.590964 0 31.897741 31.897741 0 1 0-31.897741-55.222964A191.326637 191.326637 0 0 0 322.20988 512.025787c0 105.531682 85.854763 191.386446 191.386445 191.386446s191.386446-85.854763 191.386446-191.386446a191.326637 191.326637 0 0 0-95.693223-165.758604z" p-id="38250" fill="#434250"></path><path d="M513.596325 512.025787a31.897741 31.897741 0 0 0 31.897741-31.897741V288.741601a31.897741 31.897741 0 0 0-63.795482 0v191.386445a31.897741 31.897741 0 0 0 31.897741 31.897741z" p-id="38251" fill="#434250"></path></svg>
+							</i> 
+							停止投屏
+                       </span>
+					   
+                    </div>
+                </div>
+				
+				
+	
+                <div class="aui-live-touping-black"   id="Touping_tip" >
+                <span style="font-size:10px;"><!--投屏提示信息-->请先搜索设备并连接</span>
+				</div>
+
+
+				<div class="deviceListmaincate_nav display-none" id="Touping_deviceList"><!--设备列表-->
+					<div  id="deviceList">
+						<a href="#"> · · · </a>
+						<a href="#"> · · · </a>
+						<a href="#"> · · · </a>
+					</div>
+				</div>
+				
+				
+				
+					<!--		
+
+				<div style="bottom:3rem;padding:1rem;">
+					<div class="aui-range" style="display:block;width:300px;">
+						进度 <input type="range" class="aui-range" value="0" max="100" min="1" step="1" id="rangeSeek" style="width:100%"/>
+					</div>
+				</div>
+
+							-->
+
+
+				<div class="display-none"  id="tv_control_Progress_bar">
+					<div style="bottom: 30px;padding: 30px 15px 10px;">
+						<div class="aui-range" style="display:block;" >
+							 <input type="range" class="aui-range" value="1" max="1" min="1" step="1" id="rangeSeek" style="width:100%"/>
+							 <div class="aui-range-tip-beat" style="right: 10px;" id="aui_range_tip_beat">Beat<!--测试提示--></div>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+			</div>
+
+
+
+
+
+
+
+
+<div class="maincate_nav" id="maincate_nav">
+<div  id="xuanji">
+		<a href="#"> · · · </a>
+		<a href="#"> · · · </a>
+		<a href="#"> · · · </a>
+	</div>
+</div>
+
+
+
+
+                <div class="aui-live-header-black"   id="video_tip" >
+                <span style="font-size:10px;"><!--提示信息--></span>
+				</div>
+
+
+<div id="maincate" class="maincate display-block">
+	<div  id="xuanjix">
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+	</div>	
+</div>
+  											 
+
+<div id="maincate_touping_list" class="deviceListmaincate display-none">
+	<div  id="xuanjitouping">
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+		<a href="#"> · </a>
+	</div>	
+</div>
+  
+  
+
+                <div class="aui-live-header display-none" id="video_dianji_jianjie" >
+                    <p id="video_jianjie"><!--简介--></p>
+				</div>
+ 
+			 
+  
+<!--
+
+
+                <div class="aui-flex  b-line">
+                    <div class="aui-live-coupon">
+                        <img src="../../images/icon-live-001.png">
+                    </div>
+                    <div class="aui-flex-box">
+                        <h6>可用一张5元新人优惠券</h6>
+                    </div>
+                    <div  onClick="evaluation()"  class="aui-live-arrow">
+                        立即领取
+                    </div>
+                </div>
+
+
+
+-->
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/vue.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/aui_tab.js"></script>
+<script type="text/javascript" src="../../script/aui_range.js"></script>
+
+ 
+<script type="text/javascript">
+    var touping;
+    var deviceIndex;
+	var moviePlayer;
+	var acc5Util;		//音量处理
+	
+	var LoadingState = 0;
+
+	var Out_Time = 10000;
+	var Second_Out_Time = Out_Time/1000;
+	
+	/*
+	var timer = setInterval(function() {
+			doItPerSecond();
+	}, 1000)
+	
+*/
+
+	//定时检测音量
+	var interval = setInterval(function(){
+      VolumeInspect(1);
+	},3000);
+	 
+			
+	PlayerProcessingLogic= '';			//播放机处理状态
+	DeviceConnectionStatus  = '';		//设备连接状态
+	ToupingProgressBarTips = 1;			//投屏播放进度操作提示处理状态
+							
+
+
+apiready = function(){
+
+    api.parseTapmode();
+    touping = api.require('touping');
+    moviePlayer = api.require('moviePlayer');
+	acc5Util=api.require('acc5Util');
+
+
+
+//	VolumeInspect(1);		//音量检测
+
+
+
+				//检测加载
+			var interval = setInterval(function(){
+				
+				if(LoadingState === 1){    
+					clearInterval(interval);  		//清除定时器  
+					
+					//加载完毕
+
+
+				}else{
+				
+						GetVideoDetails();		//详情
+						GetVideoSource();		//来源
+				}
+			
+			},1000);
+
+
+
+
+
+				 
+	
+
+	 showTips('影片中的文字广告请勿相信，谨防上当受骗！',5000,1,'点击下方列表可选集播放',3000,1,'影片中的文字广告请勿相信，谨防上当受骗！',3000,1);			//警告 并 关闭
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 执行警告',5000,'','',3000,1,'警告后驻留',3000,1);			//不关闭 只警告
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 长期驻留',5000,'','',3000,'','',3000,1);			//不关闭 不警告
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 直接关闭 ',5000,1,'',3000,'','',3000,1);			//只关闭 不警告
+
+	// showTips('','',1,'关闭后显示',3000,1,'警告后关闭','',1);			//警告 并 关闭
+
+
+
+
+
+
+	/****事件检测****/
+
+
+
+	api.addEventListener({
+		name:'longpress'
+	}, function(ret, err){        
+
+			api.toast({
+				msg: '长按了页面',
+				duration: 2000,
+				location : 'middle'
+			});   
+
+
+			var obj = document.getElementById("video_dianji_jianjie");
+			obj.setAttribute("class", 'aui-live-header  b-line display-none');					
+
+			video_operation_tip.innerHTML = '点击查看';
+
+
+
+	});
+
+
+
+	api.addEventListener({
+		name:'swipeup'
+	}, function(ret, err){        
+			api.toast({
+				msg: '向上轻扫',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+	});
+
+
+
+	api.addEventListener({
+		name:'swiperight'
+	}, function(ret, err){       
+			api.toast({
+				msg: '向右轻扫   play',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+			//获取当前播放位置该方法需要在视频准备结束后调用
+
+			moviePlayer.getCurrentPosition(function(ret){
+
+
+			//	alert(JSON.stringify(ret));
+				var seekto =  ret.position + 500000
+
+			api.toast({
+				msg: '快进'+ seekto,
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+
+				moviePlayer.seekTo({
+					position:seekto
+				});
+
+
+
+			});
+
+
+
+
+	});
+
+
+	api.addEventListener({
+		name:'swipeleft'
+	}, function(ret, err){ 
+			api.toast({
+				msg: '向左轻扫 pause',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+		//	var moviePlayer = api.require('moviePlayer');
+		//	moviePlayer.pause();
+
+
+	});
+
+
+	api.addEventListener({
+		name:'swipedown'
+	}, function(ret, err){       
+			api.toast({
+				msg: '向下轻扫',
+				duration: 2000,
+				location : 'middle'
+			}); 
+	});
+
+
+	api.addEventListener({
+		name:'shake'
+	}, function(ret, err){        
+
+			api.toast({
+				msg: '触发了摇一摇事件',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+
+	});
+
+
+
+	/****事件检测 moviePlayer 播放器****/
+
+
+	api.addEventListener({
+		name:'tap'
+	}, function(ret, err){    
+
+
+
+
+		moviePlayer.isPlaying(function(ret){
+			if(ret.state == true){
+
+					api.toast({
+					msg: '点击了页面 状态播放 操作暂停',
+					duration: 2000,
+					location : 'middle'
+					});
+
+
+				//	moviePlayer.pause();				
+
+			}else{
+					api.toast({
+					msg: '点击了页面 状态暂停 操作播放',
+					duration: 2000,
+					location : 'middle'
+					});
+
+
+
+					moviePlayer.play();	
+
+			}
+		});	
+
+		
+	});
+
+
+
+	api.addEventListener({
+		name:'clickGesture'
+	}, function(ret, err){        
+			api.toast({
+				msg: '点击播放器事件(单击手势)',
+				duration: 2000,
+				location : 'middle'
+			}); 
+			
+	});
+
+
+
+	//moviePlayer  播放器模块
+	moviePlayer.addEventListener(function(ret){
+
+
+		if(ret && ret.eventType == 'back'){
+
+			api.toast({
+				msg: '点击返回',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+
+			U.closeWin();
+
+
+		}
+
+
+
+		if(ret && ret.eventType == 'error'){
+
+/*
+			api.toast({
+				msg: '播放器异常',
+				duration: 2000,
+				location : 'middle'
+			}); 
+			*/
+			
+			showTips('','','','',2000,1,'该资源可能暂时无法播放 请更换其他资源',3000,1);			//不关闭 只警告	
+
+		  }	
+
+
+
+		//如果视频资源已经加载完毕
+		if(ret && ret.eventType == 'prepared'){
+
+					// 获取视频总时长
+					moviePlayer.getDuration(function(ret){
+						// alert(JSON.stringify(ret));
+						
+						var video_play_max_time = ret.duration / 1000;
+						
+						//如果设置显示进度控制条
+						if(localStorage.getItem('Progress_Control_TV_Screening') == 1){
+							//视频加载完毕获取到长度后显示进度控制条
+							var obj = document.getElementById("tv_control_Progress_bar");
+								obj.setAttribute("class", 'display-block');
+
+						}	
+						
+						//设置视频总时长
+						var obj = document.getElementById("rangeSeek");
+							obj.setAttribute("max", video_play_max_time);
+
+
+						//显示BEAT 提示信息
+						Recycling('AuiRangeTipBeat()',5000);
+
+						
+					});	
+
+
+					// 获取当前播放位置
+					moviePlayer.getCurrentPosition(function(ret){
+
+/*
+					//	alert(JSON.stringify(ret));
+						var seekto =  ret.position + 500000
+
+					api.toast({
+						msg: '快进'+ seekto,
+						duration: 2000,
+						location : 'middle'
+					}); 
+*/
+
+
+						var obj = document.getElementById("rangeSeek");
+							obj.setAttribute("value", ret.position);
+
+
+					});
+		}		
+
+
+
+		if(ret && ret.eventType == 'complete'){
+
+			api.toast({
+				msg: '播放器播放完成',
+				duration: 2000,
+				location : 'middle'
+			}); 
+	  }
+
+		if(ret && ret.eventType == 'pause'){
+
+			api.toast({
+				msg: '点击暂停播放按钮',
+				duration: 2000,
+				location : 'middle'
+			}); 
+	  }
+
+		if(ret && ret.eventType == 'play'){
+
+			api.toast({
+				msg: '点击播放按钮',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+	  }
+
+		if(ret && ret.eventType == 'landscape'){
+
+			api.toast({
+				msg: '切换至横屏事件',
+				duration: 2000,
+				location : 'middle'
+			}); 
+		  }	
+
+		if(ret && ret.eventType == 'portrait'){
+
+			api.toast({
+				msg: '切换至竖屏事件',
+				duration: 2000,
+				location : 'middle'
+			}); 
+
+		  }
+
+	});
+
+
+
+}
+
+//加载结束
+
+
+
+
+
+
+//投屏控制条操作提示
+	function AuiRangeTipBeat(){
+	
+			//投屏播放进度操作提示处理状态 如果值为1
+		if(ToupingProgressBarTips == 1 ){
+		
+				aui_range_tip_beat.innerHTML = '投屏进度设置功能为测试版';
+				
+				// 处理状态 值改为2 
+				 ToupingProgressBarTips = 2;
+			 
+		//播放机处理状态 如果值为2
+		}else if(ToupingProgressBarTips == 2 ){
+		
+				aui_range_tip_beat.innerHTML = '可能有部分接收设备不支持';
+
+				// 处理状态 值改为3 
+				 ToupingProgressBarTips = 3;
+				 
+		//播放机处理状态 如果值为3
+		}else if(ToupingProgressBarTips == 3 ){
+		
+				aui_range_tip_beat.innerHTML = '该功能可以在设置中关闭';
+
+				// 处理状态 值改为1 
+				 ToupingProgressBarTips = 1;
+		}
+	
+	}
+	
+
+
+
+
+
+
+
+//选集
+	function GetVideoDiversity(id){
+
+
+
+
+			var type = id;
+			
+			
+
+								api.ajax({
+								url: localStorage.getItem('api_url')+'/app/Apivideo/bofang',
+								method: 'get',
+									data: {
+										values: {
+											name: api.pageParam.coverpage
+											}
+										}
+									},function(ret, err){
+									
+		
+									
+										if (ret) {
+
+									LoadingState = 1;
+
+			
+			var navtjidx = $api.byId('xuanjix');
+			var htmlx='';
+			
+			var navtjidz = $api.byId('xuanjiz');
+			var htmlz='';
+			
+			var navtjid_first = $api.byId('xuanji_first');
+			var html_first='';
+			
+			
+			var navtjidtouping = $api.byId('xuanjitouping');
+			var htmltouping='';
+			
+			var navtjidtouping_first = $api.byId('xuanjitouping_first');
+			var htmltouping_first='';
+			
+			
+			var video_source = ret.arr;			//来源
+		 
+			//	alert(video_source.length); 
+	
+				
+			for(i = type; i < video_source.length; i++){
+			item = video_source[i];
+			
+			var source_name = item.name;
+
+		//	htmlx += source_name+"：";
+			htmlz +='当前播放来源：<a>  <svg t="1570084301962" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13198" width="64" height="64"><path d="M1022.32236 398.1c-7.9-39.5-47.8-88.8-191.4-101.4C761.52236 192.1 642.92236 123 508.42236 123c-189.2 0-346.9 136.8-380.3 316.8C33.22236 491.1-9.37764 545.3 1.72236 601.1c10.6 53.4 68.6 87 169.1 99.2C237.22236 818.7 363.52236 899 508.42236 899c196.4 0 358.7-147.4 383.5-337.6 84.8-45.1 142.9-100.3 130.4-163.3zM508.42236 162.7C700.12236 162.7 856.02236 318.9 856.02236 511c0 8.9-0.7 17.5-1.3 26.2-79.4 39.3-189.5 75.4-315.3 100.5-95.2 19-192.5 29.5-274 29.5-24.5 0-47.3-1-68.4-2.8-22.8-46.4-36-98.3-36-153.4-0.1-192.1 155.8-348.3 347.4-348.3zM39.32236 593.6c-7.8-39.3 35-77.1 83.2-106.4-0.5 7.9-1.2 15.7-1.2 23.8 0 52.2 10.5 101.9 29.2 147.4-65.2-11.6-105.1-34-111.2-64.8z m469.1 265.6c-120.3 0-226.4-61.6-288.8-154.8 14.6 0.7 29.7 1.2 45.7 1.2 85.2 0 182.5-10.5 281.5-30.2 89.3-17.8 206-49.5 301.7-92.7-33.1 157.7-173 276.5-340.1 276.5z m387-344c0-1.4 0.2-2.8 0.2-4.2 0-62.3-15.1-121-41.2-173.2 77.7 10.3 123.6 34 130.3 67.8 6.7 33.9-27 72.5-89.3 109.6z" fill="#666" p-id="13199"></path><path d="M504.52236 285.4v-39.7c-37.3 0-73.3 7.9-106.9 23.5l16.7 36c28.3-13.2 58.6-19.8 90.2-19.8zM694.82236 379.2l31.9-23.6C688.62236 304 633.82236 266.5 572.32236 250L562.02236 288.4c52.9 14.2 100 46.4 132.8 90.8z" fill="#666" p-id="13200"></path></svg> '+source_name+' </a> 如卡顿请切换';
+	
+	
+
+				var diversity = item[0];		//分集
+				
+				
+				
+				
+			var diversity_first = diversity[1]; // 获取第一级
+
+				var jishu_first = diversity_first.shuzi ;
+				var num_first = /-?[1-9]\d*/.exec(jishu_first);
+	
+				html_first +='<span class="aui-live-icon-em"  id="mute_state" >开始追剧吧！</span><span  onclick="goVideo('+'\''+diversity_first.lianjie+'\''+','+num_first+')"  class="aui-live-icon-nav"><i><svg t="1570086016162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34889" width="64" height="64"><path d="M374.6 636.5c4.4 0 8.5-1.2 12.1-3.3l171.7-100c8-3.6 13.6-11.9 13.6-21.5 0-8.8-4.8-16.6-11.9-20.7l-167.8-97.8c-4.3-5-10.7-8.1-17.7-8.1-13.1 0-23.6 10.7-23.6 23.8v1.3l-0.3 0.2 0.4 199.8c-0.1 0.8-0.1 1.6-0.1 2.5 0 13.2 10.6 23.8 23.6 23.8z" fill="#434250" p-id="34890"></path><path d="M64.7 586.3a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#434250" p-id="34891"></path><path d="M960 398.3c0.1-1.6 0.2-3.2 0.2-4.8 0-35-28.5-63.3-63.6-63.3-11.7 0-22.7 3.2-32.2 8.7l-0.5-0.3-31.5 18.2v-64.7c-0.1-73.1-59.9-133-133.1-133H197.4c-73.1 0-133 59.8-133 133v165.8h0.2c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1h0.2V287c0-35.2 28.8-64 64-64h510.2c35.2 0 64 28.8 64 64v448.9c0 35.2-28.8 64-64 64H193.3c-35.2 0-64-28.8-64-64v-21.4c0-17.7-14.4-32.1-32.2-32.1-17.8 0-32.2 14.4-32.2 32.1h-0.4v15.3c0 73.2 59.9 133 133 133h501.9c73.2 0 133-59.8 133-133v-64.1l33.1 19.1 0.1-0.1c9.2 5.1 19.8 8 31 8 35.1 0 63.6-28.4 63.6-63.3 0-1.6-0.1-3.2-0.2-4.8V398.3z m-63.6 205.1c-0.3 7.8-6.9 14.1-15 14.1-2.7 0-5.3-0.7-7.5-2l-41.5-23.7V430.1l40.9-23.2c2.3-1.5 5.1-2.3 8.1-2.3 8.3 0 15 6.6 15 14.6v184.2z" fill="#434250" p-id="34892"></path></svg></i> 播放</span>';
+				htmltouping_first +='<span  onclick="goTouping('+'\''+diversity_first.lianjie+'\''+','+num_first+')"   class="aui-live-icon-nav"><i><svg t="1570086202081" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="36599" width="64" height="64"><path d="M426.666667 449.422222c-11.377778 11.377778-22.755556 22.755556-22.755556 45.511111v182.044445c0 17.066667 11.377778 34.133333 22.755556 39.822222 5.688889 5.688889 17.066667 5.688889 22.755555 5.688889 11.377778 0 17.066667 0 28.444445-5.688889l136.533333-91.022222c11.377778-11.377778 22.755556-22.755556 22.755556-39.822222 0-17.066667-5.688889-28.444444-22.755556-39.822223L477.866667 455.111111c-17.066667-11.377778-34.133333-11.377778-51.2-5.688889z m34.133333 204.8V512l108.088889 73.955556-108.088889 68.266666z" fill="#434250" p-id="36600"></path><path d="M910.222222 227.555556h-244.622222l62.577778-62.577778c11.377778-11.377778 11.377778-28.444444 0-39.822222s-28.444444-11.377778-39.822222 0L585.955556 227.555556H438.044444L335.644444 119.466667c-11.377778-5.688889-34.133333-5.688889-45.511111 0s-5.688889 34.133333 0 45.511111L358.4 227.555556H113.777778c-28.444444 0-56.888889 28.444444-56.888889 56.888888v568.888889c0 28.444444 28.444444 56.888889 56.888889 56.888889h796.444444c28.444444 0 56.888889-28.444444 56.888889-56.888889V284.444444c0-28.444444-28.444444-56.888889-56.888889-56.888888z m0 625.777777H113.777778V284.444444h796.444444v568.888889z" fill="#434250" p-id="36601"></path></svg></i>开始投屏</span>';
+				
+	                       
+ 
+				
+				for(i in diversity){ 
+	
+				items = diversity[i];
+		
+				var jishu = items.shuzi ;
+				var num = /-?[1-9]\d*/.exec(jishu);
+				
+			htmlx +='<a id="di'+num+'ji" onclick="goVideo('+'\''+items.lianjie+'\''+','+num+')" >'+num+' </a>';
+			
+			htmltouping +='<a id="di'+num+'ji" onclick="goTouping('+'\''+items.lianjie+'\''+','+num+')" >'+num+' </a>';
+			
+		//	htmlx +="<a onclick=\"goVideo('"+items.lianjie+"')\">"+i+"  - "+num+" </a>";
+	
+				}
+				
+			}
+			
+			
+			navtjidx.innerHTML = htmlx;
+
+			navtjidz.innerHTML = htmlz;
+
+			navtjid_first.innerHTML = html_first;
+
+			navtjidtouping.innerHTML = htmltouping;
+			
+			navtjidtouping_first.innerHTML = htmltouping_first;
+
+
+	/*		var video_source = ret.arr;			//来源
+			
+			alert( JSON.stringify( video_source ) ); 
+			
+			for (i in video_source) {
+			
+			item = video_source[i];
+			
+			
+			  x += "<h2>" + item.name + "</h2>";
+			  
+			  
+			  var diversity = item[0];		//分集
+			  for (j in diversity) {
+			  items = diversity[i];
+				x += items.shuzi + "<br>";
+			  }
+			}
+			document.getElementById("xuanji").innerHTML = x;
+			
+*/
+			
+										} else {
+
+													api.toast({
+														msg: '网络连接异常',
+														duration: 5000,
+														location : 'middle'
+													});
+
+										}
+									});
+
+
+//	alert('goVideo'+id+'');
+
+
+
+}
+
+
+
+
+
+
+
+
+
+	function GetVideoSource(){
+
+								api.ajax({
+								url: localStorage.getItem('api_url')+'/app/Apivideo/bofang',
+								method: 'get',
+									data: {
+										values: {
+											name: api.pageParam.coverpage
+											}
+										}
+									},function(ret, err){
+									
+		
+									
+										if (ret) {
+									
+
+			var navtjid = $api.byId('xuanji');
+			//var navtjidx = $api.byId('xuanjix');
+			var html='';
+			//var htmlx='';
+			var video_source = ret.arr;			//来源
+				
+			html +='来源：';  
+			for(i = 0; i < video_source.length; i++){
+			item = video_source[i];
+
+			html +='  <a  id="'+item.name+'"  onclick="GetVideoDiversity(\''+ i +'\')" > <svg t="1570084301962" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13198" width="64" height="64"><path d="M1022.32236 398.1c-7.9-39.5-47.8-88.8-191.4-101.4C761.52236 192.1 642.92236 123 508.42236 123c-189.2 0-346.9 136.8-380.3 316.8C33.22236 491.1-9.37764 545.3 1.72236 601.1c10.6 53.4 68.6 87 169.1 99.2C237.22236 818.7 363.52236 899 508.42236 899c196.4 0 358.7-147.4 383.5-337.6 84.8-45.1 142.9-100.3 130.4-163.3zM508.42236 162.7C700.12236 162.7 856.02236 318.9 856.02236 511c0 8.9-0.7 17.5-1.3 26.2-79.4 39.3-189.5 75.4-315.3 100.5-95.2 19-192.5 29.5-274 29.5-24.5 0-47.3-1-68.4-2.8-22.8-46.4-36-98.3-36-153.4-0.1-192.1 155.8-348.3 347.4-348.3zM39.32236 593.6c-7.8-39.3 35-77.1 83.2-106.4-0.5 7.9-1.2 15.7-1.2 23.8 0 52.2 10.5 101.9 29.2 147.4-65.2-11.6-105.1-34-111.2-64.8z m469.1 265.6c-120.3 0-226.4-61.6-288.8-154.8 14.6 0.7 29.7 1.2 45.7 1.2 85.2 0 182.5-10.5 281.5-30.2 89.3-17.8 206-49.5 301.7-92.7-33.1 157.7-173 276.5-340.1 276.5z m387-344c0-1.4 0.2-2.8 0.2-4.2 0-62.3-15.1-121-41.2-173.2 77.7 10.3 123.6 34 130.3 67.8 6.7 33.9-27 72.5-89.3 109.6z" fill="#222222" p-id="13199"></path><path d="M504.52236 285.4v-39.7c-37.3 0-73.3 7.9-106.9 23.5l16.7 36c28.3-13.2 58.6-19.8 90.2-19.8zM694.82236 379.2l31.9-23.6C688.62236 304 633.82236 266.5 572.32236 250L562.02236 288.4c52.9 14.2 100 46.4 132.8 90.8z" fill="#222222" p-id="13200"></path></svg> ' + item.name + '</a>';  
+
+				
+			//	var diversity = item[0];		//分集
+			//	for(i in diversity){
+			//	items = diversity[i];
+				
+			//		htmlx +="<li class='xuanli'><button style=';color:#000;font-size:16px;' onclick=\"goVideo('"+items.lianjie+"')\">"+items.shuzi+"</button></li>";
+
+			//	}
+				
+
+			}
+			
+			
+			navtjid.innerHTML = html;
+		//	alert(html);
+		//	navtjidx.innerHTML = htmlx;
+
+
+
+GetVideoDiversity(0)     //默认
+
+	
+
+
+
+										} else {
+
+													api.toast({
+														msg: '网络连接异常',
+														duration: 5000,
+														location : 'middle'
+													});
+
+										}
+									});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+	function GetVideoDetails(){
+
+								api.ajax({
+								url: localStorage.getItem('api_url')+'/app/Apivideo/bofang',
+								method: 'get',
+									data: {
+										values: {
+											name: api.pageParam.coverpage
+											}
+										}
+									},function(ret, err){
+									
+		
+									
+										if (ret) {
+									
+										  video_name.innerHTML = ret.name;
+										  video_diqu.innerHTML = '地区：'+ret.diqu;
+										  video_niandai.innerHTML = '年份：'+ret.niandai;
+										  video_desc.innerHTML = api.pageParam.desc;
+										  
+										//  video_tag.innerHTML = api.pageParam.tag ;
+										  if(api.pageParam.upinfo == api.pageParam.total){
+										  
+										  video_tag.innerHTML = '已完结' ;
+										  }else{
+										  video_tag.innerHTML = '更新中' ;
+										  }
+										  
+										//  video_upinfo.innerHTML = '<i class="aui-hot-tag"></i>已更新至'+api.pageParam.upinfo +'集' ;
+										  video_total.innerHTML = '<i class="aui-hot-tag"> </i> 共'+api.pageParam.total +'集   更新至 <span style="color: #ffeb3b; font-size: 1rem;font-weight: bold;">'+ api.pageParam.upinfo +'</span> 集 ';
+										  
+										  var obj = document.getElementById("video_img");
+										  obj.setAttribute("src", api.pageParam.img);
+										  
+										 
+										  
+										  video_jianjie.innerHTML = ret.name+'内容简介：'+ret.jianjie;
+									//	  video_operation_tip.innerHTML = '提示'+Second_Out_Time+'秒后关闭';
+									//	  video_title.innerHTML = ret.name + ' 简介';
+									
+
+
+			
+										} else {
+
+													api.toast({
+														msg: '网络连接异常',
+														duration: 5000,
+														location : 'middle'
+													});
+
+										}
+									});
+
+
+
+}
+
+
+
+
+    // 随意切换按钮	
+    function changeNumberStatus(id) {
+
+		//	alert(localStorage.getItem('video_play_old_num')); 
+			var obj = document.getElementById(id);
+			obj.setAttribute("style", 'background-color: #7865ea;color: #fff;');
+			
+			if(id != localStorage.getItem('video_play_old_num')){
+	
+				var obj = document.getElementById(localStorage.getItem('video_play_old_num'));
+				obj.setAttribute("style", 'background-color: #1c1838;');
+			}
+			
+			U.setStorage('video_play_old_num',id);   // 上集 
+			
+   
+    }
+
+
+
+
+
+    // 随意切换按钮
+    function randomSwitchBtn() {
+
+		
+		var obj = document.getElementById("video_dianji_jianjie");
+		obj.setAttribute("class", 'aui-live-header display-block');
+
+
+		video_operation_tip.innerHTML = '长按屏幕可以关闭简介';
+
+/*	
+		api.addEventListener({
+			name:'appidle',
+			extra:{
+				timeout:5            //设置经过多长时间不操作屏幕时触发，单位秒，数字类型
+			}
+		}, function(ret, err){
+		
+		
+				var obj = document.getElementById("video_dianji_jianjie");
+				obj.setAttribute("class", 'aui-live-header display-none');
+
+		
+			alert('已闲置');
+			
+			
+			
+		});
+*/
+
+		
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+/*
+
+	    // 打开提示
+    function showTips() {
+	
+	//	var obj = document.getElementById("video_tip");
+	//	obj.setAttribute("class", 'aui-live-header-black display-block');
+
+		video_tip.innerHTML = '<span style="font-size:10px;">影片中的文字广告请勿相信，谨防上当受骗！</span>';
+		
+		//setTimeout("closeTips()",30000);  //延迟执行 关闭提示
+		setTimeout("warningTips()",Out_Time);  //延迟执行 提示信息
+		
+    }		
+	
+	
+	    // 关闭提示
+    function closeTips() {
+	
+	
+		var obj = document.getElementById("video_tip");
+		obj.setAttribute("class", 'aui-live-header-close');
+										
+		video_tip.innerHTML = '<span style="font-size:10px;">关闭了提示</span>';
+		
+		video_operation_tip.innerHTML = '点击查看';
+
+    }		    
+	
+	// 提示信息消失警告
+    function warningTips() {
+	
+	
+		var obj = document.getElementById("video_tip");
+		obj.setAttribute("class", 'aui-live-header-warning');
+										
+		video_tip.innerHTML = '<span style="font-size:10px;">警告提示</span>';
+		
+		setTimeout("closeTips()",3000);  //延迟执行 关闭提示
+		
+		
+		video_operation_tip.innerHTML = '提示即将关闭';
+
+    }								
+						
+*/
+
+
+
+
+
+// 准备投屏	 url传入地址    num 传入集数	
+    function goTouping(url,num){
+		
+		//如果 投屏设备连接状态 已经连接  
+		if( DeviceConnectionStatus  == 1 ){
+				//进行提示
+				showTips('<svg t="1570042262883" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="35759" width="64" height="64"><path d="M170.666667 682.666667h85.333333a42.666667 42.666667 0 0 1 0 85.333333H128a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h768a42.666667 42.666667 0 0 1 42.666667 42.666666v512a42.666667 42.666667 0 0 1-42.666667 42.666667h-128a42.666667 42.666667 0 0 1 0-85.333333h85.333333V256H170.666667v426.666667z m243.498666 158.165333a42.666667 42.666667 0 1 1-60.330666-60.330667l128-128a42.666667 42.666667 0 0 1 60.330666 0l128 128a42.666667 42.666667 0 0 1-60.330666 60.330667L512 742.997333l-97.834667 97.834667z" p-id="35760" fill="#8f99ad"></path></svg> 正在为您投屏播放 '+num+' 集',10000,'','关闭后显示',2000,'','','',1);			//警告 并 关闭
+				//改变正在播放集数的样式
+				changeNumberStatus('di'+num+'ji');		
+				//提交解析接口   TYPE 2 投屏
+				gojiexi(url,2);
+		
+		//如果 投屏设备连接状态 未连接
+		}else{
+				//进行提示
+				showTips('','','','',2000,1,'请先搜索设备并连接',3000,2);			//不关闭 只警告
+				//开始检索可用投屏设备
+				browse();		
+		}
+
+				
+    }
+	
+
+
+
+// 准备播放	 url传入地址    num 传入集数
+    function goVideo(url,num){
+		//进行提示	
+		showTips('正在为您播放 '+num+' 集',10000,'','关闭后显示',2000,'','','',1);			//警告 并 关闭
+		//改变正在播放集数的样式
+		changeNumberStatus('di'+num+'ji');
+		//提交解析接口   TYPE 1 本地播放
+		gojiexi(url,1);		
+
+				
+    }
+	
+	
+	
+
+// 执行解析		url传入地址	   type  1、本地   2、投屏
+    function gojiexi(url,type){
+	
+		var a = 'BM8QFV86KKMPV4DFQ7U0';			//appid
+		var d = Date.parse(new Date());			//时间戳
+		var cid = '202252606';					//cid
+		var b = cid + d;
+				
+		var signature = api.require('signature');
+			signature.md5({
+				data: b,
+				uppercase:false				//小写
+			}, function(ret, err) {
+				if (ret.status) {
+						
+						// alert(JSON.stringify(ret.value));
+						var md5b = ret.value;
+							
+						api.ajax({
+						url: 'https://z1.m1907.cn/app/json',
+						method: 'get',
+							data: {
+							values: {
+							jx: url, 
+							a: a,  
+							d: d, 
+							b: md5b
+								}
+							  }
+						},function(ret, err){
+							if(ret.s==1){ 
+						
+								var p = ret.p;
+								
+								//	api.toast({
+								//		msg: '解析 获取正常'+p[0].url,
+								//		duration: 2000,
+								//		location : 'middle' 
+								//	});
+								
+								var jiexiurl = p[0].url;
+							
+								// 获取视频长度
+							//	getVideoPlayTime(jiexiurl);
+						
+								//本地播放  TYPE 1
+								if(type == 1){			
+									//打开播放器播放
+									goplay(jiexiurl);
+									
+									//声音检测  1、提示  1.执行音量调整操作
+									VolumeInspect(1,1);  
+									
+													   
+								//投屏 TYPE 2 
+								}else if(type == 2){		
+									//打开播放器播放
+									goplay(jiexiurl);
+									//投屏
+									play(jiexiurl);
+								
+								}
+	
+							}else{
+							
+								//alert(JSON.stringify(err));	
+								api.toast({
+									msg: '解析失败',
+									duration: 2000,
+									location : 'middle' 
+								});
+							}
+
+						});
+						
+							
+							
+				} else {
+					//alert(JSON.stringify(err));
+					api.toast({
+						sg: '信息读取失败',
+						duration: 2000,
+						location : 'middle' 
+					});
+				}
+			}); 
+    }
+	
+
+
+
+// 打开播放器播放
+    function goplay(url){
+		//播放机处理逻辑 如果值为空 则打开播放器
+		if(PlayerProcessingLogic == '' ){
+			
+			//打开播放器 
+			moviePlayer.open({
+				rect:{
+					x: 0,
+					y: 0,
+					w:api.frameWidth,
+					h:280
+					},
+				centerPlayBtn:{
+					size:50,                                // 数字类型；按钮大小；默认：30
+					iconPath:'widget://images/icon-live-005.png'  // 字符串类型；图标路径；
+					},
+				styles:{
+					head:{
+						bg: 'rgba(0,0,0,0)',
+						height: 44,
+						y:20,
+						title:{
+							size:20,
+							color:'#fff',
+							width:40,
+							leftMargin:10
+							},
+						backSize: 30,
+						backImg:'widget://images/back.png',
+						customButtons:[
+										{
+											w:30,
+											h:30,
+											rightMagin:10,
+											img:'widget://images/a_26.png',
+											imgSelected:'widget://images/a_25.png',
+										},{
+											 w:30,
+											 h:30,
+											 rightMagin:10,
+											 img:'widget://images/a_26.png',
+											 imgSelected:'widget://images/a_25.png',
+										}
+									  ]
+						},
+					foot:{  
+							 bg: 'rgba(0,0,0,0.5)',
+							 height: 44,
+							 palyBtn:{
+							 size: 20,
+							 playImg:'widget://images/icon-live-005.png',
+							 pauseImg:'widget://images/a_62.png',
+							 marginLeft:5
+						  },
+							 currentTimeLabel:{
+							 textSize:14,
+							 textColor:"#FFF",
+							 textWidth: 43,
+							 marginLeft:5
+						  },
+						 seekBar:{
+							 sliderImg:'widget://image/circle.png',
+							 sliderW : 20,
+							 sliderH : 20,
+							 progressColor: '#696969',
+							 progressSelected: '#7865ea',
+							 marginLeft:10,
+							 marginRight:10
+						  },
+							 totalTimeLabel:{
+							 textSize:14,
+							 textColor:"#FFF",
+							 textWidth: 43,
+							 marginRight:5
+						  },
+						  fullscreenBtn:{
+							size:20,
+							verticalImg:'widget://images/fullscreen.png',
+							horizontalImg:'widget://images/verticalscreen.png',
+						  }
+						} 
+					},
+					path:url,
+					autorotation: true,
+					useGestureControl: true,
+					seekBarDragable: true,
+					isShowControlView: true,
+					fixed:true,
+					//	fixedOn:api.frameName,
+					scalingMode: 'aspectFill',
+					autoPlay: true
+					},function(ret, err){
+						if(ret){
+							// alert(JSON.stringify(ret));
+						 } else {
+							// alert(JSON.stringify(err));
+						}
+
+				});
+
+
+				// 播放器打开过后 把 播放机处理逻辑 值改为1 
+				 PlayerProcessingLogic = 1;
+			 
+		//播放机处理逻辑 如果值为1 则只重新传入播放地址 
+		}else if(PlayerProcessingLogic == 1 ){
+			//重新播放指定播放地址
+			moviePlayer.replay({
+				path : url
+			});
+
+
+		}	
+			
+    }
+	
+
+//按钮事件
+    function ButtonEvent(name){
+			
+		//收藏
+		if(name == 'Collection'){
+		alert(JSON.stringify('收藏')); 
+
+		}		
+		
+		//升级会员
+		if(name == 'sj'){
+		//alert(JSON.stringify('升级会员')); 
+
+		}		
+		
+		//分享
+		if(name == 'Share'){
+		// alert(JSON.stringify('分享')); 
+		U.openWin('share/', 'share');
+
+		}		
+		
+		
+		//投屏
+		if(name == 'Touping'){
+		//alert(JSON.stringify('投屏')); 
+			var obj = document.getElementById("Tv_player");
+			obj.setAttribute("class", 'display-block');
+				
+			var obj = document.getElementById("Mobile_player");
+			obj.setAttribute("class", 'display-none');
+				 
+			var obj = document.getElementById("maincate_nav");
+			obj.setAttribute("class", 'deviceListmaincate_touping_nav');
+				
+			var obj = document.getElementById("maincate_touping_list");
+			obj.setAttribute("class", 'deviceListmaincate display-block');
+				
+			var obj = document.getElementById("maincate");
+			obj.setAttribute("class", 'maincate display-none');
+				
+			
+			//如果选择 自动调整音量
+			if(localStorage.getItem('automatic_volume') == 1){
+				
+				acc5Util.setVol({value:0},function(ret,err){
+				//	alert(JSON.stringify(ret));  
+						
+				})
+
+			}
+
+
+			browse();	
+				
+				
+		}
+		
+		
+		//搜索设备
+		if(name == 'SearchDevice'){
+		//alert(JSON.stringify('开始检索可用投屏设备')); 
+			//开始检索可用投屏设备
+			browse();
+
+		}
+
+
+		//开始投屏
+		if(name == 'StartTouping'){
+		//alert(JSON.stringify('开始投屏')); 
+			//开始投屏
+			play();
+
+		}	
+
+		
+		//停止投屏
+		if(name == 'CloseTouping'){
+		
+	//	alert(JSON.stringify('停止投屏')); 
+			//停止投屏
+			stop();
+			
+		
+			var obj = document.getElementById("Tv_player");
+				obj.setAttribute("class", 'display-none');
+				
+			var obj = document.getElementById("Mobile_player");
+				obj.setAttribute("class", 'display-block');
+
+			var obj = document.getElementById("maincate");
+				obj.setAttribute("class", 'maincate display-block');
+				
+			var obj = document.getElementById("maincate_touping_list");
+				obj.setAttribute("class", 'deviceListmaincate display-none');
+
+			var obj = document.getElementById("maincate_nav");
+				obj.setAttribute("class", 'maincate_nav');
+				
+				
+				//如果选择 自动调整音量
+			if(localStorage.getItem('automatic_volume') == 1){
+
+				acc5Util.setVol({value:localStorage.getItem('default_player_volume')},function(ret,err){
+				//	alert(JSON.stringify(ret));
+				//		api.toast({
+				//		msg: '音量调整为'+localStorage.getItem('default_player_volume'),
+				//		duration: 2000,
+				//		location : 'middle'
+				//	}); 
+				})	
+
+			}				
+				
+			//播放器显示
+			// moviePlayer.show();
+			//播放器开始播放
+			moviePlayer.play();
+			
+		}
+
+    }
+
+
+
+
+/*音量检测*/
+	//type  1、提示    operation  操作
+	
+
+	
+    function VolumeInspect(type,operation) {
+		
+		//acc5Util 模块检测
+		acc5Util.getVol({},function(ret,err){
+			//  alert(JSON.stringify(ret.data['music']));
+			
+				//静音
+				if(ret.data['music'] == 0){
+					
+					if(type == 1){
+						
+						mute_state.innerHTML = '手机可能处于静音状态';
+						
+						var obj = document.getElementById("mute_state");
+						obj.setAttribute("class", 'aui-live-icon-em-mute');
+						
+						mute_state_touping.innerHTML = ' 手机静音中 停止后恢复';
+						
+						var obj = document.getElementById("mute_state_touping");
+						obj.setAttribute("class", 'aui-live-icon-em-mute');
+				
+						
+					
+					}
+					
+					
+					if(operation == 1){
+								
+						//如果选择 自动调整音量
+						if(localStorage.getItem('automatic_volume') == 1){
+						 
+							acc5Util.setVol({value:localStorage.getItem('default_player_volume')},function(ret,err){
+							//	alert(JSON.stringify(ret));
+								//		api.toast({
+								//		msg: '音量调整为'+localStorage.getItem('default_player_volume'),
+								//		duration: 2000,
+								//		location : 'middle'
+								//	});
+							})	
+
+						}		
+					
+					}		
+					
+									/*
+											api.toast({
+												msg: '手机处于静音状态',
+												duration: 2000,
+												location : 'middle'
+											});
+											
+										*/	
+											
+											
+				}else{
+									
+									
+						mute_state.innerHTML = '开始追剧吧！';
+						
+						var obj = document.getElementById("mute_state");
+							obj.setAttribute("class", 'aui-live-icon-em');
+				
+				
+						mute_state_touping.innerHTML = ' 投屏时建议静音 ';
+						
+						var obj = document.getElementById("mute_state_touping");
+							obj.setAttribute("class", 'aui-live-icon-em-mute-one');
+				
+								/*
+											api.toast({
+												msg: '声音正常',
+												duration: 2000,
+												location : 'middle'
+											});
+										
+								*/
+					
+				}
+		})
+
+	}
+
+/*投屏模块*/
+    function browse() {
+        $api.byId('deviceList').innerHTML = '';
+        touping.browse(function(ret, err) {
+            if (ret.status) {
+                showDeviceList(ret.deviceList);
+				//	alert(JSON.stringify(ret));
+					
+               // document.getElementById("tips").textContent = "搜索到" + ret.deviceList.length + "个设备，请选择要投屏的设备";
+				
+			//	showTips('正在搜索可用设备…',5000,'','',3000,1,'搜索到'+ret.deviceList.length+'个设备，请选择要投屏的设备',3000,2);			//不关闭 只警告
+			//	showTips('','',1,'正在搜索可用设备…',3000,1,'搜索到'+ret.deviceList.length+'个设备，请选择要投屏的设备','',2);			//警告 并 关闭
+				showTips('正在搜索可用设备 ··· ',1000,1,'搜索到'+ret.deviceList.length+'个设备，请点击下方设备连接',3000,'','',3000,2);			//只关闭 不警告
+				var obj = document.getElementById("Touping_deviceList");
+					obj.setAttribute("class", 'deviceListmaincate_nav display-block');
+				
+				
+            } else {
+			
+              //  document.getElementById("tips").textContent = "未搜索到设备，请检查当前局域网内是否有可投屏设备";
+			//	showTips('未搜索到设备，请检查当前局域网内是否有可投屏设备',5000,1,'关闭后显示内容',3000,1,'警告后关闭',3000);			//警告 并 关闭
+				showTips('正在搜索可用设备 ···',3000,'','',3000,1,'未搜索到设备，请检查当前局域网内是否有可投屏设备',3000,2);			//不关闭 只警告
+            }
+        });
+    }
+	
+	//显示设备名
+    function showDeviceList(deviceList) {
+
+        for (var i = 0; i < deviceList.length; i++) {
+            var item = '<a onclick="choiceDevice(&quot;' + deviceList[i].name + '&quot;,' + i + ')"> <svg t="1570082786123" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5974" width="64" height="64"><path d="M928 543.8h-95.8c-17.6 0-32 14.4-32 32v255.9c0 17.6 14.4 32 32 32H928c17.6 0 32-14.4 32-32V575.8c0-17.6-14.4-32-32-32zM871.8 841c0-5.8 4.7-10.5 10.5-10.5s10.5 4.7 10.5 10.5-4.7 10.5-10.5 10.5-10.5-4.7-10.5-10.5z m77.8-25.7h-139V587.4h139v227.9z" fill="#222222" p-id="5975"></path><path d="M800.7 448.2a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#ffffff" p-id="5976"></path><path d="M800.7 317.4v2.4c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1c0-0.8 0-1.6-0.1-2.4h0.1V191.3c0-35.2-28.8-64-64-64H128.3c-35.2 0-64 28.8-64 64V640c0 35.2 28.8 64 64 64h302.1v127.7h-155c-17.6 0-32 14.4-32 32s14.4 32 32 32H657c17.5 0 31.9-14.4 32-32 0-17.6-14.4-32-32-32H498V704h206.7v-0.1c17.7-0.2 31.9-14.4 31.9-32.1 0-17.6-14.3-31.9-31.9-32.1H160.8c-17.6 0-32-14.4-32-32V223.8c0-17.6 14.4-32 32-32h607.9c17.6 0 32 14.4 32 32v93.6z" fill="#222222" p-id="5977"></path></svg>' + deviceList[i].name + '</a>'; 
+            $api.byId('deviceList').insertAdjacentHTML('beforeEnd', item);
+        }
+    }
+
+    function choiceDevice(name, index) {
+        deviceIndex = index;
+     //   document.getElementById("tips").textContent = "您选择了 " + name + " 进行投屏";
+	 
+				showTips('正在连接设备 ···',5000,1,'<svg t="1570083742316" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7496" width="64" height="64"><path d="M512 149.965c-199.947 0-380.965 81.039-511.994 212.077l96.02 96.019C202.474 351.582 349.542 285.723 512 285.723s309.526 65.859 415.975 172.338l96.02-96.019C892.965 231.004 711.947 149.965 512 149.965z" p-id="7497" fill="#222222"></path><path d="M160.004 522.05l95.979 95.989C321.512 552.51 412.021 512 512 512s190.487 40.51 256.017 106.039l95.979-95.989C773.917 431.951 649.458 376.242 512 376.242c-137.459 0-261.896 55.709-351.996 145.808z" p-id="7498" fill="#222222"></path><path d="M320.002 682.038L512 874.035l191.998-191.997c-49.13-49.14-117.02-79.529-191.998-79.529s-142.868 30.389-191.998 79.529z" p-id="7499" fill="#222222"></path></svg>'+name+' 连接成功！可以进行投屏播放',3000,'','',3000,2);			//只关闭 不警告
+				//投屏设备连接状态 已经连接  
+				DeviceConnectionStatus  = 1;
+				
+				var obj = document.getElementById("Touping_deviceList");
+					obj.setAttribute("class", 'deviceListmaincate_nav display-none');
+				
+    }
+
+    function play(url) {
+        touping.play({
+            index: deviceIndex,
+            url: url
+        }, function(ret, err) {
+             // alert(JSON.stringify(ret));
+        });
+    }
+
+    function playUrl(url) {
+        touping.playUrl({
+            url: url
+        }, function(ret, err) {
+        //   alert(JSON.stringify(ret));
+		//   if(ret.result == true){
+		//		showTips('正在为您投屏播放 '+num+' 集',10000,'','关闭后显示',2000,'','','',1);			//警告 并 关闭
+		//   }
+			
+        });
+
+    }
+
+    function stop() {
+        touping.stop(function(ret, err) {
+           // alert(JSON.stringify(err));
+			
+			if(ret.result == true){
+				showTips('','',1,'',3000,1,'已停止投屏','',1);			//警告 并 关闭
+			}
+			
+        }); 
+    }
+
+    function volume(value) {
+        touping.volume({
+            value: value
+        }, function(ret, err) {
+            console.log(JSON.stringify(ret));
+        });
+    }
+
+    function seek(value) {
+        touping.seek({
+            value: value
+        }, function(ret, err) {
+           // console.log(JSON.stringify(ret));
+		//   alert(JSON.stringify(ret));
+		   
+		   		api.toast({
+					msg: value,
+					duration: 2000,
+					location : 'middle' 
+				});
+		   
+		   
+        });
+
+    }
+/* 
+    var range1 = new auiRange({
+        element: document.getElementById("rangeVolume") //滑块容器
+    }, function(ret) {
+        volume(ret.value);
+    })
+*/
+    var range2 = new auiRange({
+        element: document.getElementById("rangeSeek") //滑块容器
+    }, function(ret) {
+        seek(ret.value);
+    })
+
+
+
+
+
+/*
+
+  new Vue({
+  
+			
+            el: "#video_list",
+            data: {
+                defaultOp: -1,
+                title: "",
+                list: []
+            },
+            mounted: function() {
+
+			
+               this.getData();
+            },
+            methods: {
+			
+                getData: function() {
+				
+                    var that = this;
+				
+				axios.get(localStorage.getItem('api_url')+'/app/Apivideo/bofang',{
+				  params: {
+				   name: coverpage
+				  }
+				 } )
+				 .then(function (response) {
+				//  console.log(response);
+			//	  alert( JSON.stringify( response.data) );
+				  video_name.innerHTML = response.data.name;
+				  video_diqu.innerHTML = '地区：'+response.data.diqu;
+				  video_niandai.innerHTML = '年份：'+response.data.niandai;
+				  video_img.innerHTML = '  <img src="'+localStorage.getItem('video_details_img')+'">';
+				  
+				  
+						var info = response.data.name;
+
+				//		U.setStorage('faq_info',stringify( info ));	
+			
+		//	  alert( JSON.stringify( info ) ); 
+						
+						
+						
+						
+						
+					  
+						if(info){
+						
+							var list = info;
+							
+				//		 alert( JSON.stringify( list ) ); 
+						 
+							var arr = [];
+							for(var i = 0; i < list.length; i++) {
+								var obj = list[i];
+								obj["open"] = null;
+								obj["pid"] = "itemPId" + i;
+								arr.push(obj);
+							}
+							that.list = arr;
+						}			
+				
+			
+			
+			
+			
+			
+				 })
+				 .catch(function (error) {
+				  console.log(error);
+				//  alert( JSON.stringify( error ) );
+				
+				 });
+
+
+
+                },
+                titleClick: function(index) {
+				
+				
+					 U.openWin('search/', 'search');
+							
+								var obj = this.list[index];
+								obj.open = !obj.open;
+								this.list[index] = obj;
+								setTimeout(function() {
+									var pid = "itemPId" + index;
+									var pdom = document.getElementById(pid);
+									console.log(pdom)
+									if(obj.open) {
+										pdom.style.height = pdom.scrollHeight + "px";
+									} else {
+										pdom.style.height = 0;
+									}
+								}, 1);
+								
+								
+								
+                }
+            }
+        });
+*/
+
+/*
+
+
+   apiready = function(){
+ //   getBanner();   //获取Banner
+
+	dianshiju(); 
+	
+		//		alert( localStorage.getItem('api_url'));
+
+ 
+  }
+  
+  
+  
+   
+  
+  	//电视剧
+function dianshiju(){
+ 
+ var dianshiju = $api.byId('dianshiju');//html容器
+ var dianshijus = $api.byId('dianshijus');//html容器
+  api.ajax({
+         url: 'http://v4.letuos.com/app/Apivideo/sdianshiju',
+      method: 'get',
+  },function(ret, err){
+      if (ret) {
+	   var html='';
+	   $i=0;
+		for(i in ret){
+		 if ($i<6){
+			item = ret[i];
+			//alert(item.point);
+			var wang =item.coverpage+'@'+item.cover+'@'+item.desc+'@'+item.tag;
+			
+				alert( wang );
+				
+			html += "<li style='margin-bottom:2px;height:200px;' id='" + item.id + "' onclick=\"openWinj('" + wang + "')\">";
+			
+			html += '<div class="video-mask-box">';
+			html += '<img src="' + item.cover + '" alt="' + item.title + '" style="width: 98%;max-height: 155px;height: 155px;min-height: 155px;border-radius:0.5rem;box-shadow:0.1rem 0.1rem 0.4rem rgba(99, 99, 99, 0.3);">';
+			html +='<span class="pay" style="font-size: 12px; position: absolute;right: 3px;bottom: 50px;padding: 2px 6px;background: rgba(0,0,0,0.8);color: #fff;border-radius: 2px;">' + item.tag + '</span>'
+			html += '</div>';
+			html += '<span class="aui-group-three" style=" font-size: 12px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;  width: 100%; ">' + item.title + '</span>';
+			//html +='<span class="s2" style="float: right;color: #ff7b00;font-size: 16px;">' + item.point + '</span>';
+			html += '<span class="aui-group-three" style=" font-size: 12px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;  width: 100%;">' + item.desc + '</span>';
+			html += '</li>';
+			$i++;
+			}  
+		}
+		
+        dianshiju.innerHTML = html;
+		
+		
+		
+      }
+  });
+}
+  
+  
+  
+  
+  
+  
+  
+
+  function getBanner(){
+
+	var a = 'BM8QFV86KKMPV4DFQ7U0';			//appid
+	var d = Date.parse(new Date());			//时间戳
+	var cid = '202252606';					//cid
+	var b = cid + Date.parse(new Date());
+	var md5b = md5(b);
+	
+	// alert(md5b);
+    api.ajax({
+        url: 'https://z1.m1907.cn/app/json',
+        method: 'get',
+			data: {
+			values: {
+			jx: 'https://www.iqiyi.com/v_19rr7p4q9k.html', 
+			a: a,  
+			d: d, 
+			b: md5b
+					}
+				  }
+    },function(ret, err){
+			if(ret.s==1){ 
+			
+			var p = ret.p;
+			
+				api.toast({
+					msg: '解析 获取正常',
+					duration: 2000,
+					location : 'middle' 
+				});
+			
+	//		alert(JSON.stringify( p[0].url ));	
+	/*		
+	var moviePlayer = api.require('moviePlayer');
+moviePlayer.addEventListener(function(ret){
+    if(ret && ret.eventType == 'back'){
+        alert('点击back按钮');
+    }
+	
+    if(ret && ret.eventType == 'pause'){
+        alert('点击pause按钮');
+    }
+	
+    if(ret && ret.eventType == 'play'){
+        alert('点击play按钮');
+    }
+	
+    if(ret && ret.eventType == 'leftFling'){
+        alert('点击leftFling按钮');
+    }
+	
+    if(ret && ret.eventType == 'clickGesture'){
+        alert('点击播放器事件(单击手势)');
+    }
+	
+    if(ret && ret.eventType == 'landscape'){
+        alert('切换至横屏事件');
+    }
+	
+    if(ret && ret.eventType == 'portrait'){
+        alert('切换至竖屏事件');
+    }
+	
+});		
+ 
+			
+
+moviePlayer.open({
+          rect:{
+          x: 0,
+          y: 80,
+          w:api.frameWidth,
+          h:300
+          },
+          styles:{
+          head:{
+          bg: 'rgba(0,0,0,0.2)',
+          height: 44,
+          y:20,
+          title:{
+          size:20,
+          color:'#fff',
+          width:40,
+          leftMargin:10
+          },
+          backSize: 30,
+          backImg:'widget://images/up.png',
+          customButtons:[{
+          w:30,
+          h:30,
+          rightMagin:10,
+          img:'widget://images/up.png',
+          imgSelected:'widget://images/up.png',
+          }]},
+          foot:{  
+          bg: 'rgba(0,0,0,0.5)',
+          height: 44,
+          palyBtn:{
+          size: 20,
+          playImg:'widget://images/up.png',
+          pauseImg:'widget://images/up.png',
+          marginLeft:5
+          },
+          currentTimeLabel:{
+          textSize:14,
+          textColor:"#FFF",
+          textWidth: 43,
+          marginLeft:5
+          },
+          seekBar:{
+          sliderImg:'widget://images/up.png',
+          sliderW : 20,
+          sliderH : 20,
+          progressColor: '#696969',
+          progressSelected: '#76EE00',
+          marginLeft:10,
+          marginRight:10
+          },
+          totalTimeLabel:{
+          textSize:14,
+          textColor:"#FFF",
+          textWidth: 43,
+          marginRight:5
+          },
+          fullscreenBtn:{
+          size:20,
+          verticalImg:'widget://images/up.png',
+          horizontalImg:'widget://images/up.png',
+          }
+          } },
+           path:p[0].url,
+		   autorotation: true,
+		   useGestureControl: true,
+		   seekBarDragable: true,
+		   isShowControlView: true,
+		   scalingMode: 'aspectFill',
+           autoPlay: true
+            },function(ret, err){
+                if(ret){
+                    // alert(JSON.stringify(ret));
+                // } else {
+                    // alert(JSON.stringify(err));
+                }
+
+});
+			
+			
+			
+
+		//	alert(ret.p);	
+			}else{
+			alert(JSON.stringify(err));	
+			}
+
+    });
+	
+
+	
+
+  }
+
+
+
+  
+  */
+  
+/*** showTips提示方法 ***/
+	// 进行提示	showTips(提示消息,延迟时间, 1 关闭 空跳过,关闭后的消息,关闭延迟,1 警告 空跳过,警告消息,警告延迟,类型);
+    function showTips(msg,Timeout,isClose,CloseMsg,CloseTimeout,isWarning,WarningMsg,WarningTimeout,type) {				
+	
+		if(type == 1){		// 视频提示信息
+
+				var obj = document.getElementById("video_tip");
+				obj.setAttribute("class", 'aui-live-header-black');
+									
+									
+				video_tip.innerHTML = '<span style="font-size:10px;">'+ msg +'</span>';
+				
+					//有延迟时间
+			/*		if(Timeout > 0){
+							setTimeout(function() {
+							
+								api.refreshHeaderLoadDone()
+								
+							}, Timeout);
+					}else{
+					
+					}
+			*/		
+			
+			
+				//是否需要关闭
+				//关闭 且 警告
+				if(isClose == 1 && isWarning == 1){
+
+					setTimeout(function() {		//延迟执行 警告 
+
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-warning');
+
+						video_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+						setTimeout("closeTips()",WarningTimeout);  //延迟执行 关闭提示
+
+							setTimeout(function(){		//延迟执行 关闭
+
+									var obj = document.getElementById("video_tip");
+									obj.setAttribute("class", 'aui-live-header-close');
+
+									video_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+									video_operation_tip.innerHTML = '点击查看';		
+
+							}, CloseTimeout);
+
+						video_operation_tip.innerHTML = '提示即将关闭';
+
+
+					}, WarningTimeout);
+
+
+
+				//不关闭  但警告 
+				}else if(isWarning == 1){
+				
+					setTimeout(function() { 		//延迟执行 
+
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-warning');
+																	
+						video_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+					}, Timeout);
+
+					
+				// 直接关闭 不警告 
+				}else if(isClose == 1){
+							
+					setTimeout(function() { 		//延迟执行 					
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-close');
+																	
+						video_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+									
+						video_operation_tip.innerHTML = '点击查看';
+						
+					}, Timeout);		
+				}
+				
+				
+				
+		}else if(type == 2){		// 投屏提示信息 Touping_tip
+		
+		
+
+				var obj = document.getElementById("Touping_tip");
+				obj.setAttribute("class", 'aui-live-touping-black');
+									
+									
+				Touping_tip.innerHTML = '<span style="font-size:10px;">'+ msg +'</span>';
+				
+					//有延迟时间
+			/*		if(Timeout > 0){
+							setTimeout(function() {
+							
+								api.refreshHeaderLoadDone()
+								
+							}, Timeout);
+					}else{
+					
+					}
+			*/		
+			
+			
+				//是否需要关闭
+				//关闭 且 警告
+				if(isClose == 1 && isWarning == 1){
+
+					setTimeout(function() {		//延迟执行 警告 
+
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-warning');
+
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+						setTimeout("closeTips()",WarningTimeout);  //延迟执行 关闭提示
+
+							setTimeout(function(){		//延迟执行 关闭
+
+									var obj = document.getElementById("Touping_tip");
+									obj.setAttribute("class", 'aui-live-touping-close');
+
+									Touping_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+									video_operation_tip.innerHTML = '点击查看';		
+
+							}, CloseTimeout);
+
+						video_operation_tip.innerHTML = '提示即将关闭';
+
+
+					}, WarningTimeout);
+
+
+
+				//不关闭  但警告 
+				}else if(isWarning == 1){
+				
+					setTimeout(function() { 		//延迟执行 
+
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-warning');
+																	
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+					}, Timeout);
+
+					
+				// 直接关闭 不警告 
+				}else if(isClose == 1){
+							
+					setTimeout(function() { 		//延迟执行 					
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-close');
+																	
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+									
+						video_operation_tip.innerHTML = '点击查看';
+						
+					}, Timeout);		
+				}
+				
+						
+		
+		
+		
+		
+		
+		}
+			
+    }
+/*** showTips提示方法 ***/
+
+
+
+
+  
+/*** 循环执行方法 ***/
+	// name   time   参数   
+	function Recycling(name,time,param){							
+		//定时检测音量
+		var Task_number = name;
+		var Task_number = setInterval(function(){
+		
+		//不带参数
+	//	 eval(name+'();');  
+		 //有参
+		 eval(name+'("'+param+'");');
+								
+		},time);
+
+	}
+/*** 循环执行方法 ***/
+
+
+</script>
+
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>LaunchImageAd</title>
+    <style type="text/css">
+	    html,body{
+	    	margin: 0;
+	    	padding: 0;
+	        height: 100%;
+	        width: 100%;
+	    }
+	    body{
+			background-size: 100%;
+			background-position: bottom center;
+
+	    }
+	    #imageAd{
+	    	width: 100%;height: 80%;
+	    	background-position: center;
+	    	background-size: 100%;
+	    }
+
+      .display-block{
+ 	   display :block ;
+ 	   }
+
+ 	   .display-none{
+ 	   display :none ;
+ 	   }
+
+
+    </style>
+</head>
+<body id="body">
+
+<span style=" background-color: rgba(255,255,255,0.8); border: 1px solid rgba(0, 0, 0, 0); position: absolute; right: 25px; top: 50px; border-radius: 15px; font-size: 0.8rem; padding: 0.2rem 0.5rem 0.2rem 0.5rem; background-image: -moz-linear-gradient(left,#5515ee,#f370af); /* background-image: linear-gradient(to bottom,#c726ff,#bb34ff); background-color: rgba(176, 176, 176, 0.3);  */  background-color: #1b7dff;  /* box-shadow: 0 0 19px #dd7fe6; */ color: #fff;" id="showTime" tapmode > 加载中··· </span>
+
+
+	<div id="imageAd"  tapmode onclick="openlaunchImageAd_url();"></div>
+
+<!--
+    <span  class="display-none"  id="display-block"  tapmode onclick="skipAD();"  style="background-color: rgba(255,255,255,0.8); border: 1px solid rgba(0, 0, 0, 0); position: absolute; right: 25px; bottom: 100px; border-radius: 5px; font-size: 0.8rem; padding: 0.2rem 0.5rem 0.2rem 0.5rem; background-image: -moz-linear-gradient(left,#5515ee,#f370af); /* background-image: linear-gradient(to bottom,#c726ff,#bb34ff); */ background-color: rgba(0, 0, 0, 0.3); /* box-shadow: 0 0 19px #dd7fe6; */ color: #ffffff;">跳过</span>
+-->
+      <span style="position: absolute;left: 10px;bottom: 10px;border-radius: 5px;font-size: 0.8rem;padding: 0.2rem 0.5rem 0.2rem 0.5rem;background-image: -moz-linear-gradient(left,#5515ee,#f370af);color: #efefef;" id="app_Version"></span>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+
+
+  var launchImageAd_time = localStorage.getItem('launchImageAd_time');
+  var time = launchImageAd_time/1000;
+
+
+	apiready = function(){
+
+                                    if(api.systemType == 'ios') {
+
+                            								api.sendFrameToBack({
+                            									from: 'name0',
+                            									to: 'launchimagead'
+                            								});
+
+                                    }
+
+
+		showTime();//显示时间
+
+
+
+// alert(  localStorage.getItem('launchImageAd_Cache') );
+
+			var launchImage = localStorage.getItem('launchImage_Cache') ;		// 启动图
+			var launchImageAd = localStorage.getItem('launchImageAd_Cache');	// 读取本地启动广告图
+
+    //      localStorage.setItem('launchImageAd',ret.msg['launchImageAd']);   // 启动页图片地址
+
+
+			document.getElementById("body").style.backgroundImage="url("+launchImage+")";
+			document.getElementById("imageAd").style.backgroundImage="url("+launchImageAd+")";
+
+	/*			setTimeout(function(){
+
+				//	console.log("removeLaunchView");
+				},800);
+*/
+/*			setTimeout(function(){
+				close();
+			//	console.log("close launchImageAd");
+			},launchImageAd_time);
+
+
+
+//监听重新获取
+api.addEventListener({
+  name: 'CloseLaunchImage'
+}, function(ret, err) {
+  if(ret) {
+
+                     close();
+  }
+});
+*/
+
+
+          app_Version.innerHTML= 'V '+ api.appVersion;
+
+
+
+	};
+
+
+  //显示倒数秒数
+  function showTime(){
+      time -= 1;
+
+
+      	  //是否允许跳过  1允许
+      		if (localStorage.getItem('launchImageAd_skip') == '1'){
+
+      			var obj = document.getElementById("showTime");
+      			obj.setAttribute("onclick", "skipAD();");
+
+            document.getElementById('showTime').innerHTML= ''+time+'秒 跳过';
+          }else{
+            document.getElementById('showTime').innerHTML= ''+time+'秒';
+          }
+
+
+
+      if(time < 1){
+		// 	close();
+
+      document.getElementById('showTime').innerHTML= '正在加载';
+        /*             api.toast({
+                        msg : '时间到啦',
+                        duration : 2000,
+                        location : 'middle'
+                        });
+
+
+                              //传递数据
+              									 api.sendEvent({
+              									  name: 'LaunchImageOk',
+              									  extra: {
+              										}
+              									});
+                                    */
+
+                                    U.SendEvent('Announcement',{status:'index'});   //广播 打开弹出公告
+             api.closeWin({
+    name: 'launchimagead'
+});
+
+
+
+      }
+      //每秒执行一次,showTime()
+      setTimeout("showTime()",1000);
+  }
+
+
+
+
+/*
+    //关闭
+    function close(){
+		api.setFullScreen({
+		    fullScreen:false
+		});
+
+
+
+      api.closeFrame();
+
+    }
+*/
+
+
+
+    function skipAD(){
+      U.SendEvent('Announcement',{status:'index'});   //广播 打开弹出公告
+             api.closeWin({
+    name: 'launchimagead'
+});
+
+
+
+    }
+
+
+
+
+
+
+    function openlaunchImageAd_url(){
+		api.setFullScreen({
+		    fullScreen:false   // true
+		});
+
+
+   var url = localStorage.getItem('launchImageAd_url');
+
+    if (url == '') {
+
+	//如果后台填写的跳转链接为空 则无任何操作
+
+    }else{
+
+
+		U.OpenLocalBrowser(url);
+
+	  }
+	}
+
+
+
+
+
+
+</script>
+</html>

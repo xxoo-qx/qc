@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>广告规则简介</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+<style>
+
+html,body {
+    color: #808080;
+    background-color:#efefef;
+    margin: 0;
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.divHeight {
+  width: 100%;
+  height: 10px;
+  /* background: #ffffff; */
+  /* position: relative; */
+  /* overflow: hidden;*/
+}
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.aui-conduct-color{
+    overflow:hidden;
+}
+
+.aui-conduct-head{
+      margin: 15px;
+      background-color: #1b7dff;
+      border-radius: 10px;
+        position: relative;
+      border-radius: 10px;
+      padding: .5rem;
+}
+
+.aui-flex-box h1{
+    color:#888;
+    font-size:1rem;
+    position:relative;
+    padding-left:1rem;
+}
+
+.aui-flex-box h1:after{
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0.3rem;
+    left: 0;
+    height:1rem;
+    width:0.3rem;
+    background:#1b7dff;
+}
+.aui-conduct-cell{
+    margin:15px;
+    background-color:#fff;
+    border-radius: 10px;
+
+}
+.aui-conduct-cell h2{
+    color:#888;
+    font-weight:normal;
+    font-size:0.8rem;
+    padding-left:15px;
+    margin-bottom:0.6rem;
+    bottom: 10px;
+}
+
+.aui-conduct-cell h2 em{
+	background: #efefef;
+    color: #9f9f9f;
+    font-style:normal;
+    border-radius:20px;
+    padding: 0.1rem 0.5rem;
+    font-size:0.7rem;
+		 margin-right: 15px;
+    float: right;
+}
+
+.aui-conduct-cell h2 i{
+    font-style:normal;
+    color:#888;
+    font-size:0.7rem;
+    padding-left:1rem;
+}
+
+.aui-conduct-list{
+    width:100%;
+    overflow:hidden;
+    padding-bottom:15px;
+}
+
+
+.aui-conduct-list a{
+    display:block;
+    float:left;
+    width:33.333%;
+    text-align:left;
+    padding-left:15px;
+}
+
+.aui-conduct-list a h4{
+    color:#888;
+    font-size:0.7rem;
+    margin-bottom:0.3rem;
+}
+
+.aui-conduct-list a p{
+    color:#ff0000;
+    font-size:0.7rem;
+}
+
+.aui-conduct-list a .aui-page-btn{
+background: #1b7dff;
+border-radius: 20px;
+padding: 0.2rem 0.5rem;
+border: none;
+color: #fff;
+font-size: 0.7rem;
+margin-right: 15px;
+    float: right;
+		outline:none;
+}
+
+.aui-head-title h2{
+    color:rgba(255,255,255,0.9);
+    font-size:0.7rem;
+    font-weight:normal;
+    text-align:left;
+}
+
+.aui-head-title p {
+    color:rgba(255,255,255,0.9);
+    font-size:0.7rem;
+    font-weight:normal;
+    text-align:left;
+}
+
+.m {
+ position: absolute;
+right: 0px;
+ top: 0px;
+ width: 23px;
+ background-color: #fff;
+
+ background-size: 16px 16px;
+ background-position: 8px -8px;
+ color: #888;
+ text-align: center;
+ height: 20px;
+ line-height: 21px;
+ border-radius: 0 10px 0 10px;
+ font-size: 13px;
+}
+
+.aui-after-right{
+    position:relative;
+}
+
+.display-block{
+display :block ;
+}
+
+.display-none{
+display :none ;
+}
+
+
+</style>
+</head>
+<body>
+
+		<div class="aui-conduct-color">
+
+
+
+
+      <div class="aui-conduct-head" id="Upload_warning_prompt">
+      				<div class="aui-head-title" >
+
+      					<h2>严禁上传 黄·赌·毒·涉黑·政治 等相关图片;</h2>
+      					<p>违者回收相关权限,严重者禁封账户. 不另行通知!</p>
+      				</div>
+              <div class="m"  id="showTime"> 	</div>
+      </div>
+
+
+
+
+
+
+      <div class="aui-conduct-cell">
+				<div class="aui-flex">
+					<div class="aui-flex-box">
+						<h1>Tips</h1>
+					</div>
+				</div>
+				<h2 class="aui-after-right"> <i>审核通过的广告将在</i> 下级用户 <i style="    padding-left: 0;">APP中展示</i> ;</h2>
+				<h2 class="aui-after-right"> <i>同时也会在自己APP中展示，方便查看展示效果 ;</h2>
+
+
+			</div>
+
+			<div class="aui-conduct-cell">
+				<div class="aui-flex">
+					<div class="aui-flex-box">
+						<h1>首页</h1>
+					</div>
+				</div>
+				<h2>轮播  <em id="Ad_limit_type_100_used">广告位数量：- - -</em></h2>
+				<div class="aui-conduct-list">
+					<a>
+						<h4 id="Ad_limit_type_100_audit_1">审核通过：0</h4>
+						<p  class="display-none"  id="Ad_limit_type_100_audit_3">驳回：0</p>
+					</a>
+					<a >
+						<h4 id="Ad_limit_type_100_audit_2">审核中：0</h4>
+						<p   class="display-none" id="TtypeOneHundredAuditThreeTips">请及时处理</p>
+					</a>
+          <a onclick="openAdList('100')">
+						<button class="aui-page-btn">查 看 </button>
+					</a>
+				</div>
+			</div>
+
+			<div class="aui-conduct-cell">
+				<div class="aui-flex">
+					<div class="aui-flex-box">
+						<h1>推荐</h1>
+					</div>
+				</div>
+        <h2>轮播  <em  id="Ad_limit_type_1_used">广告位数量：- - -</em></h2>
+				<div class="aui-conduct-list">
+					<a href="javascript:;">
+						<h4 id="Ad_limit_type_1_audit_1">审核通过：0</h4>
+						<p   class="display-none" id="Ad_limit_type_1_audit_3">驳回：0</p>
+					</a>
+					<a href="javascript:;">
+						<h4  id="Ad_limit_type_1_audit_2">审核中：0</h4>
+						<p  class="display-none"   id="TtypeOneAuditThreeTips">请及时处理</p>
+					</a>
+          <a onclick="openAdList('1')">
+						<button class="aui-page-btn">查 看</button>
+					</a>
+				</div>
+
+<div class="divHeight"></div>
+
+        <h2>图标  <em id="Ad_limit_type_2_used">广告位数量：- - -</em></h2>
+        <div class="aui-conduct-list">
+          <a href="javascript:;">
+            <h4  id="Ad_limit_type_2_audit_1">审核通过：0</h4>
+            <p  class="display-none"  id="Ad_limit_type_2_audit_3"> 驳回：0</p>
+          </a>
+          <a href="javascript:;">
+            <h4  id="Ad_limit_type_2_audit_2">审核中：0</h4>
+						<p   class="display-none" id="TtypeTwoAuditThreeTips">请及时处理</p>
+          </a>
+          <a onclick="openAdList('2')">
+            <button class="aui-page-btn">查 看</button>
+          </a>
+        </div>
+
+        <div class="divHeight"></div>
+
+        <h2>横幅  <em  id="Ad_limit_type_3_used">广告位数量：- - - </em></h2>
+        <div class="aui-conduct-list">
+          <a href="javascript:;">
+            <h4  id="Ad_limit_type_3_audit_1">审核通过：0</h4>
+            <p  class="display-none"  id="Ad_limit_type_3_audit_3">驳回：0</p>
+          </a>
+          <a href="javascript:;">
+            <h4  id="Ad_limit_type_3_audit_2">审核中：0</h4>
+						<p   class="display-none" id="TtypeThreeAuditThreeTips">请及时处理</p>
+          </a>
+          <a onclick="openAdList('3')">
+            <button class="aui-page-btn">查 看</button>
+          </a>
+        </div>
+
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+
+<script type="text/javascript">
+  var Turn_of_countdown =30000;
+  var time = Turn_of_countdown/1000;
+
+	apiready = function(){
+
+		showTime();//显示时间
+
+    setTimeout(function(){
+      close();
+    //	console.log("close launchImageAd");
+  },Turn_of_countdown);
+
+
+  ShowData();
+  GetData();   //更新数据
+
+
+        //监听重新获取
+        api.addEventListener({
+          name: 'UpdateAdDetailsData'
+        }, function(ret, err) {
+          if(ret) {
+
+      //	alert(JSON.stringify('登陆成功  重新获取数据'));
+          //	UserNmae.innerHTML = '监听获取成功';
+
+          GetData();   //更新数据
+          //	location.reload();
+          ShowData();
+          }
+          });
+
+	};
+
+
+  //显示倒数秒数
+  function showTime(){
+      time -= 1;
+      document.getElementById('showTime').innerHTML= ''+time+'';
+      if(time==0){
+		        	close();
+  /*    api.toast({
+         msg : '时间到啦',
+         duration : 2000,
+         location : 'middle'
+         });
+*/
+      }
+      //每秒执行一次,showTime()
+      setTimeout("showTime()",1000);
+  }
+
+
+  //关闭
+  function close(){
+
+      var obj = document.getElementById("Upload_warning_prompt");
+						obj.setAttribute("class", 'aui-conduct-head display-none');
+    }
+
+
+
+
+
+    function ShowData(){
+
+                //推荐BANNER
+                  Ad_limit_type_1_audit_1.innerHTML = '审核通过：'  +localStorage.getItem('Ad_limit_type_1_audit_1');   //审核通过
+                  Ad_limit_type_1_audit_2.innerHTML = '审核中：'  +localStorage.getItem('Ad_limit_type_1_audit_2');   //审核中
+                  var Ad_limit_type_1_used_num =  parseInt(localStorage.getItem('Ad_limit_type_1_audit_1'))+ parseInt( localStorage.getItem('Ad_limit_type_1_audit_2')) +  parseInt(localStorage.getItem('Ad_limit_type_1_audit_3')) ;   //已用总数
+                  Ad_limit_type_1_used.innerHTML = '广告位数量：'  +Ad_limit_type_1_used_num +' / ' +localStorage.getItem('Ad_limit_type_1')  ;   //已用
+                  if(localStorage.getItem('Ad_limit_type_1_audit_3') > 0){
+                     Ad_limit_type_1_audit_3.innerHTML = '驳回：'  +localStorage.getItem('Ad_limit_type_1_audit_3');   //驳回
+                     var obj = document.getElementById("Ad_limit_type_1_audit_3");
+                       obj.setAttribute("class", 'display-block');
+                      var obj = document.getElementById("TtypeOneAuditThreeTips");
+                            obj.setAttribute("class", 'display-block');
+                  }else{
+                      var obj = document.getElementById("Ad_limit_type_1_audit_3");
+                          obj.setAttribute("class", 'display-none');
+                      var obj = document.getElementById("TtypeOneAuditThreeTips");
+                          obj.setAttribute("class", 'display-none');
+                  }
+
+                //推荐ICON
+                Ad_limit_type_2_audit_1.innerHTML = '审核通过：'  +localStorage.getItem('Ad_limit_type_2_audit_1');   //审核通过
+                Ad_limit_type_2_audit_2.innerHTML = '审核中：'  +localStorage.getItem('Ad_limit_type_2_audit_2');   //审核中
+                var Ad_limit_type_2_used_num =  parseInt(localStorage.getItem('Ad_limit_type_2_audit_1'))+ parseInt( localStorage.getItem('Ad_limit_type_2_audit_2')) +  parseInt(localStorage.getItem('Ad_limit_type_2_audit_3')) ;   //已用总数
+                Ad_limit_type_2_used.innerHTML = '广告位数量：'  +Ad_limit_type_2_used_num +' / ' +localStorage.getItem('Ad_limit_type_2')  ;   //已用
+                  if(localStorage.getItem('Ad_limit_type_2_audit_3') > 0){
+                      Ad_limit_type_2_audit_3.innerHTML = '驳回：'  +localStorage.getItem('Ad_limit_type_2_audit_3');   //驳回
+                     var obj = document.getElementById("Ad_limit_type_2_audit_3");
+                       obj.setAttribute("class", 'display-block');
+                      var obj = document.getElementById("TtypeTwoAuditThreeTips");
+                            obj.setAttribute("class", 'display-block');
+                  }else{
+                      var obj = document.getElementById("Ad_limit_type_2_audit_3");
+                          obj.setAttribute("class", 'display-none');
+                      var obj = document.getElementById("TtypeTwoAuditThreeTips");
+                          obj.setAttribute("class", 'display-none');
+                  }
+
+                //推荐BIGPIC
+                Ad_limit_type_3_audit_1.innerHTML = '审核通过：'  +localStorage.getItem('Ad_limit_type_3_audit_1');   //审核通过
+                Ad_limit_type_3_audit_2.innerHTML = '审核中：'  +localStorage.getItem('Ad_limit_type_3_audit_2');   //审核中
+                var Ad_limit_type_3_used_num =  parseInt(localStorage.getItem('Ad_limit_type_3_audit_1'))+ parseInt( localStorage.getItem('Ad_limit_type_3_audit_2')) +  parseInt(localStorage.getItem('Ad_limit_type_3_audit_3')) ;   //已用总数
+                Ad_limit_type_3_used.innerHTML = '广告位数量：'  +Ad_limit_type_3_used_num +' / ' +localStorage.getItem('Ad_limit_type_3')  ;   //已用
+                  if(localStorage.getItem('Ad_limit_type_3_audit_3') > 0){
+                      Ad_limit_type_3_audit_3.innerHTML = '驳回：'  +localStorage.getItem('Ad_limit_type_3_audit_3');   //驳回
+                     var obj = document.getElementById("Ad_limit_type_3_audit_3");
+                       obj.setAttribute("class", 'display-block');
+                      var obj = document.getElementById("TtypeThreeAuditThreeTips");
+                            obj.setAttribute("class", 'display-block');
+                  }else{
+                      var obj = document.getElementById("Ad_limit_type_3_audit_3");
+                          obj.setAttribute("class", 'display-none');
+                      var obj = document.getElementById("TtypeThreeAuditThreeTips");
+                          obj.setAttribute("class", 'display-none');
+                  }
+
+                //首页BANNER
+                Ad_limit_type_100_audit_1.innerHTML = '审核通过：'  +localStorage.getItem('Ad_limit_type_100_audit_1');   //审核通过
+                Ad_limit_type_100_audit_2.innerHTML = '审核中：'  +localStorage.getItem('Ad_limit_type_100_audit_2');   //审核中
+                var Ad_limit_type_100_used_num =  parseInt(localStorage.getItem('Ad_limit_type_100_audit_1'))+ parseInt( localStorage.getItem('Ad_limit_type_100_audit_2')) +  parseInt(localStorage.getItem('Ad_limit_type_100_audit_3')) ;   //已用总数
+                Ad_limit_type_100_used.innerHTML = '广告位数量：'  +Ad_limit_type_100_used_num +' / ' +localStorage.getItem('Ad_limit_type_100')  ;   //已用
+                if(localStorage.getItem('Ad_limit_type_100_audit_3') > 0){
+                    Ad_limit_type_100_audit_3.innerHTML = '驳回：'  +localStorage.getItem('Ad_limit_type_100_audit_3');   //驳回
+                   var obj = document.getElementById("Ad_limit_type_100_audit_3");
+                     obj.setAttribute("class", 'display-block');
+                    var obj = document.getElementById("TtypeOneHundredAuditThreeTips");
+                          obj.setAttribute("class", 'display-block');
+                }else{
+                    var obj = document.getElementById("Ad_limit_type_100_audit_3");
+                        obj.setAttribute("class", 'display-none');
+                    var obj = document.getElementById("TtypeOneHundredAuditThreeTips");
+                        obj.setAttribute("class", 'display-none');
+                }
+
+
+    }
+
+
+
+      function GetData(){
+
+     //   var user_id = localStorage.getItem('user_id');
+      //  var bannerid = $api.byId('slidebox');
+    	var UserId = localStorage.getItem('UserId');
+    	var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+    	var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+        api.ajax({
+            url: localStorage.getItem('api_url') + '/app/api/GetAdvertisementDetails',
+            method: 'get',
+
+    			data: {
+    				values: {
+    					key: RyanKey,
+    					uid: UserId,
+    					time: GetTime
+    					}
+    				  }
+        },function(ret, err){
+
+  // alert(JSON.stringify(ret));
+
+    				if(ret.status == 1) {
+
+                                U.setStorage('Ad_limit_type_1',ret.data['Ad_limit_type_1']);									//推荐BANNER 限额
+                                U.setStorage('Ad_limit_type_2',ret.data['Ad_limit_type_2']);								//推荐ICON   限额
+                                U.setStorage('Ad_limit_type_3',ret.data['Ad_limit_type_3']);									//推荐BIGPIC 限额
+                                U.setStorage('Ad_limit_type_100',ret.data['Ad_limit_type_100']);				//首页BANNER 限额
+
+                                //推荐BANNER
+                                U.setStorage('Ad_limit_type_1_audit_1',ret.data['Ad_limit_type_1_audit_1']);									//审核通过
+                                U.setStorage('Ad_limit_type_1_audit_2',ret.data['Ad_limit_type_1_audit_2']);								//审核中
+                                U.setStorage('Ad_limit_type_1_audit_3',ret.data['Ad_limit_type_1_audit_3']);									//驳回
+
+                                //推荐ICON
+                                U.setStorage('Ad_limit_type_2_audit_1',ret.data['Ad_limit_type_2_audit_1']);									//审核通过
+                                U.setStorage('Ad_limit_type_2_audit_2',ret.data['Ad_limit_type_2_audit_2']);								//审核中
+                                U.setStorage('Ad_limit_type_2_audit_3',ret.data['Ad_limit_type_2_audit_3']);									//驳回
+
+                                //推荐BIGPIC
+                                U.setStorage('Ad_limit_type_3_audit_1',ret.data['Ad_limit_type_3_audit_1']);									//审核通过
+                                U.setStorage('Ad_limit_type_3_audit_2',ret.data['Ad_limit_type_3_audit_2']);								//审核中
+                                U.setStorage('Ad_limit_type_3_audit_3',ret.data['Ad_limit_type_3_audit_3']);									//驳回
+
+                                //首页BANNER
+                                U.setStorage('Ad_limit_type_100_audit_1',ret.data['Ad_limit_type_100_audit_1']);									//审核通过
+                                U.setStorage('Ad_limit_type_100_audit_2',ret.data['Ad_limit_type_100_audit_2']);								//审核中
+                                U.setStorage('Ad_limit_type_100_audit_3',ret.data['Ad_limit_type_100_audit_3']);									//驳回
+
+
+
+                          setTimeout(function(){		//延迟执行
+
+                  								ShowData();
+
+                  						}, 1000);
+
+    			}else	if(ret.status == 718) {
+
+     							GetData();
+    			}else	if(ret.status == '829') {
+
+								GetData();
+
+								}
+
+    				      ShowData();
+
+        });
+
+
+
+
+      }
+
+
+function openAdList(type){
+  U.openWin('agent/','advertisement_list',{type:type});
+
+}
+
+
+
+
+
+</script>
+</html>

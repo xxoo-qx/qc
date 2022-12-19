@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html><head>
+        <meta charset="UTF-8">
+        <title>广告编辑</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta content="telephone=no" name="format-detection">
+	    	<link rel="stylesheet" type="text/css" href="../../css/advertisement_edit_dark.css" />
+
+<style>
+
+
+.display-block{
+display :block ;
+}
+
+.display-none{
+display :none ;
+}
+
+
+
+</style>
+    </head>
+    <body>
+
+
+                <div class="aui-flex aui-flex-context" id="rejectTips">
+                    <div class="aui-flex-box">
+                        <h2 id="TipsTitle">驳回原因：</h2>
+                        <h3 id="content"> * * * </h3>
+                    </div>
+                    <div class="aui-assemble-img" id="rejectTipsIconOk">
+                      <svg t="1571732588311" class="aui-assemble-img" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14157" width="200" height="200"><path d="M512 76.8a25.6 25.6 0 0 1-25.6-25.6V25.6a25.6 25.6 0 0 1 51.2 0v25.6a25.6 25.6 0 0 1-25.6 25.6zM51.2 537.6H25.6a25.6 25.6 0 0 1 0-51.2h25.6a25.6 25.6 0 0 1 0 51.2zM998.4 537.6h-25.6a25.6 25.6 0 0 1 0-51.2h25.6a25.6 25.6 0 0 1 0 51.2zM576 1024H448c-84.6976 0-153.6-68.9024-153.6-153.6v-42.1632C189.9392 756.5696 128 639.3984 128 512c0-211.7376 172.2624-384 384-384s384 172.2624 384 384c0 127.4112-61.9392 244.5696-166.4 316.2368V870.4c0 84.6976-68.9024 153.6-153.6 153.6z m-64-844.8c-183.5008 0-332.8 149.2992-332.8 332.8 0 114.5344 57.7536 219.52 154.5088 280.832 7.3984 4.7104 11.8912 12.8512 11.8912 21.632V870.4c0 56.4608 45.9392 102.4 102.4 102.4h128c56.4608 0 102.4-45.9392 102.4-102.4v-55.936c0-8.7808 4.4928-16.9216 11.904-21.6192C787.0336 731.52 844.8 626.5344 844.8 512c0-183.5008-149.2864-332.8-332.8-332.8zM186.176 211.7632a25.536 25.536 0 0 1-18.0992-7.488l-18.112-18.0992a25.6 25.6 0 1 1 36.1856-36.2112l18.112 18.0992a25.6 25.6 0 0 1-18.0864 43.6992zM837.8368 211.776a25.6 25.6 0 0 1-18.112-43.6864l18.0992-18.112a25.6 25.6 0 1 1 36.224 36.1856l-18.0992 18.112a25.5232 25.5232 0 0 1-18.112 7.5008z" fill="#fecc66" p-id="14158"></path><path d="M576 932.0192H448a25.6 25.6 0 0 1 0-51.2h128a25.6 25.6 0 0 1 0 51.2z" fill="#fecc66" p-id="14159"></path><path d="M511.9872 742.4a25.6256 25.6256 0 0 1-22.8864-37.056L572.9792 537.6H409.6a25.6256 25.6256 0 0 1-22.3232-38.144l115.2-204.8a25.6 25.6 0 1 1 44.6336 25.1008L453.376 486.4H614.4a25.5872 25.5872 0 0 1 22.8992 37.056l-102.4 204.8A25.6 25.6 0 0 1 511.9872 742.4z" fill="#fecc66" p-id="14160"></path></svg>
+                    </div>
+                </div>
+
+                <div class="aui-flex">
+                    <div class="aui-address-logo">
+                        <svg t="1571733006792" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="22007" width="200" height="200"><path d="M823.281 220.792c2.127 4.729 3.832 10.248 5.115 16.541 1.318 6.311 1.969 12.867 1.969 19.688s-1.318 13.641-3.938 20.479c-2.637 6.82-6.838 13.395-12.604 19.688-6.293 6.293-11.936 11.813-16.928 16.523-4.992 4.729-9.316 8.93-12.99 12.604-4.201 4.201-8.139 7.875-11.813 11.021l-147.27-147.252c6.293-5.766 13.781-12.727 22.447-20.865s15.873-14.555 21.656-19.301c7.348-5.766 14.959-9.826 22.834-12.199 7.875-2.355 15.627-3.41 23.238-3.146s14.959 1.441 22.043 3.551c7.084 2.092 13.254 4.447 18.51 7.084 11.021 5.783 23.221 15.873 36.615 30.305 13.398 14.447 23.769 29.529 31.116 45.279zM209.823 605.085c3.146-3.164 10.494-10.635 22.043-22.447s25.998-26.385 43.313-43.699l57.498-57.48 63.773-63.791 169.312-169.313 147.27 148.043L543.719 565.71l-63 63.773c-20.988 20.479-39.902 39.252-56.707 56.303-16.787 17.068-30.709 31.113-41.73 42.135s-17.578 17.332-19.688 18.896c-5.238 4.729-11.285 9.721-18.105 14.959-6.82 5.256-13.922 9.457-21.27 12.604-7.348 3.674-18.105 8.139-32.291 13.395-14.168 5.238-29.004 10.354-44.49 15.346s-30.182 9.334-44.104 13.008c-13.904 3.656-24.275 6.029-31.096 7.084-14.186 1.564-23.625-0.527-28.354-6.311-4.729-5.766-6.029-15.486-3.938-29.127 1.055-7.348 3.551-17.982 7.488-31.904a3579.677 3579.677 0 0 1 12.586-43.313c4.465-14.959 8.789-28.723 13.008-41.326 4.201-12.604 7.611-21.27 10.23-25.998 3.146-7.348 6.697-14.027 10.635-20.074 3.94-6.03 9.582-12.727 16.93-20.075z m262.582 148.518h70.417v70.102h-70.417v-70.102z m143.085 0h70.418v70.102H615.49v-70.102z m143.649 0h70.418v70.102h-70.418v-70.102z m0 0" fill="#808080" p-id="22008"></path></svg>
+                    </div>
+                    <div class="aui-flex-box">
+                          <h5 id="adname">  * * *   </h5>
+                    </div>
+                </div>
+
+                <div class="aui-flex aui-flex-four">
+                    <div class="aui-flex-add" id="picurl">
+                        <img src="data:image/jpeg;base64,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">
+                     </div>
+                    <div class="aui-flex-box">
+                        <p id="linkurl">https://* * * * * * </p>
+
+                    </div>
+                </div>
+                <div class="aui-flex aui-flex-four" style="padding-top:0">
+                    <div class="aui-flex-box">
+                        <button onclick="GoAdOperation('edit-title')">修改标题</button>
+                        <button  onclick="GoAdOperation('edit-img')" class="aui-btn-line">修改图片</button>
+                        <button class="aui-btn-line" onclick="GoAdOperation('edit-url')">修改链接</button>
+                    </div>
+                </div>
+
+                                  <div class="divHeight"></div>
+
+                <div class="aui-list-box display-none" id="rejectBnt">
+                    <a  onclick="GoAdOperation('del')" class="aui-flex aui-flex-right">
+                        <div class="aui-flex-icon-img">
+                        <svg t="1571730692728" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7722" width="200" height="200"><path d="M347.014485 527.817759c-9.199671 0-16.699402 7.499732-16.699402 16.699402l29.998926 361.387066c0 9.199671 7.499732 16.699402 16.699403 16.699402s16.699402-7.499732 16.699402-16.699402l-29.998926-361.387066c0.099996-9.199671-7.399735-16.699402-16.699403-16.699402zM510.508634 527.817759c-8.399699 0.699975-15.199456 8.599692-15.199456 17.099388v360.587094c0 8.399699 6.799757 16.299417 15.199456 17.099388 9.899646 0.899968 18.199349-6.899753 18.199348-16.699402V544.517161c0-9.699653-8.299703-17.499374-18.199348-16.699402zM677.002675 527.817759c-9.199671 0-16.699402 7.499732-16.699403 16.699402l-29.998926 361.387066c0 9.199671 7.499732 16.699402 16.699402 16.699402s16.699402-7.499732 16.699403-16.699402l29.998926-361.387066c0-9.199671-7.499732-16.699402-16.699402-16.699402z" p-id="7723" fill="#e32a16"></path><path d="M802.59818 454.620379H210.119385c-7.799721 0-13.899503 6.899753-12.899538 14.599477 0.099996 0.599979 0.099996 1.299953 0.099996 1.899932v0.199993c0 1.099961 0.099996 2.099925 0.399986 3.099889 0.099996 0.499982 0.299989 0.999964 0.299989 1.499946l57.297949 461.983465c0.099996 0.499982 0.099996 0.899968 0.099997 1.39995 0.399986 46.698329 38.498622 84.696969 85.396943 84.696969h342.587739c46.798325 0 84.996958-37.898644 85.396943-84.696969 0-0.499982 0-0.899968 0.099997-1.39995l57.297949-461.983465 0.299989-1.499946c0.299989-0.999964 0.399986-1.999928 0.399986-3.099889v-0.199993c0-0.599979 0-1.299953 0.099996-1.899932 0.999964-7.799721-5.099817-14.599477-12.899538-14.599477h-11.499588z m-67.297592 483.282702c-0.099996 0.499982-0.099996 0.899968-0.099996 1.39995-0.399986 28.298987-23.499159 51.198168-51.898143 51.198168H340.714711c-28.398984 0-51.498157-22.89918-51.898143-51.198168 0-0.499982 0-0.899968-0.099996-1.39995l-53.998068-435.28442c-0.999964-7.799721 5.099817-14.599477 12.899539-14.599478h528.481085c7.799721 0 13.899503 6.899753 12.899538 14.599478l-53.698078 435.28442zM1005.190929 542.117247L874.39561 351.224079c20.899252-22.699188 26.399055-53.398089 11.599585-75.097312s-45.498372-27.599012-74.197345-16.299416L681.002532 68.834186c-4.999821-7.299739-16.399413-8.199707-25.599084-1.899932S643.003892 84.133639 648.003713 91.433378l324.188397 473.28306c4.999821 7.299739 16.399413 8.199707 25.599083 1.899932s12.399556-17.199384 7.399736-24.499123zM295.716321 224.62861l-25.799076 17.59937c-9.099674 6.199778-13.899503 17.299381-12.699546 28.998963 1.39995 12.799542 9.699653 23.799148 21.699224 28.698972l0.599978 0.29999 186.193336 56.297985c4.899825 1.599943 9.899646 2.399914 14.79947 2.399914 9.199671 0 18.299345-2.7999 26.199063-8.199707 12.099567-8.299703 19.399306-21.399234 20.09928-35.998711l15.399449-193.893061v-0.699975c-0.099996-12.599549-6.999749-23.999141-17.999356-29.698937-11.399592-5.899789-24.799112-4.899825-35.798718 2.699904l-29.598941 20.199277c-19.899288-25.499087-60.497835-67.497584-126.29548-92.796679C290.416511 4.336495 244.418157-2.363265 195.819897 0.736624 138.021965 4.436491 76.024184 21.935865 11.426496 52.834759l-1.09996 0.499982-0.999965 0.699975C2.326822 58.834544-1.273049 67.434236 0.42689 75.43395c1.599943 7.699724 7.799721 13.39952 15.999427 14.999463l1.899932 0.29999 1.899932-0.099997c165.294084-12.199563 228.291829 65.597652 275.49014 133.995204z" p-id="7724" fill="#e32a16"></path></svg>
+                        </div>
+                        <div class="aui-flex-box">
+                            <h4>删除</h4>
+                        </div>
+                    </a>
+                    <a onclick="GoAdOperation('up')"  class="aui-flex">
+                        <div class="aui-flex-icon-img">
+                        <svg t="1571730870426" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11207" width="200" height="200"><path d="M910.4 110.5c-13.7-10.7-33.7-8.3-44.4 5.5L399.3 713.3c-3.6 4.6-5.7 10-6.4 15.4-0.4 2.1-0.7 4.2-0.7 6.4V928c0 17.4 14.2 31.6 31.6 31.6 17.4 0 31.6-14.2 31.6-31.6V744.2l460.4-589.3c10.7-13.7 8.3-33.7-5.4-44.4z" fill="#1b7dff" p-id="11208"></path><path d="M262.6 682.1a32.1 32 0 1 0 64.2 0 32.1 32 0 1 0-64.2 0Z" fill="#1b7dff" p-id="11209"></path><path d="M959.9 128c0-35.3-28.7-64-64-64-16.2 0-30.9 6-42.2 15.9l-753 430.3v0.1c-21.4 10.3-36.2 32.3-36.2 57.7 0 24.3 13.6 45.5 33.6 56.3v0.4l67.5 31.6v-0.1c4 1.8 8.5 2.8 13.2 2.8 17.7 0 32.1-14.3 32.1-32 0-12.7-7.4-23.7-18.2-28.8l0.1-0.2-37.3-17.6v-0.1c-4.8-2.8-8.1-7.9-8.1-13.9s3.3-11.2 8.1-13.9v-0.1L866.4 147l0.1 0.1c2.3-1.2 4.9-2 7.7-2 8.8 0 16 7.2 16 16 0 1.4-0.2 2.8-0.6 4.2L759 842.3c-1.1 7.7-7.8 13.7-15.8 13.7-2.5 0-4.8-0.6-6.9-1.6h-0.1l-161.7-76.3c-4.9-3-10.6-4.7-16.7-4.7-17.7 0-32.1 14.3-32.1 32 0 14.6 9.8 26.9 23.3 30.7l180.6 84.7 0.4-0.2c8 3.6 16.9 5.6 26.2 5.6 31.8 0 58.2-23.2 63.1-53.6l0.2-0.1 136.4-711.8c-0.1 0.1 4.3-23.4 4-32.7z" fill="#1b7dff" p-id="11210"></path></svg>
+                        </div>
+                        <div class="aui-flex-box">
+                            <h4>提交审核</h4>
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+                                                <div class="aui-list-box-all display-none" id="rejectBntOk">
+                                                    <a class="aui-flex">
+                                                        <div class="aui-flex-icon-img" id="rejectBntOkIcon">  </div>
+                                                        <div class="aui-flex-box">
+                                                            <h4 id="rejectBntOkText"></h4>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+
+
+                  <div class="divHeight"></div>
+
+
+                <div class="aui-flex">
+                                    <div class="aui-flex-box">
+                                        <h4>严禁上传 黄·赌·毒·涉黑·政治 等图片<em></em></h4>
+                                        <h4>广告标题: <em>仅在"推荐页小图标"处会显示;</em></h4>
+                                        <h4>跳转地址: <em>必须以 "http://" 或者  "https://" 开头;</em></h4>
+                                        <h4>图片最大不得超过5 MB; <em></em></h4>
+                                        <h4>为了图片不变形建议 尺寸 / 比例 如下: <em></em></h4>
+                                        <h4>轮播/横幅：<em>尺寸（像素）：300*750   高宽比：1:2.5</em></h4>
+                                        <h4>图标：<em>尺寸（像素）：100*100     高宽比：1:1</em></h4>
+                                    </div>
+                                </div>
+
+
+</body>
+
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+
+<script type="text/javascript">
+	apiready = function(){
+
+        ShowData();
+        GetData();   //更新数据
+
+
+
+        						        //监听重新获取
+        						        api.addEventListener({
+        						          name: 'UpdateAdEditShowData'
+        						        }, function(ret, err) {
+        						          if(ret) {
+
+        						          ShowData();   //更新数据
+        						          }
+        						          });
+
+
+
+                              //监听提交
+          						        api.addEventListener({
+          						          name: 'UpDataAdvertisement'
+          						        }, function(ret, err) {
+          						          if(ret) {
+
+          						          UpDataAdvertisement();   //更新数据
+          						          }
+          						          });
+
+
+
+
+	};
+
+
+
+  function ShowData(){
+
+              adname.innerHTML = localStorage.getItem('ADid'+api.pageParam.Adid+'title') ;
+              content.innerHTML = localStorage.getItem('ADid'+api.pageParam.Adid+'content') ;
+              picurl.innerHTML ='<img src="'+ localStorage.getItem('ADid'+api.pageParam.Adid+'picurl')+'">' ;
+              linkurl.innerHTML = localStorage.getItem('ADid'+api.pageParam.Adid+'linkurl') ;
+
+
+
+  }
+
+
+
+function GetData(){
+
+    	var UserId = localStorage.getItem('UserId');
+    	var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+    	var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+        api.ajax({
+            url: localStorage.getItem('api_url') + '/app/api/GetAdvertisementEdit',
+            method: 'get',
+
+    			data: {
+    				values: {
+    					key: RyanKey,
+    					uid: UserId,
+    					time: GetTime,
+    					adid:  api.pageParam.Adid
+    					}
+    				  }
+        },function(ret, err){
+//      alert(JSON.stringify(ret));
+    				if(ret.status == 1) {
+
+                      var ispicurl =  ret.data['picurl'];
+                      if(ispicurl.indexOf("http://")>-1){   //如果包含 http://
+                          var ad_pic = ret.data['picurl'];
+                      }else if(ispicurl.indexOf("https://")>-1){   //如果包含 https://
+                          var ad_pic = ret.data['picurl'];
+                      }else{
+                          var ad_pic = localStorage.getItem('api_url')+ret.data['picurl'];
+                      }
+
+                          var obj = document.getElementById("rejectBnt");
+                          obj.setAttribute("class", 'aui-list-box');
+
+                        U.setStorage('ADid'+api.pageParam.Adid+'title',ret.data['name']);
+                        U.setStorage('ADid'+api.pageParam.Adid+'linkurl',ret.data['linkurl']);
+                        U.setStorage('ADid'+api.pageParam.Adid+'picurl',ad_pic);
+                        U.setStorage('ADid'+api.pageParam.Adid+'content',ret.data['content']);
+
+              ShowData();
+
+    			}else	if(ret.status == 718) {
+
+     							GetData();
+    			}else	if(ret.status == '829') {
+
+               							GetData();
+          }
+
+
+        });
+
+
+}
+
+
+
+
+
+
+
+
+    //   提交审核
+        function UpDataAdvertisement(){
+
+                      //提交按钮
+                      var obj = document.getElementById("rejectBnt");
+                      obj.setAttribute("class", 'aui-list-box display-none');
+                      //提交后的按钮
+                      var obj = document.getElementById("rejectBntOk");
+                      obj.setAttribute("class", 'aui-list-box-all');
+
+
+                  	var UserId = localStorage.getItem('UserId');
+                  	var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+                  	var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+                      api.ajax({
+                          url: localStorage.getItem('api_url') + '/app/api/AdvertisementEdit',
+                          method: 'get',
+
+                  			data: {
+                        				values: {
+                        					key: RyanKey,
+                        					uid: UserId,
+                        					time: GetTime,
+                        					adid:  api.pageParam.Adid,
+                        					url:  localStorage.getItem('ADid'+api.pageParam.Adid+'linkurl') ,
+                        					name:  localStorage.getItem('ADid'+api.pageParam.Adid+'title') ,
+                        					picurl:  localStorage.getItem('ADid'+api.pageParam.Adid+'picurl')
+                        					}
+                  				  }
+                      },function(ret, err){
+
+                  				if(ret.status == 1) {
+
+                                        rejectBntOkText.innerHTML =  ret.data;
+                                        rejectBntOkIcon.innerHTML =  '<svg t="1571744084850" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33009" width="200" height="200"><path d="M287.2 372.6m-32 0a32 32 0 1 0 64 0 32 32 0 1 0-64 0Z" fill="#1b7dff" p-id="33010"></path><path d="M736.8 372.6m-32 0a32 32 0 1 0 64 0 32 32 0 1 0-64 0Z" fill="#1b7dff" p-id="33011"></path><path d="M513 800.7c-68.4 0-132.7-26.6-181-75-48.4-48.4-75-112.6-75-181 0-17.7 14.3-32 32-32s32 14.3 32 32c0 105.9 86.1 192 192 192s192-86.1 192-192c0-17.7 14.3-32 32-32s32 14.3 32 32c0 68.4-26.6 132.7-75 181-48.3 48.4-112.6 75-181 75z" fill="#1b7dff" p-id="33012"></path><path d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512s13.5-136.2 40.2-199.3C66 251.7 103 197 150 150c47-47 101.7-84 162.7-109.8C375.8 13.5 442.9 0 512 0c151.1 0 293.7 66.3 391.3 181.8 11.4 13.5 9.7 33.7-3.8 45.1-13.5 11.4-33.7 9.7-45.1-3.8C769 122 644.2 64 512 64 265 64 64 265 64 512s201 448 448 448 448-201 448-448c0-28.9-2.8-57.8-8.2-85.9-3.4-17.3 8-34.1 25.3-37.5 17.3-3.4 34.1 8 37.5 25.3 6.2 32.1 9.4 65.1 9.4 98.1 0 69.1-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z" fill="#1b7dff" p-id="33013"></path></svg>';
+
+                                       var obj = document.getElementById("rejectTips");
+                                        obj.setAttribute("class", 'aui-flex aui-flex-contextok');
+                                        rejectTipsIconOk.innerHTML =  '<svg t="1571746582691" class="aui-assemble-img" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3094" width="200" height="200"><path d="M762.498194 141.103692c-14.305821-9.658987-33.714869-5.876847-43.36874 8.398274-9.658987 14.295588-5.897314 33.714869 8.398274 43.373857 106.3604 71.852468 169.859619 191.277418 169.859619 319.445496 0 212.414831-172.807764 385.217479-385.217479 385.217479S126.951367 724.735126 126.951367 512.320295c0-128.169101 63.49922-247.593028 169.854503-319.445496 14.295588-9.658987 18.057261-29.078269 8.398274-43.373857-9.658987-14.275121-29.068036-18.057261-43.363623-8.398274C138.262994 224.597291 64.48364 363.369891 64.48364 512.320295c0 246.851131 200.828958 447.685205 447.685205 447.685205S959.855074 759.172449 959.855074 512.320295C959.855074 363.369891 886.075721 224.597291 762.498194 141.103692z" p-id="3095" fill="#ffffff"></path><path d="M400.692938 64.635089c-17.248849 0-31.234375 13.980409-31.234375 31.234375l0 30.470989c0 17.253966 13.985526 31.234375 31.234375 31.234375 17.248849 0 31.233352-13.980409 31.233352-31.234375L431.92629 95.869465C431.92629 78.615499 417.941787 64.635089 400.692938 64.635089z" p-id="3096" fill="#ffffff"></path><path d="M623.645776 64.635089c-17.248849 0-31.234375 13.980409-31.234375 31.234375l0 30.470989c0 17.253966 13.985526 31.234375 31.234375 31.234375s31.234375-13.980409 31.234375-31.234375L654.880151 95.869465C654.880151 78.615499 640.894625 64.635089 623.645776 64.635089z" p-id="3097" fill="#ffffff"></path><path d="M425.690262 227.656977c11.209296 18.047028 41.97602 48.589648 86.157265 48.589648 43.958164 0 75.100442-30.308283 86.574774-48.223305 9.302877-14.528901 5.068436-33.846876-9.455349-43.149752-14.544251-9.323343-33.846876-5.053086-43.149752 9.455349-0.121773 0.193405-13.379729 19.449981-33.968649 19.449981-20.008706 0-32.443923-18.127869-33.277918-19.36914-9.17087-14.437827-28.285207-18.819624-42.829458-9.760295C421.084361 193.749726 416.584883 213.006302 425.690262 227.656977z" p-id="3098" fill="#ffffff"></path><path d="M271.773753 513.306762c-12.378935 12.017708-12.668531 31.7931-0.650823 44.166919l151.904689 156.423609c5.881964 6.060019 13.96506 9.475815 22.408359 9.475815s16.526395-3.415796 22.408359-9.475815l285.370423-293.854655c12.017708-12.373819 11.728112-32.149211-0.650823-44.166919-12.373819-12.007475-32.144094-11.712763-44.166919 0.650823L445.435978 647.301546 315.940672 513.957585C303.922964 501.604232 284.152688 501.299287 271.773753 513.306762z" p-id="3099" fill="#ffffff"></path></svg>';
+                                        content.innerHTML = ret.data;
+                                        var obj = document.getElementById("TipsTitle");
+                                         obj.setAttribute("class", 'display-none');
+
+                                //更新广告列表数据
+                                api.sendEvent({
+                                name: 'UpdateAdListData',
+                                extra: {}
+                                });
+
+                                //更新广告概况数据
+                                api.sendEvent({
+                                name: 'UpdateAdDetailsData',
+                                extra: {}
+                                });
+
+
+                  			}else	if(ret.status == 718) {
+                                        rejectBntOkText.innerHTML =  '连接失败 正在重试…';
+                                        rejectBntOkIcon.innerHTML =  '<svg t="1571744287699" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34283" width="200" height="200"><path d="M513.550821 60.225663c-248.290923 0-449.579345 201.299679-449.579345 449.625394 0 248.296039 201.288422 449.594695 449.579345 449.594695 248.285806 0 449.640744-201.299679 449.640744-449.594695C963.192587 261.525342 761.836627 60.225663 513.550821 60.225663zM513.671571 917.673369c-225.166249 0-407.696446-182.53736-407.696446-407.706679S288.505321 102.254895 513.671571 102.254895c225.173412 0 407.703609 182.541453 407.703609 407.710772S738.844983 917.673369 513.671571 917.673369z" p-id="34284" fill="#808080"></path><path d="M724.588281 641.579217c7.731078 0 13.996782 9.203616 13.996782 20.558222l0 0c0 11.347442-6.265704 20.552082-13.996782 20.552082L302.582945 682.689521c-7.731078 0-13.996782-9.204639-13.996782-20.552082l0 0c0-11.354606 6.265704-20.558222 13.996782-20.558222L724.588281 641.579217z" p-id="34285" fill="#808080"></path><path d="M366.566188 453.597869c0 7.726985-9.204639 13.995759-20.559245 13.995759l0 0c-11.346419 0-20.551058-6.268774-20.551058-13.995759L325.455885 336.364841c0-7.726985 9.204639-13.996782 20.551058-13.996782l0 0c11.354606 0 20.559245 6.268774 20.559245 13.996782L366.566188 453.597869z" p-id="34286" fill="#808080"></path><path d="M701.708178 453.597869c0 7.726985-9.203616 13.995759-20.560268 13.995759l0 0c-11.346419 0-20.550035-6.268774-20.550035-13.995759L660.597875 336.364841c0-7.726985 9.203616-13.996782 20.550035-13.996782l0 0c11.356652 0 20.560268 6.268774 20.560268 13.996782L701.708178 453.597869z" p-id="34287" fill="#808080"></path></svg>';
+
+                   							UpDataAdvertisement();
+
+                  			}else{
+
+                                      rejectBntOkText.innerHTML =  '连接异常 请稍后再试！';
+                                      rejectBntOkIcon.innerHTML =  '<svg t="1571744191325" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33919" width="200" height="200"><path d="M358.419788 392.527249c0-37.683671-30.557838-68.26503-68.256849-68.26503-37.700034 0-68.257872 30.582382-68.257872 68.26503 0 37.715373 30.557838 68.26503 68.257872 68.26503C327.86195 460.793302 358.419788 430.242622 358.419788 392.527249zM733.847287 324.262218c-37.699011 0-68.267076 30.582382-68.267076 68.26503 0 37.715373 30.568065 68.26503 68.267076 68.26503s68.256849-30.55068 68.256849-68.26503C802.104137 354.843577 771.546298 324.262218 733.847287 324.262218zM511.999489 0c-282.737469 0-511.94222 229.212932-511.94222 511.991307s229.204751 512.008693 511.94222 512.008693 511.943243-229.229295 511.943243-512.008693S794.736958 0 511.999489 0zM511.999489 972.783586c-254.462188 0-460.743192-206.313728-460.743192-460.792279 0-254.478551 206.279981-460.775917 460.743192-460.775917 254.463211 0 460.75035 206.297366 460.75035 460.775917C972.749839 766.469858 766.463722 972.783586 511.999489 972.783586zM512.066984 597.339725c-154.214767 0-204.796114 136.532106-204.796114 136.532106l51.199028 0c0 0 39.032548-85.331032 153.597085-85.331032 116.072948 0 153.597085 85.331032 153.597085 85.331032l51.198006 0C716.863098 733.871831 666.28175 597.339725 512.066984 597.339725z" p-id="33920" fill="#808080"></path></svg>';
+
+                        }
+
+                      });
+
+
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function GoAdOperation(type){
+      var AdvertisingOperationId = api.pageParam.Adid;
+
+              U.AdvertisingOperationPopup(AdvertisingOperationId,type);
+
+//  U.openWin('agent/','advertisement-list',{type:type});
+
+}
+
+
+
+
+</script>
+</html>

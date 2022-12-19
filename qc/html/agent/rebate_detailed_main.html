@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>返佣明细  - main</title>
+		<link rel="stylesheet" type="text/css" href="../../css/style_dark.css">
+
+</head>
+
+<body>
+<style>
+
+		   .display-block{
+		   display :block ;
+		   }
+
+		   .display-none{
+		   display :none ;
+		   }
+
+
+
+			 .aui-carry-table {
+			     width: 100%;
+			     margin: 0 auto;
+
+			     overflow: hidden;
+			 }
+
+			 .aui-carry-table table {
+			     width: 100%;
+			     text-align: center;
+			     border-collapse: collapse;
+			     border-spacing: 0;
+			 }
+
+			 .aui-carry-table th {
+			     background: #1b7dff;
+			     color: #fff;
+			     font-size: 0.85rem;
+			     font-weight: normal;
+			     text-align: center;
+			     padding: 0.7rem 0;
+			     border-bottom: 1px solid #f3f3f3;
+			 }
+
+			 .aui-carry-table td {
+
+			     color: #808080;
+			     font-size: 0.85rem;
+			     font-weight: normal;
+			     text-align: center;
+			     padding: 0.9rem 0;
+			     position: relative;
+			 }
+
+			 .aui-carry-table td:after {
+			     content: '';
+			     position: absolute;
+			     z-index: 2;
+			     bottom: 0;
+			     left: 0;
+			     width: 100%;
+			     height: 1px;
+			     border-bottom: 1px solid #f3f3f3;
+			     -webkit-transform: scaleY(0.5);
+			     transform: scaleY(0.5);
+			     -webkit-transform-origin: 0 100%;
+			     transform-origin: 0 100%;
+			 }
+
+
+</style>
+
+
+
+
+
+
+
+
+			<div class="aui-carry-list">
+						<div class="aui-carry-border"></div>
+						<div class="aui-carry-table">
+							<table>
+								<thead>
+									<tr>
+									 <th>来源</th>
+										<th>金额</th>
+										<th>时间</th>
+									</tr>
+								</thead>
+								<tbody   id="Rebate_list">
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+
+
+
+
+
+</body>
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+
+    var skip = 0; //页码
+    var datas = new Array(); //页面数据存储的数组
+    //初始化
+    apiready = function() {
+
+
+        fnInitData();
+        fnInitEvent();
+
+
+    };
+
+
+
+
+
+    function fnInitData() {
+
+					var UserId = localStorage.getItem('UserId');
+					var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+					var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+
+            api.ajax({
+				url: localStorage.getItem('api_url') + '/app/api/RebateDetailed',
+                        data:{
+                                values:{
+                        skip:skip,
+												key: RyanKey,
+												uid: UserId,
+												time: GetTime
+                                }
+                        },
+                        method:"get",
+        }, function(ret, err) {
+		//					alert(JSON.stringify(ret));
+            if (ret) {
+
+
+              if(ret.status == '1'){
+
+
+                                var RebateList = ret.data;
+
+                                //把请求到的数据遍历添加进页面数据的数组
+                                if (RebateList.length > 0) {
+                                    for (var i = 0, len = RebateList.length; i < len; i++) {
+                                        datas.push(RebateList[i]);
+                                    };
+                                    //调用页面渲染的方法
+                                    fnInitView(datas);
+                                    api.toast({
+                                        msg: '加载中',
+                            						duration: 1000,
+                            						location : 'middle'
+                                    });
+
+                                } else {
+
+                                    api.toast({
+                                        msg: '已经到底了',
+                            						duration: 1000,
+                            						location : 'middle'
+                                    });
+
+                                    skip -= 1;
+
+
+
+                                };
+                                console.log("第" + (skip + 1).toString() + "页");
+
+
+        }else if(ret.status == '829'){
+      //    U.toast('请求频繁 请稍后再试');
+
+        }
+
+
+
+
+            } else {
+              //  alert("交互失败");
+
+			         api.toast({
+                        msg:'数据获取失败',
+						duration: 1000,
+						location : 'middle'
+                    })
+            };
+        });
+    };
+
+    /**
+     * 渲染页面布局
+     *
+     * @param {Array} data
+     */
+    function fnInitView(data) {
+        // 取消下拉刷新效果
+        api.refreshHeaderLoadDone();
+        //声明容器 并置空
+        var Rebate_list_html = '';
+        //遍历页面数据的数组进行创建标签,插入容器
+        for (var i = 0; i < data.length; i++) {
+        	var s1 =  U.GetFomateTime(data[i].time)
+
+
+          Rebate_list_html += '	<tr><td>' + data[i].info +'</td>		' +
+											'			<td>¥  ' + data[i].money +'</td>		' +
+														'		<td>' + s1 +'</td>		' +
+								'	</tr>		';
+
+
+
+        };
+        $api.byId('Rebate_list').innerHTML = Rebate_list_html;
+    };
+
+    /**
+     * 初始化页面监听事件
+     */
+    function fnInitEvent() {
+        /**上拉加载 */
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 10
+            }
+        }, function(ret, err) {
+            //页码+1，继续请求数据
+            skip += 1;
+            fnInitData();
+        });
+        /** 下拉刷新 */
+    /*    api.setRefreshHeaderInfo({
+            bgColor: '#ccc',
+            textColor: '#fff',
+            textDown: '下拉刷新...',
+            textUp: '松开刷新...'
+        }, function(ret, err) {
+            //重置页码、页面数据，请求数据
+            skip = 1;
+            datas = new Array();
+            fnInitData();
+        });
+
+		*/
+    };
+
+
+
+
+
+
+</script>
+
+
+</html>

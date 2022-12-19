@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>广告列表 - main</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+<style>
+
+html,body {
+    color: #808080;
+    background-color: #efefef;
+    margin: 0;
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+}
+
+
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.aui-flex-box {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    color: #888;
+}
+
+
+
+.aui-card-img{
+	width: 120px;
+	margin-right: 0.8rem;
+
+	height: 120px;
+	line-height: 120px;
+border-radius: 5px;
+
+}
+
+.aui-card-img img{
+    width:100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+
+.aui-flex-two{
+    background:#fff;
+    width:92%;
+    margin:15px auto;
+    border-radius:5px;
+}
+
+.aui-flex-box h4{
+    font-size:0.9rem;
+}
+
+
+.aui-flex-box p{
+    font-size:0.8rem;
+    color:#888;
+    margin:0.5rem 0;
+}
+
+.aui-flex-box span{
+    color:#888;
+    font-size:0.85rem;
+}
+
+.aui-flex-box span em{
+    font-size:0.85rem;
+    font-style:normal;
+
+}
+
+.aui-button-bnt button{
+    background:#1b7dff;
+    border-radius:22px;
+    border:none;
+    color:#fff;
+    font-size:0.7rem;
+    padding:0.3rem 0.8rem;
+}
+
+
+.display-block{
+display :block ;
+}
+
+.display-none{
+display :none ;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+
+		<div id="Advertisement_List">
+
+
+		</div>
+
+
+		</body>
+
+
+		<script type="text/javascript" src="../../script/api.js"></script>
+		<script type="text/javascript" src="../../script/doT.js"></script>
+		<script type="text/javascript" src="../../script/zepto.js"></script>
+		<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+
+		<script type="text/javascript">
+			apiready = function(){
+
+					  GetData();   //更新数据
+
+
+						        //监听重新获取
+						        api.addEventListener({
+						          name: 'UpdateAdListData'
+						        }, function(ret, err) {
+						          if(ret) {
+									//		console.log('广播检测成功');
+						          GetData();   //更新数据
+											location.reload();
+														// alert(JSON.stringify(err));
+						          }
+						          });
+
+
+
+			}
+
+
+			function loadImg(ele_) {
+			var thumbnailBoolean=api.systemType=='ios'?false:true,
+			dataurl = $api.attr(ele_, 'data-src');
+			if (dataurl) {
+			api.imageCache({
+			url: dataurl,
+			thumbnail:false
+			}, function(ret, err) {
+			if (ret) {
+			if (ret.status) {
+			// console.log(ret.url);
+			ele_.src = ret.url;
+			$api.removeCls(ele_, 'lazy');
+			$api.addCls(ele_, 'imgloaded');
+
+			// src赋值，也会触发onload，防止循环执行必须移除对应属性
+			$api.removeAttr(ele_, 'data-src');
+			$api.removeAttr(ele_, 'onload');
+			}
+			} else {
+			// alert(JSON.stringify(err));
+			}
+			});
+
+			}
+			}
+
+
+  function GetData(){
+
+						var UserId = localStorage.getItem('UserId');
+						var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+						var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+						api.ajax({
+							url: localStorage.getItem('api_url')+'/app/api/GetAdvertisementList',
+							method: 'get',
+							data: {
+								values: {
+									key: RyanKey,
+									uid: UserId,
+									time: GetTime,
+									type: api.pageParam.type
+								}
+							}
+						}, function(ret, err) {
+
+								if(ret.status == 718){  //KEY验证失败 重新获取
+
+									GetData();
+
+								}else if(ret.status == 1){
+
+												var data = ret.data;
+
+													var Advertisement_List_frm = $api.byId('Advertisement_List');//列表
+
+																			for (var i = 0; i < data.length; i++) {
+
+																				var isAdPic = data[i].picurl;
+																				if(isAdPic.indexOf("http://")>-1){   //如果包含 http://
+																						var ad_pic = data[i].picurl;
+																				}else if(isAdPic.indexOf("https://")>-1){   //如果包含 https://
+																						var ad_pic = data[i].picurl;
+																				}else{
+																						var ad_pic = localStorage.getItem('api_url')+data[i].picurl;
+																				}
+
+																				var isAudit = data[i].audit;
+																				if(isAudit  == 0){
+																							var audit = '未知';
+																							var audit_style = '#888';
+																							var bnt_text = '删除';
+																							var bnt_class= 'display-block';
+																				}else	if(isAudit  == 1){
+																							var audit = '展示中';
+																							var audit_style = '#1b7dff';
+																							var bnt_text = '删除';
+																							var bnt_class= 'display-block';
+																				}else	if(isAudit  == 2){
+																							var audit = '审核中';
+																							var audit_style = '#888';
+																							var bnt_text = '· · · · ·';
+																							var bnt_class= 'display-none';
+																				}else	if(isAudit  == 3){
+																							var audit = '驳回';
+																							var audit_style = '#f01442';
+																							var bnt_text = '编辑';
+																							var bnt_class= 'display-block';
+																				}
+
+
+																				Advertisement_List_html= 	'				<div class="aui-flex aui-flex-two"> '+
+																								'					<div class="aui-card-img"> '+
+																								'						<img class="lazy" data-src="'+ad_pic+'" src="'+ad_pic+'" onload="loadImg(this);"> '+
+																								'					</div> '+
+																								'					<div class="aui-flex-box"> '+
+																								'						<h4>'+data[i].name+'</h4> '+
+																								'						<p>'+data[i].linkurl+'</p> '+
+																								'						<div class="aui-flex" style="padding:0"> '+
+																								'							<div class="aui-flex-box"> '+
+																								'								<span>状态： <em style=" color: '+audit_style+'; "  >'+audit+'</em></span> '+
+																								'							</div> '+
+																								'							<div class="aui-button-bnt '+bnt_class+'"   onclick="toOperation('+'\''+data[i].audit+'\''+','+'\''+data[i].id+'\''+','+'\''+data[i].name+'\''+')"> '+
+																								'								<button>'+bnt_text+'</button> '+
+																								'							</div> '+
+																								'						</div> '+
+																								'					</div> '+
+																								'				</div>  ';
+
+
+																								$api.append(Advertisement_List_frm,Advertisement_List_html);
+
+
+															        };
+
+																			 }else	if(ret.status == '829') {
+
+																				 									U.toast('请求频繁 请稍后再试 ');
+																			               		//				GetData();
+
+								}else{
+
+									U.RyanUp(2,'操作失败 请稍后再试');
+									return;
+								}
+
+
+
+						});
+
+
+
+			}
+
+
+
+
+
+
+
+		function toOperation(type,id,name){
+				if(type == 1){
+						//删除
+								//	U.RyanUp(2,'操作失败 请稍后再试');
+								var AdvertisingOperationId = id;
+
+								U.AdvertisingOperationPopup(AdvertisingOperationId,'del');
+
+
+				}else	if(type == 2){
+									U.RyanUp(0,'审核中 请耐心等待');
+				}else	if(type == 3){
+						//编辑
+							  U.openWin('agent/','advertisement_edit',{type:type,id:id,name:name});
+				}
+
+
+		}
+
+
+
+
+
+		</script>
+		</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>搜索</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common_dark.css"/>
+</head>
+<body ng-app="app" ng-controller="searchHeaderCtrl" class="black">
+	<header class="aui-bar aui-bar-nav fix-statusbar">
+        <div class="aui-searchbar title-searchbar" id="search">
+            <form class="aui-searchbar-input aui-border-radius" ng-submit="vm.search()">
+                <i class="aui-iconfont aui-icon-search"></i>
+                    <input type="search" ng-model="keyword" placeholder="请输入搜索内容" id="search-input" />
+            </form> 
+            <div class="aui-searchbar-cancel" onclick="U.closeWin()">取消</div>
+        </div>
+    </header>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/angular_min.js"></script>
+<script type="text/javascript" src="../../script/server.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+
+</html>

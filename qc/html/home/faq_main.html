@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+
+
+
+<style>
+/*   
+.title{line-height:.9rem;font-size:.25rem;color:#888;padding:0 .24rem;position:relative;}
+.title .icon{position:absolute;right:.24rem;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);width:.24rem;display:block;transition:.5s}
+.queueItem.active .title .icon{-webkit-transform:translateY(-50%) rotateZ(-180deg);transform:translateY(-50%) rotateZ(-180deg)}
+.answer{height:0;transition:height .5s;box-sizing:border-box;overflow:hidden;border-radius:10px;}
+.answer>div{padding:.4rem .24rem;font-size:.22rem;color:#888;line-height:.42rem;background-color: #f3f3f3;cursor:pointer}
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font: 16px/1 'Open Sans', sans-serif;
+  color: #555;
+}
+
+
+
+.togglebox {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+label {
+  position: relative;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  font-size: 14px;
+	font-weight: 700;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+label[for*='1'] {
+  border: 0;
+}
+
+
+
+section {
+  height: 0;
+  transition: .3s all;
+  overflow: hidden;
+}
+
+#toggle1:checked ~ label[for*='1']:after,
+#toggle2:checked ~ label[for*='2']:after,
+#toggle3:checked ~ label[for*='3']:after,
+#toggle4:checked ~ label[for*='4']:after,
+#toggle5:checked ~ label[for*='5']:after,
+#toggle6:checked ~ label[for*='6']:after,
+#toggle7:checked ~ label[for*='7']:after,
+#toggle8:checked ~ label[for*='8']:after,
+#toggle9:checked ~ label[for*='9']:after,
+#toggle10:checked ~ label[for*='10']:after,
+#toggle11:checked ~ label[for*='11']:after,
+#toggle12:checked ~ label[for*='12']:after,
+#toggle13:checked ~ label[for*='13']:after,
+#toggle14:checked ~ label[for*='14']:after,
+#toggle15:checked ~ label[for*='15']:after,
+#toggle16:checked ~ label[for*='16']:after,
+#toggle17:checked ~ label[for*='17']:after,
+#toggle18:checked ~ label[for*='18']:after,
+#toggle19:checked ~ label[for*='19']:after,
+#toggle20:checked ~ label[for*='20']:after,
+#toggle21:checked ~ label[for*='21']:after,
+#toggle22:checked ~ label[for*='22']:after,
+#toggle23:checked ~ label[for*='23']:after,
+#toggle24:checked ~ label[for*='24']:after,
+#toggle25:checked ~ label[for*='25']:after,
+#toggle26:checked ~ label[for*='26']:after {
+  transform: rotate(0deg);
+}
+
+#toggle1:checked ~ #content1,
+#toggle2:checked ~ #content2,
+#toggle3:checked ~ #content3,
+#toggle4:checked ~ #content4,
+#toggle5:checked ~ #content5,
+#toggle6:checked ~ #content6,
+#toggle7:checked ~ #content7,
+#toggle8:checked ~ #content8,
+#toggle9:checked ~ #content9,
+#toggle10:checked ~ #content10,
+#toggle11:checked ~ #content11,
+#toggle12:checked ~ #content12,
+#toggle13:checked ~ #content13,
+#toggle14:checked ~ #content14,
+#toggle15:checked ~ #content15,
+#toggle16:checked ~ #content16,
+#toggle17:checked ~ #content17,
+#toggle18:checked ~ #content18,
+#toggle19:checked ~ #content19,
+#toggle20:checked ~ #content20,
+#toggle21:checked ~ #content21,
+#toggle22:checked ~ #content22,
+#toggle23:checked ~ #content23,
+#toggle24:checked ~ #content24,
+#toggle25:checked ~ #content25,
+#toggle26:checked ~ #content26 {
+  height: 100%;
+}
+
+p {
+	margin: 15px;
+	padding: 15px;
+	font-size: 12px;
+	line-height: 1.5;
+	background-color: #f3f3f3;
+	border-radius: 5px;
+}
+</style>
+
+
+</head>
+<body >
+
+<div class="togglebox" id="faq_list">
+
+
+</div>
+
+
+
+
+
+
+</body>
+
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+
+
+apiready = function(){
+
+
+GetData();
+
+
+		}
+
+
+
+
+		function GetData(){
+
+				var UserId = 1;
+				var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+
+			var url = localStorage.getItem('api_url')+'/app/api/faq';
+									console.log(url)
+									api.ajax({
+											url: url,
+											method: 'get',
+											dataType:'json',
+											cache: false,
+											data: {
+													values: {
+														uid: UserId,
+														time: GetTime
+													}
+											}
+									}, function(ret, err) {
+
+	//		 alert(JSON.stringify(ret.list));
+
+								if(ret.status == 1) {
+
+												var faq_list_frm = $api.byId('faq_list');//特权列表
+
+												var faq_data = ret.list;
+												for(var i=0;i<faq_data.length;i++){
+
+												var faq_html= 		'  <input id="toggle'+faq_data[i].id+'" type="radio" name="toggle" />'+
+																											'  <label for="toggle'+faq_data[i].id+'">'+faq_data[i].question+'</label>'+
+																											'  <section id="content'+faq_data[i].id+'">'+
+																											'    <p>  '+faq_data[i].answer+' </p>'+
+																											'  </section>';
+
+													$api.append(faq_list_frm,faq_html);
+
+												}
+
+								}else	if(ret.status == 718) {
+
+												GetData();
+								}
+
+									});
+
+
+
+		  }
+
+
+
+
+</script>
+
+
+</html>

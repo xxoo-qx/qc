@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>观看记录 main</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css"/>
+
+ <style>
+
+
+img {
+    width:100%;
+    height:auto;
+    display:block;
+    border: 0;
+}
+
+
+.b-line {
+    position: relative;
+}
+
+.b-line:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #e2e2e2;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+
+.aui-info-img{
+    width:45px;
+    height:45px;
+    margin-right:0.5rem;
+}
+
+.aui-flex-box h2{
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: justify;
+    color:#888;
+    font-size:0.9rem;
+    margin-bottom:0.5rem;
+}
+
+.aui-flex-box h3{
+    color:#707070;
+    font-size:0.8rem;
+    font-weight:normal;
+}
+
+.aui-flex-box h3 em{
+    font-weight:bold;
+    color:#ec3611;
+    font-size:1rem;
+    font-style:normal;
+}
+
+.aui-flex-box h3 em i{
+    font-size:0.8rem;
+    font-weight:normal;
+    font-style:normal;
+}
+
+.aui-right-text{
+    font-size:0.8rem;
+    color:#069bff;
+    position:absolute;
+    right:1rem;
+    bottom:1rem;
+}
+
+
+
+
+ </style>
+
+
+</head>
+<body  ng-app="app" ng-controller="videohistoryCtrl">
+
+
+		<div class="aui-news-list"  ng-repeat="item in vm.VideoSistoryData">
+
+			<a ng-tap="vm.GoPlay('{{item.url}}','{{item.title}}')" class="aui-flex b-line"  ng-tap="vm.sendkey(item)">
+		<!-- 		<div class="aui-info-img">
+					<img src="../../images/videohistory/{{item.img}}.png">
+				</div>
+      -->
+				<div class="aui-flex-box">
+					<h2>{{item.title}}  </h2>
+					<h3><em><i>{{item.source}} </i></em>{{item.time}} </h3>
+				</div>
+				<div class="aui-right-text">
+					<p>播放  </p>
+				</div>
+			</a>
+
+
+		</div>
+
+
+
+
+
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/angular_min.js"></script>
+<script type="text/javascript" src="../../script/server.js"></script>
+<script type="text/javascript" src="../../script/vedio_controller.js"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+
+</html>

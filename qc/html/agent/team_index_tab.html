@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>xxx</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css" />
+    <style>
+		.aui-tab-item {
+			width: 50%;
+			height: 2.2rem;
+			line-height: 2.2rem;
+			position: relative;
+			font-size: 0.7rem;
+			text-align: center;
+			color: #fff;
+			margin-left: -1px;
+			-webkit-box-flex: 1;
+			box-flex: 1;
+		}
+
+        .aui-tab-item {
+            font-size: 0.8rem;
+        }
+
+		.aui-tab {
+			position: relative;
+			background: -webkit-linear-gradient(left, #f370af , #5515ee);
+			background: -o-linear-gradient(right, #f370af , #5515ee);
+			background: -moz-linear-gradient(right, #f370af , #5515ee);
+			background: linear-gradient(to right, #f370af , #5515ee);
+			background-color: #5515ee;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+			-webkit-align-self: center;
+			align-self: center;
+		}
+
+
+		.aui-tab-item.aui-active {
+			color: #fff;
+			margin-bottom: 2px;
+			font-weight: bold;
+    background: linear-gradient(0deg,hsla(0, 0%, 83%, 0.05),rgba(0,0,0,.05));
+		}
+
+.aui-tab-item.aui-active:before {
+    content: '';
+    width: 20%;
+    height: 3px;
+    position: absolute;
+    left: 50%;
+	border-radius: 20px;
+    bottom: 3px;
+    margin-left: -10%;
+    z-index: 4;
+	/*
+    background-image: -webkit-gradient(linear,left top,right top,from(#ff6143),to(#ff1767));
+    background-image: -webkit-linear-gradient(left,#ff6143,#ff1767);
+    background-image: -moz-linear-gradient(left,#ff6143,#ff1767);
+    background-image: linear-gradient(to right,#ff6143,#ff1767);
+    background-color: #ff6143;  */
+	background-color: #fff;
+}
+
+
+
+
+
+
+
+.tabs-wrapper {
+    width: 100%;
+    max-width: 750px;
+    height: 40px;
+    overflow: hidden;
+			background-color: #1b7dff;
+
+    position: fixed;
+ /*   top: 44px; */
+    z-index: 100;
+}
+
+
+
+.tabs {
+    position: relative;
+    width: 100%;
+    height: 40px;
+ /*     padding-right: 40px; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-size: 0;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.tabs a {
+    position: relative;
+    display: inline-block;
+  /*   line-height: 41px;  */
+    padding: 0 .13rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    width: 33%;
+	text-align: center;
+}
+
+.tabs img {
+	width: 3.5rem;
+    /* height: 1.16rem;  */
+    vertical-align: top;
+    margin-top: 0.8rem;
+}
+
+
+.tabs a.tab-active {
+    color: #fff;
+}
+
+.tabs a.tab-active:after {
+    width: 55%;
+    height: 3px;
+    content: '';
+	/*
+    background: -webkit-gradient(linear, left top, right top, from(#FE312A), to(#FE312A));
+    background: -webkit-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: -o-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: linear-gradient(90deg, #FE312A 0%, #FE312A 100%);*/
+	background-color: #fff;
+    position: absolute;
+    bottom: 3px;
+    left: 24%;
+}
+
+
+	   .display-block{
+	   display :block ;
+	   }
+
+	   .display-none{
+	   display :none ;
+	   }
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+<div style="width: 100%; height: 40px;">
+	<div class="tabs-wrapper header" id="Tabs">
+
+
+<!--
+		    <div class="tabs" id="tab">
+				<a class="aui-tab-item aui-active">激活码生成</a>
+				<a class="aui-tab-item display-none">生成记录</a>
+			</div>
+
+-->
+
+
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+	    <header>
+
+
+
+    </header>
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/aui_tab.js"></script>
+<script>
+    apiready = function() {
+
+        $api.fixStatusBar( $api.dom('header') );
+
+
+			var tabs_frm = $api.byId('Tabs');//TAB列表
+
+
+					//展示全部
+					var html= ' <div class="tabs" id="tab">  '+
+
+					' 	<a class="aui-tab-item aui-active">用户列表</a>     '+
+
+					' 	<a class="aui-tab-item display-none">代理列表</a>  '+
+
+					' 	<a class="aui-tab-item display-none">检索</a>  '+
+					' </div> ';
+
+
+
+			$api.append(tabs_frm,html);
+
+
+
+        var tab = new auiTab({
+            element: document.getElementById("tab"),
+        }, function(ret) {
+            // console.log(JSON.stringify(ret));
+            // 点击tab，切换framegroup到对应的页面
+            api.setFrameGroupIndex({
+                name: 'frame1_find_group',
+                index: ret.index - 1,
+                scroll: true, //是否带动画效果
+                reload: false
+            });
+        });
+ //    fnOpenFindFrameGroup();
+        // 2019-6-21 17:02:11 业务使用，本文章内容用不到此处。
+        // 监听底部按钮切换
+        api.addEventListener({
+            name: 'indexChangeEvent'
+        }, function(ret, err) {
+            if (ret) {
+           //       alert( JSON.stringify( ret ) );
+                if (ret.value.id == 0) { //底部导航切换到“发现”
+                    fnOpenFindFrameGroup();
+
+                } else {
+
+                   fnCloseFindFrameGroup();
+
+                }
+            } else {
+          //      alert(JSON.stringify(err));
+            }
+        });
+
+        // 左右滚动framegroup时，监听并执行回调
+        api.addEventListener({
+            name: 'frameGroupChangeEvent'
+        }, function(ret, err) {
+            if (ret) {
+                //  alert( JSON.stringify( ret ) );
+                // console.log("framegroup当前index:" + ret.value.id);
+                tab.setActive(ret.value.id + 1);
+
+            } else {
+            //    alert(JSON.stringify(err));
+            }
+        });
+
+
+		fnOpenFindFrameGroup();
+
+
+    }
+
+    // 打开页面组，实现左右滑动切换效果
+    function fnOpenFindFrameGroup() {
+        // 计算y坐标
+
+        var tabHeight = $api.offset($api.dom('#tab')).h; //tab切换栏高度
+        var indexHtmlHeaderHeight = $api.dom('header').offsetHeight; //顶部标题栏高度
+        var y = parseInt(tabHeight)+parseInt(indexHtmlHeaderHeight)+44;
+
+   //     alert( JSON.stringify( indexHtmlHeaderHeight ) );
+
+//		alert(localStorage.getItem('Movies_Category_List_Switch'));
+
+							//  开放所有
+							api.openFrameGroup({
+								name: 'frame1_find_group',
+								scrollEnabled: true,
+								rect: {
+									x: 0,
+									y: y,
+									w: 'auto',
+									h: api.frameHeight-parseInt(tabHeight)
+								},
+
+								index: 0,    //默认选中哪一个TAB
+
+								frames: [
+									{
+									name: 'team_user',
+									url: 'widget://html/agent/team_user.html'
+							//		bgColor: '#000'
+								}, {
+                name: 'team_agent',
+                url: 'widget://html/agent/team_agent.html'
+						//			bgColor: '#000'
+								}, {
+                name: 'team_search',
+                url: 'widget://html/agent/team_search.html'
+						//			bgColor: '#000'
+								}
+							]
+							}, function(ret, err) {
+								if (ret) {
+									api.sendEvent({
+										name: 'frameGroupChangeEvent',
+										extra: {
+											id: ret.index
+										}
+									});
+								}
+							});
+
+
+    }
+
+    // 2019-6-21 17:02:11 业务使用，本文章内容用不到此处。
+    function fnCloseFindFrameGroup() {
+  //关闭    api.closeFrameGroup({
+  // 关闭        name: 'frame1_find_group'
+ // 关闭     });
+
+
+			//隐藏
+		api.setFrameGroupAttr({
+			name: 'frame1_find_group',
+			hidden: true
+		});
+
+    }
+</script>
+
+</html>

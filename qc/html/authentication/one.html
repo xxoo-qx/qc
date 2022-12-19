@@ -1,0 +1,406 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>one</title>
+<style>
+@charset "UTF-8";
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "微軟正黑體";
+}
+
+.monster {
+  width: 110px;
+  height: 110px;
+  background-color: #1b7dff;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  margin: 10px;
+/*  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2); */
+  position: relative;
+  animation: jumping 0.8s infinite alternate;
+}
+.monster .eye {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.monster .eyeball {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: #0C4475;
+}
+.monster .mouth {
+  width: 32%;
+  height: 12px;
+  border-radius: 12px;
+  background-color: white;
+  margin-top: 15%;
+}
+
+.monster, .monster * {
+  transition: 0.5s;
+}
+.monster.blue {
+  background-color: #0C4475;
+  animation-delay: 0.5s;
+}
+.monster.blue .mouth, .monster.blue .eyeball {
+  background-color: #E55A54;
+}
+
+@keyframes eyemove {
+  0%,10% {
+    transform: translate(50%);
+  }
+  90%,100% {
+    transform: translate(-50%);
+  }
+}
+.monster .eyeball {
+  animation: eyemove 1.6s infinite alternate;
+}
+
+
+.pageLoading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b7dff;
+  flex-direction: column;
+  transition: opacity 0.5s 0.5s;
+}
+.pageLoading.complete {
+  opacity: 0;
+}
+.pageLoading.complete .monster {
+  transform: scale(0.01) rotate(360deg);
+}
+
+.loading {
+  width: 200px;
+  height: 8px;
+  margin-top: 80px;
+  border-radius: 5px;
+  background-color: #8ebfff;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.loading .bar {
+  background-color: #0e6ff1;
+  width: 0%;
+  height: 100%;
+}
+</style>
+</head>
+<body >
+
+  <div class="pageLoading">
+		<span id="icons">
+		<svg t="1581538218366" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6003" width="128" height="128"><path d="M586.8544 440.1152a47.3344 47.3344 0 0 1 50.1504-10.9824c0.4864 0.2304 0.9472 0.4864 1.5616 0.5888a10.9568 10.9568 0 0 0 10.8544-2.7392 10.496 10.496 0 0 0 2.6368-4.5312 10.5984 10.5984 0 0 0-2.6368-10.9824l-96.8192-96.8192-80 80a10.9312 10.9312 0 0 1-18.2528-10.8544c0.128-0.5888 0.3584-1.0752 0.5888-1.5616a47.5136 47.5136 0 1 0-28.544 28.288 5.632 5.632 0 0 1 2.3808-0.9472c0.2304 0 0.3584-0.128 0.5888-0.128a10.9312 10.9312 0 0 1 9.9072 18.5088l-78.7968 78.7968 92.8768 92.8768a10.9312 10.9312 0 0 1-10.8544 18.2528c-0.5888-0.128-1.0752-0.3584-1.5616-0.5888a47.5136 47.5136 0 1 0 28.288 28.544 5.632 5.632 0 0 1-0.9472-2.3808c0-0.2304-0.128-0.3584-0.128-0.5888a10.9312 10.9312 0 0 1 18.5088-9.9072l61.7216 61.7216 187.9296-187.9296 4.1728-4.1728-57.7792-57.7792a10.5984 10.5984 0 0 0-10.9824-2.6368 10.24 10.24 0 0 0-4.5312 2.6368 10.9056 10.9056 0 0 0-2.9952 9.9072c0 0.2304 0.128 0.3584 0.128 0.5888a6.1952 6.1952 0 0 0 0.9472 2.3808 47.5648 47.5648 0 0 1-78.3104 49.664 47.5392 47.5392 0 0 1-0.1024-67.2256z" fill="#8ebfff" p-id="6004"></path><path d="M806.1696 785.0496a12.8256 12.8256 0 0 1-6.4-23.8848l49.5616-28.6208c13.7728-7.9872 22.3488-22.8096 22.3488-38.7072V330.1376c0-15.8976-8.576-30.7456-22.3488-38.7072L534.3488 109.5936a44.7488 44.7488 0 0 0-44.6976 0l-119.1168 68.7872a12.8 12.8 0 1 1-12.8-22.1696l119.1168-68.7872a70.6048 70.6048 0 0 1 70.2976 0l314.9824 181.8624a70.5536 70.5536 0 0 1 35.1488 60.8768v363.6992c0 25.0112-13.4656 48.3328-35.1488 60.8512l-49.5616 28.6208a12.6464 12.6464 0 0 1-6.4 1.7152z" fill="#8ebfff" p-id="6005"></path><path d="M322.0224 252.288c-33.7408 0-61.2096-27.4432-61.2096-61.184s27.4432-61.184 61.2096-61.184c33.7152 0 61.184 27.4432 61.184 61.184s-27.4688 61.184-61.184 61.184z m0-96.768c-19.6352 0-35.6096 15.9744-35.6096 35.584s15.9744 35.584 35.6096 35.584 35.584-15.9744 35.584-35.584-15.9488-35.584-35.584-35.584z" fill="#8ebfff" p-id="6006"></path><path d="M512 945.9712c-12.16 0-24.2944-3.1232-35.1488-9.3952L161.8688 754.7136a70.4768 70.4768 0 0 1-35.1488-60.8512V330.1376c0-25.0112 13.4656-48.3328 35.1488-60.8768L211.4304 240.64a12.7488 12.7488 0 0 1 17.4848 4.6848 12.7488 12.7488 0 0 1-4.6848 17.4848l-49.5616 28.6208a44.8768 44.8768 0 0 0-22.3488 38.7072v363.6992c0 15.8976 8.576 30.7456 22.3488 38.7072l314.9824 181.8624a44.8 44.8 0 0 0 44.6976 0l119.1168-68.7872a12.7232 12.7232 0 0 1 17.4848 4.6848 12.7488 12.7488 0 0 1-4.6848 17.4848l-119.1168 68.7872a70.1696 70.1696 0 0 1-35.1488 9.3952z" fill="#8ebfff" p-id="6007"></path><path d="M701.9776 894.08a61.2608 61.2608 0 0 1-61.184-61.184 61.2608 61.2608 0 0 1 61.184-61.2096 61.2864 61.2864 0 0 1 61.2096 61.2096 61.2608 61.2608 0 0 1-61.2096 61.184z m0-96.768a35.6352 35.6352 0 0 0 0 71.1936 35.6352 35.6352 0 0 0 0-71.1936z" fill="#8ebfff" p-id="6008"></path></svg>
+		</span>
+      <span class="tips" style=" color: #8ebfff; font-size: 14px; " id="tips">加载组件</span>
+  	<div class="loading">
+  		<div class="bar"></div>
+  	</div>
+  </div>
+ 
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" >
+var percent = 0;
+var test = 0;
+apiready = function(){
+
+  ShowData();
+
+
+
+
+
+
+  // 首次安装检查
+  if(U.FirstInstallCheck() == 0){ //如果等于0 则为首次安装 或 更新
+
+    //  U.toast('首次安装');
+      GetData();      // 开始请求数据
+
+  }else{
+    //  U.toast('不是首次安装');
+      //    alert(JSON.stringify('不是抽此'));
+
+
+
+      //离线模式 是否 无网络状态下进入
+      if(localStorage.getItem('offlineState') == '1'){
+
+          var timer = setInterval(function(){
+            document.querySelector(".bar").style.setProperty("width",percent+"%")
+            percent+=1
+            if (percent>100){
+              clearInterval(timer);
+            }
+
+          },5)
+
+          //离线模式  绕过检查 发送虚假请求完毕广播 让首页开始加载
+          setTimeout(function(){		//延迟执行 等待首页准备完毕
+              U.SendEvent('RyanIndex',{status:'ok',code:'1'});   //广播通知
+          }, 1000);
+
+
+          api.addEventListener({    //监听 BANNER 首页打开信息 结果
+              name: 'openLocalDatabase'
+          }, function(ret, err) {
+              if(ret.value['status'] == 'no'){
+                  GetTimeShowData('restart');
+              }else if(ret.value['status'] == 'ok'  && ret.value['action'] == 'recommendedvideo' ){
+
+                  document.getElementById('tips').innerHTML= '通过验证 准备进入';
+
+                  setTimeout(function(){		//延迟执行
+                    U.OpenLaunchImage();    //打开启动页   流程
+                  }, 1000);
+
+
+                  setTimeout(function(){		//延迟执行
+                      api.closeFrame();
+                  }, 1500);
+
+
+              }
+
+          });
+
+
+          if(!localStorage.getItem('TimeDifference')){
+            U.GetServerTime();     //请求时间差  流程
+          }
+
+          console.log('静默获取 请求基础信息 ' );
+          U.HelloApp(0);    //请求基础信息 静默  流程
+          console.log('静默获取 请求BANNER 广告信息 ' );
+
+      //      U.GetIndexDataStorage(0);    //请求BANNER 广告信息  静默 流程
+
+        }else{
+
+            GetData();      // 开始请求数据
+
+        }    //离线模式 end
+
+  }  //首次安装检查 END
+
+
+ }   //apiready  END
+
+
+
+function GetData(){    //开始请求数据
+
+  U.GetServerTime();     //请求时间差  流程
+
+    api.addEventListener({
+        name: 'GetServerTime'
+    }, function(ret, err) {
+        if(ret.value['status'] == 'ok'){
+        //  alert(JSON.stringify('获取成功'));
+          GetTimeShowData('ok');
+
+          setTimeout(function(){		//延迟执行
+             U.HelloApp();    //请求基础信息  流程
+          }, 1000);
+
+            api.addEventListener({    //监听 请求基础信息结果
+                name: 'HelloApp'
+            }, function(ret, err) {
+                if(ret.value['status'] == 'ok'){
+
+                  GetTimeShowData('HelloAppOk');
+
+                    setTimeout(function(){		//延迟执行
+                       U.GetIndexDataStorage();    //请求BANNER 广告信息  流程
+                    }, 1000);
+
+                    api.addEventListener({    //监听 BANNER 广告信息 结果
+                        name: 'RyanIndex'
+                    }, function(ret, err) {
+                        if(ret.value['status'] == 'ok'){
+                            GetTimeShowData('RyanIndexOk');
+                                  api.addEventListener({    //监听 BANNER 首页打开信息 结果
+                                      name: 'openLocalDatabase'
+                                  }, function(ret, err) {
+                                      if(ret.value['status'] == 'no'){
+                                          GetTimeShowData('restart');
+                                      }else if(ret.value['status'] == 'ok'  && ret.value['action'] == 'recommendedvideo' ){
+
+                                            document.querySelector(".bar").style.setProperty("width","100%");
+                                            document.getElementById('tips').innerHTML= '通过验证 准备进入';
+                                          setTimeout(function(){		//延迟执行
+                                            U.OpenLaunchImage();    //打开启动页   流程
+                                          }, 1000);
+
+                                          setTimeout(function(){		//延迟执行
+                                                api.closeFrame();
+                                          }, 1500);
+
+
+                                      }
+
+                                  });
+
+
+
+
+                        }else if(ret.value['status'] == 'keyError'){
+                          GetTimeShowData('keyError');
+                        }else if(ret.value['status'] == 'fail'){
+                          GetTimeShowData('fail');
+                        }
+                    });
+
+                }else if(ret.value['status'] == 'keyError'){
+                  GetTimeShowData('keyError');
+
+                }else if(ret.value['status'] == 'fail'){
+                  GetTimeShowData('fail');
+                }
+            });
+
+        }else if(ret.value['status'] == 'fail'){
+          GetTimeShowData('fail');
+        }
+    });
+
+
+}
+
+
+
+
+
+
+
+
+function ShowData(){
+    var timer = setInterval(function(){
+      document.querySelector(".bar").style.setProperty("width",percent+"%")
+      percent+=1
+      if (percent>30){
+        clearInterval(timer);
+      }
+
+    },10)
+
+  }
+
+
+
+  //时间同步 提示
+  function GetTimeShowData(type){
+
+    if(type == 'ok'){
+
+        document.querySelector(".loading").style.setProperty("background-color","#8ebfff");
+        document.getElementById('tips').innerHTML= '设备验证 通过';
+        document.querySelector(".tips").style.setProperty("color","#8ebfff");
+        document.getElementById('icons').innerHTML= '<svg t="1581538218366" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6003" width="128" height="128"><path d="M586.8544 440.1152a47.3344 47.3344 0 0 1 50.1504-10.9824c0.4864 0.2304 0.9472 0.4864 1.5616 0.5888a10.9568 10.9568 0 0 0 10.8544-2.7392 10.496 10.496 0 0 0 2.6368-4.5312 10.5984 10.5984 0 0 0-2.6368-10.9824l-96.8192-96.8192-80 80a10.9312 10.9312 0 0 1-18.2528-10.8544c0.128-0.5888 0.3584-1.0752 0.5888-1.5616a47.5136 47.5136 0 1 0-28.544 28.288 5.632 5.632 0 0 1 2.3808-0.9472c0.2304 0 0.3584-0.128 0.5888-0.128a10.9312 10.9312 0 0 1 9.9072 18.5088l-78.7968 78.7968 92.8768 92.8768a10.9312 10.9312 0 0 1-10.8544 18.2528c-0.5888-0.128-1.0752-0.3584-1.5616-0.5888a47.5136 47.5136 0 1 0 28.288 28.544 5.632 5.632 0 0 1-0.9472-2.3808c0-0.2304-0.128-0.3584-0.128-0.5888a10.9312 10.9312 0 0 1 18.5088-9.9072l61.7216 61.7216 187.9296-187.9296 4.1728-4.1728-57.7792-57.7792a10.5984 10.5984 0 0 0-10.9824-2.6368 10.24 10.24 0 0 0-4.5312 2.6368 10.9056 10.9056 0 0 0-2.9952 9.9072c0 0.2304 0.128 0.3584 0.128 0.5888a6.1952 6.1952 0 0 0 0.9472 2.3808 47.5648 47.5648 0 0 1-78.3104 49.664 47.5392 47.5392 0 0 1-0.1024-67.2256z" fill="#8ebfff" p-id="6004"></path><path d="M806.1696 785.0496a12.8256 12.8256 0 0 1-6.4-23.8848l49.5616-28.6208c13.7728-7.9872 22.3488-22.8096 22.3488-38.7072V330.1376c0-15.8976-8.576-30.7456-22.3488-38.7072L534.3488 109.5936a44.7488 44.7488 0 0 0-44.6976 0l-119.1168 68.7872a12.8 12.8 0 1 1-12.8-22.1696l119.1168-68.7872a70.6048 70.6048 0 0 1 70.2976 0l314.9824 181.8624a70.5536 70.5536 0 0 1 35.1488 60.8768v363.6992c0 25.0112-13.4656 48.3328-35.1488 60.8512l-49.5616 28.6208a12.6464 12.6464 0 0 1-6.4 1.7152z" fill="#8ebfff" p-id="6005"></path><path d="M322.0224 252.288c-33.7408 0-61.2096-27.4432-61.2096-61.184s27.4432-61.184 61.2096-61.184c33.7152 0 61.184 27.4432 61.184 61.184s-27.4688 61.184-61.184 61.184z m0-96.768c-19.6352 0-35.6096 15.9744-35.6096 35.584s15.9744 35.584 35.6096 35.584 35.584-15.9744 35.584-35.584-15.9488-35.584-35.584-35.584z" fill="#8ebfff" p-id="6006"></path><path d="M512 945.9712c-12.16 0-24.2944-3.1232-35.1488-9.3952L161.8688 754.7136a70.4768 70.4768 0 0 1-35.1488-60.8512V330.1376c0-25.0112 13.4656-48.3328 35.1488-60.8768L211.4304 240.64a12.7488 12.7488 0 0 1 17.4848 4.6848 12.7488 12.7488 0 0 1-4.6848 17.4848l-49.5616 28.6208a44.8768 44.8768 0 0 0-22.3488 38.7072v363.6992c0 15.8976 8.576 30.7456 22.3488 38.7072l314.9824 181.8624a44.8 44.8 0 0 0 44.6976 0l119.1168-68.7872a12.7232 12.7232 0 0 1 17.4848 4.6848 12.7488 12.7488 0 0 1-4.6848 17.4848l-119.1168 68.7872a70.1696 70.1696 0 0 1-35.1488 9.3952z" fill="#8ebfff" p-id="6007"></path><path d="M701.9776 894.08a61.2608 61.2608 0 0 1-61.184-61.184 61.2608 61.2608 0 0 1 61.184-61.2096 61.2864 61.2864 0 0 1 61.2096 61.2096 61.2608 61.2608 0 0 1-61.2096 61.184z m0-96.768a35.6352 35.6352 0 0 0 0 71.1936 35.6352 35.6352 0 0 0 0-71.1936z" fill="#8ebfff" p-id="6008"></path></svg>';
+
+        var timer = setInterval(function(){
+          document.querySelector(".bar").style.setProperty("width",percent+"%");
+          percent+=1
+
+          if (percent>60){
+            clearInterval(timer);
+          }
+
+        },1);
+
+    }else if(type == 'fail'){
+
+      document.querySelector(".loading").style.setProperty("background-color","#ffa53b");
+      document.getElementById('tips').innerHTML= '与服务器连接失败 <br> 十秒后将自动重试';
+  //    document.querySelector(".tips").style.setProperty("color","#fff");
+      document.getElementById('icons').innerHTML= '<svg t="1583080434977" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2654" width="100" height="100"><path d="M368 896H185.6C148.8 896 112 873.6 112 836.8V131.2C112 91.2 150.4 64 185.6 64h329.6C550.4 64 576 91.2 576 131.2V560c0 9.6-6.4 16-16 16s-16-6.4-16-16V131.2c0-16-8-35.2-28.8-35.2H185.6C166.4 96 144 112 144 131.2v705.6c0 17.6 22.4 27.2 41.6 27.2H368c9.6 0 16 6.4 16 16s-6.4 16-16 16z" fill="#8ebfff" p-id="2655"></path><path d="M560 224H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h416c9.6 0 16 6.4 16 16s-6.4 16-16 16zM432 768H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h288c9.6 0 16 6.4 16 16s-6.4 16-16 16zM320 800h64v32h-64zM320 128h128v32h-128zM256 128h32v32h-32zM476.8 960c-33.6 0-60.8-27.2-60.8-60.8 0-12.8 3.2-24 9.6-33.6L608 579.2c17.6-28.8 56-36.8 86.4-19.2 8 4.8 14.4 11.2 19.2 19.2L896 865.6c9.6 14.4 11.2 30.4 8 46.4-3.2 16-12.8 30.4-27.2 38.4-9.6 6.4-22.4 9.6-35.2 9.6H476.8c1.6 0 0 0 0 0z m184-377.6c-9.6 0-19.2 4.8-25.6 14.4L452.8 883.2c-3.2 4.8-4.8 11.2-4.8 16 0 16 12.8 28.8 30.4 28.8h364.8c6.4 0 11.2-1.6 16-4.8 6.4-4.8 11.2-11.2 12.8-19.2s0-16-3.2-22.4L686.4 596.8c-1.6-3.2-6.4-6.4-9.6-9.6-4.8-3.2-11.2-4.8-16-4.8zM440 875.2z" fill="#8ebfff" p-id="2656"></path><path d="M656 816c-9.6 0-16-6.4-16-16v-144c0-9.6 6.4-16 16-16s16 6.4 16 16v144c0 9.6-6.4 16-16 16zM656 880c-9.6 0-16-6.4-16-16v-16c0-9.6 6.4-16 16-16s16 6.4 16 16v16c0 9.6-6.4 16-16 16z" fill="#8ebfff" p-id="2657"></path></svg>';
+
+      setTimeout(function(){		//延迟执行
+        U.GetServerTime();    //重新获取
+      }, 10000);
+
+
+    }else if(type == 'HelloAppOk'){
+
+        document.querySelector(".bar").style.setProperty("width","80%");
+        document.getElementById('tips').innerHTML= '核心加载 完毕';
+
+
+    }else if(type == 'RyanIndexOk'){
+
+        document.querySelector(".bar").style.setProperty("width","90%");
+        document.getElementById('tips').innerHTML= '资源加载 完毕';
+
+
+    }else if(type == 'keyError'){
+
+      document.querySelector(".loading").style.setProperty("background-color","#ffa53b")
+      document.getElementById('tips').innerHTML= '密钥验证失败！  <br> 十秒后将自动重试';
+    //  document.querySelector(".tips").style.setProperty("color","#fff")
+
+        document.getElementById('icons').innerHTML= '<svg t="1583080434977" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2654" width="100" height="100"><path d="M368 896H185.6C148.8 896 112 873.6 112 836.8V131.2C112 91.2 150.4 64 185.6 64h329.6C550.4 64 576 91.2 576 131.2V560c0 9.6-6.4 16-16 16s-16-6.4-16-16V131.2c0-16-8-35.2-28.8-35.2H185.6C166.4 96 144 112 144 131.2v705.6c0 17.6 22.4 27.2 41.6 27.2H368c9.6 0 16 6.4 16 16s-6.4 16-16 16z" fill="#8ebfff" p-id="2655"></path><path d="M560 224H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h416c9.6 0 16 6.4 16 16s-6.4 16-16 16zM432 768H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h288c9.6 0 16 6.4 16 16s-6.4 16-16 16zM320 800h64v32h-64zM320 128h128v32h-128zM256 128h32v32h-32zM476.8 960c-33.6 0-60.8-27.2-60.8-60.8 0-12.8 3.2-24 9.6-33.6L608 579.2c17.6-28.8 56-36.8 86.4-19.2 8 4.8 14.4 11.2 19.2 19.2L896 865.6c9.6 14.4 11.2 30.4 8 46.4-3.2 16-12.8 30.4-27.2 38.4-9.6 6.4-22.4 9.6-35.2 9.6H476.8c1.6 0 0 0 0 0z m184-377.6c-9.6 0-19.2 4.8-25.6 14.4L452.8 883.2c-3.2 4.8-4.8 11.2-4.8 16 0 16 12.8 28.8 30.4 28.8h364.8c6.4 0 11.2-1.6 16-4.8 6.4-4.8 11.2-11.2 12.8-19.2s0-16-3.2-22.4L686.4 596.8c-1.6-3.2-6.4-6.4-9.6-9.6-4.8-3.2-11.2-4.8-16-4.8zM440 875.2z" fill="#8ebfff" p-id="2656"></path><path d="M656 816c-9.6 0-16-6.4-16-16v-144c0-9.6 6.4-16 16-16s16 6.4 16 16v144c0 9.6-6.4 16-16 16zM656 880c-9.6 0-16-6.4-16-16v-16c0-9.6 6.4-16 16-16s16 6.4 16 16v16c0 9.6-6.4 16-16 16z" fill="#8ebfff" p-id="2657"></path></svg>';
+
+      setTimeout(function(){		//延迟执行
+        U.GetServerTime();    //重新获取
+      }, 10000);
+
+
+    }else if(type == 'restart'){
+
+      document.querySelector(".loading").style.setProperty("background-color","#ff0")
+      document.getElementById('tips').innerHTML= '正在载入新资源 可能会重启多次';
+    //  document.querySelector(".tips").style.setProperty("color","#fff")
+
+      document.getElementById('icons').innerHTML= '<svg t="1583080434977" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2654" width="100" height="100"><path d="M368 896H185.6C148.8 896 112 873.6 112 836.8V131.2C112 91.2 150.4 64 185.6 64h329.6C550.4 64 576 91.2 576 131.2V560c0 9.6-6.4 16-16 16s-16-6.4-16-16V131.2c0-16-8-35.2-28.8-35.2H185.6C166.4 96 144 112 144 131.2v705.6c0 17.6 22.4 27.2 41.6 27.2H368c9.6 0 16 6.4 16 16s-6.4 16-16 16z" fill="#8ebfff" p-id="2655"></path><path d="M560 224H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h416c9.6 0 16 6.4 16 16s-6.4 16-16 16zM432 768H144c-9.6 0-16-6.4-16-16s6.4-16 16-16h288c9.6 0 16 6.4 16 16s-6.4 16-16 16zM320 800h64v32h-64zM320 128h128v32h-128zM256 128h32v32h-32zM476.8 960c-33.6 0-60.8-27.2-60.8-60.8 0-12.8 3.2-24 9.6-33.6L608 579.2c17.6-28.8 56-36.8 86.4-19.2 8 4.8 14.4 11.2 19.2 19.2L896 865.6c9.6 14.4 11.2 30.4 8 46.4-3.2 16-12.8 30.4-27.2 38.4-9.6 6.4-22.4 9.6-35.2 9.6H476.8c1.6 0 0 0 0 0z m184-377.6c-9.6 0-19.2 4.8-25.6 14.4L452.8 883.2c-3.2 4.8-4.8 11.2-4.8 16 0 16 12.8 28.8 30.4 28.8h364.8c6.4 0 11.2-1.6 16-4.8 6.4-4.8 11.2-11.2 12.8-19.2s0-16-3.2-22.4L686.4 596.8c-1.6-3.2-6.4-6.4-9.6-9.6-4.8-3.2-11.2-4.8-16-4.8zM440 875.2z" fill="#8ebfff" p-id="2656"></path><path d="M656 816c-9.6 0-16-6.4-16-16v-144c0-9.6 6.4-16 16-16s16 6.4 16 16v144c0 9.6-6.4 16-16 16zM656 880c-9.6 0-16-6.4-16-16v-16c0-9.6 6.4-16 16-16s16 6.4 16 16v16c0 9.6-6.4 16-16 16z" fill="#8ebfff" p-id="2657"></path></svg>';
+
+      U.toast('发现新资源 正在为您载入',3000,'bottom');
+      setTimeout(function() {		//延迟执行更新包清除
+         api.rebootApp();	//重启APP
+      }, 3000);
+
+    }
+
+
+
+    }
+
+
+
+
+</script>
+</html>

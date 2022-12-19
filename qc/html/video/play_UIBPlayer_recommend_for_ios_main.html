@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vlcPlayer for ios - main</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/style_dark.css"/>
+
+
+
+
+</head>
+<body>
+
+
+
+
+            <section class="aui-scrollView">
+
+
+
+
+                <div class="aui-flex">
+                    <div class="aui-live-img">
+                        <img src="../../images/defaultvideoimg.png"  id="video_img" >
+                        <span class="aui-live-tag" id="video_tag" >· · · </span>
+                    </div>
+                    <div class="aui-flex-box">
+                      <!--  <h2> 影片名字 </h2>-->
+                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:4; -webkit-box-orient: vertical;" id="video_content"><!--简介-->简介</p>
+                        <p id="video_region"><!--地区-->地区</p>
+						<p><em id="video_total"><i class="aui-hot-tag"> </i> 有 · 资源 </em></p>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+			<div class="relative">
+
+
+                <div class="aui-flex ">
+                    <div class="aui-flex-box">
+                        <h3 class="aui-live-Price"  id="video_name" > <!--name-->精彩即将开始  </h3>
+                        <h4 class="aui-live-total" id="InitializationVideo" > <!--当前播放来源--> 当前正在播放：<a> · · · </a> 如卡顿请切换</h4>
+                    </div>
+                    <div class="aui-live-score ">
+
+                        <h5  onClick="randomSwitchBtn(1)" >
+						简介  <i><img src="../../images/gd.png" style=" width: 12px;height: 12px;"></i>
+						</h5>
+                        <span id="video_operation_tip"><!--操作提示--> 用吃奶的劲加载中</span>
+                    </div>
+                </div>
+
+
+			</div>
+
+
+
+			<div class="display-block" id="Mobile_player" style="background-color: #1b7dff; margin: 15px; border-radius: 10px; color: #fff; box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.1);">
+                <div class="aui-flex aui-flex-right-tv" >
+
+                    <div class="aui-flex-box" onclick="ButtonEvent('Share')">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570085605679" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="29883" width="64" height="64"><path d="M333.824 775.168c-138.24 0-250.88-112.64-250.88-250.88s112.64-250.88 250.88-250.88 250.88 112.64 250.88 250.88-112.64 250.88-250.88 250.88z m0-411.648c-89.088 0-160.768 71.68-160.768 160.768S244.736 686.08 333.824 686.08s160.768-71.68 160.768-160.768-71.68-161.792-160.768-161.792zM820.224 332.8c-76.8 0-140.288-62.464-140.288-140.288 0-76.8 62.464-140.288 140.288-140.288 76.8 0 140.288 62.464 140.288 140.288 0 76.8-62.464 140.288-140.288 140.288z m0-190.464c-27.648 0-50.176 22.528-50.176 50.176s22.528 50.176 50.176 50.176 50.176-22.528 50.176-50.176-22.528-50.176-50.176-50.176zM820.224 997.376c-33.792 0-65.536-12.288-91.136-33.792-28.672-24.576-45.056-58.368-48.128-95.232-3.072-36.864 9.216-73.728 33.792-101.376 24.576-28.672 58.368-45.056 95.232-48.128 76.8-6.144 144.384 52.224 150.528 129.024 6.144 76.8-52.224 144.384-129.024 150.528-4.096-1.024-7.168-1.024-11.264-1.024z m0-190.464h-4.096c-13.312 1.024-25.6 7.168-33.792 17.408-9.216 10.24-13.312 22.528-12.288 35.84 1.024 13.312 7.168 25.6 17.408 33.792 10.24 9.216 22.528 13.312 35.84 12.288 13.312-1.024 25.6-7.168 33.792-17.408 9.216-10.24 13.312-22.528 12.288-35.84-1.024-25.6-22.528-46.08-49.152-46.08z" fill="#ffffff" p-id="29884"></path><path d="M630.784 380.928c-13.312 0-26.624-5.12-36.864-15.36-9.216-10.24-15.36-22.528-15.36-36.864s5.12-26.624 15.36-36.864c12.288-12.288 29.696-17.408 47.104-14.336 3.072 1.024 6.144 2.048 10.24 3.072 3.072 1.024 6.144 3.072 9.216 5.12 3.072 2.048 5.12 4.096 8.192 6.144 9.216 9.216 15.36 22.528 15.36 36.864 0 3.072 0 7.168-1.024 10.24l-3.072 9.216c-1.024 3.072-3.072 6.144-5.12 9.216-2.048 3.072-4.096 5.12-6.144 8.192-2.048 2.048-5.12 4.096-8.192 6.144-3.072 2.048-6.144 3.072-9.216 5.12-3.072 1.024-6.144 2.048-10.24 3.072-3.072 0-6.144 1.024-10.24 1.024z" fill="#ffffff" p-id="29885"></path><path d="M631.808 768c-3.072 0-7.168 0-10.24-1.024-3.072-1.024-6.144-2.048-10.24-3.072-3.072-1.024-6.144-3.072-9.216-5.12-3.072-2.048-5.12-4.096-8.192-6.144-2.048-2.048-4.096-5.12-6.144-8.192-2.048-3.072-3.072-6.144-5.12-9.216-1.024-3.072-2.048-6.144-3.072-10.24-1.024-3.072-1.024-7.168-1.024-10.24 0-13.312 5.12-26.624 15.36-36.864 12.288-12.288 29.696-17.408 47.104-14.336 3.072 1.024 6.144 2.048 10.24 3.072 3.072 1.024 6.144 3.072 9.216 5.12 3.072 2.048 5.12 4.096 8.192 6.144 9.216 9.216 15.36 22.528 15.36 36.864 0 3.072 0 7.168-1.024 10.24-1.024 3.072-2.048 6.144-3.072 10.24-1.024 3.072-3.072 6.144-5.12 9.216-2.048 3.072-4.096 5.12-6.144 8.192-2.048 2.048-5.12 4.096-8.192 6.144-3.072 2.048-6.144 3.072-9.216 5.12-3.072 1.024-6.144 2.048-10.24 3.072-3.072 0-6.144 1.024-9.216 1.024z" fill="#ffffff" p-id="29886"></path></svg>
+							</i>分享
+                       </span>
+                    </div>
+                    <div class="aui-flex-box" onclick="ButtonEvent('Touping')">
+                       <span class="aui-live-icon-nav">
+                            <i><svg t="1570042262883" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="35759" width="64" height="64"><path d="M170.666667 682.666667h85.333333a42.666667 42.666667 0 0 1 0 85.333333H128a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h768a42.666667 42.666667 0 0 1 42.666667 42.666666v512a42.666667 42.666667 0 0 1-42.666667 42.666667h-128a42.666667 42.666667 0 0 1 0-85.333333h85.333333V256H170.666667v426.666667z m243.498666 158.165333a42.666667 42.666667 0 1 1-60.330666-60.330667l128-128a42.666667 42.666667 0 0 1 60.330666 0l128 128a42.666667 42.666667 0 0 1-60.330666 60.330667L512 742.997333l-97.834667 97.834667z" p-id="35760" fill="#ffffff"></path></svg>
+							</i>
+							投屏
+                       </span>
+                    </div>
+
+                    <div class="aui-flex-box"  id="StartPlayVideoOne">
+					<span class="aui-live-icon-em"  id="mute_state"> <!--开始观影吧！--></span>
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570086016162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34889" width="64" height="64"><path d="M374.6 636.5c4.4 0 8.5-1.2 12.1-3.3l171.7-100c8-3.6 13.6-11.9 13.6-21.5 0-8.8-4.8-16.6-11.9-20.7l-167.8-97.8c-4.3-5-10.7-8.1-17.7-8.1-13.1 0-23.6 10.7-23.6 23.8v1.3l-0.3 0.2 0.4 199.8c-0.1 0.8-0.1 1.6-0.1 2.5 0 13.2 10.6 23.8 23.6 23.8z" fill="#ffffff" p-id="34890"></path><path d="M64.7 586.3a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#ffffff" p-id="34891"></path><path d="M960 398.3c0.1-1.6 0.2-3.2 0.2-4.8 0-35-28.5-63.3-63.6-63.3-11.7 0-22.7 3.2-32.2 8.7l-0.5-0.3-31.5 18.2v-64.7c-0.1-73.1-59.9-133-133.1-133H197.4c-73.1 0-133 59.8-133 133v165.8h0.2c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1h0.2V287c0-35.2 28.8-64 64-64h510.2c35.2 0 64 28.8 64 64v448.9c0 35.2-28.8 64-64 64H193.3c-35.2 0-64-28.8-64-64v-21.4c0-17.7-14.4-32.1-32.2-32.1-17.8 0-32.2 14.4-32.2 32.1h-0.4v15.3c0 73.2 59.9 133 133 133h501.9c73.2 0 133-59.8 133-133v-64.1l33.1 19.1 0.1-0.1c9.2 5.1 19.8 8 31 8 35.1 0 63.6-28.4 63.6-63.3 0-1.6-0.1-3.2-0.2-4.8V398.3z m-63.6 205.1c-0.3 7.8-6.9 14.1-15 14.1-2.7 0-5.3-0.7-7.5-2l-41.5-23.7V430.1l40.9-23.2c2.3-1.5 5.1-2.3 8.1-2.3 8.3 0 15 6.6 15 14.6v184.2z" fill="#ffffff" p-id="34892"></path></svg>
+							</i> 播放
+                       </span>
+
+                    </div>
+                </div>
+			</div>
+
+
+
+			<div class="display-none" id="Tv_player"  style="background-color: #1b7dff; margin: 15px; border-radius: 10px; color: #fff; box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.1);">
+                <div class="aui-flex aui-flex-right-tv">
+
+                    <div class="aui-flex-box"  onclick="ButtonEvent('SearchDevice')">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570043066403" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="53890" width="64" height="64"><path d="M464 496H272c-17.6 0-32-14.4-32-32s14.4-32 32-32h192c17.6 0 32 14.4 32 32s-14.4 32-32 32z" p-id="53891" fill="#ffffff"></path><path d="M368 720c-17.6 0-32-14.4-32-32V464c0-17.6 14.4-32 32-32s32 14.4 32 32v224c0 17.6-14.4 32-32 32zM656 720c-12.8 0-24-8-28.8-19.2l-96-224c-6.4-16 0-35.2 16-41.6 16-6.4 35.2 0 41.6 17.6L656 608l67.2-155.2c6.4-16 25.6-24 41.6-17.6 16 6.4 24 25.6 16 41.6l-96 224c-4.8 11.2-16 19.2-28.8 19.2z" p-id="53892" fill="#ffffff"></path><path d="M848 928H176c-52.8 0-96-43.2-96-96V320c0-52.8 43.2-96 96-96h672c52.8 0 96 43.2 96 96v512c0 52.8-43.2 96-96 96zM176 288c-17.6 0-32 14.4-32 32v512c0 17.6 14.4 32 32 32h672c17.6 0 32-14.4 32-32V320c0-17.6-14.4-32-32-32H176z" p-id="53893" fill="#ffffff"></path><path d="M448 288c-8 0-16-3.2-22.4-9.6l-160-160c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l160 160c12.8 12.8 12.8 32 0 44.8-6.4 6.4-14.4 9.6-22.4 9.6zM576 288c-8 0-16-3.2-22.4-9.6-12.8-12.8-12.8-32 0-44.8l160-160c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8l-160 160c-6.4 6.4-14.4 9.6-22.4 9.6z" p-id="53894" fill="#ffffff"></path></svg>
+							</i>
+							搜索设备
+                       </span>
+                    </div>
+
+                <!--     <div class="aui-flex-box"  onclick="ButtonEvent('StartTouping')"> -->
+					<div class="aui-flex-box"  id="StartToupingVideo">
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570086202081" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="36599" width="64" height="64"><path d="M426.666667 449.422222c-11.377778 11.377778-22.755556 22.755556-22.755556 45.511111v182.044445c0 17.066667 11.377778 34.133333 22.755556 39.822222 5.688889 5.688889 17.066667 5.688889 22.755555 5.688889 11.377778 0 17.066667 0 28.444445-5.688889l136.533333-91.022222c11.377778-11.377778 22.755556-22.755556 22.755556-39.822222 0-17.066667-5.688889-28.444444-22.755556-39.822223L477.866667 455.111111c-17.066667-11.377778-34.133333-11.377778-51.2-5.688889z m34.133333 204.8V512l108.088889 73.955556-108.088889 68.266666z" fill="#ffffff" p-id="36600"></path><path d="M910.222222 227.555556h-244.622222l62.577778-62.577778c11.377778-11.377778 11.377778-28.444444 0-39.822222s-28.444444-11.377778-39.822222 0L585.955556 227.555556H438.044444L335.644444 119.466667c-11.377778-5.688889-34.133333-5.688889-45.511111 0s-5.688889 34.133333 0 45.511111L358.4 227.555556H113.777778c-28.444444 0-56.888889 28.444444-56.888889 56.888888v568.888889c0 28.444444 28.444444 56.888889 56.888889 56.888889h796.444444c28.444444 0 56.888889-28.444444 56.888889-56.888889V284.444444c0-28.444444-28.444444-56.888889-56.888889-56.888888z m0 625.777777H113.777778V284.444444h796.444444v568.888889z" fill="#ffffff" p-id="36601"></path></svg>
+							</i>
+
+
+							开始投屏
+                       </span>
+                    </div>
+
+                    <div class="aui-flex-box"  onclick="ButtonEvent('CloseTouping')">
+
+					<span class="aui-live-icon-em"  id="mute_state_touping" > 大屏就是爽<!---静音状态--></span>
+
+                       <span class="aui-live-icon-nav">
+                            <i>
+							<svg t="1570086532452" class="icon" viewBox="0 0 1027 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="38248" width="64" height="64"><path d="M983.838803 313.362669A511.938806 511.938806 0 1 0 1023.96018 512.025787a508.619448 508.619448 0 0 0-40.121377-198.663118z m-58.751651 372.475902A448.143324 448.143324 0 1 1 960.164699 512.025787a445.132975 445.132975 0 0 1-35.077547 173.812784z" p-id="38249" fill="#ffffff"></path><path d="M609.289548 346.267183a31.897741 31.897741 0 1 0-31.897741 55.222964 127.590964 127.590964 0 1 1-127.590964 0 31.897741 31.897741 0 1 0-31.897741-55.222964A191.326637 191.326637 0 0 0 322.20988 512.025787c0 105.531682 85.854763 191.386446 191.386445 191.386446s191.386446-85.854763 191.386446-191.386446a191.326637 191.326637 0 0 0-95.693223-165.758604z" p-id="38250" fill="#ffffff"></path><path d="M513.596325 512.025787a31.897741 31.897741 0 0 0 31.897741-31.897741V288.741601a31.897741 31.897741 0 0 0-63.795482 0v191.386445a31.897741 31.897741 0 0 0 31.897741 31.897741z" p-id="38251" fill="#ffffff"></path></svg>
+							</i>
+							停止投屏
+                       </span>
+
+                    </div>
+                </div>
+
+
+
+                <div class="aui-live-touping-black"   id="Touping_tip" >
+                <span style="font-size:10px;"><!--投屏提示信息-->请先搜索设备并连接</span>
+				</div>
+
+					<br>
+
+				<div class="deviceListmaincate_nav display-none" id="Touping_deviceList"><!--设备列表-->
+					<div  id="deviceList">
+						<a href="#"> · · · </a>
+						<a href="#"> · · · </a>
+						<a href="#"> · · · </a>
+					</div>
+				</div>
+
+
+
+					<!--
+
+				<div style="bottom:3rem;padding:1rem;">
+					<div class="aui-range" style="display:block;width:300px;">
+						进度 <input type="range" class="aui-range" value="0" max="100" min="1" step="1" id="rangeSeek" style="width:100%"/>
+					</div>
+				</div>
+
+							-->
+
+
+				<div class="display-none"  id="tv_control_Progress_bar">
+					<div style="bottom: 30px;padding: 30px 15px 10px;">
+						<div class="aui-range" style="display:block;" >
+							 <input type="range" class="aui-range" value="1" max="1" min="1" step="1" id="rangeSeek" style="width:100%"/>
+							 <div class="aui-range-tip-beat" style="right: 10px;" id="aui_range_tip_beat">Beat<!--测试提示--></div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+<div class="maincate_nav  display-block" id="maincate_nav">
+<div  id="RecommendedVideo_list">
+		<!--<a href="#"> · · · </a>   视频资源列表-->
+	</div>
+</div>
+
+
+
+<div class="maincate_nav  display-none" id="maincate_touping_nav">
+<div  id="RecommendedVideo_touping_list">
+		<!--<a href="#"> · · · </a>   视频资源列表 投屏-->
+	</div>
+</div>
+
+
+                <div class="aui-live-header-black"   id="video_tip" >
+                <span style="font-size:10px;"><!--提示信息--></span>
+				</div>
+<br>
+
+                <div class="aui-live-header display-none" id="video_dianji_jianjie" >
+                    <p id="video_jianjie"><!--简介--></p>
+				</div>
+
+
+
+<!--
+
+
+                <div class="aui-flex  b-line">
+                    <div class="aui-live-coupon">
+                        <img src="../../images/icon-live-001.png">
+                    </div>
+                    <div class="aui-flex-box">
+                        <h6>可用一张5元新人优惠券</h6>
+                    </div>
+                    <div  onClick="evaluation()"  class="aui-live-arrow">
+                        立即领取
+                    </div>
+                </div>
+
+
+
+-->
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/vue.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/aui_tab.js"></script>
+<script type="text/javascript" src="../../script/aui_range.js"></script>
+
+
+<script type="text/javascript">
+    var touping;
+    var deviceIndex;
+// var moviePlayer;
+	var acc5Util;		//音量处理
+
+	var UIBPlayer;
+
+	var Out_Time = 10000;
+	var Second_Out_Time = Out_Time/1000;
+
+	/*
+	var timer = setInterval(function() {
+			doItPerSecond();
+	}, 1000)
+
+*/
+
+	//定时检测音量
+	var interval = setInterval(function(){
+      VolumeInspect(1);
+	},3000);
+
+
+	PlayerProcessingLogic= '';			//播放机处理状态
+	DeviceConnectionStatus  = '';		//设备连接状态
+	ToupingProgressBarTips = 1;			//投屏播放进度操作提示处理状态
+
+
+
+apiready = function(){
+
+    api.parseTapmode();
+    touping = api.require('touping');
+//    moviePlayer = api.require('moviePlayer');
+    UIBPlayer = api.require('UIBPlayer');
+	acc5Util=api.require('acc5Util');
+
+
+
+
+GetData();
+
+/*
+api.addEventListener({
+    name:'pause'
+}, function(ret, err){
+  //  alert('应用进入后台');
+	api.setScreenOrientation({
+			orientation: 'portrait_down'
+	});
+
+
+});
+*/
+
+
+			//监听重新获取
+			api.addEventListener({
+				name: 'Exit_full_screen'
+			}, function(ret, err) {
+				if(ret) {
+
+					  console.log('监听广播  退出全屏');
+
+
+				}
+			});
+
+
+
+
+				/****事件检测****/
+	/*			api.addEventListener({
+				    name:'pause'
+				}, function(ret, err){
+				  //  alert('应用进入后台');
+			      UIBPlayer.pause();
+				});
+
+
+				api.addEventListener({
+				    name:'resume'
+				}, function(ret, err){
+				  //  alert('应用回到后台');
+					 U.toast('正在为您恢复播放');
+						UIBPlayer.play();
+
+				});
+*/
+
+
+
+
+
+
+	 showTips('影片中的文字广告请勿相信，谨防上当受骗！',5000,1,'点击上方列表可切换播放资源',3000,1,'影片中的文字广告请勿相信，谨防上当受骗！',3000,1);			//警告 并 关闭
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 执行警告',5000,'','',3000,1,'警告后驻留',3000,1);			//不关闭 只警告
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 长期驻留',5000,'','',3000,'','',3000,1);			//不关闭 不警告
+	// showTips('影片中的文字广告请勿相信，谨防上当受骗！ 直接关闭 ',5000,1,'',3000,'','',3000,1);			//只关闭 不警告
+
+	// showTips('','',1,'关闭后显示',3000,1,'警告后关闭','',1);			//警告 并 关闭
+
+
+
+
+
+
+	/****事件检测****/
+
+
+
+	api.addEventListener({
+		name:'longpress'
+	}, function(ret, err){
+
+
+			var obj = document.getElementById("video_dianji_jianjie");
+			obj.setAttribute("class", 'aui-live-header  b-line display-none');
+
+			video_operation_tip.innerHTML = '点击查看';
+
+
+
+	});
+
+
+
+
+
+}
+
+//加载结束
+
+
+
+
+
+
+
+function GetData(){
+
+	video_name.innerHTML = api.pageParam.title;
+
+	var obj = document.getElementById("video_img");
+	obj.setAttribute("src", api.pageParam.img);
+	video_region.innerHTML = '地区：'+api.pageParam.region;
+	video_tag.innerHTML = api.pageParam.tag ;
+	video_content.innerHTML = api.pageParam.content ;
+	//  video_upinfo.innerHTML = '<i class="aui-hot-tag"></i>已更新至'+api.pageParam.upinfo +'集' ;
+	//  video_total.innerHTML = '<i class="aui-hot-tag"> </i> 共'+api.pageParam.total +'集   更新至 <span style="color: #ffeb3b; font-size: 1rem;font-weight: bold;">'+ api.pageParam.upinfo +'</span> 集 ';
+
+	video_jianjie.innerHTML = api.pageParam.title+'内容简介：'+api.pageParam.content;
+
+	var video_data = api.pageParam.url;
+	var strs= new Array(); //定义一数组
+	strs=video_data.split(";"); //字符分割
+
+	video_total.innerHTML = '<i class="aui-hot-tag"> </i> 有 <span style="color: #ffeb3b; font-size: 1rem;font-weight: bold;">'+ strs.length +'</span> 个资源';
+	//alert(strs.length);
+
+	var RecommendedVideo_list_frm = $api.byId('RecommendedVideo_list');//推荐视频列表
+	var RecommendedVideo_touping_list_frm = $api.byId('RecommendedVideo_touping_list');//推荐视频列表
+
+	for (i=0;i<strs.length ;i++ ){
+		item = strs[i];
+		strd= item.split("$");
+
+		var RecommendedVideo_html= 	' <a id="di'+i+'video" onclick="GoPlayVideo('+'\''+strd[1]+'\''+','+i+','+'\''+strd[0]+'\''+')" >'+strd[0]+' </a> ';
+		var RecommendedVideo_touping_html= 	' <a id="di'+i+'video" onclick="GoTouping('+'\''+strd[1]+'\''+','+i+','+'\''+strd[0]+'\''+')" >'+strd[0]+' </a> ';
+
+		InitializationVideo.innerHTML = '当前选择：<a> '+strd[0]+' </a> 如卡顿请切换';  //默认资源 提示
+	//	StartPlayVideoOne.innerHTML = '<span class="aui-live-icon-em"  id="mute_state" >开始观影吧！</span><span onclick="GoPlayVideo('+'\''+strd[1]+'\''+','+i+','+'\''+strd[0]+'\''+')"  class="aui-live-icon-nav"><i><svg t="1570086016162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34889" width="64" height="64"><path d="M374.6 636.5c4.4 0 8.5-1.2 12.1-3.3l171.7-100c8-3.6 13.6-11.9 13.6-21.5 0-8.8-4.8-16.6-11.9-20.7l-167.8-97.8c-4.3-5-10.7-8.1-17.7-8.1-13.1 0-23.6 10.7-23.6 23.8v1.3l-0.3 0.2 0.4 199.8c-0.1 0.8-0.1 1.6-0.1 2.5 0 13.2 10.6 23.8 23.6 23.8z" fill="#ffffff" p-id="34890"></path><path d="M64.7 586.3a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#ffffff" p-id="34891"></path><path d="M960 398.3c0.1-1.6 0.2-3.2 0.2-4.8 0-35-28.5-63.3-63.6-63.3-11.7 0-22.7 3.2-32.2 8.7l-0.5-0.3-31.5 18.2v-64.7c-0.1-73.1-59.9-133-133.1-133H197.4c-73.1 0-133 59.8-133 133v165.8h0.2c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1h0.2V287c0-35.2 28.8-64 64-64h510.2c35.2 0 64 28.8 64 64v448.9c0 35.2-28.8 64-64 64H193.3c-35.2 0-64-28.8-64-64v-21.4c0-17.7-14.4-32.1-32.2-32.1-17.8 0-32.2 14.4-32.2 32.1h-0.4v15.3c0 73.2 59.9 133 133 133h501.9c73.2 0 133-59.8 133-133v-64.1l33.1 19.1 0.1-0.1c9.2 5.1 19.8 8 31 8 35.1 0 63.6-28.4 63.6-63.3 0-1.6-0.1-3.2-0.2-4.8V398.3z m-63.6 205.1c-0.3 7.8-6.9 14.1-15 14.1-2.7 0-5.3-0.7-7.5-2l-41.5-23.7V430.1l40.9-23.2c2.3-1.5 5.1-2.3 8.1-2.3 8.3 0 15 6.6 15 14.6v184.2z" fill="#ffffff" p-id="34892"></path></svg></i> 播放</span>';  //默认资源 播放
+		StartPlayVideoOne.innerHTML = '<span class="aui-live-icon-em"  id="mute_state" >更多精彩！</span><span onclick="ButtonEvent('+'\'SignOut\''+')"  class="aui-live-icon-nav"><i><svg t="1578181176613" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10305" width="64" height="64"><path d="M515.253602 953.842127c-197.716061 0-378.821815-132.747373-431.274444-332.763826C21.662881 383.270127 164.416142 139.100058 402.198733 76.783781c115.203812-30.222325 235.251955-13.707187 338.02055 46.372144 102.797247 60.104913 176.044482 156.630317 206.233038 271.807522 5.851265 22.331611-7.509021 45.174875-29.834492 51.024094-22.271236 5.89015-45.167712-7.496741-51.030234-29.828352-24.530696-93.579305-84.036975-172.010609-167.555134-220.838687-83.505879-48.840358-181.02389-62.22111-274.636964-37.684274-193.20021 50.636261-309.192991 249.02668-258.56287 442.246333 50.662867 193.166441 249.012354 309.166385 442.199261 258.475889 136.154983-35.650965 240.121869-148.250462 264.896112-286.86752 4.054339-22.727631 25.916253-37.888935 48.486294-33.788547 22.734794 4.061502 37.862329 25.767873 33.793664 48.495504-30.473035 170.573887-158.439522 309.144896-325.994656 353.019149C590.472747 949.114452 552.55823 953.842127 515.253602 953.842127z" p-id="10306" fill="#ffffff"></path><path d="M721.609437 549.811164 721.609437 549.811164l-322.43048-0.014326c-23.087834 0-41.793872-18.712177-41.793872-41.793872 0-23.079648 18.720364-41.792848 41.793872-41.792848l0 0 322.43048 0.013303c23.087834 0 41.793872 18.7132 41.793872 41.793872S744.682945 549.811164 721.609437 549.811164z" p-id="10307" fill="#ffffff"></path><path d="M336.719416 549.838793c-10.69355 0-21.3871-4.080945-29.54899-12.244882-16.325827-16.318664-16.325827-42.779316 0-59.09798l191.567014-191.567014c16.325827-16.325827 42.773176-16.325827 59.099003 0 16.324804 16.318664 16.324804 42.779316 0 59.09798L366.268406 537.593911C358.106516 545.756825 347.411943 549.838793 336.719416 549.838793z" p-id="10308" fill="#ffffff"></path><path d="M528.28643 741.323942c-10.692526 0-21.385053-4.080945-29.54899-12.236696L307.1561 537.532513c-16.324804-16.318664-16.324804-42.786479 0-59.105143 16.298198-16.325827 42.773176-16.318664 59.099003-0.007163l191.58134 191.553711c16.324804 16.318664 16.324804 42.787502 0 59.106166C549.686832 737.241974 538.97998 741.323942 528.28643 741.323942z" p-id="10309" fill="#ffffff"></path></svg></i> 返回</span>';  //退出
+		StartToupingVideo.innerHTML = '<span   onclick="GoTouping('+'\''+strd[1]+'\''+','+i+','+'\''+strd[0]+'\''+')"  class="aui-live-icon-nav"  class="aui-live-icon-nav"><i><svg t="1570086202081" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="36599" width="64" height="64"><path d="M426.666667 449.422222c-11.377778 11.377778-22.755556 22.755556-22.755556 45.511111v182.044445c0 17.066667 11.377778 34.133333 22.755556 39.822222 5.688889 5.688889 17.066667 5.688889 22.755555 5.688889 11.377778 0 17.066667 0 28.444445-5.688889l136.533333-91.022222c11.377778-11.377778 22.755556-22.755556 22.755556-39.822222 0-17.066667-5.688889-28.444444-22.755556-39.822223L477.866667 455.111111c-17.066667-11.377778-34.133333-11.377778-51.2-5.688889z m34.133333 204.8V512l108.088889 73.955556-108.088889 68.266666z" fill="#ffffff" p-id="36600"></path><path d="M910.222222 227.555556h-244.622222l62.577778-62.577778c11.377778-11.377778 11.377778-28.444444 0-39.822222s-28.444444-11.377778-39.822222 0L585.955556 227.555556H438.044444L335.644444 119.466667c-11.377778-5.688889-34.133333-5.688889-45.511111 0s-5.688889 34.133333 0 45.511111L358.4 227.555556H113.777778c-28.444444 0-56.888889 28.444444-56.888889 56.888888v568.888889c0 28.444444 28.444444 56.888889 56.888889 56.888889h796.444444c28.444444 0 56.888889-28.444444 56.888889-56.888889V284.444444c0-28.444444-28.444444-56.888889-56.888889-56.888888z m0 625.777777H113.777778V284.444444h796.444444v568.888889z" fill="#ffffff" p-id="36601"></path></svg></i>开始投屏</span>';  //默认资源 投屏
+
+
+		$api.append(RecommendedVideo_list_frm,RecommendedVideo_html);
+		$api.append(RecommendedVideo_touping_list_frm,RecommendedVideo_touping_html);
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+//投屏控制条操作提示
+	function AuiRangeTipBeat(){
+
+			//投屏播放进度操作提示处理状态 如果值为1
+		if(ToupingProgressBarTips == 1 ){
+
+				aui_range_tip_beat.innerHTML = '投屏进度设置功能为测试版';
+
+				// 处理状态 值改为2
+				 ToupingProgressBarTips = 2;
+
+		//播放机处理状态 如果值为2
+		}else if(ToupingProgressBarTips == 2 ){
+
+				aui_range_tip_beat.innerHTML = '可能有部分接收设备不支持';
+
+				// 处理状态 值改为3
+				 ToupingProgressBarTips = 3;
+
+		//播放机处理状态 如果值为3
+		}else if(ToupingProgressBarTips == 3 ){
+
+				aui_range_tip_beat.innerHTML = '该功能可以在设置中关闭';
+
+				// 处理状态 值改为1
+				 ToupingProgressBarTips = 1;
+		}
+
+	}
+
+
+
+
+    // 随意切换按钮
+    function randomSwitchBtn() {
+
+
+		var obj = document.getElementById("video_dianji_jianjie");
+		obj.setAttribute("class", 'aui-live-header display-block');
+
+
+		video_operation_tip.innerHTML = '长按屏幕可以关闭简介';
+
+/*
+		api.addEventListener({
+			name:'appidle',
+			extra:{
+				timeout:5            //设置经过多长时间不操作屏幕时触发，单位秒，数字类型
+			}
+		}, function(ret, err){
+
+
+				var obj = document.getElementById("video_dianji_jianjie");
+				obj.setAttribute("class", 'aui-live-header display-none');
+
+
+			alert('已闲置');
+
+
+
+		});
+*/
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+// 准备播放	 url传入地址    num 传入集数
+    function GoPlayVideo(url,num,name){
+
+
+	//	 alert(url);
+
+		//进行提示
+		showTips('正在为您播放 '+name+' ',10000,'','关闭后显示',5000,'','','',1);			//警告 并 关闭
+
+		//改变提示信息
+		InitializationVideo.innerHTML = '正在播放：<a> '+name+' </a> 如卡顿请切换';  //默认资源 提示
+
+		//播放
+		StartPlayVideo(url);
+
+		//声音检测  1、提示  1.执行音量调整操作
+		VolumeInspect(1,1);
+
+    }
+
+
+
+
+// 准备投屏	 url传入地址    num 传入集数
+    function GoTouping(url,num,name){
+
+		//如果 投屏设备连接状态 已经连接
+		if( DeviceConnectionStatus  == 1 ){
+				//进行提示
+				showTips('<svg t="1570042262883" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="35759" width="64" height="64"><path d="M170.666667 682.666667h85.333333a42.666667 42.666667 0 0 1 0 85.333333H128a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h768a42.666667 42.666667 0 0 1 42.666667 42.666666v512a42.666667 42.666667 0 0 1-42.666667 42.666667h-128a42.666667 42.666667 0 0 1 0-85.333333h85.333333V256H170.666667v426.666667z m243.498666 158.165333a42.666667 42.666667 0 1 1-60.330666-60.330667l128-128a42.666667 42.666667 0 0 1 60.330666 0l128 128a42.666667 42.666667 0 0 1-60.330666 60.330667L512 742.997333l-97.834667 97.834667z" p-id="35760" fill="#8f99ad"></path></svg> 正在为您投屏播放 '+name+' ',10000,'','关闭后显示',2000,'','','',1);			//警告 并 关闭
+				//改变提示信息
+				InitializationVideo.innerHTML = '前正在投屏播放：<a> '+name+' </a> 如卡顿请切换';  //默认资源 提示
+				// 投屏
+				play(url);
+				//播放
+				StartPlayVideo(url);
+
+		//如果 投屏设备连接状态 未连接
+		}else{
+				//进行提示
+				showTips('','','','',2000,1,'请先搜索设备并连接',3000,2);			//不关闭 只警告
+				//开始检索可用投屏设备
+				browse();
+		}
+
+
+    }
+
+
+
+//打开播放器
+	function StartPlayVideo(url){
+
+			//播放机处理逻辑 如果值为空 则打开播放器
+		if(PlayerProcessingLogic == '' ){
+
+			//打开播放器
+
+			UIBPlayer.open(
+		         {
+		            rect:{
+									x: 0,   //（可选项）数字类型；播放器左上角的 x 坐标（相对于所属的 Window 或 Frame）；默认值：0
+									y: 0,   //（可选项）数字类型；（可选项）播放器左上角的 y 坐标（相对于所属的 Window 或 Frame）；默认值：0
+									w: api.frameWidth,  //（可选项）数字类型；播放器的宽度；默认值：所属的 Window 或 Frame 的宽度
+									h: 280   //（可选项）数字类型；播放器的高度；默认值：w的3/4
+		                 },
+		             path : url,
+		             autoPlay: true,
+		             enableLooping: false,
+		             pauseInBackground:true,
+		             coverImg: 'widget://images/defaultbanner.png',
+		             styles : {
+		                 head:{
+		                    bg: 'rgba(0,0,0,0.1)',
+		                    height: 30,
+		                    marginTop:0,
+		                    hide:true,
+		                    backBtn:{
+		                    size: 30,
+		                    backImg:'widget://image/ZFPlayer/ZFPlayer_back_full.png',
+		                    marginLeft:5
+		                    }
+		                /*  ,  titleLabel:{
+		                       title:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈',
+		                       size:20,
+		                       color:'#fff',
+		                       width:200,
+		                       numberLines:1,
+		                       leftMargin:5,
+		                       backgroundColor:'rgba(0,0,0,0)'
+		                    },
+		                    customButtons:[
+		                       {
+		                           w:30,
+		                           h:30,
+		                           rightMagin:5,
+		                           img:'widget://image/ZFPlayer/ZFPlayer_lock-nor.png',
+		                           imgSelected:'widget://image/ZFPlayer/ZFPlayer_repeat_video.png',
+		                       },
+		                      {
+		                           w:30,
+		                           h:30,
+		                           rightMagin:5,
+		                           img:'widget://image/ZFPlayer/ZFPlayer_lock-nor.png',
+		                           imgSelected:'widget://image/ZFPlayer/ZFPlayer_repeat_video.png',
+		                       },
+		                       {
+		                           w:30,
+		                           h:30,
+		                           rightMagin:5,
+		                           img:'widget://image/ZFPlayer/ZFPlayer_lock-nor.png',
+		                       }]*/
+		                    },
+		                    foot:{
+		                       bg: 'rgba(0,0,0,0)',
+		                       height: 30,
+		                       marginBottom:0,
+		                       hide:false,
+		                    playBtn:{
+		                        size : 30,
+		                        playImg:'widget://images/video_button/play.png',
+		                        pauseImg:'widget://images/video_button/pause.png',
+		                        marginLeft:0
+		                    },
+		                    currentTimeLabel:{
+		                        textSize:12,
+		                        textColor:"#FFF",
+		                        marginLeft:3
+		                    },
+		                    seekBar:{
+		                        sliderImg:'widget://images/video_button/slider.png',
+		                        progressColor: '#696969',
+		                        progressSelectedColor: '#1b7dff',
+		                        marginLeft:5,
+		                        marginRight:5
+		                    },
+		                    totalTimeLabel:{
+		                        textSize:12,
+		                        textColor:"#FFF",
+		                        marginRight:3
+		                    },
+		                    fullScreenBtn:{
+		                        size:30,
+		                        img:'widget://images/video_button/fullscreen.png',
+		                        fullScreenImg:'widget://images/video_button/fullscreen.png',
+		                        marginRight:0
+		                    }
+		                  }
+		                 }
+		             });
+
+
+
+				// 播放器打开过后 把 播放机处理逻辑 值改为1
+				 PlayerProcessingLogic = 1;
+
+		//播放机处理逻辑 如果值为1 则只重新传入播放地址
+		}else if(PlayerProcessingLogic == 1 ){
+
+		//	alert(JSON.stringify('重新播放指定播放地址'));
+
+			//重新播放指定播放地址
+			UIBPlayer.replay({
+		      path : url
+		          });
+
+
+		}
+
+
+
+
+	}
+
+
+
+//按钮事件
+    function ButtonEvent(name){
+
+			//退出
+			if(name == 'SignOut'){
+		//	alert(JSON.stringify('退出'));
+					api.closeWin({
+						name:api.winName
+						});
+			}
+
+		//收藏
+		if(name == 'Collection'){
+		//alert(JSON.stringify('收藏'));
+
+		}
+
+		//升级会员
+		if(name == 'sj'){
+		//alert(JSON.stringify('升级会员'));
+
+		}
+
+		//分享
+		if(name == 'Share'){
+
+			// alert(JSON.stringify('分享'));
+			U.openWin('share/', 'share');
+
+		}
+
+		//投屏
+		if(name == 'Touping'){
+
+			var obj = document.getElementById("Tv_player");
+			obj.setAttribute("class", 'display-block');
+
+			var obj = document.getElementById("Mobile_player");
+			obj.setAttribute("class", 'display-none');
+
+			var obj = document.getElementById("maincate_touping_nav");
+			obj.setAttribute("class", 'deviceListmaincate_touping_nav display-block');
+
+			var obj = document.getElementById("maincate_nav");
+			obj.setAttribute("class", 'maincate_nav display-none');
+
+
+
+
+		//	var obj = document.getElementById("maincate_nav");
+		//	obj.setAttribute("class", 'deviceListmaincate_touping_nav');
+		//
+		//	var obj = document.getElementById("maincate");
+		//	obj.setAttribute("class", 'maincate display-none');
+
+
+			//如果选择 自动调整音量
+			if(localStorage.getItem('automatic_volume') == 1){
+
+				acc5Util.setVol({value:0},function(ret,err){
+				//	alert(JSON.stringify(ret));
+				//		api.toast({
+				//		msg: '音量调整为0',
+				//		duration: 2000,
+				//		location : 'middle'
+				//	});
+
+				})
+
+			}
+
+
+			browse();
+
+
+		}
+
+
+		//搜索设备
+		if(name == 'SearchDevice'){
+			//开始检索可用投屏设备
+			browse();
+
+		}
+
+
+		//开始投屏
+		if(name == 'StartTouping'){
+			//开始投屏
+			play();
+
+		}
+
+
+		//停止投屏
+		if(name == 'CloseTouping'){
+			//停止投屏
+			stop();
+
+			var obj = document.getElementById("Tv_player");
+				obj.setAttribute("class", 'display-none');
+
+			var obj = document.getElementById("Mobile_player");
+				obj.setAttribute("class", 'display-block');
+
+			var obj = document.getElementById("maincate_touping_nav");
+			obj.setAttribute("class", 'maincate_nav display-none');
+
+			var obj = document.getElementById("maincate_nav");
+			obj.setAttribute("class", 'maincate_nav display-block');
+
+
+		//	var obj = document.getElementById("maincate_nav");
+		//		obj.setAttribute("class", 'maincate_nav');
+
+		//	var obj = document.getElementById("maincate");
+		//		obj.setAttribute("class", 'maincate display-block');
+
+
+				//如果选择 自动调整音量
+			if(localStorage.getItem('automatic_volume') == 1){
+
+				acc5Util.setVol({value:localStorage.getItem('default_player_volume')},function(ret,err){
+				//	alert(JSON.stringify(ret));
+				//		api.toast({
+				//		msg: '音量调整为'+localStorage.getItem('default_player_volume'),
+				//		duration: 2000,
+				//		location : 'middle'
+				//	});
+				})
+
+			}
+
+			//播放器显示
+			// moviePlayer.show();
+			//播放器开始播放
+			//moviePlayer.play();
+
+		}
+
+    }
+
+
+
+
+/*音量检测*/
+	//type  1、提示    operation  操作
+
+
+
+    function VolumeInspect(type,operation) {
+
+		//acc5Util 模块检测
+		acc5Util.getVol({},function(ret,err){
+			//  alert(JSON.stringify(ret.data['music']));
+
+				//静音
+				if(ret.data['music'] == 0){
+
+					if(type == 1){
+
+						mute_state.innerHTML = '手机可能处于静音状态';
+
+						var obj = document.getElementById("mute_state");
+						obj.setAttribute("class", 'aui-live-icon-em-mute');
+
+						mute_state_touping.innerHTML = ' 手机静音中 停止后恢复';
+
+						var obj = document.getElementById("mute_state_touping");
+						obj.setAttribute("class", 'aui-live-icon-em-mute');
+
+
+
+					}
+
+
+					if(operation == 1){
+
+						//如果选择 自动调整音量
+						if(localStorage.getItem('automatic_volume') == 1){
+
+							acc5Util.setVol({value:localStorage.getItem('default_player_volume')},function(ret,err){
+							//	alert(JSON.stringify(ret));
+								//		api.toast({
+								//		msg: '音量调整为'+localStorage.getItem('default_player_volume'),
+								//		duration: 2000,
+								//		location : 'middle'
+								//	});
+							})
+
+						}
+
+					}
+
+									/*
+											api.toast({
+												msg: '手机处于静音状态',
+												duration: 2000,
+												location : 'middle'
+											});
+
+										*/
+
+
+				}else{
+
+
+						mute_state.innerHTML = '更多精彩！';
+
+						var obj = document.getElementById("mute_state");
+							obj.setAttribute("class", 'aui-live-icon-em');
+
+
+						mute_state_touping.innerHTML = ' 投屏时建议静音 ';
+
+						var obj = document.getElementById("mute_state_touping");
+							obj.setAttribute("class", 'aui-live-icon-em-mute-one');
+
+								/*
+											api.toast({
+												msg: '声音正常',
+												duration: 2000,
+												location : 'middle'
+											});
+
+								*/
+
+				}
+		})
+
+	}
+
+/*投屏模块*/
+    function browse() {
+        $api.byId('deviceList').innerHTML = '';
+        touping.browse(function(ret, err) {
+            if (ret.status) {
+                showDeviceList(ret.deviceList);
+				//	alert(JSON.stringify(ret));
+
+               // document.getElementById("tips").textContent = "搜索到" + ret.deviceList.length + "个设备，请选择要投屏的设备";
+
+			//	showTips('正在搜索可用设备…',5000,'','',3000,1,'搜索到'+ret.deviceList.length+'个设备，请选择要投屏的设备',3000,2);			//不关闭 只警告
+			//	showTips('','',1,'正在搜索可用设备…',3000,1,'搜索到'+ret.deviceList.length+'个设备，请选择要投屏的设备','',2);			//警告 并 关闭
+				showTips('正在搜索可用设备 ··· ',1000,1,'搜索到'+ret.deviceList.length+'个设备，请点击下方设备连接',3000,'','',3000,2);			//只关闭 不警告
+				var obj = document.getElementById("Touping_deviceList");
+					obj.setAttribute("class", 'deviceListmaincate_nav display-block');
+
+
+            } else {
+
+              //  document.getElementById("tips").textContent = "未搜索到设备，请检查当前局域网内是否有可投屏设备";
+			//	showTips('未搜索到设备，请检查当前局域网内是否有可投屏设备',5000,1,'关闭后显示内容',3000,1,'警告后关闭',3000);			//警告 并 关闭
+				showTips('正在搜索可用设备 ···',3000,'','',3000,1,'未搜索到设备，请检查当前局域网内是否有可投屏设备',3000,2);			//不关闭 只警告
+            }
+        });
+    }
+
+	//显示设备名
+    function showDeviceList(deviceList) {
+
+        for (var i = 0; i < deviceList.length; i++) {
+            var item = '<a onclick="choiceDevice(&quot;' + deviceList[i].name + '&quot;,' + i + ')"> <svg t="1570082786123" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5974" width="64" height="64"><path d="M928 543.8h-95.8c-17.6 0-32 14.4-32 32v255.9c0 17.6 14.4 32 32 32H928c17.6 0 32-14.4 32-32V575.8c0-17.6-14.4-32-32-32zM871.8 841c0-5.8 4.7-10.5 10.5-10.5s10.5 4.7 10.5 10.5-4.7 10.5-10.5 10.5-10.5-4.7-10.5-10.5z m77.8-25.7h-139V587.4h139v227.9z" fill="#222222" p-id="5975"></path><path d="M800.7 448.2a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#ffffff" p-id="5976"></path><path d="M800.7 317.4v2.4c0 17.7 14.4 32.1 32.2 32.1s32.2-14.4 32.2-32.1c0-0.8 0-1.6-0.1-2.4h0.1V191.3c0-35.2-28.8-64-64-64H128.3c-35.2 0-64 28.8-64 64V640c0 35.2 28.8 64 64 64h302.1v127.7h-155c-17.6 0-32 14.4-32 32s14.4 32 32 32H657c17.5 0 31.9-14.4 32-32 0-17.6-14.4-32-32-32H498V704h206.7v-0.1c17.7-0.2 31.9-14.4 31.9-32.1 0-17.6-14.3-31.9-31.9-32.1H160.8c-17.6 0-32-14.4-32-32V223.8c0-17.6 14.4-32 32-32h607.9c17.6 0 32 14.4 32 32v93.6z" fill="#222222" p-id="5977"></path></svg>' + deviceList[i].name + '</a>';
+            $api.byId('deviceList').insertAdjacentHTML('beforeEnd', item);
+        }
+    }
+
+    function choiceDevice(name, index) {
+        deviceIndex = index;
+     //   document.getElementById("tips").textContent = "您选择了 " + name + " 进行投屏";
+
+				showTips('正在连接设备 ···',5000,1,'<svg t="1570083742316" class="deviceListmaincate_nav_ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7496" width="64" height="64"><path d="M512 149.965c-199.947 0-380.965 81.039-511.994 212.077l96.02 96.019C202.474 351.582 349.542 285.723 512 285.723s309.526 65.859 415.975 172.338l96.02-96.019C892.965 231.004 711.947 149.965 512 149.965z" p-id="7497" fill="#222222"></path><path d="M160.004 522.05l95.979 95.989C321.512 552.51 412.021 512 512 512s190.487 40.51 256.017 106.039l95.979-95.989C773.917 431.951 649.458 376.242 512 376.242c-137.459 0-261.896 55.709-351.996 145.808z" p-id="7498" fill="#222222"></path><path d="M320.002 682.038L512 874.035l191.998-191.997c-49.13-49.14-117.02-79.529-191.998-79.529s-142.868 30.389-191.998 79.529z" p-id="7499" fill="#222222"></path></svg>'+name+' 连接成功！可以进行投屏播放',3000,'','',3000,2);			//只关闭 不警告
+				//投屏设备连接状态 已经连接
+				DeviceConnectionStatus  = 1;
+
+				var obj = document.getElementById("Touping_deviceList");
+					obj.setAttribute("class", 'deviceListmaincate_nav display-none');
+
+    }
+
+    function play(url) {
+        touping.play({
+            index: deviceIndex,
+            url: url
+        }, function(ret, err) {
+             // alert(JSON.stringify(ret));
+        });
+    }
+
+    function playUrl(url) {
+        touping.playUrl({
+            url: url
+        }, function(ret, err) {
+        //   alert(JSON.stringify(ret));
+		//   if(ret.result == true){
+		//		showTips('正在为您投屏播放 '+num+' 集',10000,'','关闭后显示',2000,'','','',1);			//警告 并 关闭
+		//   }
+
+        });
+
+    }
+
+    function stop() {
+        touping.stop(function(ret, err) {
+          //  alert(JSON.stringify(ret));
+			if(ret.result == true){
+				showTips('','',1,'',3000,1,'已停止投屏','',1);			//警告 并 关闭
+			}
+
+        });
+    }
+
+    function volume(value) {
+        touping.volume({
+            value: value
+        }, function(ret, err) {
+            console.log(JSON.stringify(ret));
+        });
+    }
+
+    function seek(value) {
+        touping.seek({
+            value: value
+        }, function(ret, err) {
+           // console.log(JSON.stringify(ret));
+		//   alert(JSON.stringify(ret));
+
+		   		api.toast({
+					msg: value,
+					duration: 2000,
+					location : 'middle'
+				});
+
+
+        });
+
+    }
+/*
+    var range1 = new auiRange({
+        element: document.getElementById("rangeVolume") //滑块容器
+    }, function(ret) {
+        volume(ret.value);
+    })
+*/
+    var range2 = new auiRange({
+        element: document.getElementById("rangeSeek") //滑块容器
+    }, function(ret) {
+        seek(ret.value);
+    })
+
+
+
+
+
+/*** showTips提示方法 ***/
+	// 进行提示	showTips(提示消息,延迟时间, 1 关闭 空跳过,关闭后的消息,关闭延迟,1 警告 空跳过,警告消息,警告延迟,类型);
+    function showTips(msg,Timeout,isClose,CloseMsg,CloseTimeout,isWarning,WarningMsg,WarningTimeout,type) {
+
+		if(type == 1){		// 视频提示信息
+
+				var obj = document.getElementById("video_tip");
+				obj.setAttribute("class", 'aui-live-header-black');
+
+
+				video_tip.innerHTML = '<span style="font-size:10px;">'+ msg +'</span>';
+
+					//有延迟时间
+			/*		if(Timeout > 0){
+							setTimeout(function() {
+
+								api.refreshHeaderLoadDone()
+
+							}, Timeout);
+					}else{
+
+					}
+			*/
+
+
+				//是否需要关闭
+				//关闭 且 警告
+				if(isClose == 1 && isWarning == 1){
+
+					setTimeout(function() {		//延迟执行 警告
+
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-warning');
+
+						video_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+						setTimeout("closeTips()",WarningTimeout);  //延迟执行 关闭提示
+
+							setTimeout(function(){		//延迟执行 关闭
+
+									var obj = document.getElementById("video_tip");
+									obj.setAttribute("class", 'aui-live-header-close');
+
+									video_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+									video_operation_tip.innerHTML = '点击查看';
+
+							}, CloseTimeout);
+
+						video_operation_tip.innerHTML = '提示即将关闭';
+
+
+					}, WarningTimeout);
+
+
+
+				//不关闭  但警告
+				}else if(isWarning == 1){
+
+					setTimeout(function() { 		//延迟执行
+
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-warning');
+
+						video_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+					}, Timeout);
+
+
+				// 直接关闭 不警告
+				}else if(isClose == 1){
+
+					setTimeout(function() { 		//延迟执行
+						var obj = document.getElementById("video_tip");
+						obj.setAttribute("class", 'aui-live-header-close');
+
+						video_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+						video_operation_tip.innerHTML = '点击查看';
+
+					}, Timeout);
+				}
+
+
+
+		}else if(type == 2){		// 投屏提示信息 Touping_tip
+
+
+
+				var obj = document.getElementById("Touping_tip");
+				obj.setAttribute("class", 'aui-live-touping-black');
+
+
+				Touping_tip.innerHTML = '<span style="font-size:10px;">'+ msg +'</span>';
+
+					//有延迟时间
+			/*		if(Timeout > 0){
+							setTimeout(function() {
+
+								api.refreshHeaderLoadDone()
+
+							}, Timeout);
+					}else{
+
+					}
+			*/
+
+
+				//是否需要关闭
+				//关闭 且 警告
+				if(isClose == 1 && isWarning == 1){
+
+					setTimeout(function() {		//延迟执行 警告
+
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-warning');
+
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+						setTimeout("closeTips()",WarningTimeout);  //延迟执行 关闭提示
+
+							setTimeout(function(){		//延迟执行 关闭
+
+									var obj = document.getElementById("Touping_tip");
+									obj.setAttribute("class", 'aui-live-touping-close');
+
+									Touping_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+									video_operation_tip.innerHTML = '点击查看';
+
+							}, CloseTimeout);
+
+						video_operation_tip.innerHTML = '提示即将关闭';
+
+
+					}, WarningTimeout);
+
+
+
+				//不关闭  但警告
+				}else if(isWarning == 1){
+
+					setTimeout(function() { 		//延迟执行
+
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-warning');
+
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+ WarningMsg +'</span>';			//警告信息
+
+					}, Timeout);
+
+
+				// 直接关闭 不警告
+				}else if(isClose == 1){
+
+					setTimeout(function() { 		//延迟执行
+						var obj = document.getElementById("Touping_tip");
+						obj.setAttribute("class", 'aui-live-touping-close');
+
+						Touping_tip.innerHTML = '<span style="font-size:10px;">'+CloseMsg+'</span>';		//关闭后的信息
+
+						video_operation_tip.innerHTML = '点击查看';
+
+					}, Timeout);
+				}
+
+
+
+
+
+
+
+		}
+
+    }
+/*** showTips提示方法 ***/
+
+
+
+
+
+/*** 循环执行方法 ***/
+	// name   time   参数
+	function Recycling(name,time,param){
+		//定时检测音量
+		var Task_number = name;
+		var Task_number = setInterval(function(){
+
+		//不带参数
+	//	 eval(name+'();');
+		 //有参
+		 eval(name+'("'+param+'");');
+
+		},time);
+
+	}
+/*** 循环执行方法 ***/
+
+
+</script>
+
+</html>

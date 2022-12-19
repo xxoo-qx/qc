@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>激活码列表 - frm</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+		<style>
+
+
+
+
+
+
+    * {
+    	-webkit-box-sizing: border-box;
+    	box-sizing: border-box;
+    	-webkit-user-select: none;
+    	outline: 0;
+    	-webkit-tap-highlight-color: transparent;
+    	-webkit-tap-highlight-color: transparent
+    }
+
+    body {
+    	font-family: 'Helvetica Neue',Helvetica,sans-serif;
+    	font-size: 17px;
+    	line-height: 21px;
+    	color: #dfdfdf;
+    	background-color: #fff;
+    	-webkit-overflow-scrolling: touch
+    }
+
+
+    p {
+    	font-size: 14px;
+    	margin-top: 0;
+    	margin-bottom: 10px;
+    	color: #8f8f94
+    }
+
+
+    @media (min-width:400px) {
+    	.mui-col-sm-12 {
+    		width: 100%
+    	}
+
+    	.mui-col-sm-1 {
+    		width: 8.33333333%
+    	}
+    }
+
+
+    .mui-btn,button,input[type=button],input[type=reset],input[type=submit] {
+    	font-size: 14px;
+    	font-weight: 400;
+    	line-height: 1.42;
+    	position: relative;
+    	display: inline-block;
+    	margin-bottom: 0;
+    	padding: 6px 12px;
+    	cursor: pointer;
+    	-webkit-transition: all;
+    	transition: all;
+    	-webkit-transition-timing-function: linear;
+    	transition-timing-function: linear;
+    	-webkit-transition-duration: .2s;
+    	transition-duration: .2s;
+    	text-align: center;
+    	vertical-align: top;
+    	white-space: nowrap;
+    	color: #333;
+    	border: 1px solid #ccc;
+    	border-radius: 3px;
+    	border-top-left-radius: 3px;
+    	border-top-right-radius: 3px;
+    	border-bottom-right-radius: 3px;
+    	border-bottom-left-radius: 3px;
+    	background-color: #fff;
+    	background-clip: padding-box
+    }
+
+
+
+
+
+        .new-min-quan{width:100%;    padding: 0 3% 3% 3%;    margin-bottom: 30px;}
+        .new-min-quan ul{padding: 0;}
+        .new-min-quan ul li{ width:100%; overflow:hidden; height:40px; margin-bottom:10px}
+        .new-min-quan ul li .left{ float:left; width:80%;height:40px; background-image: linear-gradient(120deg, #673AB7 0%, #2196F3 100%);overflow:hidden; border-top-left-radius:8px;border-bottom-left-radius:8px; position:relative}
+        .new-min-quan ul li .left .rtdian{ position:absolute;right:0px;top:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:8px -8px}
+        .new-min-quan ul li .left .rbdian{ position:absolute;right:0px;bottom:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:8px 8px}
+
+        .new-min-quan ul li .left .s{ position: absolute;  bottom: 0px; width: 23px;       background-color: #1b7dff; background-size: 16px 16px; background-position: 8px -8px;  color: #fff; text-align: center; height: 20px; line-height: 21px; border-radius: 0 8px 0 8px; font-size: 13px;}
+
+	  .new-min-quan ul li .left .c{ position: absolute; right: 10px; bottom: 0px; width: 35px; background-color: #e91e63; background-size: 16px 16px; background-position: 8px 8px; color: #fff; text-align: center; height: 20px; line-height: 21px; border-radius: 5px 5px 0 0 ; font-size: 13px;}
+
+        .new-min-quan ul li .right{ float:right; width:20%;height:40px;overflow:hidden;border-top-right-radius:8px;border-bottom-right-radius:8px;position:relative}
+        .new-min-quan ul li .bg1{background:#dedede;}
+     /*an   .new-min-quan ul li .bg0{background-image: linear-gradient(-225deg, #90339e 0%, #44107A 52%, #44107A 100%);} */
+		.new-min-quan ul li .bg0{background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);}
+        .new-min-quan ul li .right .ltdian{ position:absolute;left:0px;top:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:-8px -8px}
+        .new-min-quan ul li .right .lbdian{ position:absolute;left:0px;bottom:0px; width:16px; height:16px; background:url(../Ryanimg/gokalog/yuan.png) no-repeat; background-size:16px 16px; background-position:-8px 8px}
+        .new-min-quan ul li .right .padding{ margin:8.5px; overflow:hidden}
+        .new-min-quan ul li .right .price{color:#fff; font-size:12px; text-align:center;padding-top:10px; padding-bottom:5px;}
+        .new-min-quan ul li .right .price i{ font-style:normal; font-size:24px;}
+        .new-min-quan ul li .right .btn{text-align:center;margin: 0 auto;  color: #fff; font-size: 15px;}
+        .new-min-quan ul li .right .btn button{ padding: 2px 5px 2px 5px; margin: 0px; border: none; /* width: 50px; */ /* height: 23px; */ /* line-height: 23px; */ border-radius: 12px; font-size: 13px;}
+        .new-min-quan ul li .right .btn .use0{background:#FFF;color:#4a127b;}
+        .new-min-quan ul li .right .btn .use1{background:#FFF;color:#999;}
+        .new-min-quan ul li .left .tit{ margin:10px; overflow:hidden}
+        .new-min-quan ul li .left .tit{width:100%; font-size:14px;white-space:nowrap;overflow : hidden;text-overflow: ellipsis; margin-left: 30px;}
+        .new-min-quan ul li .left .tit p{ font-size:12px}
+        .new-min-quan ul li .left img{ float:left; width:70px; height:70px; margin-right:5px; margin-left:5px;}
+
+
+
+
+        .aui-footer {
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 7px 5px 7px 5px;
+             background: #1b7dff;
+                position: fixed; bottom: 0; width: 100%; left: 0px;
+        }
+
+
+        .aui-tabBar-item {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 30px;
+                line-height: 30px;
+            font-size: 0.7rem;
+
+        }
+
+        .aui-tabBar-item-text {
+            display: inline-block;
+            padding-top: 2px;
+        }
+
+        .aui-tabBar-item-zero {
+            position: relative;
+            color: #fff;
+        }
+
+
+
+
+        .aui-tabBar-item-one {
+          background: #f3f4f6;
+          border-radius: 10px;
+          margin-right: 0.5rem;
+          color: #ffffff;
+         /* background-image: linear-gradient(-225deg, #90339e 0%, #44107A 52%, #44107A 100%);*/
+
+		   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .aui-tabBar-item-two {
+           background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+            border-radius: 10px;
+            color: #444444;
+        }
+
+
+		</style>
+    </head>
+    <body>
+
+
+		<div class="mui-content new-min-quan">
+
+            <ul id="CDKEY_list">
+<!--
+				  	<li>
+               	<div class="left">
+                     <div class="rtdian"></div><div class="rbdian"></div>
+                    <div class="padding">
+                   	<div class="tit">VIP激活码：<em>5123123123</em><p>5551515 </p></div>
+                  </div>
+                 </div>
+              		<div class="right bg0">
+                    <div class="ltdian"></div><div class="lbdian"></div>
+                   <div class="padding">
+                   	<div class="price">5123123</div>
+                        <div class="btn"><button class="use0"  tapmode onclick="loginOff('+data[i].dianka+')" >去使用</button></div>
+                    </div>
+                    </div>
+                </li>
+
+
+				  	<li>
+               	<div class="left">
+                     <div class="s">赠</div>
+					 <div class="c">复制</div>
+
+                    <div class="padding">
+                   	<div class="tit">VIP激活码：<em>5123123123</em><p>5551515 </p></div>
+                  </div>
+                 </div>
+              		<div class="right bg1">
+                    <div class="ltdian"></div><div class="lbdian"></div>
+                   <div class="padding">
+                   	<div class="price">5123123</div>
+                        <div class="btn"><button class="use1"  tapmode onclick="loginOff('+data[i].dianka+')" >去使用</button></div>
+                    </div>
+                    </div>
+                </li>
+
+-->
+
+
+
+
+            </ul>
+		</div>
+
+
+<footer class="aui-footer">
+                <span  class="aui-tabBar-item aui-tabBar-item-zero" >
+                    <span class="aui-tabBar-item-text">
+
+<svg t="1571595639756" class="icon" style=" padding-top: 7px; "  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="44887" width="20" height="20"><path d="M529.984 338.992L960.422 4.414C952.016 1.804 943.258 0 934 0H90c-9.258 0-18.008 1.812-26.42 4.414l430.404 334.58c10.664 7.966 25.4 7.966 36 0z m0 0" p-id="44888" fill="#fff"></path><path d="M646.828 323.852L888.64 485.04c17.492 11.664 19.156 25.342 8.32 41.6-9.04 13.586-27.57 17.618-41.6 8.32L597.016 362.76l-31.024 24.226c-15.874 11.954-34.92 17.93-53.992 17.93-19.046 0-38.118-5.976-54.024-17.93L426.96 362.76 166.64 534.96c-14.04 9.306-32.56 5.26-41.6-8.32-9.204-13.796-5.478-32.406 8.32-41.6l243.796-161.18L14.188 41.93C5.32 55.868 0 72.29 0 90v480c0 49.626 40.376 90 90 90h212v90c0 16.58 13.42 30 30 30s30-13.42 30-30v-90h120v30c0 16.58 13.42 30 30 30s30-13.42 30-30v-30h120v90c0 16.58 13.42 30 30 30s30-13.42 30-30v-90h212c49.626 0 90-40.376 90-90V90c0-17.71-5.32-34.132-14.188-48.07z m0 0M542 994v-184c0-16.58-13.42-30-30-30s-30 13.42-30 30v184c0 16.58 13.42 30 30 30s30-13.42 30-30z m0 0M362 934v-64c0-16.58-13.42-30-30-30s-30 13.42-30 30v64c0 16.58 13.42 30 30 30s30-13.42 30-30z m0 0M722 934v-64c0-16.58-13.42-30-30-30s-30 13.42-30 30v64c0 16.58 13.42 30 30 30s30-13.42 30-30z m0 0" p-id="44889" fill="#fff"></path></svg>
+                      发送至邮箱：</span>
+                </span>
+                <span  class="aui-tabBar-item aui-tabBar-item-one" onclick="go_agent_activation_code_email('0')">
+                    <span class="aui-tabBar-item-text">未激活使用</span>
+                </span>
+                <span  class="aui-tabBar-item aui-tabBar-item-two" onclick="go_agent_activation_code_email('1')">
+                    <span class="aui-tabBar-item-text">全部</span>
+                </span>
+
+            </footer>
+
+    </body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+
+<script type="text/javascript">
+
+    var skip = 0; //页码
+    var datas = new Array(); //页面数据存储的数组
+    //初始化
+    apiready = function() {
+
+
+        fnInitData();
+        fnInitEvent();
+
+
+    };
+
+
+
+
+
+    function fnInitData() {
+
+					var UserId = localStorage.getItem('UserId');
+					var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+					var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+
+            api.ajax({
+				url: localStorage.getItem('api_url') + '/app/api/AppCdkeySingleBatchDetails',
+                        data:{
+                                values:{
+									skip:skip,
+									key: RyanKey,
+									uid: UserId,
+									time: GetTime,
+									log_id: localStorage.getItem('cdkey_log_id')
+                                }
+                        },
+                        method:"get",
+        }, function(ret, err) {
+		//		alert(JSON.stringify(ret));
+            if (ret) {
+
+              if(ret.status == '1'){
+
+
+                            var CDKEYList = ret.data['activation_code_list'];
+
+                            //把请求到的数据遍历添加进页面数据的数组
+                            if (CDKEYList.length > 0) {
+                                for (var i = 0, len = CDKEYList.length; i < len; i++) {
+                                    datas.push(CDKEYList[i]);
+                                };
+                                //调用页面渲染的方法
+                                fnInitView(datas);
+
+                                api.toast({
+                                    msg: '加载中',
+                        						duration: 1000,
+                        						location : 'middle'
+                                });
+
+                            } else {
+
+                                api.toast({
+                                    msg: '已经到底了',
+                        						duration: 1000,
+                        						location : 'middle'
+                                });
+
+                                skip -= 1;
+
+
+
+                            };
+                            console.log("第" + (skip + 1).toString() + "页");
+
+        }else if(ret.status == '829'){
+            //  fnInitData();
+            
+        }
+
+
+
+
+
+
+            } else {
+              //  alert("交互失败");
+
+			         api.toast({
+                        msg:'数据获取失败',
+						duration: 1000,
+						location : 'middle'
+                    })
+            };
+        });
+    };
+
+    /**
+     * 渲染页面布局
+     *
+     * @param {Array} data
+     */
+    function fnInitView(data) {
+
+        //声明容器 并置空
+        var CDKEY_list_html = '';
+        //遍历页面数据的数组进行创建标签,插入容器
+        for (var i = 0; i < data.length; i++) {
+
+        	var s1 =  U.GetFomateTime(data[i].ctime)
+
+          //使用状态
+  				var isUse = data[i].y;
+  				if (isUse == 1 ) {
+
+  					var Use = '已使用';
+  					var coss =  'rtdian';
+  		//			var cosc =  'c';
+  					var coss_text =  '';
+  		//			var cosc_text =  '';
+
+  				} else{
+
+  					var Use = '复制';
+  					var coss =  's';
+  		//			var cosc =  'c';
+  					var coss_text =  '<svg t="1571592497816" class="icon" style=" margin-top: 5px; "  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="29831" width="12" height="12"><path d="M1011.2 311.466667l-221.866667-217.6c-8.533333-4.266667-17.066667-8.533333-29.866666-8.533334H264.533333c-8.533333 0-21.333333 4.266667-29.866666 12.8l-221.866667 213.333334c-8.533333 8.533333-12.8 21.333333-12.8 29.866666v85.333334c0 8.533333 4.266667 21.333333 8.533333 25.6l469.333334 512c17.066667 17.066667 42.666667 17.066667 59.733333 4.266666l4.266667-4.266666 469.333333-512c8.533333-8.533333 12.8-17.066667 8.533333-25.6V341.333333c4.266667-8.533333 0-21.333333-8.533333-29.866666zM512 721.066667L226.133333 345.6h166.4l-8.533333 34.133333 128 174.933334 128-174.933334-12.8-34.133333h166.4c4.266667 0-281.6 375.466667-281.6 375.466667z" p-id="29832" fill="#ffffff"></path></svg>';
+  		//			var cosc_text =  '复制';
+  				}
+
+
+
+
+          CDKEY_list_html += '        	<li>'+
+                ' 	<div class="left">'+
+                '      <div class="'+coss+'">'+coss_text+'</div> <div class="c">'+data[i].name+'</div>'+
+                '      <div class="padding">'+
+                '     	<div class="tit">VIP 激活码：<em>'+data[i].cdkey+'</em></div>'+
+                '    </div>'+
+                '   </div>'+
+                '		<div class="right bg'+data[i].y+'">'+
+                '      <div class="ltdian"></div><div class="lbdian"></div>'+
+                '      <div class="padding">'+
+        //        '      	<div class="price">'+data[i].name+'</div>'+
+        //        '          <div class="btn"><button class="use'+data[i].y+'"  onclick="loginOff('+'\''+data[i].cdkey+'\''+')" > '+Use+'</button></div>'+
+                        '          <div class="btn"><button class="use'+data[i].y+'"    onclick="copy('+'\''+data[i].cdkey+'\''+')"> '+Use+'</button></div>'+
+                '      </div>'+
+                '      </div>'+
+               '   </li>';
+
+
+
+        };
+        $api.byId('CDKEY_list').innerHTML = CDKEY_list_html;
+
+
+    };
+
+    /**
+     * 初始化页面监听事件
+     */
+    function fnInitEvent() {
+        /**上拉加载 */
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 10
+            }
+        }, function(ret, err) {
+            //页码+1，继续请求数据
+            skip += 1;
+            fnInitData();
+        });
+        /** 下拉刷新 */
+    /*    api.setRefreshHeaderInfo({
+            bgColor: '#ccc',
+            textColor: '#fff',
+            textDown: '下拉刷新...',
+            textUp: '松开刷新...'
+        }, function(ret, err) {
+            //重置页码、页面数据，请求数据
+            skip = 1;
+            datas = new Array();
+            fnInitData();
+        });
+
+		*/
+    };
+
+
+
+
+
+
+ //复制激活码
+    function copy(kami){
+ //     var kami = $api.val($api.byId('kami'));
+
+		var clipBoard = api.require('clipBoard');
+			clipBoard.set({
+			value: kami
+			}, function(ret, err) {
+				if(ret) {
+					api.toast({
+					msg: '激活码：'+kami+' 已复制',
+					duration: 5000,
+					location : 'middle'
+				});
+				var dialogBox = api.require('dialogBox');
+				dialogBox.close({
+					dialogName: 'alert'
+				});
+				} else {
+
+				}
+			});
+
+
+    }
+
+
+
+
+ //激活码 - 邮件发送
+    function go_agent_activation_code_email(type){
+
+
+			if( U.Check_ButtonSubmissionTime() == 1){
+
+				U.toast('操作频繁 请稍后再试');
+
+				return;
+			}
+
+
+      api.showProgress({
+          title: '请等待',
+          text: '邮件发送中…',
+          modal: true,
+          animationType:'fade'
+      });
+
+
+      var UserId = localStorage.getItem('UserId');
+      var GetTime = U.GetRyanTime(Date.parse(new Date()) / 1000);
+      var RyanKey = U.GetRyanKey(UserId,GetTime);
+
+
+		api.ajax({
+            url: localStorage.getItem('api_url')+'/app/api/AppCdkeySendMail',
+			method: 'get',
+			data: {
+				values: {
+          type:type,
+          key: RyanKey,
+          uid: UserId,
+          time: GetTime,
+		 log_id: localStorage.getItem('cdkey_log_id')
+				}
+			}
+		}, function(ret, err) {
+
+// alert(JSON.stringify(ret));
+
+      api.hideProgress();
+
+              if(ret){
+
+                      if(ret.status == 1) {
+                              U.RyanUp(1,ret.data);
+                      }else	if(ret.status == 0) {
+                              U.RyanUp(2,ret.data);
+                      }else	if(ret.status == 718) {
+                              U.RyanUp(2,'与服务链接失败 稍后再试');
+                      }else	if(ret.status == '829') {
+					                    U.toast('请求频繁 ');
+
+				                }
+              }else{
+                      U.RyanUp(2,'可能与服务链接失败 稍后再试');
+              }
+
+
+		});
+
+
+
+    }
+
+
+
+
+
+		//延时执行
+	    function delayed(){
+
+                  api.sendEvent({
+                    name: 'newLoingdata',
+                    extra: {
+                    }
+                  });
+
+                  api.closeWin();
+
+				}
+
+
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>txPlayer</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<style>
+	.center{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-box-pack:center;
+}
+
+
+body {
+    display: block;
+    margin: 0px;
+}
+
+.desbloack{ /**描述文字框**/
+	border-color: #CCCCCC;
+	-webkit-border-radius: 4px;
+	border-style: dashed;
+	border-width: 1px;
+	color: #333333;
+	font-size: 10px;
+	padding: 5px;
+	text-align: left;
+	width: auto;
+	min-height:80px;
+    margin:8px 15px;
+}
+
+.textbloack{ /**文字框**/
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	font-size: 10px;
+	padding: 5px;
+	text-align: left;
+	width: auto;
+	min-height:30px;
+    margin:8px 15px;
+}
+
+.row{ /**行**/
+	width:auto;
+	display:-webkit-box;
+	-webkit-box-orient:horizontal;
+	margin:5px;
+}
+
+.active{ /**九宫格项点击效果**/
+	background-color: #CCC !important;
+}
+
+.clickitem { /**九宫格项**/
+	width:100%;
+	-webkit-box-flex:1;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	min-height:60px;
+	background-color: #EEEEEE;
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	font-size: 14px;
+	margin:5px;
+}
+
+.clickbtn { /**按钮**/
+	width: auto;
+    margin:8px 15px;
+    border-color: #CCCCCC;
+    -webkit-border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+    font: bold 18px;
+    padding: 8px 0;
+    text-align: center;
+    background-color: #EEEEEE;
+}
+
+.itemtitle{ /**标题项**/
+	margin:20px 5px;
+	color:#222;
+	font-size:14px;
+	border-bottom:1px solid;
+}
+
+input{
+	border-style: solid;
+    border-width: 1px;
+    color: #000;
+    font-size:15px;
+    padding:4px;
+	border-color: #CCCCCC #CCCCCC #BBBBBB;
+	background-color:#FFF;
+    -webkit-border-radius: 2px;
+    width: auto;
+    margin:3px 15px;
+}
+
+img{
+/*	margin:3px 15px;  */
+	border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+}
+
+select{
+	font-size:20px;
+	width: 150px;
+    margin:3px 15px;
+}
+
+lable{
+	font-size:12px;
+	margin:3px 5px 3px 15px;
+}
+
+	</style>
+    <style>
+        p{
+            color:#999;
+            padding:5px;
+        }
+    </style>
+   
+</head>
+<body>
+<div >
+        <img id="image" src="../../images/defaultbanner.png" style="max-width:100%;height:auto;"/>
+    <div >
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="clickbtn" tapmode="active" onclick="fixdPlay()" >多集播放</div>
+        <div class="clickbtn" tapmode="active" onclick="fixzPlay()" >视频直播</div>
+        <div class="clickbtn" tapmode="active" onclick="dbPlay()" >全屏点播</div>
+        <div class="clickbtn" tapmode="active" onclick="zbPlay()" >全屏直播</div>
+        <div class="clickbtn" tapmode="active" onclick="next()" >下一集</div>
+        <div class="clickbtn" tapmode="active" onclick="prev()" >上一集</div>
+        <div class="clickbtn" tapmode="active" onclick="playIndex()" >播放索引集</div>
+        <div class="clickbtn" tapmode="active" onclick="videoStart()" >开始播放</div>
+        <div class="clickbtn" tapmode="active" onclick="videoPause()" >停止播放</div>
+        <div class="clickbtn" tapmode="active" onclick="replay()" >重新播放</div>
+        <div class="clickbtn" tapmode="active" onclick="getDuration()" >获取时长</div>
+        <div class="clickbtn" tapmode="active" onclick="getPosition()" >获取播放位置</div>
+        <div class="clickbtn" tapmode="active" onclick="seekTo()" >移动到播放位置</div>
+        <div class="clickbtn" tapmode="active" onclick="screenShot()" >截屏</div>
+        <div class="clickbtn" tapmode="active" onclick="remove()" >移除播放器</div>
+
+        <img id="image" src="../../images/defaultbanner.png" style="max-width:100%;height:auto;"/>
+        <br>
+
+
+    </div>
+</div> 
+
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+	
+var ox;	
+var uzmoduledemo;
+var play_url = '';	//默认组合URL
+var play_title = '';
+var begin_url = '';	//原URL
+	
+	
+	
+	apiready = function(){
+
+
+	uzmoduledemo = api.require('androidBrowser');
+	ox = api.require('oxPlayer');
+
+                    //休眠
+                    api.setKeepScreenOn({
+                    	keepOn: true
+                    });
+
+	play_url = api.pageParam.url;		//获取传递值；
+	begin_url = api.pageParam.beginurl;		//获取传递值；
+	play_title = api.pageParam.title;		//获取传递值；
+	
+	GoJiexi(play_url,'默认线路');
+	U.toast('正在努力为您获取资源 请稍等···');
+
+
+			api.addEventListener({
+				 name : 'goback'
+			}, function(ret, err) {
+				 goback();
+			});
+
+    }
+
+	
+	
+	
+	
+	
+function goback() {
+
+
+	ox.remove();
+	api.closeWin();
+
+}
+
+	
+	
+	
+	
+	
+	
+	/*
+	
+	
+	
+    var rtmp = 'rtmp://media3.sinovision.net:1935/live/livestream';
+    var webm = 'https://storage.googleapis.com/exoplayer-test-media-1/gen-3/screens/dash-vod-single-segment/video-vp9-360.webm';
+    var m3u8 = 'http://www.easydarwin.org/public/video/3/video.m3u8';
+    var flv = 'http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_900.flv';
+    var ts = 'https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_4x3/gear1/fileSequence0.ts';
+    var mp4 = 'http://m4.pptvyun.com/pvod/e11a0/ijblO6coKRX6a8NEQgg8LDZcqPY/eyJkbCI6MTUxNjYyNTM3NSwiZXMiOjYwNDgwMCwiaWQiOiIwYTJkbnEtWG82S2VvcTZMNEsyZG9hZmhvNkNjbTY2WXB3IiwidiI6IjEuMCJ9/0a2dnq-Xo6Keoq6L4K2doafho6Ccm66Ypw.mp4';
+    var mkv = 'https://storage.googleapis.com/exoplayer-test-media-1/mkv/android-screens-lavf-56.36.100-aac-avc-main-1280x720.mkv';
+    var thumb ='https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg';
+    var thumb1 ='http://i3.letvimg.com/lc08_yunzhuanma/201707/29/20/49/3280a525bef381311b374579f360e80a_v2_MTMxODYyNjMw/thumb/2_960_540.jpg';
+    var thumb2 ='widget://launch/launch.png';
+    var icon ='widget://icon/icon150x150.png';
+    var videoUrl = 'widget://launch/launch.mp4';
+    var skipUrl ='http://wap.hao123.com';
+    var ad2Url ='http://t8.baidu.com/it/u=2247852322,986532796&fm=79&app=86&f=JPEG?w=1280&h=853';
+    function dbPlay(){
+             var  ox = api.require('oxPlayer');
+             ox.dbPlay({
+                        index:2,  
+                              data:[
+                                {title:'第一集',index:'01',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4'},
+                                {title:'第二集',index:'02',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/21/mp4/190321153853126488.mp4'},
+                                {title:'第三集',index:'03',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319222227698228.mp4'},
+                                {title:'第四集',index:'04',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4'},
+                                {title:'第五集',index:'05',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/18/mp4/190318214226685784.mp4'},
+                                {title:'第六集',index:'06',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319104618910544.mp4'},
+                                {title:'第七️集',index:'07',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319125415785691.mp4'},
+                                {title:'第八集',index:'08',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/17/mp4/190317150237409904.mp4'},
+                                {title:'第九集',index:'09',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/14/mp4/190314102306987969.mp4'},
+                                {title:'第十集',index:'10',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/13/mp4/190313094901111138.mp4'}]
+
+                     });
+          }
+          function zbPlay(){
+             var  ox = api.require('oxPlayer');
+             ox.zbPlay({
+                        data:{
+                                  title:'222222222222222',
+                                  thumb:thumb1,
+                                  url:flv
+                                 }
+
+                     });
+          }
+     var tPlayer;
+     function fixdPlay(){
+             tPlayer = api.require('oxPlayer');
+             tPlayer.fixdPlay({
+                              icon:{isShow:false,url:icon,x:360, y:60},
+                              rect:{
+								x:0, 
+								y:0,
+								w:api.winWidth, 
+								h:220
+								},
+                              fixedOn:'play_oxplayer_jiexi',
+                              fixed:false,
+                            //  showBack:true,
+                              autoPlay:true,//默认false
+                             // ad1:{isShow:true,isShowSkip:true,url:m3u8,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//播放前视频广告 为空则不播放广告
+                           //   ad2:{isShow:true,url:ad2Url,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//中间暂停广告，为空则不播放广告
+                              index:0,
+                              data:[
+                                {title:'第一集',index:'01',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4'},
+                                {title:'第二集',index:'02',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/21/mp4/190321153853126488.mp4'},
+                                {title:'第三集',index:'03',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319222227698228.mp4'},
+                                {title:'第四集',index:'04',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4'},
+                                {title:'第五集',index:'05',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/18/mp4/190318214226685784.mp4'},
+                                {title:'第六集',index:'06',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319104618910544.mp4'},
+                                {title:'第七️集',index:'07',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/19/mp4/190319125415785691.mp4'},
+                                {title:'第八集',index:'08',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/17/mp4/190317150237409904.mp4'},
+                                {title:'第九集',index:'09',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/14/mp4/190314102306987969.mp4'},
+                                {title:'第十集',index:'10',thumb:'https://cms-bucket.nosdn.127.net/cb37178af1584c1588f4a01e5ecf323120180418133127.jpeg',url:'http://vfx.mtime.cn/Video/2019/03/13/mp4/190313094901111138.mp4'}]
+                              },function(ret) {
+                                 if(ret.code==0){
+                                       alert(ret.msg);//返回按:小屏时返回
+                                 }
+             });
+          }
+    function fixzPlay(){
+      tPlayer = api.require('oxPlayer');
+      tPlayer.fixzPlay({
+                       icon:{isShow:true,url:icon,x:360, y:40},
+                       rect:{x:0, y:0,w:395, h:220},
+                       fixedOn:'play_oxplayer_jiexi',
+                       fixed:true,
+                       showBack:true,
+                       autoPlay:true,//默认false
+                       ad1:{isShow:false,isShowSkip:true,url:mp4,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//播放前视频广告 为空则不播放广告
+                       ad2:{isShow:false,url:ad2Url,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//中间暂停广告，为空则不播放广告
+                       data:{title:'第一集',thumb:thumb,url:flv}
+                       },function(ret) {
+                          if(ret.code==0){
+                                alert(ret.msg);//返回按:小屏时返回
+                          }
+      });
+   }
+          function next(){
+             tPlayer.next();
+          }
+          function prev(){
+             tPlayer.prev();
+          }
+          function playIndex(){
+             tPlayer.playIndex({index:4});
+          }
+          function videoStart(){
+             tPlayer.start();
+          }
+          function videoPause(){
+             tPlayer.pause();
+          }
+          function replay(){
+             tPlayer.replay();
+          }
+          function getDuration(){
+             tPlayer.duration(function(ret) {
+                       if (ret.code==0) {
+                           alert(ret.duration);
+                       }
+               });
+          }
+          function seekTo(){
+             tPlayer.seekTo({position:100000});
+          }
+          function getPosition(){
+             tPlayer.position(function(ret) {
+                       if (ret.code==0) {
+                           alert(ret.position);
+                       }
+               });
+          }
+          function screenShot(){
+             tPlayer.screenShot(function(ret) {
+                          if (ret.code==0) {
+                              var base64 = ret.base64;
+                              document.getElementById('image').src = 'data:image/png;base64,'+base64;
+                         }
+                       });
+          }
+          function remove(){
+             tPlayer.remove();
+          }
+
+
+
+
+
+
+*/
+
+
+
+function GoJiexi(url,line){
+
+	
+					//	alert(JSON.stringify(url));  
+	var param = {
+			rect: {
+					x: 0,
+					y: 0,
+					w: 1,
+					h: 1,
+			}, //w,h等于0代表横向满屏和纵向满屏
+			fixedOn: "", //浏览器依附在哪个window,不传或传空 为 当前Window，默认当前当前Window
+			fixed: true, //浏览器是否随frame或Window滑动，默认当前当前true
+			url: url, //要加载的url,可选项
+			browserBg: "#F0F0F0", //可选
+			timeout: 7, //超时时间,指加载页面完毕后等待多少秒，超过这个时间还没收到视频地址，则认为解析视频地址失败。默认7秒
+
+	};
+	uzmoduledemo.openView(param, function(ret, err) {
+
+				console.log(JSON.stringify(ret));
+
+				//		alert(JSON.stringify(ret));
+
+			if (ret.result == '1') {
+					video_url = ret.VideoUrl;
+
+			//		alert(JSON.stringify('解析成功：'+video_url));
+				//	goplay_dkplayer(ret.VideoUrl);
+					U.toast(line+' 资源获取成功 准备播放');
+		    
+				//	touping_video =  video_url;
+				//弹出状态栏通知
+		/*		
+api.notification({
+    notify: {
+    title: '通知标题',
+        content: video_url
+    }
+});  */
+						//打开系统视频播放器
+							
+				///		api.openVideo({
+				///			url: video_url
+				///		});
+
+             ox.fixdPlay({
+                          //     icon:{isShow:false,url:icon,x:360, y:60},
+                              rect:{
+								x:0, 
+								y:0,
+								w:api.winWidth, 
+								h:220
+								},
+                              fixedOn:'play_oxplayer_jiexi',
+                              fixed:false,
+                              showBack:false,
+                              autoPlay:true,//默认false
+                             // ad1:{isShow:true,isShowSkip:true,url:m3u8,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//播放前视频广告 为空则不播放广告
+                           //   ad2:{isShow:true,url:ad2Url,skipUrl:skipUrl,title:'我的广告',topBarColor:'#FFB90F'},//中间暂停广告，为空则不播放广告
+                              index:0,
+                              data:[
+                                {title:play_title,index:'01',thumb:'https://cms-bucket.nosdn.127.net/eb411c2810f04ffa8aaafc42052b233820180418095416.jpeg',url:video_url}]
+                              },function(ret) {
+							  alert(JSON.stringify(ret.code));  
+                                 if(ret.code==0){
+								 
+                                       alert(ret.msg);//返回按:小屏时返回
+                                 }
+             });
+
+				uzmoduledemo.closeView();
+
+			}
+	});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

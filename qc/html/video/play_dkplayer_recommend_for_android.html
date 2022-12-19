@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>推荐播放</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui_dark.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui_skin_dark.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common_dark.css" />
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav fix-statusbar">
+        <a class="aui-pull-left" onclick="goback()">
+	        <span class="aui-iconfont aui-icon-left"></span>
+	    </a>
+        <div class="aui-title" id="title">推荐影视</div>
+    </header>
+</body>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript">
+apiready = function(){
+
+	//监听系统返回键 拦截 通知播放器退出全屏
+	api.addEventListener({
+	    name: 'keyback'
+	}, function(ret, err) {
+
+	//    alert('按了返回键');
+										api.sendEvent({
+										name: 'Exit_full_screen',		//广播退出全屏
+										extra: {}
+										});
+
+	});
+
+
+
+
+
+// alert( JSON.stringify( api.pageParam.url ) );
+
+	title.innerHTML = api.pageParam.title;
+
+	var headerHeight = $('header').height();
+    api.openFrame({
+        name: 'play_dkplayer_recommend_for_android_main',
+        url: 'play_dkplayer_recommend_for_android_main.html',
+        rect: {
+            x: 0,
+            y: headerHeight,
+            w: 'auto',
+            h: api.winHeight - headerHeight
+        },
+
+        pageParam:{url:api.pageParam.url,title:api.pageParam.title,img:api.pageParam.img,tag:api.pageParam.tag,region:api.pageParam.region,content:api.pageParam.content}
+    });
+
+
+    }
+
+
+		function goback(){
+
+						api.sendEvent({
+						name: 'goback',		//广播退出全屏
+						extra: {}
+						});
+
+		}
+
+
+</script>
+</html>

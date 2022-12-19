@@ -1,0 +1,138 @@
+@font-face {
+  font-family: 'micon';
+  src:  url('fonts/micon.eot?vwfwve');
+  src:  url('fonts/micon.eot?vwfwve#iefix') format('embedded-opentype'),
+    url('fonts/micon.ttf?vwfwve') format('truetype'),
+    url('fonts/micon.woff?vwfwve') format('woff'),
+    url('fonts/micon.svg?vwfwve#micon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='micon-'], [class*=' micon-']  {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'micon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.micon-home3:before {
+  content: "\e902";
+}
+.micon-play:before {
+  content: "\e912";
+}
+.micon-film:before {
+  content: "\e913";
+}
+.micon-video-camera:before {
+  content: "\e914";
+}
+.micon-bullhorn:before {
+  content: "\e91a";
+}
+.micon-connection:before {
+  content: "\e91b";
+}
+.micon-file-picture:before {
+  content: "\e927";
+}
+.micon-file-music:before {
+  content: "\e928";
+}
+.micon-file-play:before {
+  content: "\e929";
+}
+.micon-file-video:before {
+  content: "\e92a";
+}
+.micon-price-tag:before {
+  content: "\e935";
+}
+.micon-price-tags:before {
+  content: "\e936";
+}
+.micon-qrcode:before {
+  content: "\e938";
+}
+.micon-alarm:before {
+  content: "\e950";
+}
+.micon-bell:before {
+  content: "\e951";
+}
+.micon-tv:before {
+  content: "\e95b";
+}
+.micon-bubbles2:before {
+  content: "\e96d";
+}
+.micon-bubbles4:before {
+  content: "\e970";
+}
+.micon-user:before {
+  content: "\e971";
+}
+.micon-spinner9:before {
+  content: "\e982";
+}
+.micon-spinner10:before {
+  content: "\e983";
+}
+.micon-spinner11:before {
+  content: "\e984";
+}
+.micon-cog:before {
+  content: "\e994";
+}
+.micon-cogs:before {
+  content: "\e995";
+}
+.micon-gift:before {
+  content: "\e99f";
+}
+.micon-fire:before {
+  content: "\e9a9";
+}
+.micon-list2:before {
+  content: "\e9bb";
+}
+.micon-cloud-download:before {
+  content: "\e9c2";
+}
+.micon-download3:before {
+  content: "\e9c7";
+}
+.micon-star-empty:before {
+  content: "\e9d7";
+}
+.micon-star-full:before {
+  content: "\e9d9";
+}
+.micon-heart:before {
+  content: "\e9da";
+}
+.micon-share2:before {
+  content: "\ea82";
+}
+.micon-appleinc:before {
+  content: "\eabe";
+}
+.micon-android:before {
+  content: "\eac0";
+}
+.micon-windows:before {
+  content: "\eac1";
+}
+.micon-windows8:before {
+  content: "\eac2";
+}
+

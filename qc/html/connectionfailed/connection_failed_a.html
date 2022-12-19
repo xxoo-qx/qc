@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <style type="text/css">
+:root {
+  --color-primary: #43a047;
+  --color-primary-darken: #388e3c;
+  --color-secondary: #F6D8D1;
+  --color-white: white;
+  --color-accent: #FCF5F3;
+  --spacer: 1.25rem;
+  --d: 2000ms;
+  --d2: 600ms;
+  --e: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --e2: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1b7dff;
+  display: grid;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  place-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  min-width: 350px;
+  overflow: hidden;
+  perspective: 1200px;
+  position: relative;
+  transform: translateY(30%);
+  transition: transform var(--d2) var(--e2);
+}
+.card.is-active {
+  animation: throw var(--d2) var(--e2) forwards;
+}
+.card.is-closing {
+  transform: translateY(0);
+}
+
+.card__illustration {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 2;
+}
+.card__illustration svg {
+  width: 100%;
+  max-width: 150px;
+  transform: translate(calc(var(--x) / 100 * 1px), calc(var(--y) / 100 * 1px));
+}
+.card__illustration .face-group {
+  transform: translate(calc(var(--x) / 120 * 1px), calc(var(--y) / 120 * 1px));
+}
+.is-active .card__illustration, .is-closing .card__illustration {
+  pointer-events: none;
+}
+.is-active .card__illustration svg,
+.is-active .card__illustration .face-group, .is-closing .card__illustration svg,
+.is-closing .card__illustration .face-group {
+  transform: translate(0, 0);
+}
+
+.card__content {
+  position: relative;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  z-index: 1;
+}
+.is-closing .card__content {
+  animation: slide-up var(--d2) var(--e2) forwards;
+  transform: scaleY(1);
+}
+.is-active .card__content {
+  animation: swing var(--d) calc(var(--d2) / 2) var(--e) forwards;
+}
+
+.card__info {
+  background-color: var(--color-white);
+  padding: var(--spacer);
+  border-radius: 20px;
+}
+.card__info > * + * {
+  margin-top: var(--spacer);
+}
+
+.card__name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card__title {
+  display: inline-block;
+  background-color: #1b7dff;
+  border-radius: 360px;
+  color: var(--color-white);
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  padding: 0.5rem 1rem;
+}
+
+.card__desc {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.card__actions {
+  display: flex;
+  width: 100%;
+}
+
+.btn {
+  background-color: #6666CC;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.05rem;
+  margin: 0;
+  outline: none;
+  padding: var(--spacer);
+  position: relative;
+  text-transform: uppercase;
+  transition: background-color var(--d2) var(--e2);
+  transform-origin: 0 0;
+}
+
+.btn--action {
+  flex: 1;
+}
+.btn--action:nth-child(2) {
+  background-color: #FF9999;
+}
+.is-active .btn--action {
+  transform: scaleX(0);
+}
+.is-active .btn--action:nth-child(1) {
+  animation: swing calc(var(--d) * 1.25) calc(var(--d) / 4) var(--e) forwards;
+}
+.is-active .btn--action:nth-child(2) {
+  animation: swing calc(var(--d) * 1.5) calc(var(--d) / 3) var(--e) forwards;
+}
+
+.btn--close {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  padding: calc(var(--spacer) / 2);
+  right: var(--spacer);
+  top: 0.25rem;
+  transition: opacity var(--d2) var(--d) var(--e2);
+  visibility: hidden;
+  z-index: 2;
+}
+.is-active .btn--close {
+  visibility: visible;
+  opacity: 1;
+}
+.btn--close > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes throw {
+  40% {
+    transform: translateY(-10%) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(30%) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: rotateX(90deg);
+  }
+  15% {
+    transform: rotateX(-70deg);
+  }
+  30% {
+    transform: rotateX(50deg);
+  }
+  45% {
+    transform: rotateX(-30deg);
+  }
+  60% {
+    transform: rotateX(15deg);
+  }
+  75% {
+    transform: rotateX(-10deg);
+  }
+  90% {
+    transform: rotateX(5deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+@keyframes slide-up {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+
+<div class="card">
+<!--
+  <div class="card__illustration">
+<svg t="1581031595576" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2892" width="64" height="64"><path d="M825.9 737.1v-1.8c0-31.6-25.6-57.2-57.2-57.2H251.9c-31.6 0-57.2 25.6-57.2 57.2v1.8c0 19.8 10 37.2 25.3 47.5h580.7c15.2-10.3 25.2-27.7 25.2-47.5z" fill="#2E97FF" p-id="2893"></path><path d="M886.5 210H134.1c-38.7 0-70.2 31.5-70.2 70.2v464.2c0 38.7 31.5 70.2 70.2 70.2h752.4c38.7 0 70.2-31.5 70.2-70.2V280.2c0-38.7-31.5-70.2-70.2-70.2z m-69.1 30l-256 212.4-0.2 0.2c-20.8 17.8-43 23.5-66.1 16.9-18.3-5.3-30.7-16.4-30.8-16.5l-0.4-0.3L203.6 240h613.8z m109.3 504.4c0 22.2-18 40.2-40.2 40.2H134c-22.2 0-40.2-18-40.2-40.2V280.2c0-22.2 18-40.2 40.2-40.2h22.1l288.1 235.3c2.8 2.5 18.4 15.7 41.1 22.6 8.1 2.5 17.7 4.3 28.3 4.3 19.8 0 43.1-6.3 66.9-26.8L864.4 240h22.1c22.2 0 40.2 18 40.2 40.2v464.2z" fill="" p-id="2894"></path><path d="M507.4 548.6c0-5.5-4.5-10-10-10H339.8c-5.5 0-10 4.5-10 10s4.5 10 10 10h157.6c5.6 0 10-4.5 10-10zM631.2 590.5H473.6c-5.5 0-10 4.5-10 10s4.5 10 10 10h157.6c5.5 0 10-4.5 10-10s-4.5-10-10-10z" fill="" p-id="2895"></path></svg>
+  </div>-->
+  <div class="card__content">
+    <div class="card__info">
+      <h2 class="card__name">您与服务器连接不顺畅！</h2>
+      <p class="card__desc">可能原因：</p>
+      <p class="card__desc">1.您的网络环境不稳定 ···</p>
+      <p class="card__desc">2.临时停机维护 / 更新 ···</p>
+      <p class="card__desc">3.服务器开小差了 ···</p>
+	  <br>
+      <p class="card__desc" id="tips"></p>
+      <h3 class="card__title" onclick="Reload()" id="state" >重新连接</h3>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/connection_failed_a.js"></script>
+<script type="text/javascript">
+
+
+
+	apiready = function(){
+
+    api.setFullScreen({
+		    fullScreen:false   // true
+		});
+
+    api.removeLaunchView({	//移除启动图
+        animation:{
+            type:'fade',
+            duration:300,      //这个duration为3s看不到效果
+        }
+    });
+
+
+		if(localStorage.getItem('connection_failed_tips') != null && localStorage.getItem('connection_failed_tips') !== ''){
+              setTimeout(function(){		//延迟执行
+
+                tips.innerHTML = '管理员温馨提示：'+localStorage.getItem('connection_failed_tips');
+
+              }, 3000);
+		}
+
+
+
+        //  监听加载失败
+        //监听 广播关闭进度条计时器
+        api.addEventListener({
+          name: 'connection_failed'
+        }, function(ret, err) {
+          if(ret) {
+            if(ret.value['state'] == 'no'){  //如 传递的状态只为 no
+                state.innerHTML = '  重连失败 请稍后再试··· ';
+            }
+          }
+        });
+
+
+
+
+	};
+
+
+
+    function Reload(){
+
+
+        state.innerHTML = ' 正在为您重新连接··· ';
+
+        var obj = document.getElementById("state");
+  			obj.setAttribute("onclick", '');
+
+        U.GetServerTime('connection_failed' );      //同步时间
+
+	}
+
+
+
+</script>
+</html>

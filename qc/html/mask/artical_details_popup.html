@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>title</title>
+<style>
+html,body {
+    color: #333;
+    margin: 0;
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+
+
+img {
+    width:100%;
+    height:auto;
+    display:block;
+    border: 0;
+	border-radius: 50%;
+}
+
+
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.aui-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.aui-flex-box {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border: none;
+    float: left;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+
+
+.aui-user-box{
+    background:#fff;
+    border-radius:5px;
+    margin: 5.5rem 1rem 1rem 1rem;
+    padding: 1rem;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.aui-right-play button{
+    background:#1b7dff;
+    border:none;
+    border-radius:22px;
+    color:#171425;
+    padding:0.1rem 0.4rem;
+    font-size:0.9rem;
+    box-shadow:0 1px 3px #42387b;
+}
+.icon-play{
+    background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAFJklEQVRoQ+2aj40dNRDGZyqADkgqCKmApAKgApIKgApIKiCpgKQCoAKSCkgqIKkAUsGg39P4ZFnj9XjX753gnqWT7m69Xn8z3zd/vKtyx4beMbxyBfx/9/jVw1cPL7KAmX0uIg+q5fj7H//7vaqW3xc9MV7mbJQ2s3si8rWIPPIfAI7GbyLyRkR+V9UPo8l7ri8HbGbficgTB7lnT+WedyLyQlVfH1mkvXcZYDP7RkR+FhE8u3Lg6WergB8G7NT9ZeDRTyKCx6BrGWi20BzaY6gvNizFvT+qKuvsHocAu1cBG+nzo4igyVfZTbrxYMoPHfAYCdCv9iLeDdjM0Clg2wFQKLh7UyxoZnj9mYh8FTwDIz7dA3oXYDNjIz81D4S2BBmuLRtmhrdZ87Nm0V2gpwF3PPueyJyl7qw1nOrIo87jLDMNegqwa/bXZsOAfXTuwsELlxciQtqrx9MZ+aQBu5X/bALURcDW6MyM2FCDJpA9zrJrBvAfTeq5OFgPZmQEUlRN73eq+jAjlRTggMoEKGh8KCdmNhjNcbbx7DqQka6g/ObIAv6rqaCer47Go42214PgCbXvj2LJEHCw8EdVTZePHmxoIuiIljLCzKB2naeHXs4AbrU7FRXNDJBFbwQc2LGkE/LihP2V8UFV72+xZROwawU6lzHr3S9FhMheD6iH1l6O6JeheWNQbnm4xaQRYKocOqAyprQbeKDGsKQLCiSHIdl3OEaAqW7QXxmb1gsCC/VwTbloE4e6II8Rf1cLb6aoEWAWKp3QJ1XNnFrcPDvwMOmsrYnLfPRN0Jk+6mlprapdXN0LgeXeqioeS48A8HMvGtBwWxez7knfqsq89DAz1vu+uoHKq+69by5tAW7pOKVfnhABLvnbtcdGI4+jb7yNpIYj6N6+7d17a4DdIEiE1q/2Tg0QL7H5TZpvGba11q0CLpvx9IeGo2Z/M+qOmDQDmKOWuhUcVjGJKB3KwuMF6Y9TlHa8VtXo/1vBsSu/W/ewn2hwehJlgFRH9p+gtG+SM7GoLid9cS427H6c0m2B1C1/byMtodWtY92XDjadj5ekJbecVYIaFuYJDZNuep3WW45n93RUZka9Tt1+GrsKDwfclpb0m+lOZ1BLl/1xrAvQVM4NjIr269KSNvQGfDpKd7QxFakHgJcc665uHqBf3R5O0drMovYQW/KCDK+mddort8ys7de7VdaJ7qO6Leg3u3VqtJaZIYHyzgidEn3DOne0l4DOrUGH/XoGcPtK5Y2qPs5uzosK0gbsOPT6JQBMYUSBVMaw3h8Cdi3XXuJfU8c8WePMzOu0nvdGMskCbr2M9jgMSEfsGTCjuc4aUlGd4obeTWm4PDw4IeRwDj0fDjwjgAkqD7Vb1kh52GlNgCDY1P3r9MusWXABWKq0tplIB9I0YAcdvRPefTQzC97MIrApKk97uKJ2+zKLS9Cb/HcWTbtmAVtH5FM+H7WOrVGnPDwAjZaJ3rtKxJ63N7oqPm1qDTAkzS7ATu/I01xC59DsUHHhVRp9cgRq2rO7KV2bcHAQd/rOyj8yS0Xy6j3U1ndeU5pdQukGNNEbb0fHrmVq+WQJ4K3nuZ98yilpt8sREboqPqs4xJzdlA7SRe/jk6GuBhOWdFVLKB2ApjeFjr3vrGbA41GYw8F8ShKZxZd5OAAPPYsWt+he38qhHZSlQVka7c/i4S0Le3qBAa1Oyd10Uoe0mfEuc87m4ewGLj3vCvjSFr/0864evrTFL/28O+fhfwEsR29b0CHrvAAAAABJRU5ErkJggg==');
+}
+.aui-user-box .aui-flex{
+    padding:0 0 0.5rem 0 ;
+}
+
+
+.aui-user-img{
+    width:35px;
+    height:35px;
+    margin-right:0.5rem;
+}
+
+.aui-flex-box h2{
+    font-weight:normal;
+    font-size:0.9rem;
+    color:#888;
+}
+.aui-flex-box h1{
+    font-weight:normal;
+    font-size:0.9rem;
+    color:#888;
+}
+
+.aui-user-text h1{
+    color:#888;
+    font-weight:bold;
+    font-size:1rem;
+    margin-bottom:0.5rem;
+}
+.aui-user-text p{
+    color:#625d7b;
+    font-size:0.8rem;
+    margin-bottom:0.8rem;
+}
+
+.aui-user-text span{
+    color:#d6d6d6;
+    font-size:0.82rem;
+    text-align:center;
+    width:100%;
+    display:block;
+}
+
+
+
+</style>
+	
+</head>
+<body>
+
+
+
+		<div class="aui-user-box">
+			<div class="aui-flex">
+				<div class="aui-flex-box">
+					<h1 id="title">1111111111111</h1>
+				</div>
+				<div class="aui-right-play">
+					<button onclick="ClosePopup()" > 
+						<i class="icon ">
+								<svg t="1570297792546" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="45775" width="64" height="64"><path d="M872.802928 755.99406 872.864326 755.99406 872.864326 755.624646Z" p-id="45776" fill="#ffffff"></path><path d="M927.846568 511.997953c0-229.315756-186.567139-415.839917-415.838893-415.839917-229.329059 0-415.85322 186.524161-415.85322 415.839917 0 229.300406 186.524161 415.84094 415.85322 415.84094C741.278405 927.838893 927.846568 741.29836 927.846568 511.997953M512.007675 868.171955c-196.375529 0-356.172979-159.827125-356.172979-356.174002 0-196.374506 159.797449-356.157629 356.172979-356.157629 196.34483 0 356.144326 159.783123 356.144326 356.157629C868.152001 708.34483 708.352505 868.171955 512.007675 868.171955" p-id="45777" fill="#ffffff"></path><path d="M682.378947 642.227993 553.797453 513.264806 682.261267 386.229528c11.661597-11.514241 11.749602-30.332842 0.234337-41.995463-11.514241-11.676947-30.362518-11.765975-42.026162-0.222057L511.888971 471.195665 385.223107 344.130711c-11.602246-11.603269-30.393217-11.661597-42.025139-0.059352-11.603269 11.618619-11.603269 30.407544-0.059352 42.011836l126.518508 126.887922L342.137823 639.104863c-11.662621 11.543917-11.780301 30.305213-0.23536 41.96988 5.830799 5.89015 13.429871 8.833179 21.086248 8.833179 7.53972 0 15.136745-2.8847 20.910239-8.569166l127.695311-126.311801L640.293433 684.195827c5.802146 5.8001 13.428847 8.717546 21.056572 8.717546 7.599072 0 15.165398-2.917446 20.968567-8.659217C693.922864 672.681586 693.950494 653.889591 682.378947 642.227993" p-id="45778" fill="#ffffff"></path></svg>						
+						</i>
+					</button>
+				</div>
+			</div>
+			<div class="aui-flex">
+				<div class="aui-user-img" id="headimgurl">
+					
+				</div>
+				<div class="aui-flex-box">
+					<h2 id="admin_name"> 5125125 </h2>
+				</div>
+			</div>
+			<div class="aui-user-text">
+				<p id="content">66666666</p>
+				<span>长按页面关闭</span>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+
+<script type="text/javascript">
+
+
+	apiready = function(){
+	
+
+		title.innerHTML = api.pageParam.title; 
+		content.innerHTML = api.pageParam.content; 
+		admin_name.innerHTML = localStorage.getItem('admin_nick_name') +' '+ time(api.pageParam.time);
+		headimgurl.innerHTML = '<img src="'+localStorage.getItem('admin_headimgurl')+'">';
+		
+
+/****事件检测****/		
+//长按关闭页面
+	api.addEventListener({
+		name:'longpress'
+	}, function(ret, err){        
+
+		api.closeFrame();
+
+	});
+		
+		
+		
+}
+	
+function time(value) {
+		var now = new Date(value * 1000);
+		y = now.getFullYear();
+		m = now.getMonth() + 1;
+		d = now.getDate();
+		return y + "-" + (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d) + " " + now.toTimeString().substr(0, 8);
+}
+	
+	
+//关闭页面 
+function ClosePopup(){
+	api.closeFrame();
+}
+	
+	
+	
+	
+	
+</script>
+</html>
